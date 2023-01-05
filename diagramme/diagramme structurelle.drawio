@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-05T10:49:22.133Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.41" etag="R9ZaI-QA3nR26nBIoXDc" version="20.8.1" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-05T10:51:18.226Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.124 Safari/537.36 Edg/102.0.1245.41" etag="s77rnL9aHMVjKtxgVTWM" version="20.8.1" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
     <mxGraphModel dx="2607" dy="1447" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -176,10 +176,10 @@
           <mxGeometry x="545" y="2050" width="570" height="71" as="geometry" />
         </mxCell>
         <mxCell id="HuRnm2rSPpH4nqsMaASo-23" value="" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry x="940" y="1740" width="324" height="216" as="geometry" />
+          <mxGeometry x="980" y="1744" width="324" height="216" as="geometry" />
         </mxCell>
         <mxCell id="HuRnm2rSPpH4nqsMaASo-24" value="VITESSE&lt;br&gt;XXX Km/h" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
-          <mxGeometry x="1030" y="1818" width="160" height="60" as="geometry" />
+          <mxGeometry x="1070" y="1822" width="160" height="60" as="geometry" />
         </mxCell>
         <mxCell id="HuRnm2rSPpH4nqsMaASo-26" value="" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;fontSize=21;" vertex="1" parent="1">
           <mxGeometry x="430" y="1754" width="154.5" height="206" as="geometry" />
@@ -189,6 +189,12 @@
         </mxCell>
         <mxCell id="HuRnm2rSPpH4nqsMaASo-30" value="Connecter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
           <mxGeometry x="450" y="1900" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HuRnm2rSPpH4nqsMaASo-33" value="" style="rhombus;whiteSpace=wrap;html=1;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="702" y="1739" width="236" height="236" as="geometry" />
+        </mxCell>
+        <mxCell id="HuRnm2rSPpH4nqsMaASo-34" value="Caméra&lt;br&gt;&lt;br&gt;Connecter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="790" y="1841" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
