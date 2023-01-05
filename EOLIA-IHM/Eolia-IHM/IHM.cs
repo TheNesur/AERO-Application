@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace Eolia_IHM
 {
-    public partial class Form1 : Form
+    public partial class IHM : Form
     {
-        public Form1()
+        public int lol;
+        public IHM()
         {
             InitializeComponent();
+        }
+
+        private void BoutonQuitter_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void IHM_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
