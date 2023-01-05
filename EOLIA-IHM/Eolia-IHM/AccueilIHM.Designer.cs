@@ -36,15 +36,15 @@
             // 
             this.EOLIATitre.AutoSize = true;
             this.EOLIATitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.6F);
-            this.EOLIATitre.Location = new System.Drawing.Point(493, 40);
+            this.EOLIATitre.Location = new System.Drawing.Point(436, 9);
             this.EOLIATitre.Name = "EOLIATitre";
-            this.EOLIATitre.Size = new System.Drawing.Size(149, 51);
+            this.EOLIATitre.Size = new System.Drawing.Size(118, 39);
             this.EOLIATitre.TabIndex = 1;
             this.EOLIATitre.Text = "EOLIA";
             // 
             // BoutonLancer
             // 
-            this.BoutonLancer.Location = new System.Drawing.Point(349, 154);
+            this.BoutonLancer.Location = new System.Drawing.Point(308, 143);
             this.BoutonLancer.Name = "BoutonLancer";
             this.BoutonLancer.Size = new System.Drawing.Size(391, 162);
             this.BoutonLancer.TabIndex = 0;
