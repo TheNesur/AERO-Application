@@ -10,3 +10,12 @@ C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\E
 C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.pdb
 C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.AccueilIHM.resources
 C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.IHM.resources
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.AccessControl.dll
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Permissions.dll
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Principal.Windows.dll
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.AccessControl.xml
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Permissions.xml
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Principal.Windows.xml
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.CopyComplete

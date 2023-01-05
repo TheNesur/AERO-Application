@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eolia_IHM.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,7 @@ namespace Eolia_IHM
 
         private void BoutonLancer_Click(object sender, EventArgs e)
         {
+           
             this.Hide();
             IHM IHMForm = new IHM();
             IHMForm.Show();
