@@ -13,7 +13,7 @@ namespace Eolia_IHM
 {
     public partial class IHM : Form
     {
-        EoliaUtils EoliaFnct = new EoliaUtils();
+        EoliaUtils EoliaFnct = new EoliaUtils(); // Instance de la classe EoliaUtils 
         public IHM()
         {
             InitializeComponent();
@@ -46,8 +46,7 @@ namespace Eolia_IHM
 
         private void BoutonSauvegarde_Click(object sender, EventArgs e)
         {
-            EoliaFnct.SauvegarderConfiguration();
-            string x = EoliaFnct.LireConfiguration("key");
+            EoliaFnct.SauvegarderConfiguration(); // Surtout la pour test
         }
     }
 }
