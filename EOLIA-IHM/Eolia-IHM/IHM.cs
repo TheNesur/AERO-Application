@@ -46,20 +46,24 @@ namespace Eolia_IHM
             }
             else
             {
-                
-                textBoxAdresseMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLADRESS");
-                textBoxUsernameMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLUSERNAME");
-                textBoxMotdepasseMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLPASSWORD");
-                textBoxNomBDDMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLDBNAME");
-                ComboxBoxChoixPortSerie.Text = EoliaFnct.LireConfiguration("SERIALPORT");
-                textBoxCZ.Text = EoliaFnct.LireConfiguration("CZ");
-                textBoxCX.Text = EoliaFnct.LireConfiguration("CX");
-                textBoxS.Text = EoliaFnct.LireConfiguration("S");
-                textBoxV.Text = EoliaFnct.LireConfiguration("V");
-                textBoxp.Text = EoliaFnct.LireConfiguration("RHO");
+
+                Recharger();
             }
         }
 
+        public void Recharger()
+        {
+            textBoxAdresseMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLADRESS");
+            textBoxUsernameMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLUSERNAME");
+            textBoxMotdepasseMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLPASSWORD");
+            textBoxNomBDDMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLDBNAME");
+            ComboxBoxChoixPortSerie.Text = EoliaFnct.LireConfiguration("SERIALPORT");
+            textBoxCZ.Text = EoliaFnct.LireConfiguration("CZ");
+            textBoxCX.Text = EoliaFnct.LireConfiguration("CX");
+            textBoxS.Text = EoliaFnct.LireConfiguration("S");
+            textBoxV.Text = EoliaFnct.LireConfiguration("V");
+            textBoxp.Text = EoliaFnct.LireConfiguration("RHO");
+        }
         public void Sauvegarder()
         {
             IDictionary<string, string> ListeValeurASauvegarder = new Dictionary<string, string>();
@@ -249,6 +253,11 @@ namespace Eolia_IHM
                 buttonArreterLiaisonBDD.Enabled = false;
             }
                 
+        }
+
+        private void BoutonRecharger_Click(object sender, EventArgs e)
+        {
+            Recharger();
         }
     }
 }

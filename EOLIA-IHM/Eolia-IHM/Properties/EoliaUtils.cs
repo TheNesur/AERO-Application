@@ -203,6 +203,11 @@ namespace Eolia_IHM.Properties
                 gbox.Visible = true;
                 ongletActif = gbox;
             }
+            else if(ongletActif == gbox)
+            {
+                gbox.Visible = false;
+                ongletActif = null;
+            }
             else
             {
                 ongletActif.Visible=false;
