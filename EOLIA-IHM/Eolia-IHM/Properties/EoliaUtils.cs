@@ -7,6 +7,7 @@ using System.IO.Ports;
 //using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
 namespace Eolia_IHM.Properties
@@ -23,13 +24,13 @@ namespace Eolia_IHM.Properties
 
         // Variable relatif a la liaison série
 
-        private static SerialPort serialPort;
+        private static SerialPort serialPort = null;
         private static TextBox SerialLogBox = null;
         private static bool StartedSerial = false;
 
         // Variable relatif a la liaison a la BDD
 
-        private MySqlConnection SqlConnexion;
+        private MySqlConnection SqlConnexion = null;
         private bool BDDConnected = false;
         private TextBox SQLLogBox = null;
 
@@ -78,6 +79,18 @@ namespace Eolia_IHM.Properties
                 SQLLogBox.Text = "BDD Deconnecté";
             }
         }
+
+        public async Task<int> ExecuterRequeteSansReponse(string requete)
+        {
+            if (SqlConnexion != null)
+            {
+                MySqlCommand command = new MySqlCommand(requete, SqlConnexion);
+                int LigneAffecte = await command.ExecuteNonQueryAsync();
+                return LigneAffecte;
+            }
+            return 0;
+        }
+
 
         // Fonction relatif a la liaison série
 
@@ -146,22 +159,32 @@ namespace Eolia_IHM.Properties
             
         }
 
-        private static void DesQueDonneesRecu(object sender, SerialDataReceivedEventArgs e)
+        void EnvoyerMessageSerie(string message)
+        {
+            if (serialPort != null && serialPort.IsOpen)
+            {
+                // Envoi du message
+                serialPort.Write(message);
+            }
+        }
+
+
+        private static void DesQueDonneesRecu(object port, SerialDataReceivedEventArgs e)
         {
             // récupérer l'objet SerialPort qui a déclenché l'événement
-            SerialPort serialPort = (SerialPort)sender;
+            SerialPort portSerie = (SerialPort)port;
 
             // lire les données reçues
-            string data = serialPort.ReadExisting();
+            string data = portSerie.ReadExisting();
 
             // donnée a traité sur data
         }
 
-        private static void DesQueErreurRecu(object sender, SerialErrorReceivedEventArgs e)
+        private static void DesQueErreurRecu(object port, SerialErrorReceivedEventArgs e)
         {
             
-            SerialPort serialPort = (SerialPort)sender;
-            serialPort.Close();
+            SerialPort portSerie = (SerialPort)port;
+            portSerie.Close();
             SerialLogBox.Text = "Liaison Série -> Arrêtée";
             // erreur reçu
         }
