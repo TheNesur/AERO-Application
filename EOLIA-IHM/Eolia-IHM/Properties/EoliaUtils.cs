@@ -4,7 +4,8 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO.Ports;
-using System.Data.SqlClient;
+//using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 
 
@@ -28,7 +29,7 @@ namespace Eolia_IHM.Properties
 
         // Variable relatif a la liaison a la BDD
 
-        private SqlConnection SqlConnexion;
+        private MySqlConnection SqlConnexion;
         private bool BDDConnected = false;
         private TextBox SQLLogBox = null;
 
@@ -47,10 +48,10 @@ namespace Eolia_IHM.Properties
         public async Task InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox)
         {
                 string connexionString = "Server=" + Adresse + ";Database=" + NomBaseDeDonée + ";Uid=" + Utilisateur + ";Pwd=" + MotDePasse + ";";
-
+                //string connexionString = "Data Source=" + Adresse + ",3306;Initial Catalog = " + NomBaseDeDonée + "; User ID = " + Utilisateur + "; Password = " + MotDePasse;
                 SQLLogBox = SQLlogbox;
 
-                SqlConnexion = new SqlConnection(connexionString);
+                SqlConnexion = new MySqlConnection(connexionString);
 
                 try
                 {
@@ -58,7 +59,7 @@ namespace Eolia_IHM.Properties
                     SQLLogBox.Text = "BDD OK";
                     BDDConnected = true;
                 }
-                catch (SqlException ex)
+                catch (MySqlException ex)
                 {
                     SQLLogBox.Text = "Erreur : " + ex.Message;
                     SqlConnexion.Close();
