@@ -205,5 +205,15 @@ namespace Eolia_IHM
         {
             EoliaUtils.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
         }
+
+        private void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
+        {
+            EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text, 
+                                            textBoxUsernameMYSQL.Text,
+                                            textBoxMotdepasseMYSQL.Text,
+                                            textBoxAdresseMYSQL.Text, 
+                                            textBoxEtatLiaisonBDD);
+
+        }
     }
 }

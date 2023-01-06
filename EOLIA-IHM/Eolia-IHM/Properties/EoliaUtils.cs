@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
 using System.IO.Ports;
-using System.IO;
+using System.Data.SqlClient;
+using System.Threading.Tasks;
+
 
 namespace Eolia_IHM.Properties
 {
@@ -17,8 +17,32 @@ namespace Eolia_IHM.Properties
         GroupBox ongletActif = null;
         TextBox textBoxActif = null;
         private static TextBox SerialLogBox = null;
+        private TextBox SQLLogBox = null;
         private static SerialPort serialPort;
+        private SqlConnection SqlConnexion;
 
+        public Task InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox)
+        {
+            return Task.Run(() => // Créer simplement une tache async afin de rendre non bloquante la connexion
+            {
+                string connexionString = "Server=" + Adresse + ";Database=" + NomBaseDeDonée + ";Uid=" + Utilisateur + ";Pwd=" + MotDePasse + ";";
+
+                SQLLogBox = SQLlogbox;
+
+                SqlConnexion = new SqlConnection(connexionString);
+
+                try
+                {
+                    SqlConnexion.Open();
+                    SQLLogBox.Text = "BDD OK";
+                }
+                catch (SqlException ex)
+                {
+                    SQLLogBox.Text = "Erreur : " + ex.Message;
+                    SqlConnexion.Close();
+                }
+            });
+        }
 
         public void AfficherPortSerie(ComboBox cmbBox)
         {

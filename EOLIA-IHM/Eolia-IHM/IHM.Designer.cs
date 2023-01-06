@@ -35,8 +35,13 @@
             this.BoutonOngletMesure = new System.Windows.Forms.Button();
             this.BoutonOngletEtat = new System.Windows.Forms.Button();
             this.GroupBoxEtat = new System.Windows.Forms.GroupBox();
+            this.buttonArreterLiaisonSerie = new System.Windows.Forms.Button();
+            this.buttonDemarrerLiaisonSerie = new System.Windows.Forms.Button();
+            this.textBoxEtatLiaisonSerie = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.GroupBoxMesure = new System.Windows.Forms.GroupBox();
             this.GroupBoxConfig = new System.Windows.Forms.GroupBox();
+            this.BoutonRechargerPortSerie = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxS = new System.Windows.Forms.TextBox();
             this.textBoxV = new System.Windows.Forms.TextBox();
@@ -73,11 +78,10 @@
             this.BoutonNumpad1 = new System.Windows.Forms.Button();
             this.BoutonRecharger = new System.Windows.Forms.Button();
             this.BoutonSauvegarde = new System.Windows.Forms.Button();
-            this.BoutonRechargerPortSerie = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.textBoxEtatLiaisonSerie = new System.Windows.Forms.TextBox();
-            this.buttonDemarrerLiaisonSerie = new System.Windows.Forms.Button();
-            this.buttonArreterLiaisonSerie = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBoxEtatLiaisonBDD = new System.Windows.Forms.TextBox();
+            this.buttonDemarrerLiaisonBDD = new System.Windows.Forms.Button();
+            this.buttonArreterLiaisonBDD = new System.Windows.Forms.Button();
             this.ConteneurOngletBouton.SuspendLayout();
             this.GroupBoxEtat.SuspendLayout();
             this.GroupBoxConfig.SuspendLayout();
@@ -88,9 +92,10 @@
             // 
             this.EOLIATitre.AutoSize = true;
             this.EOLIATitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.6F);
-            this.EOLIATitre.Location = new System.Drawing.Point(436, 9);
+            this.EOLIATitre.Location = new System.Drawing.Point(581, 11);
+            this.EOLIATitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EOLIATitre.Name = "EOLIATitre";
-            this.EOLIATitre.Size = new System.Drawing.Size(118, 39);
+            this.EOLIATitre.Size = new System.Drawing.Size(149, 51);
             this.EOLIATitre.TabIndex = 2;
             this.EOLIATitre.Text = "EOLIA";
             // 
@@ -101,16 +106,18 @@
             this.ConteneurOngletBouton.Controls.Add(this.BoutonOngletConfig);
             this.ConteneurOngletBouton.Controls.Add(this.BoutonOngletMesure);
             this.ConteneurOngletBouton.Controls.Add(this.BoutonOngletEtat);
-            this.ConteneurOngletBouton.Location = new System.Drawing.Point(12, 63);
+            this.ConteneurOngletBouton.Location = new System.Drawing.Point(16, 78);
+            this.ConteneurOngletBouton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ConteneurOngletBouton.Name = "ConteneurOngletBouton";
-            this.ConteneurOngletBouton.Size = new System.Drawing.Size(1000, 59);
+            this.ConteneurOngletBouton.Size = new System.Drawing.Size(1333, 73);
             this.ConteneurOngletBouton.TabIndex = 3;
             // 
             // BoutonQuitter
             // 
-            this.BoutonQuitter.Location = new System.Drawing.Point(872, 3);
+            this.BoutonQuitter.Location = new System.Drawing.Point(1163, 4);
+            this.BoutonQuitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonQuitter.Name = "BoutonQuitter";
-            this.BoutonQuitter.Size = new System.Drawing.Size(125, 53);
+            this.BoutonQuitter.Size = new System.Drawing.Size(167, 65);
             this.BoutonQuitter.TabIndex = 3;
             this.BoutonQuitter.Text = "Quitter";
             this.BoutonQuitter.UseVisualStyleBackColor = true;
@@ -118,9 +125,10 @@
             // 
             // BoutonOngletConfig
             // 
-            this.BoutonOngletConfig.Location = new System.Drawing.Point(335, 3);
+            this.BoutonOngletConfig.Location = new System.Drawing.Point(447, 4);
+            this.BoutonOngletConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonOngletConfig.Name = "BoutonOngletConfig";
-            this.BoutonOngletConfig.Size = new System.Drawing.Size(164, 53);
+            this.BoutonOngletConfig.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletConfig.TabIndex = 2;
             this.BoutonOngletConfig.Text = "Configuration";
             this.BoutonOngletConfig.UseVisualStyleBackColor = true;
@@ -128,9 +136,10 @@
             // 
             // BoutonOngletMesure
             // 
-            this.BoutonOngletMesure.Location = new System.Drawing.Point(169, 3);
+            this.BoutonOngletMesure.Location = new System.Drawing.Point(225, 4);
+            this.BoutonOngletMesure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonOngletMesure.Name = "BoutonOngletMesure";
-            this.BoutonOngletMesure.Size = new System.Drawing.Size(164, 53);
+            this.BoutonOngletMesure.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletMesure.TabIndex = 1;
             this.BoutonOngletMesure.Text = "Mesure";
             this.BoutonOngletMesure.UseVisualStyleBackColor = true;
@@ -138,9 +147,10 @@
             // 
             // BoutonOngletEtat
             // 
-            this.BoutonOngletEtat.Location = new System.Drawing.Point(3, 3);
+            this.BoutonOngletEtat.Location = new System.Drawing.Point(4, 4);
+            this.BoutonOngletEtat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonOngletEtat.Name = "BoutonOngletEtat";
-            this.BoutonOngletEtat.Size = new System.Drawing.Size(164, 53);
+            this.BoutonOngletEtat.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletEtat.TabIndex = 0;
             this.BoutonOngletEtat.Text = "Etat";
             this.BoutonOngletEtat.UseVisualStyleBackColor = true;
@@ -149,24 +159,73 @@
             // GroupBoxEtat
             // 
             this.GroupBoxEtat.BackColor = System.Drawing.Color.White;
+            this.GroupBoxEtat.Controls.Add(this.buttonArreterLiaisonBDD);
+            this.GroupBoxEtat.Controls.Add(this.buttonDemarrerLiaisonBDD);
+            this.GroupBoxEtat.Controls.Add(this.textBoxEtatLiaisonBDD);
+            this.GroupBoxEtat.Controls.Add(this.label13);
             this.GroupBoxEtat.Controls.Add(this.buttonArreterLiaisonSerie);
             this.GroupBoxEtat.Controls.Add(this.buttonDemarrerLiaisonSerie);
             this.GroupBoxEtat.Controls.Add(this.textBoxEtatLiaisonSerie);
             this.GroupBoxEtat.Controls.Add(this.label12);
-            this.GroupBoxEtat.Location = new System.Drawing.Point(12, 128);
+            this.GroupBoxEtat.Location = new System.Drawing.Point(16, 158);
+            this.GroupBoxEtat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxEtat.Name = "GroupBoxEtat";
-            this.GroupBoxEtat.Size = new System.Drawing.Size(1000, 460);
+            this.GroupBoxEtat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxEtat.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxEtat.TabIndex = 4;
             this.GroupBoxEtat.TabStop = false;
             this.GroupBoxEtat.Text = "GroupBoxEtat";
             this.GroupBoxEtat.Visible = false;
             // 
+            // buttonArreterLiaisonSerie
+            // 
+            this.buttonArreterLiaisonSerie.Location = new System.Drawing.Point(560, 47);
+            this.buttonArreterLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonArreterLiaisonSerie.Name = "buttonArreterLiaisonSerie";
+            this.buttonArreterLiaisonSerie.Size = new System.Drawing.Size(129, 28);
+            this.buttonArreterLiaisonSerie.TabIndex = 3;
+            this.buttonArreterLiaisonSerie.Text = "Arreter";
+            this.buttonArreterLiaisonSerie.UseVisualStyleBackColor = true;
+            this.buttonArreterLiaisonSerie.Click += new System.EventHandler(this.buttonArreterLiaisonSerie_Click);
+            // 
+            // buttonDemarrerLiaisonSerie
+            // 
+            this.buttonDemarrerLiaisonSerie.Location = new System.Drawing.Point(423, 47);
+            this.buttonDemarrerLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDemarrerLiaisonSerie.Name = "buttonDemarrerLiaisonSerie";
+            this.buttonDemarrerLiaisonSerie.Size = new System.Drawing.Size(129, 28);
+            this.buttonDemarrerLiaisonSerie.TabIndex = 2;
+            this.buttonDemarrerLiaisonSerie.Text = "Démarrer";
+            this.buttonDemarrerLiaisonSerie.UseVisualStyleBackColor = true;
+            this.buttonDemarrerLiaisonSerie.Click += new System.EventHandler(this.buttonDemarrerLiaisonSerie_Click);
+            // 
+            // textBoxEtatLiaisonSerie
+            // 
+            this.textBoxEtatLiaisonSerie.Location = new System.Drawing.Point(189, 47);
+            this.textBoxEtatLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEtatLiaisonSerie.Name = "textBoxEtatLiaisonSerie";
+            this.textBoxEtatLiaisonSerie.Size = new System.Drawing.Size(209, 22);
+            this.textBoxEtatLiaisonSerie.TabIndex = 1;
+            this.textBoxEtatLiaisonSerie.Text = "Arreter";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(52, 50);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(111, 16);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "Etat liaison série :";
+            // 
             // GroupBoxMesure
             // 
             this.GroupBoxMesure.BackColor = System.Drawing.Color.White;
-            this.GroupBoxMesure.Location = new System.Drawing.Point(12, 128);
+            this.GroupBoxMesure.Location = new System.Drawing.Point(16, 158);
+            this.GroupBoxMesure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxMesure.Name = "GroupBoxMesure";
-            this.GroupBoxMesure.Size = new System.Drawing.Size(1000, 460);
+            this.GroupBoxMesure.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxMesure.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxMesure.TabIndex = 5;
             this.GroupBoxMesure.TabStop = false;
             this.GroupBoxMesure.Text = "GroupBoxMesure";
@@ -200,190 +259,224 @@
             this.GroupBoxConfig.Controls.Add(this.GroupBoxNumpad);
             this.GroupBoxConfig.Controls.Add(this.BoutonRecharger);
             this.GroupBoxConfig.Controls.Add(this.BoutonSauvegarde);
-            this.GroupBoxConfig.Location = new System.Drawing.Point(12, 128);
+            this.GroupBoxConfig.Location = new System.Drawing.Point(16, 158);
+            this.GroupBoxConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxConfig.Name = "GroupBoxConfig";
-            this.GroupBoxConfig.Size = new System.Drawing.Size(1000, 460);
+            this.GroupBoxConfig.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxConfig.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxConfig.TabIndex = 6;
             this.GroupBoxConfig.TabStop = false;
             this.GroupBoxConfig.Text = "GroupBoxConfig";
             this.GroupBoxConfig.Visible = false;
             // 
+            // BoutonRechargerPortSerie
+            // 
+            this.BoutonRechargerPortSerie.Location = new System.Drawing.Point(1055, 117);
+            this.BoutonRechargerPortSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonRechargerPortSerie.Name = "BoutonRechargerPortSerie";
+            this.BoutonRechargerPortSerie.Size = new System.Drawing.Size(271, 36);
+            this.BoutonRechargerPortSerie.TabIndex = 24;
+            this.BoutonRechargerPortSerie.Text = "Recharger port série";
+            this.BoutonRechargerPortSerie.UseVisualStyleBackColor = true;
+            this.BoutonRechargerPortSerie.Click += new System.EventHandler(this.BoutonRechargerPortSerie_Click);
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 35);
+            this.label11.Location = new System.Drawing.Point(41, 43);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(360, 13);
+            this.label11.Size = new System.Drawing.Size(450, 16);
             this.label11.TabIndex = 23;
             this.label11.Text = "Les réglages de la BDD sont configurables uniquement via le fichier .config";
             // 
             // textBoxS
             // 
-            this.textBoxS.Location = new System.Drawing.Point(59, 280);
+            this.textBoxS.Location = new System.Drawing.Point(79, 345);
+            this.textBoxS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxS.Name = "textBoxS";
-            this.textBoxS.Size = new System.Drawing.Size(71, 20);
+            this.textBoxS.Size = new System.Drawing.Size(93, 22);
             this.textBoxS.TabIndex = 22;
             this.textBoxS.Click += new System.EventHandler(this.textBoxS_Click);
             // 
             // textBoxV
             // 
-            this.textBoxV.Location = new System.Drawing.Point(59, 254);
+            this.textBoxV.Location = new System.Drawing.Point(79, 313);
+            this.textBoxV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxV.Name = "textBoxV";
-            this.textBoxV.Size = new System.Drawing.Size(71, 20);
+            this.textBoxV.Size = new System.Drawing.Size(93, 22);
             this.textBoxV.TabIndex = 21;
             this.textBoxV.Click += new System.EventHandler(this.textBoxV_Click);
             // 
             // textBoxp
             // 
-            this.textBoxp.Location = new System.Drawing.Point(59, 228);
+            this.textBoxp.Location = new System.Drawing.Point(79, 281);
+            this.textBoxp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxp.Name = "textBoxp";
-            this.textBoxp.Size = new System.Drawing.Size(71, 20);
+            this.textBoxp.Size = new System.Drawing.Size(93, 22);
             this.textBoxp.TabIndex = 20;
             this.textBoxp.Click += new System.EventHandler(this.textBoxp_Click);
             // 
             // textBoxCZ
             // 
-            this.textBoxCZ.Location = new System.Drawing.Point(59, 202);
+            this.textBoxCZ.Location = new System.Drawing.Point(79, 249);
+            this.textBoxCZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxCZ.Name = "textBoxCZ";
-            this.textBoxCZ.Size = new System.Drawing.Size(71, 20);
+            this.textBoxCZ.Size = new System.Drawing.Size(93, 22);
             this.textBoxCZ.TabIndex = 19;
             this.textBoxCZ.Click += new System.EventHandler(this.textBoxCZ_Click);
             // 
             // textBoxCX
             // 
-            this.textBoxCX.Location = new System.Drawing.Point(59, 178);
+            this.textBoxCX.Location = new System.Drawing.Point(79, 219);
+            this.textBoxCX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxCX.Name = "textBoxCX";
-            this.textBoxCX.Size = new System.Drawing.Size(71, 20);
+            this.textBoxCX.Size = new System.Drawing.Size(93, 22);
             this.textBoxCX.TabIndex = 18;
             this.textBoxCX.Click += new System.EventHandler(this.textBoxCX_Click);
             // 
             // textBoxNomBDDMYSQL
             // 
-            this.textBoxNomBDDMYSQL.Location = new System.Drawing.Point(206, 108);
+            this.textBoxNomBDDMYSQL.Location = new System.Drawing.Point(275, 133);
+            this.textBoxNomBDDMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxNomBDDMYSQL.Name = "textBoxNomBDDMYSQL";
             this.textBoxNomBDDMYSQL.ReadOnly = true;
-            this.textBoxNomBDDMYSQL.Size = new System.Drawing.Size(186, 20);
+            this.textBoxNomBDDMYSQL.Size = new System.Drawing.Size(247, 22);
             this.textBoxNomBDDMYSQL.TabIndex = 17;
             // 
             // textBoxMotdepasseMYSQL
             // 
-            this.textBoxMotdepasseMYSQL.Location = new System.Drawing.Point(248, 89);
+            this.textBoxMotdepasseMYSQL.Location = new System.Drawing.Point(331, 110);
+            this.textBoxMotdepasseMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxMotdepasseMYSQL.Name = "textBoxMotdepasseMYSQL";
             this.textBoxMotdepasseMYSQL.ReadOnly = true;
-            this.textBoxMotdepasseMYSQL.Size = new System.Drawing.Size(186, 20);
+            this.textBoxMotdepasseMYSQL.Size = new System.Drawing.Size(247, 22);
             this.textBoxMotdepasseMYSQL.TabIndex = 16;
             // 
             // textBoxUsernameMYSQL
             // 
-            this.textBoxUsernameMYSQL.Location = new System.Drawing.Point(267, 70);
+            this.textBoxUsernameMYSQL.Location = new System.Drawing.Point(356, 86);
+            this.textBoxUsernameMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxUsernameMYSQL.Name = "textBoxUsernameMYSQL";
             this.textBoxUsernameMYSQL.ReadOnly = true;
-            this.textBoxUsernameMYSQL.Size = new System.Drawing.Size(186, 20);
+            this.textBoxUsernameMYSQL.Size = new System.Drawing.Size(247, 22);
             this.textBoxUsernameMYSQL.TabIndex = 15;
             // 
             // textBoxAdresseMYSQL
             // 
-            this.textBoxAdresseMYSQL.Location = new System.Drawing.Point(175, 51);
+            this.textBoxAdresseMYSQL.Location = new System.Drawing.Point(233, 63);
+            this.textBoxAdresseMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxAdresseMYSQL.Name = "textBoxAdresseMYSQL";
             this.textBoxAdresseMYSQL.ReadOnly = true;
-            this.textBoxAdresseMYSQL.Size = new System.Drawing.Size(186, 20);
+            this.textBoxAdresseMYSQL.Size = new System.Drawing.Size(247, 22);
             this.textBoxAdresseMYSQL.TabIndex = 14;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(39, 258);
+            this.label10.Location = new System.Drawing.Point(52, 318);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 13);
+            this.label10.Size = new System.Drawing.Size(16, 16);
             this.label10.TabIndex = 13;
             this.label10.Text = "V";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(40, 282);
+            this.label9.Location = new System.Drawing.Point(53, 347);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(14, 13);
+            this.label9.Size = new System.Drawing.Size(16, 16);
             this.label9.TabIndex = 12;
             this.label9.Text = "S";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(40, 228);
+            this.label8.Location = new System.Drawing.Point(53, 281);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(13, 13);
+            this.label8.Size = new System.Drawing.Size(15, 16);
             this.label8.TabIndex = 11;
             this.label8.Text = "p";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(34, 203);
+            this.label7.Location = new System.Drawing.Point(45, 250);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(19, 13);
+            this.label7.Size = new System.Drawing.Size(22, 16);
             this.label7.TabIndex = 10;
             this.label7.Text = "Cz";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(34, 181);
+            this.label6.Location = new System.Drawing.Point(45, 223);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 13);
+            this.label6.Size = new System.Drawing.Size(22, 16);
             this.label6.TabIndex = 9;
             this.label6.Text = "Cx";
             // 
             // ComboxBoxChoixPortSerie
             // 
             this.ComboxBoxChoixPortSerie.FormattingEnabled = true;
-            this.ComboxBoxChoixPortSerie.Location = new System.Drawing.Point(140, 146);
+            this.ComboxBoxChoixPortSerie.Location = new System.Drawing.Point(187, 180);
+            this.ComboxBoxChoixPortSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.ComboxBoxChoixPortSerie.Name = "ComboxBoxChoixPortSerie";
-            this.ComboxBoxChoixPortSerie.Size = new System.Drawing.Size(160, 21);
+            this.ComboxBoxChoixPortSerie.Size = new System.Drawing.Size(212, 24);
             this.ComboxBoxChoixPortSerie.TabIndex = 8;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(34, 151);
+            this.label5.Location = new System.Drawing.Point(45, 186);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 13);
+            this.label5.Size = new System.Drawing.Size(123, 16);
             this.label5.TabIndex = 7;
             this.label5.Text = "Choix du port série :";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(31, 91);
+            this.label4.Location = new System.Drawing.Point(41, 112);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(211, 13);
+            this.label4.Size = new System.Drawing.Size(266, 16);
             this.label4.TabIndex = 6;
             this.label4.Text = "Mot de passe de la base de donée MYSQL";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 73);
+            this.label3.Location = new System.Drawing.Point(41, 90);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(230, 13);
+            this.label3.Size = new System.Drawing.Size(290, 16);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nom d\'utilisateur de la base de donnée MYSQL";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 111);
+            this.label2.Location = new System.Drawing.Point(41, 137);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(169, 13);
+            this.label2.Size = new System.Drawing.Size(213, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nom de la base de donée MYSQL";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 54);
+            this.label1.Location = new System.Drawing.Point(41, 66);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(138, 13);
+            this.label1.Size = new System.Drawing.Size(173, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Adresse du serveur MYSQL";
             // 
@@ -401,18 +494,21 @@
             this.GroupBoxNumpad.Controls.Add(this.BoutonNumpad3);
             this.GroupBoxNumpad.Controls.Add(this.BoutonNumpad2);
             this.GroupBoxNumpad.Controls.Add(this.BoutonNumpad1);
-            this.GroupBoxNumpad.Location = new System.Drawing.Point(780, 162);
+            this.GroupBoxNumpad.Location = new System.Drawing.Point(1040, 199);
+            this.GroupBoxNumpad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.GroupBoxNumpad.Name = "GroupBoxNumpad";
-            this.GroupBoxNumpad.Size = new System.Drawing.Size(214, 292);
+            this.GroupBoxNumpad.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxNumpad.Size = new System.Drawing.Size(285, 359);
             this.GroupBoxNumpad.TabIndex = 2;
             this.GroupBoxNumpad.TabStop = false;
             this.GroupBoxNumpad.Text = "Pavé numérique";
             // 
             // BoutonNumpadDel
             // 
-            this.BoutonNumpadDel.Location = new System.Drawing.Point(146, 217);
+            this.BoutonNumpadDel.Location = new System.Drawing.Point(195, 267);
+            this.BoutonNumpadDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpadDel.Name = "BoutonNumpadDel";
-            this.BoutonNumpadDel.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpadDel.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpadDel.TabIndex = 11;
             this.BoutonNumpadDel.Text = "Suppr";
             this.BoutonNumpadDel.UseVisualStyleBackColor = true;
@@ -420,9 +516,10 @@
             // 
             // BoutonNumpad0
             // 
-            this.BoutonNumpad0.Location = new System.Drawing.Point(76, 217);
+            this.BoutonNumpad0.Location = new System.Drawing.Point(101, 267);
+            this.BoutonNumpad0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad0.Name = "BoutonNumpad0";
-            this.BoutonNumpad0.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad0.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad0.TabIndex = 10;
             this.BoutonNumpad0.Text = "0";
             this.BoutonNumpad0.UseVisualStyleBackColor = true;
@@ -430,9 +527,10 @@
             // 
             // BoutonNumpadDot
             // 
-            this.BoutonNumpadDot.Location = new System.Drawing.Point(6, 217);
+            this.BoutonNumpadDot.Location = new System.Drawing.Point(8, 267);
+            this.BoutonNumpadDot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpadDot.Name = "BoutonNumpadDot";
-            this.BoutonNumpadDot.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpadDot.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpadDot.TabIndex = 9;
             this.BoutonNumpadDot.Text = ".";
             this.BoutonNumpadDot.UseVisualStyleBackColor = true;
@@ -440,9 +538,10 @@
             // 
             // BoutonNumpad9
             // 
-            this.BoutonNumpad9.Location = new System.Drawing.Point(146, 151);
+            this.BoutonNumpad9.Location = new System.Drawing.Point(195, 186);
+            this.BoutonNumpad9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad9.Name = "BoutonNumpad9";
-            this.BoutonNumpad9.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad9.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad9.TabIndex = 8;
             this.BoutonNumpad9.Text = "9";
             this.BoutonNumpad9.UseVisualStyleBackColor = true;
@@ -450,9 +549,10 @@
             // 
             // BoutonNumpad8
             // 
-            this.BoutonNumpad8.Location = new System.Drawing.Point(76, 151);
+            this.BoutonNumpad8.Location = new System.Drawing.Point(101, 186);
+            this.BoutonNumpad8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad8.Name = "BoutonNumpad8";
-            this.BoutonNumpad8.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad8.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad8.TabIndex = 7;
             this.BoutonNumpad8.Text = "8";
             this.BoutonNumpad8.UseVisualStyleBackColor = true;
@@ -460,9 +560,10 @@
             // 
             // BoutonNumpad7
             // 
-            this.BoutonNumpad7.Location = new System.Drawing.Point(6, 151);
+            this.BoutonNumpad7.Location = new System.Drawing.Point(8, 186);
+            this.BoutonNumpad7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad7.Name = "BoutonNumpad7";
-            this.BoutonNumpad7.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad7.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad7.TabIndex = 6;
             this.BoutonNumpad7.Text = "7";
             this.BoutonNumpad7.UseVisualStyleBackColor = true;
@@ -470,9 +571,10 @@
             // 
             // BoutonNumpad6
             // 
-            this.BoutonNumpad6.Location = new System.Drawing.Point(146, 85);
+            this.BoutonNumpad6.Location = new System.Drawing.Point(195, 105);
+            this.BoutonNumpad6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad6.Name = "BoutonNumpad6";
-            this.BoutonNumpad6.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad6.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad6.TabIndex = 5;
             this.BoutonNumpad6.Text = "6";
             this.BoutonNumpad6.UseVisualStyleBackColor = true;
@@ -480,9 +582,10 @@
             // 
             // BoutonNumpad5
             // 
-            this.BoutonNumpad5.Location = new System.Drawing.Point(76, 85);
+            this.BoutonNumpad5.Location = new System.Drawing.Point(101, 105);
+            this.BoutonNumpad5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad5.Name = "BoutonNumpad5";
-            this.BoutonNumpad5.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad5.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad5.TabIndex = 4;
             this.BoutonNumpad5.Text = "5";
             this.BoutonNumpad5.UseVisualStyleBackColor = true;
@@ -490,9 +593,10 @@
             // 
             // BoutonNumpad4
             // 
-            this.BoutonNumpad4.Location = new System.Drawing.Point(6, 85);
+            this.BoutonNumpad4.Location = new System.Drawing.Point(8, 105);
+            this.BoutonNumpad4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad4.Name = "BoutonNumpad4";
-            this.BoutonNumpad4.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad4.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad4.TabIndex = 3;
             this.BoutonNumpad4.Text = "4";
             this.BoutonNumpad4.UseVisualStyleBackColor = true;
@@ -500,9 +604,10 @@
             // 
             // BoutonNumpad3
             // 
-            this.BoutonNumpad3.Location = new System.Drawing.Point(144, 19);
+            this.BoutonNumpad3.Location = new System.Drawing.Point(192, 23);
+            this.BoutonNumpad3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad3.Name = "BoutonNumpad3";
-            this.BoutonNumpad3.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad3.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad3.TabIndex = 2;
             this.BoutonNumpad3.Text = "3";
             this.BoutonNumpad3.UseVisualStyleBackColor = true;
@@ -510,9 +615,10 @@
             // 
             // BoutonNumpad2
             // 
-            this.BoutonNumpad2.Location = new System.Drawing.Point(76, 19);
+            this.BoutonNumpad2.Location = new System.Drawing.Point(101, 23);
+            this.BoutonNumpad2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad2.Name = "BoutonNumpad2";
-            this.BoutonNumpad2.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad2.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad2.TabIndex = 1;
             this.BoutonNumpad2.Text = "2";
             this.BoutonNumpad2.UseVisualStyleBackColor = true;
@@ -520,9 +626,10 @@
             // 
             // BoutonNumpad1
             // 
-            this.BoutonNumpad1.Location = new System.Drawing.Point(6, 19);
+            this.BoutonNumpad1.Location = new System.Drawing.Point(8, 23);
+            this.BoutonNumpad1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonNumpad1.Name = "BoutonNumpad1";
-            this.BoutonNumpad1.Size = new System.Drawing.Size(64, 60);
+            this.BoutonNumpad1.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad1.TabIndex = 0;
             this.BoutonNumpad1.Text = "1";
             this.BoutonNumpad1.UseVisualStyleBackColor = true;
@@ -530,84 +637,80 @@
             // 
             // BoutonRecharger
             // 
-            this.BoutonRecharger.Location = new System.Drawing.Point(791, 19);
+            this.BoutonRecharger.Location = new System.Drawing.Point(1055, 23);
+            this.BoutonRecharger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonRecharger.Name = "BoutonRecharger";
-            this.BoutonRecharger.Size = new System.Drawing.Size(203, 35);
+            this.BoutonRecharger.Size = new System.Drawing.Size(271, 43);
             this.BoutonRecharger.TabIndex = 1;
             this.BoutonRecharger.Text = "Recharger Configuration";
             this.BoutonRecharger.UseVisualStyleBackColor = true;
             // 
             // BoutonSauvegarde
             // 
-            this.BoutonSauvegarde.Location = new System.Drawing.Point(791, 60);
+            this.BoutonSauvegarde.Location = new System.Drawing.Point(1055, 74);
+            this.BoutonSauvegarde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BoutonSauvegarde.Name = "BoutonSauvegarde";
-            this.BoutonSauvegarde.Size = new System.Drawing.Size(203, 29);
+            this.BoutonSauvegarde.Size = new System.Drawing.Size(271, 36);
             this.BoutonSauvegarde.TabIndex = 0;
             this.BoutonSauvegarde.Text = "Sauvegarder Configuration";
             this.BoutonSauvegarde.UseVisualStyleBackColor = true;
             this.BoutonSauvegarde.Click += new System.EventHandler(this.BoutonSauvegarde_Click);
             // 
-            // BoutonRechargerPortSerie
+            // label13
             // 
-            this.BoutonRechargerPortSerie.Location = new System.Drawing.Point(791, 95);
-            this.BoutonRechargerPortSerie.Name = "BoutonRechargerPortSerie";
-            this.BoutonRechargerPortSerie.Size = new System.Drawing.Size(203, 29);
-            this.BoutonRechargerPortSerie.TabIndex = 24;
-            this.BoutonRechargerPortSerie.Text = "Recharger port série";
-            this.BoutonRechargerPortSerie.UseVisualStyleBackColor = true;
-            this.BoutonRechargerPortSerie.Click += new System.EventHandler(this.BoutonRechargerPortSerie_Click);
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(52, 89);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 16);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Etat BDD :";
             // 
-            // label12
+            // textBoxEtatLiaisonBDD
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(39, 41);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 13);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "Etat liaison série :";
+            this.textBoxEtatLiaisonBDD.Location = new System.Drawing.Point(189, 89);
+            this.textBoxEtatLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxEtatLiaisonBDD.Name = "textBoxEtatLiaisonBDD";
+            this.textBoxEtatLiaisonBDD.Size = new System.Drawing.Size(209, 22);
+            this.textBoxEtatLiaisonBDD.TabIndex = 5;
+            this.textBoxEtatLiaisonBDD.Text = "Arreter";
             // 
-            // textBoxEtatLiaisonSerie
+            // buttonDemarrerLiaisonBDD
             // 
-            this.textBoxEtatLiaisonSerie.Location = new System.Drawing.Point(142, 38);
-            this.textBoxEtatLiaisonSerie.Name = "textBoxEtatLiaisonSerie";
-            this.textBoxEtatLiaisonSerie.Size = new System.Drawing.Size(158, 20);
-            this.textBoxEtatLiaisonSerie.TabIndex = 1;
-            this.textBoxEtatLiaisonSerie.Text = "Arreter";
+            this.buttonDemarrerLiaisonBDD.Location = new System.Drawing.Point(423, 90);
+            this.buttonDemarrerLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDemarrerLiaisonBDD.Name = "buttonDemarrerLiaisonBDD";
+            this.buttonDemarrerLiaisonBDD.Size = new System.Drawing.Size(129, 28);
+            this.buttonDemarrerLiaisonBDD.TabIndex = 6;
+            this.buttonDemarrerLiaisonBDD.Text = "Démarrer";
+            this.buttonDemarrerLiaisonBDD.UseVisualStyleBackColor = true;
+            this.buttonDemarrerLiaisonBDD.Click += new System.EventHandler(this.buttonDemarrerLiaisonBDD_Click);
             // 
-            // buttonDemarrerLiaisonSerie
+            // buttonArreterLiaisonBDD
             // 
-            this.buttonDemarrerLiaisonSerie.Location = new System.Drawing.Point(317, 38);
-            this.buttonDemarrerLiaisonSerie.Name = "buttonDemarrerLiaisonSerie";
-            this.buttonDemarrerLiaisonSerie.Size = new System.Drawing.Size(97, 23);
-            this.buttonDemarrerLiaisonSerie.TabIndex = 2;
-            this.buttonDemarrerLiaisonSerie.Text = "Démarrer";
-            this.buttonDemarrerLiaisonSerie.UseVisualStyleBackColor = true;
-            this.buttonDemarrerLiaisonSerie.Click += new System.EventHandler(this.buttonDemarrerLiaisonSerie_Click);
-            // 
-            // buttonArreterLiaisonSerie
-            // 
-            this.buttonArreterLiaisonSerie.Location = new System.Drawing.Point(420, 41);
-            this.buttonArreterLiaisonSerie.Name = "buttonArreterLiaisonSerie";
-            this.buttonArreterLiaisonSerie.Size = new System.Drawing.Size(97, 23);
-            this.buttonArreterLiaisonSerie.TabIndex = 3;
-            this.buttonArreterLiaisonSerie.Text = "Arreter";
-            this.buttonArreterLiaisonSerie.UseVisualStyleBackColor = true;
-            this.buttonArreterLiaisonSerie.Click += new System.EventHandler(this.buttonArreterLiaisonSerie_Click);
+            this.buttonArreterLiaisonBDD.Location = new System.Drawing.Point(560, 89);
+            this.buttonArreterLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonArreterLiaisonBDD.Name = "buttonArreterLiaisonBDD";
+            this.buttonArreterLiaisonBDD.Size = new System.Drawing.Size(129, 28);
+            this.buttonArreterLiaisonBDD.TabIndex = 7;
+            this.buttonArreterLiaisonBDD.Text = "Arreter";
+            this.buttonArreterLiaisonBDD.UseVisualStyleBackColor = true;
             // 
             // IHM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1024, 600);
+            this.ClientSize = new System.Drawing.Size(1365, 738);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
             this.Controls.Add(this.GroupBoxEtat);
             this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.MaximumSize = new System.Drawing.Size(3024, 1618);
-            this.MinimumSize = new System.Drawing.Size(1024, 600);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximumSize = new System.Drawing.Size(4032, 1991);
+            this.MinimumSize = new System.Drawing.Size(1365, 738);
             this.Name = "IHM";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "IHM";
@@ -675,5 +778,9 @@
         private System.Windows.Forms.Button buttonDemarrerLiaisonSerie;
         private System.Windows.Forms.TextBox textBoxEtatLiaisonSerie;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonArreterLiaisonBDD;
+        private System.Windows.Forms.Button buttonDemarrerLiaisonBDD;
+        private System.Windows.Forms.TextBox textBoxEtatLiaisonBDD;
+        private System.Windows.Forms.Label label13;
     }
 }
