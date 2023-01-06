@@ -35,6 +35,10 @@
             this.BoutonOngletMesure = new System.Windows.Forms.Button();
             this.BoutonOngletEtat = new System.Windows.Forms.Button();
             this.GroupBoxEtat = new System.Windows.Forms.GroupBox();
+            this.buttonArreterLiaisonBDD = new System.Windows.Forms.Button();
+            this.buttonDemarrerLiaisonBDD = new System.Windows.Forms.Button();
+            this.textBoxEtatLiaisonBDD = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.buttonArreterLiaisonSerie = new System.Windows.Forms.Button();
             this.buttonDemarrerLiaisonSerie = new System.Windows.Forms.Button();
             this.textBoxEtatLiaisonSerie = new System.Windows.Forms.TextBox();
@@ -78,10 +82,6 @@
             this.BoutonNumpad1 = new System.Windows.Forms.Button();
             this.BoutonRecharger = new System.Windows.Forms.Button();
             this.BoutonSauvegarde = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.textBoxEtatLiaisonBDD = new System.Windows.Forms.TextBox();
-            this.buttonDemarrerLiaisonBDD = new System.Windows.Forms.Button();
-            this.buttonArreterLiaisonBDD = new System.Windows.Forms.Button();
             this.ConteneurOngletBouton.SuspendLayout();
             this.GroupBoxEtat.SuspendLayout();
             this.GroupBoxConfig.SuspendLayout();
@@ -107,7 +107,7 @@
             this.ConteneurOngletBouton.Controls.Add(this.BoutonOngletMesure);
             this.ConteneurOngletBouton.Controls.Add(this.BoutonOngletEtat);
             this.ConteneurOngletBouton.Location = new System.Drawing.Point(16, 78);
-            this.ConteneurOngletBouton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ConteneurOngletBouton.Margin = new System.Windows.Forms.Padding(4);
             this.ConteneurOngletBouton.Name = "ConteneurOngletBouton";
             this.ConteneurOngletBouton.Size = new System.Drawing.Size(1333, 73);
             this.ConteneurOngletBouton.TabIndex = 3;
@@ -115,7 +115,7 @@
             // BoutonQuitter
             // 
             this.BoutonQuitter.Location = new System.Drawing.Point(1163, 4);
-            this.BoutonQuitter.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonQuitter.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonQuitter.Name = "BoutonQuitter";
             this.BoutonQuitter.Size = new System.Drawing.Size(167, 65);
             this.BoutonQuitter.TabIndex = 3;
@@ -126,7 +126,7 @@
             // BoutonOngletConfig
             // 
             this.BoutonOngletConfig.Location = new System.Drawing.Point(447, 4);
-            this.BoutonOngletConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonOngletConfig.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonOngletConfig.Name = "BoutonOngletConfig";
             this.BoutonOngletConfig.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletConfig.TabIndex = 2;
@@ -137,7 +137,7 @@
             // BoutonOngletMesure
             // 
             this.BoutonOngletMesure.Location = new System.Drawing.Point(225, 4);
-            this.BoutonOngletMesure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonOngletMesure.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonOngletMesure.Name = "BoutonOngletMesure";
             this.BoutonOngletMesure.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletMesure.TabIndex = 1;
@@ -148,7 +148,7 @@
             // BoutonOngletEtat
             // 
             this.BoutonOngletEtat.Location = new System.Drawing.Point(4, 4);
-            this.BoutonOngletEtat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonOngletEtat.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonOngletEtat.Name = "BoutonOngletEtat";
             this.BoutonOngletEtat.Size = new System.Drawing.Size(219, 65);
             this.BoutonOngletEtat.TabIndex = 0;
@@ -168,19 +168,62 @@
             this.GroupBoxEtat.Controls.Add(this.textBoxEtatLiaisonSerie);
             this.GroupBoxEtat.Controls.Add(this.label12);
             this.GroupBoxEtat.Location = new System.Drawing.Point(16, 158);
-            this.GroupBoxEtat.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxEtat.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBoxEtat.Name = "GroupBoxEtat";
-            this.GroupBoxEtat.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxEtat.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBoxEtat.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxEtat.TabIndex = 4;
             this.GroupBoxEtat.TabStop = false;
             this.GroupBoxEtat.Text = "GroupBoxEtat";
             this.GroupBoxEtat.Visible = false;
             // 
+            // buttonArreterLiaisonBDD
+            // 
+            this.buttonArreterLiaisonBDD.Enabled = false;
+            this.buttonArreterLiaisonBDD.Location = new System.Drawing.Point(560, 89);
+            this.buttonArreterLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonArreterLiaisonBDD.Name = "buttonArreterLiaisonBDD";
+            this.buttonArreterLiaisonBDD.Size = new System.Drawing.Size(129, 28);
+            this.buttonArreterLiaisonBDD.TabIndex = 7;
+            this.buttonArreterLiaisonBDD.Text = "Arreter";
+            this.buttonArreterLiaisonBDD.UseVisualStyleBackColor = true;
+            this.buttonArreterLiaisonBDD.Click += new System.EventHandler(this.buttonArreterLiaisonBDD_Click);
+            // 
+            // buttonDemarrerLiaisonBDD
+            // 
+            this.buttonDemarrerLiaisonBDD.Location = new System.Drawing.Point(423, 90);
+            this.buttonDemarrerLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.buttonDemarrerLiaisonBDD.Name = "buttonDemarrerLiaisonBDD";
+            this.buttonDemarrerLiaisonBDD.Size = new System.Drawing.Size(129, 28);
+            this.buttonDemarrerLiaisonBDD.TabIndex = 6;
+            this.buttonDemarrerLiaisonBDD.Text = "Démarrer";
+            this.buttonDemarrerLiaisonBDD.UseVisualStyleBackColor = true;
+            this.buttonDemarrerLiaisonBDD.Click += new System.EventHandler(this.buttonDemarrerLiaisonBDD_Click);
+            // 
+            // textBoxEtatLiaisonBDD
+            // 
+            this.textBoxEtatLiaisonBDD.Location = new System.Drawing.Point(189, 89);
+            this.textBoxEtatLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxEtatLiaisonBDD.Name = "textBoxEtatLiaisonBDD";
+            this.textBoxEtatLiaisonBDD.Size = new System.Drawing.Size(209, 22);
+            this.textBoxEtatLiaisonBDD.TabIndex = 5;
+            this.textBoxEtatLiaisonBDD.Text = "Arreter";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(52, 89);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(68, 16);
+            this.label13.TabIndex = 4;
+            this.label13.Text = "Etat BDD :";
+            // 
             // buttonArreterLiaisonSerie
             // 
+            this.buttonArreterLiaisonSerie.Enabled = false;
             this.buttonArreterLiaisonSerie.Location = new System.Drawing.Point(560, 47);
-            this.buttonArreterLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonArreterLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.buttonArreterLiaisonSerie.Name = "buttonArreterLiaisonSerie";
             this.buttonArreterLiaisonSerie.Size = new System.Drawing.Size(129, 28);
             this.buttonArreterLiaisonSerie.TabIndex = 3;
@@ -191,7 +234,7 @@
             // buttonDemarrerLiaisonSerie
             // 
             this.buttonDemarrerLiaisonSerie.Location = new System.Drawing.Point(423, 47);
-            this.buttonDemarrerLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDemarrerLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDemarrerLiaisonSerie.Name = "buttonDemarrerLiaisonSerie";
             this.buttonDemarrerLiaisonSerie.Size = new System.Drawing.Size(129, 28);
             this.buttonDemarrerLiaisonSerie.TabIndex = 2;
@@ -202,7 +245,7 @@
             // textBoxEtatLiaisonSerie
             // 
             this.textBoxEtatLiaisonSerie.Location = new System.Drawing.Point(189, 47);
-            this.textBoxEtatLiaisonSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEtatLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEtatLiaisonSerie.Name = "textBoxEtatLiaisonSerie";
             this.textBoxEtatLiaisonSerie.Size = new System.Drawing.Size(209, 22);
             this.textBoxEtatLiaisonSerie.TabIndex = 1;
@@ -222,9 +265,9 @@
             // 
             this.GroupBoxMesure.BackColor = System.Drawing.Color.White;
             this.GroupBoxMesure.Location = new System.Drawing.Point(16, 158);
-            this.GroupBoxMesure.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxMesure.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBoxMesure.Name = "GroupBoxMesure";
-            this.GroupBoxMesure.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxMesure.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBoxMesure.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxMesure.TabIndex = 5;
             this.GroupBoxMesure.TabStop = false;
@@ -260,9 +303,9 @@
             this.GroupBoxConfig.Controls.Add(this.BoutonRecharger);
             this.GroupBoxConfig.Controls.Add(this.BoutonSauvegarde);
             this.GroupBoxConfig.Location = new System.Drawing.Point(16, 158);
-            this.GroupBoxConfig.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxConfig.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBoxConfig.Name = "GroupBoxConfig";
-            this.GroupBoxConfig.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxConfig.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBoxConfig.Size = new System.Drawing.Size(1333, 566);
             this.GroupBoxConfig.TabIndex = 6;
             this.GroupBoxConfig.TabStop = false;
@@ -272,7 +315,7 @@
             // BoutonRechargerPortSerie
             // 
             this.BoutonRechargerPortSerie.Location = new System.Drawing.Point(1055, 117);
-            this.BoutonRechargerPortSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonRechargerPortSerie.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonRechargerPortSerie.Name = "BoutonRechargerPortSerie";
             this.BoutonRechargerPortSerie.Size = new System.Drawing.Size(271, 36);
             this.BoutonRechargerPortSerie.TabIndex = 24;
@@ -293,7 +336,7 @@
             // textBoxS
             // 
             this.textBoxS.Location = new System.Drawing.Point(79, 345);
-            this.textBoxS.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxS.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(93, 22);
             this.textBoxS.TabIndex = 22;
@@ -302,7 +345,7 @@
             // textBoxV
             // 
             this.textBoxV.Location = new System.Drawing.Point(79, 313);
-            this.textBoxV.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxV.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxV.Name = "textBoxV";
             this.textBoxV.Size = new System.Drawing.Size(93, 22);
             this.textBoxV.TabIndex = 21;
@@ -311,7 +354,7 @@
             // textBoxp
             // 
             this.textBoxp.Location = new System.Drawing.Point(79, 281);
-            this.textBoxp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxp.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxp.Name = "textBoxp";
             this.textBoxp.Size = new System.Drawing.Size(93, 22);
             this.textBoxp.TabIndex = 20;
@@ -320,7 +363,7 @@
             // textBoxCZ
             // 
             this.textBoxCZ.Location = new System.Drawing.Point(79, 249);
-            this.textBoxCZ.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCZ.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCZ.Name = "textBoxCZ";
             this.textBoxCZ.Size = new System.Drawing.Size(93, 22);
             this.textBoxCZ.TabIndex = 19;
@@ -329,7 +372,7 @@
             // textBoxCX
             // 
             this.textBoxCX.Location = new System.Drawing.Point(79, 219);
-            this.textBoxCX.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCX.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCX.Name = "textBoxCX";
             this.textBoxCX.Size = new System.Drawing.Size(93, 22);
             this.textBoxCX.TabIndex = 18;
@@ -338,7 +381,7 @@
             // textBoxNomBDDMYSQL
             // 
             this.textBoxNomBDDMYSQL.Location = new System.Drawing.Point(275, 133);
-            this.textBoxNomBDDMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxNomBDDMYSQL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxNomBDDMYSQL.Name = "textBoxNomBDDMYSQL";
             this.textBoxNomBDDMYSQL.ReadOnly = true;
             this.textBoxNomBDDMYSQL.Size = new System.Drawing.Size(247, 22);
@@ -347,7 +390,7 @@
             // textBoxMotdepasseMYSQL
             // 
             this.textBoxMotdepasseMYSQL.Location = new System.Drawing.Point(331, 110);
-            this.textBoxMotdepasseMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxMotdepasseMYSQL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxMotdepasseMYSQL.Name = "textBoxMotdepasseMYSQL";
             this.textBoxMotdepasseMYSQL.ReadOnly = true;
             this.textBoxMotdepasseMYSQL.Size = new System.Drawing.Size(247, 22);
@@ -356,7 +399,7 @@
             // textBoxUsernameMYSQL
             // 
             this.textBoxUsernameMYSQL.Location = new System.Drawing.Point(356, 86);
-            this.textBoxUsernameMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxUsernameMYSQL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxUsernameMYSQL.Name = "textBoxUsernameMYSQL";
             this.textBoxUsernameMYSQL.ReadOnly = true;
             this.textBoxUsernameMYSQL.Size = new System.Drawing.Size(247, 22);
@@ -365,7 +408,7 @@
             // textBoxAdresseMYSQL
             // 
             this.textBoxAdresseMYSQL.Location = new System.Drawing.Point(233, 63);
-            this.textBoxAdresseMYSQL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxAdresseMYSQL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxAdresseMYSQL.Name = "textBoxAdresseMYSQL";
             this.textBoxAdresseMYSQL.ReadOnly = true;
             this.textBoxAdresseMYSQL.Size = new System.Drawing.Size(247, 22);
@@ -425,7 +468,7 @@
             // 
             this.ComboxBoxChoixPortSerie.FormattingEnabled = true;
             this.ComboxBoxChoixPortSerie.Location = new System.Drawing.Point(187, 180);
-            this.ComboxBoxChoixPortSerie.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ComboxBoxChoixPortSerie.Margin = new System.Windows.Forms.Padding(4);
             this.ComboxBoxChoixPortSerie.Name = "ComboxBoxChoixPortSerie";
             this.ComboxBoxChoixPortSerie.Size = new System.Drawing.Size(212, 24);
             this.ComboxBoxChoixPortSerie.TabIndex = 8;
@@ -495,9 +538,9 @@
             this.GroupBoxNumpad.Controls.Add(this.BoutonNumpad2);
             this.GroupBoxNumpad.Controls.Add(this.BoutonNumpad1);
             this.GroupBoxNumpad.Location = new System.Drawing.Point(1040, 199);
-            this.GroupBoxNumpad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxNumpad.Margin = new System.Windows.Forms.Padding(4);
             this.GroupBoxNumpad.Name = "GroupBoxNumpad";
-            this.GroupBoxNumpad.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.GroupBoxNumpad.Padding = new System.Windows.Forms.Padding(4);
             this.GroupBoxNumpad.Size = new System.Drawing.Size(285, 359);
             this.GroupBoxNumpad.TabIndex = 2;
             this.GroupBoxNumpad.TabStop = false;
@@ -506,7 +549,7 @@
             // BoutonNumpadDel
             // 
             this.BoutonNumpadDel.Location = new System.Drawing.Point(195, 267);
-            this.BoutonNumpadDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpadDel.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpadDel.Name = "BoutonNumpadDel";
             this.BoutonNumpadDel.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpadDel.TabIndex = 11;
@@ -517,7 +560,7 @@
             // BoutonNumpad0
             // 
             this.BoutonNumpad0.Location = new System.Drawing.Point(101, 267);
-            this.BoutonNumpad0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad0.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad0.Name = "BoutonNumpad0";
             this.BoutonNumpad0.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad0.TabIndex = 10;
@@ -528,7 +571,7 @@
             // BoutonNumpadDot
             // 
             this.BoutonNumpadDot.Location = new System.Drawing.Point(8, 267);
-            this.BoutonNumpadDot.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpadDot.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpadDot.Name = "BoutonNumpadDot";
             this.BoutonNumpadDot.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpadDot.TabIndex = 9;
@@ -539,7 +582,7 @@
             // BoutonNumpad9
             // 
             this.BoutonNumpad9.Location = new System.Drawing.Point(195, 186);
-            this.BoutonNumpad9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad9.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad9.Name = "BoutonNumpad9";
             this.BoutonNumpad9.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad9.TabIndex = 8;
@@ -550,7 +593,7 @@
             // BoutonNumpad8
             // 
             this.BoutonNumpad8.Location = new System.Drawing.Point(101, 186);
-            this.BoutonNumpad8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad8.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad8.Name = "BoutonNumpad8";
             this.BoutonNumpad8.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad8.TabIndex = 7;
@@ -561,7 +604,7 @@
             // BoutonNumpad7
             // 
             this.BoutonNumpad7.Location = new System.Drawing.Point(8, 186);
-            this.BoutonNumpad7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad7.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad7.Name = "BoutonNumpad7";
             this.BoutonNumpad7.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad7.TabIndex = 6;
@@ -572,7 +615,7 @@
             // BoutonNumpad6
             // 
             this.BoutonNumpad6.Location = new System.Drawing.Point(195, 105);
-            this.BoutonNumpad6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad6.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad6.Name = "BoutonNumpad6";
             this.BoutonNumpad6.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad6.TabIndex = 5;
@@ -583,7 +626,7 @@
             // BoutonNumpad5
             // 
             this.BoutonNumpad5.Location = new System.Drawing.Point(101, 105);
-            this.BoutonNumpad5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad5.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad5.Name = "BoutonNumpad5";
             this.BoutonNumpad5.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad5.TabIndex = 4;
@@ -594,7 +637,7 @@
             // BoutonNumpad4
             // 
             this.BoutonNumpad4.Location = new System.Drawing.Point(8, 105);
-            this.BoutonNumpad4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad4.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad4.Name = "BoutonNumpad4";
             this.BoutonNumpad4.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad4.TabIndex = 3;
@@ -605,7 +648,7 @@
             // BoutonNumpad3
             // 
             this.BoutonNumpad3.Location = new System.Drawing.Point(192, 23);
-            this.BoutonNumpad3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad3.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad3.Name = "BoutonNumpad3";
             this.BoutonNumpad3.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad3.TabIndex = 2;
@@ -616,7 +659,7 @@
             // BoutonNumpad2
             // 
             this.BoutonNumpad2.Location = new System.Drawing.Point(101, 23);
-            this.BoutonNumpad2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad2.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad2.Name = "BoutonNumpad2";
             this.BoutonNumpad2.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad2.TabIndex = 1;
@@ -627,7 +670,7 @@
             // BoutonNumpad1
             // 
             this.BoutonNumpad1.Location = new System.Drawing.Point(8, 23);
-            this.BoutonNumpad1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonNumpad1.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonNumpad1.Name = "BoutonNumpad1";
             this.BoutonNumpad1.Size = new System.Drawing.Size(85, 74);
             this.BoutonNumpad1.TabIndex = 0;
@@ -638,7 +681,7 @@
             // BoutonRecharger
             // 
             this.BoutonRecharger.Location = new System.Drawing.Point(1055, 23);
-            this.BoutonRecharger.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonRecharger.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonRecharger.Name = "BoutonRecharger";
             this.BoutonRecharger.Size = new System.Drawing.Size(271, 43);
             this.BoutonRecharger.TabIndex = 1;
@@ -648,53 +691,13 @@
             // BoutonSauvegarde
             // 
             this.BoutonSauvegarde.Location = new System.Drawing.Point(1055, 74);
-            this.BoutonSauvegarde.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BoutonSauvegarde.Margin = new System.Windows.Forms.Padding(4);
             this.BoutonSauvegarde.Name = "BoutonSauvegarde";
             this.BoutonSauvegarde.Size = new System.Drawing.Size(271, 36);
             this.BoutonSauvegarde.TabIndex = 0;
             this.BoutonSauvegarde.Text = "Sauvegarder Configuration";
             this.BoutonSauvegarde.UseVisualStyleBackColor = true;
             this.BoutonSauvegarde.Click += new System.EventHandler(this.BoutonSauvegarde_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(52, 89);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(68, 16);
-            this.label13.TabIndex = 4;
-            this.label13.Text = "Etat BDD :";
-            // 
-            // textBoxEtatLiaisonBDD
-            // 
-            this.textBoxEtatLiaisonBDD.Location = new System.Drawing.Point(189, 89);
-            this.textBoxEtatLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxEtatLiaisonBDD.Name = "textBoxEtatLiaisonBDD";
-            this.textBoxEtatLiaisonBDD.Size = new System.Drawing.Size(209, 22);
-            this.textBoxEtatLiaisonBDD.TabIndex = 5;
-            this.textBoxEtatLiaisonBDD.Text = "Arreter";
-            // 
-            // buttonDemarrerLiaisonBDD
-            // 
-            this.buttonDemarrerLiaisonBDD.Location = new System.Drawing.Point(423, 90);
-            this.buttonDemarrerLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonDemarrerLiaisonBDD.Name = "buttonDemarrerLiaisonBDD";
-            this.buttonDemarrerLiaisonBDD.Size = new System.Drawing.Size(129, 28);
-            this.buttonDemarrerLiaisonBDD.TabIndex = 6;
-            this.buttonDemarrerLiaisonBDD.Text = "Démarrer";
-            this.buttonDemarrerLiaisonBDD.UseVisualStyleBackColor = true;
-            this.buttonDemarrerLiaisonBDD.Click += new System.EventHandler(this.buttonDemarrerLiaisonBDD_Click);
-            // 
-            // buttonArreterLiaisonBDD
-            // 
-            this.buttonArreterLiaisonBDD.Location = new System.Drawing.Point(560, 89);
-            this.buttonArreterLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
-            this.buttonArreterLiaisonBDD.Name = "buttonArreterLiaisonBDD";
-            this.buttonArreterLiaisonBDD.Size = new System.Drawing.Size(129, 28);
-            this.buttonArreterLiaisonBDD.TabIndex = 7;
-            this.buttonArreterLiaisonBDD.Text = "Arreter";
-            this.buttonArreterLiaisonBDD.UseVisualStyleBackColor = true;
             // 
             // IHM
             // 
@@ -708,7 +711,7 @@
             this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(4032, 1991);
             this.MinimumSize = new System.Drawing.Size(1365, 738);
             this.Name = "IHM";

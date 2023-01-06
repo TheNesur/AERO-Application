@@ -199,21 +199,48 @@ namespace Eolia_IHM
         private void buttonDemarrerLiaisonSerie_Click(object sender, EventArgs e)
         {
             EoliaUtils.InitialiserLiaisonSerie(ComboxBoxChoixPortSerie.Text, textBoxEtatLiaisonSerie);
+            if (EoliaFnct.SerialisConnected())
+            {
+                buttonArreterLiaisonSerie.Enabled = true;
+                buttonDemarrerLiaisonSerie.Enabled = false;
+            }
+
         }
 
         private void buttonArreterLiaisonSerie_Click(object sender, EventArgs e)
         {
             EoliaUtils.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
+            if (!EoliaFnct.SerialisConnected())
+            {
+                buttonArreterLiaisonSerie.Enabled = false;
+                buttonDemarrerLiaisonSerie.Enabled = true;
+            }
         }
 
-        private void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
+        private async void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
         {
-            EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text, 
+            buttonDemarrerLiaisonBDD.Enabled = false;
+            await EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text, 
                                             textBoxUsernameMYSQL.Text,
                                             textBoxMotdepasseMYSQL.Text,
                                             textBoxAdresseMYSQL.Text, 
                                             textBoxEtatLiaisonBDD);
+            if (EoliaFnct.BDDisConnected())
+                buttonArreterLiaisonBDD.Enabled = true;
+            else
+                buttonDemarrerLiaisonBDD.Enabled = true;
 
+        }
+
+        private void buttonArreterLiaisonBDD_Click(object sender, EventArgs e)
+        {
+            EoliaFnct.FermerConnexionSQL();
+            if (!EoliaFnct.BDDisConnected())
+            {
+                buttonDemarrerLiaisonBDD.Enabled = true;
+                buttonArreterLiaisonBDD.Enabled = false;
+            }
+                
         }
     }
 }

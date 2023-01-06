@@ -12,19 +12,40 @@ namespace Eolia_IHM.Properties
 {
     internal class EoliaUtils
     {
-        // Permet d'afficher les groupbox 
+        // Variable relatif a la gestion des onglets 
         
         GroupBox ongletActif = null;
-        TextBox textBoxActif = null;
-        private static TextBox SerialLogBox = null;
-        private TextBox SQLLogBox = null;
-        private static SerialPort serialPort;
-        private SqlConnection SqlConnexion;
 
-        public Task InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox)
+        // Variable relatif a la gestion du pavé numérique
+
+        TextBox textBoxActif = null;
+
+        // Variable relatif a la liaison série
+
+        private static SerialPort serialPort;
+        private static TextBox SerialLogBox = null;
+        private static bool StartedSerial = false;
+
+        // Variable relatif a la liaison a la BDD
+
+        private SqlConnection SqlConnexion;
+        private bool BDDConnected = false;
+        private TextBox SQLLogBox = null;
+
+
+        // Fonction relatif a la liaison a la BDD
+
+        public bool BDDisConnected()
         {
-            return Task.Run(() => // Créer simplement une tache async afin de rendre non bloquante la connexion
+            if (BDDConnected)
             {
+                return true;
+            }
+            return false;
+        }
+
+        public async Task InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox)
+        {
                 string connexionString = "Server=" + Adresse + ";Database=" + NomBaseDeDonée + ";Uid=" + Utilisateur + ";Pwd=" + MotDePasse + ";";
 
                 SQLLogBox = SQLlogbox;
@@ -33,15 +54,40 @@ namespace Eolia_IHM.Properties
 
                 try
                 {
-                    SqlConnexion.Open();
+                    await SqlConnexion.OpenAsync();
                     SQLLogBox.Text = "BDD OK";
+                    BDDConnected = true;
                 }
                 catch (SqlException ex)
                 {
                     SQLLogBox.Text = "Erreur : " + ex.Message;
                     SqlConnexion.Close();
                 }
-            });
+            
+        }
+
+        public void FermerConnexionSQL()
+        {
+            if (SqlConnexion != null)
+            {
+                SqlConnexion.Close();
+                SqlConnexion.Dispose();
+                SqlConnexion = null;
+                BDDConnected = false;
+                SQLLogBox.Text = "BDD Deconnecté";
+            }
+        }
+
+        // Fonction relatif a la liaison série
+
+
+        public bool SerialisConnected()
+        {
+            if (StartedSerial)
+            {
+                return true;
+            }
+            return false;
         }
 
         public void AfficherPortSerie(ComboBox cmbBox)
@@ -66,6 +112,7 @@ namespace Eolia_IHM.Properties
                 // fermer le port série
                 serialPort.Close();
                 SerialLogBox.Text = "Liaison Série -> Arrèté";
+                StartedSerial = false;
             }
         }
         
@@ -88,6 +135,7 @@ namespace Eolia_IHM.Properties
                 serialPort.ErrorReceived += DesQueErreurRecu;
                 serialPort.Open();
                 SerialLogBox.Text = "Liaison Série -> Démarrée";
+                StartedSerial = true;
             }
             else
             {
@@ -117,6 +165,7 @@ namespace Eolia_IHM.Properties
             // erreur reçu
         }
 
+        // Variable relatif a la gestion du pavé numérique
 
         public void TextBoxActif(TextBox txtbox)
         {
@@ -144,6 +193,9 @@ namespace Eolia_IHM.Properties
             }
         }
 
+
+        // Fonction relatif a la gestion des onglets
+
         public void AfficherOnglet(GroupBox gbox)
         {
             if (ongletActif == null)
@@ -160,6 +212,8 @@ namespace Eolia_IHM.Properties
             }
         
         }
+
+        // Fonction relatif a la sauvegarde et au chargement des fichiers de configuration
 
         public void SauvegarderConfiguration(IDictionary<string, string> ListeValeurASauvegarder)
         {
