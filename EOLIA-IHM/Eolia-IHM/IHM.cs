@@ -35,10 +35,10 @@ namespace Eolia_IHM
                 ListeValeurASauvegarder.Add("V", "");
                 ListeValeurASauvegarder.Add("RHO", "");
                 EoliaFnct.SauvegarderConfiguration(ListeValeurASauvegarder); */
-                textBoxAdresseMYSQL.Text = "A COMPLETER";
-                textBoxUsernameMYSQL.Text = "A COMPLETER";
-                textBoxMotdepasseMYSQL.Text = "A COMPLETER";
-                textBoxNomBDDMYSQL.Text = "A COMPLETER";
+                textBoxAdresseMYSQL.Text = "A MODIFIER";
+                textBoxUsernameMYSQL.Text = "A MODIFIER";
+                textBoxMotdepasseMYSQL.Text = "A MODIFIER";
+                textBoxNomBDDMYSQL.Text = "A MODIFIER";
                 Sauvegarder();
                 MessageBox.Show("Premier lancement, veuillez configurer la BDD dans EoliaConfig.config");
                 Application.Exit();
@@ -98,7 +98,15 @@ namespace Eolia_IHM
 
         private void BoutonOngletConfig_Click(object sender, EventArgs e)
         {
-            EoliaFnct.AfficherOnglet(GroupBoxConfig);
+            if (EoliaFnct.BDDisConnected() || EoliaFnct.SerialisConnected())
+            {
+                MessageBox.Show("Vous ne pouvez pas modifier la configuration, si un ou plusieurs services sont lancés");
+            }
+            else
+            {
+                EoliaFnct.AfficherOnglet(GroupBoxConfig);
+            }
+            
         }
 
         private void BoutonSauvegarde_Click(object sender, EventArgs e)
@@ -221,7 +229,7 @@ namespace Eolia_IHM
         {
             buttonDemarrerLiaisonBDD.Enabled = false;
             await EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text, 
-                                            textBoxUsernameMYSQL.Text,
+                                            textBoxUsernameMYSQL.Text, 
                                             textBoxMotdepasseMYSQL.Text,
                                             textBoxAdresseMYSQL.Text, 
                                             textBoxEtatLiaisonBDD);

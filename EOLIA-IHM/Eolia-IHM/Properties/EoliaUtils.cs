@@ -246,7 +246,7 @@ namespace Eolia_IHM.Properties
             };
 
             var config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
-            //le configuration Userlever.none ca permet simplement de signifier que c'est un fichier de configuration
+            //le configuration Userlevel.none ca permet simplement de signifier que c'est un fichier de configuration
             return config.AppSettings.Settings[champ].Value ;
 
         }
