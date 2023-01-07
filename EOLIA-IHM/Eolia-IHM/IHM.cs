@@ -82,6 +82,10 @@ namespace Eolia_IHM
 
         private void BoutonQuitter_Click(object sender, EventArgs e)
         {
+            if (EoliaFnct.EtatTransMes())
+            {
+                EoliaFnct.ArreterTransMes();
+            }
             Application.Exit();
         }
 

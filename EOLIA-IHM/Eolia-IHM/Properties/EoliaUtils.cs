@@ -54,7 +54,7 @@ namespace Eolia_IHM.Properties
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
             ReponseCMDMesure.Text = "Les mesures reçues seront afichées au dessus";
-            EnvoyerMessageSerie("TRANSMISSION");
+            EnvoyerMessageSerie("START");
 
         }
 
