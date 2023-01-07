@@ -232,11 +232,10 @@ namespace Eolia_IHM
         private void buttonArreterLiaisonSerie_Click(object sender, EventArgs e)
         {
             EoliaFnct.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
-            if (!EoliaFnct.SerialisConnected())
-            {
+
                 buttonArreterLiaisonSerie.Enabled = false;
                 buttonDemarrerLiaisonSerie.Enabled = true;
-            }
+            
         }
 
         private async void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
@@ -307,5 +306,7 @@ namespace Eolia_IHM
                 buttonSwitchTransmissionMesure.Text = "Vous devez établir une transmission avant de tarer";
             }
         }
+
+
     }
 }

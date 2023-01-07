@@ -247,6 +247,7 @@ namespace Eolia_IHM.Properties
             {
                 // fermer le port série
                 serialPort.Close();
+                serialPort = null;
                 SerialLogBox.Text = "Liaison Série -> Arrèté";
                 
             }
