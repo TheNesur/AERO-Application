@@ -82,10 +82,6 @@ namespace Eolia_IHM
 
         private void BoutonQuitter_Click(object sender, EventArgs e)
         {
-            if (EoliaFnct.EtatTransMes())
-            {
-                EoliaFnct.ArreterTransMes();
-            }
             Application.Exit();
         }
 
@@ -304,7 +300,7 @@ namespace Eolia_IHM
             }
             else
             {
-                labelMsgMesure.Text = "Vous devez établir une transmission avant de tarer";
+                buttonSwitchTransmissionMesure.Text = "Vous devez établir une transmission avant de tarer";
             }
         }
     }

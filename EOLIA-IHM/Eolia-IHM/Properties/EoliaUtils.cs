@@ -53,14 +53,13 @@ namespace Eolia_IHM.Properties
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            ReponseCMDMesure.Text = "Les mesures seront affichés ci-dessus !";
-            EnvoyerMessageSerie("START");
+            EnvoyerMessageSerie("START TRANSMISSION");
 
         }
 
         public void TarerCapteur()
         {
-            EnvoyerMessageSerie("TARAGE");
+            EnvoyerMessageSerie("START TARAGE");
         }
 
         public bool EtatTransMes()
@@ -85,7 +84,7 @@ namespace Eolia_IHM.Properties
 
         public void ArreterTransMes()
         {
-            EnvoyerMessageSerie("STOP");
+            EnvoyerMessageSerie("STOP TRANSMISSION");
 
             ReponseCMDMesure.Text = "Transmission des mesures arrêtés";
 
