@@ -7,7 +7,7 @@ using System.IO.Ports;
 //using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
+//using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
 namespace Eolia_IHM.Properties
@@ -24,15 +24,136 @@ namespace Eolia_IHM.Properties
 
         // Variable relatif a la liaison série
 
-        private static SerialPort serialPort = null;
-        private static TextBox SerialLogBox = null;
-        private static bool StartedSerial = false;
+        private  SerialPort serialPort = null;
+        private  TextBox SerialLogBox = null;
+       
 
         // Variable relatif a la liaison a la BDD
 
         private MySqlConnection SqlConnexion = null;
         private bool BDDConnected = false;
         private TextBox SQLLogBox = null;
+
+
+        // Variable relatif a la gestion ges mesures
+
+        private List<float> ListeMesureTrainee = null;
+        private List<float> ListeMesurePortance = null;
+        private bool EnregistreMesure = false;
+        private Label LabelMesTrainee = null;
+        private Label LabelMesPortance = null;
+        private Label ReponseCMDMesure = null;
+        private bool TransmissionMesure = false;
+
+        // Fonction relatif a la gestion des mesures
+
+        public void InitialiserTransMes(Label RepMsg, Label LabelMesPort, Label LabelMesTra)
+        {
+            LabelMesTrainee = LabelMesTra;
+            LabelMesPortance = LabelMesPort;
+            ReponseCMDMesure = RepMsg;
+            TransmissionMesure = true;
+            EnvoyerMessageSerie("START TRANSMISSION");
+
+        }
+
+        public void TarerCapteur()
+        {
+            EnvoyerMessageSerie("START TARAGE");
+        }
+
+        public bool EtatTransMes()
+        {
+            if(TransmissionMesure)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool EnregistrementMes()
+        {
+            if(!EnregistreMesure)
+            {
+                EnregistreMesure = true;
+                return false ;
+            }
+            EnregistreMesure = false;
+            return true;
+        }
+
+        public void ArreterTransMes()
+        {
+            EnvoyerMessageSerie("STOP TRANSMISSION");
+
+            ReponseCMDMesure.Text = "Transmission des mesures arrêtés";
+
+            LabelMesTrainee = null;
+            LabelMesPortance = null;
+            ReponseCMDMesure = null;
+
+
+            TransmissionMesure = false;
+            
+
+        }
+
+        public void VerifierCommandeMesure(string command)
+        {
+            if (!TransmissionMesure)
+                return;
+
+            bool CommandeAvecMessage;
+            string[] words = command.Split(' ');
+            if (words.Length < 3)
+            {
+                return;
+            }
+
+            // On vérifie que le premier mot de la commande est "PORTANCE" et que le troisième mot est "TRAINEE" et que le quatrième mot est "MSG"
+            if (words.Length > 4)
+            {
+                CommandeAvecMessage = true;
+            }else if (words[0] == "PORTANCE" && words[2] == "TRAINEE")
+            {
+                CommandeAvecMessage = false;
+            }
+            else
+            {
+                return;
+            }
+
+                
+                float portance, trainee;
+            if (!float.TryParse(words[1], out portance) || !float.TryParse(words[3], out trainee))
+            {
+                return;
+            }
+            if (CommandeAvecMessage)
+            {
+                // On fusion tous les mots qui suivent dans une chaîne de caractères
+                string message = "";
+                for (int i = 5; i < words.Length; i++)
+                {
+                    message += words[i] + " ";
+                }
+
+                // On enleve l'espace en fin de chaîne
+                message = message.TrimEnd();
+
+                ReponseCMDMesure.Text = message;
+            }
+
+            if (EnregistreMesure) {
+                ListeMesureTrainee.Add(trainee);
+                ListeMesurePortance.Add(portance);
+            }
+
+
+            LabelMesTrainee.Invoke(new Action(() => LabelMesTrainee.Text = words[1]));
+            LabelMesPortance.Invoke(new Action(() => LabelMesPortance.Text = words[3]));
+
+        }
 
 
         // Fonction relatif a la liaison a la BDD
@@ -97,7 +218,7 @@ namespace Eolia_IHM.Properties
 
         public bool SerialisConnected()
         {
-            if (StartedSerial)
+            if (serialPort != null)
             {
                 return true;
             }
@@ -119,18 +240,18 @@ namespace Eolia_IHM.Properties
 
         }
 
-        public static void FermerLiaisonSerie(string portChoisit)
+        public  void FermerLiaisonSerie(string portChoisit)
         {
             if (serialPort.PortName == portChoisit)
             {
                 // fermer le port série
                 serialPort.Close();
                 SerialLogBox.Text = "Liaison Série -> Arrèté";
-                StartedSerial = false;
+                
             }
         }
         
-        public static void InitialiserLiaisonSerie(string portChoisit, TextBox logTextBox)
+        public void InitialiserLiaisonSerie(string portChoisit, TextBox logTextBox)
         {
             SerialLogBox = logTextBox;
 
@@ -149,7 +270,8 @@ namespace Eolia_IHM.Properties
                 serialPort.ErrorReceived += DesQueErreurRecu;
                 serialPort.Open();
                 SerialLogBox.Text = "Liaison Série -> Démarrée";
-                StartedSerial = true;
+                
+
             }
             else
             {
@@ -169,7 +291,7 @@ namespace Eolia_IHM.Properties
         }
 
 
-        private static void DesQueDonneesRecu(object port, SerialDataReceivedEventArgs e)
+        private void DesQueDonneesRecu(object port, SerialDataReceivedEventArgs e)
         {
             // récupérer l'objet SerialPort qui a déclenché l'événement
             SerialPort portSerie = (SerialPort)port;
@@ -178,9 +300,10 @@ namespace Eolia_IHM.Properties
             string data = portSerie.ReadExisting();
 
             // donnée a traité sur data
+            VerifierCommandeMesure(data);
         }
 
-        private static void DesQueErreurRecu(object port, SerialErrorReceivedEventArgs e)
+        private void DesQueErreurRecu(object port, SerialErrorReceivedEventArgs e)
         {
             
             SerialPort portSerie = (SerialPort)port;
