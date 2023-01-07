@@ -97,7 +97,13 @@ namespace Eolia_IHM
 
         private void BoutonOngletMesure_Click(object sender, EventArgs e)
         {
-            EoliaFnct.AfficherOnglet(GroupBoxMesure);
+            if(EoliaFnct.SerialisConnected()){
+                EoliaFnct.AfficherOnglet(GroupBoxMesure);
+            }
+            else
+            {
+                MessageBox.Show("Vous ne pouvez pas acceder a la gestion des mesures si la liaison série n'est pas fonctionnelle ");
+            }
         }
 
         private void BoutonOngletConfig_Click(object sender, EventArgs e)
@@ -210,7 +216,7 @@ namespace Eolia_IHM
 
         private void buttonDemarrerLiaisonSerie_Click(object sender, EventArgs e)
         {
-            EoliaUtils.InitialiserLiaisonSerie(ComboxBoxChoixPortSerie.Text, textBoxEtatLiaisonSerie);
+            EoliaFnct.InitialiserLiaisonSerie(ComboxBoxChoixPortSerie.Text, textBoxEtatLiaisonSerie);
             if (EoliaFnct.SerialisConnected())
             {
                 buttonArreterLiaisonSerie.Enabled = true;
@@ -221,7 +227,7 @@ namespace Eolia_IHM
 
         private void buttonArreterLiaisonSerie_Click(object sender, EventArgs e)
         {
-            EoliaUtils.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
+            EoliaFnct.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
             if (!EoliaFnct.SerialisConnected())
             {
                 buttonArreterLiaisonSerie.Enabled = false;
@@ -258,6 +264,44 @@ namespace Eolia_IHM
         private void BoutonRecharger_Click(object sender, EventArgs e)
         {
             Recharger();
+        }
+
+        private void buttonSwitchTransmissionMesure_Click(object sender, EventArgs e)
+        {
+            if (EoliaFnct.EtatTransMes())
+            {
+                buttonSwitchTransmissionMesure.Text = "Demarrer transmission mesure";
+                EoliaFnct.ArreterTransMes();
+            }
+            else
+            {
+                buttonSwitchTransmissionMesure.Text = "Arrêter transmission mesure";
+                EoliaFnct.InitialiserTransMes(labelMsgMesure, labelMesPortance, labelMesTainee);
+            }
+        }
+
+        private void buttonSwitchEnregistrementMesure_Click(object sender, EventArgs e)
+        {
+            if (EoliaFnct.EnregistrementMes())
+            {
+                buttonSwitchEnregistrementMesure.Text = "Demarrer enregistrement mesure";
+            }
+            else
+            {
+                buttonSwitchEnregistrementMesure.Text = "Arrêter enregistrement mesure";
+            }
+        }
+
+        private void buttonTarCapteurs_Click(object sender, EventArgs e)
+        {
+            if (EoliaFnct.EtatTransMes())
+            {
+                EoliaFnct.TarerCapteur();
+            }
+            else
+            {
+                labelMsgMesure.Text = "Vous devez établir une transmission avant de tarer";
+            }
         }
     }
 }
