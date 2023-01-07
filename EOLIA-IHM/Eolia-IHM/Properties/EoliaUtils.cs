@@ -53,7 +53,7 @@ namespace Eolia_IHM.Properties
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            ReponseCMDMesure.Text = "Les mesures seront affichés ci-dessus";
+            ReponseCMDMesure.Text = "Les mesures seront affichés ci-dessus !";
             EnvoyerMessageSerie("START");
 
         }
