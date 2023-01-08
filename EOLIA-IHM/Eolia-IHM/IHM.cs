@@ -101,7 +101,7 @@ namespace Eolia_IHM
 
         private void BoutonOngletMesure_Click(object sender, EventArgs e)
         {
-            if(EoliaFnct.SerialisConnected()){
+            if (EoliaFnct.SerialisConnected()) {
                 EoliaFnct.AfficherOnglet(GroupBoxMesure);
             }
             else
@@ -119,8 +119,9 @@ namespace Eolia_IHM
             else
             {
                 EoliaFnct.AfficherOnglet(GroupBoxConfig);
+                EoliaFnct.AfficherPortSerie(ComboxBoxChoixPortSerie);
             }
-            
+
         }
 
         private void BoutonSauvegarde_Click(object sender, EventArgs e)
@@ -233,18 +234,18 @@ namespace Eolia_IHM
         {
             EoliaFnct.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
 
-                buttonArreterLiaisonSerie.Enabled = false;
-                buttonDemarrerLiaisonSerie.Enabled = true;
-            
+            buttonArreterLiaisonSerie.Enabled = false;
+            buttonDemarrerLiaisonSerie.Enabled = true;
+
         }
 
         private async void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
         {
             buttonDemarrerLiaisonBDD.Enabled = false;
-            await EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text, 
-                                            textBoxUsernameMYSQL.Text, 
+            await EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text,
+                                            textBoxUsernameMYSQL.Text,
                                             textBoxMotdepasseMYSQL.Text,
-                                            textBoxAdresseMYSQL.Text, 
+                                            textBoxAdresseMYSQL.Text,
                                             textBoxEtatLiaisonBDD);
             if (EoliaFnct.BDDisConnected())
                 buttonArreterLiaisonBDD.Enabled = true;
@@ -261,7 +262,7 @@ namespace Eolia_IHM
                 buttonDemarrerLiaisonBDD.Enabled = true;
                 buttonArreterLiaisonBDD.Enabled = false;
             }
-                
+
         }
 
         private void BoutonRecharger_Click(object sender, EventArgs e)
@@ -285,7 +286,7 @@ namespace Eolia_IHM
 
         private void buttonSwitchEnregistrementMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaFnct.EnregistrementMes())
+            if (EoliaFnct.EnregistrementMes(labelSessionMesureMoyTrainee, labelSessionMesureMoyPort, labelNomMesureSession, labelNombreMesureSession, labelSessionMesureEtat))
             {
                 buttonSwitchEnregistrementMesure.Text = "Demarrer enregistrement mesure";
             }
@@ -307,6 +308,35 @@ namespace Eolia_IHM
             }
         }
 
-
+        private async void buttonSauvegarderSession_Click(object sender, EventArgs e)
+        {
+            buttonSauvegarderSession.Enabled = false;
+            if (EoliaFnct.BDDisConnected())
+            {
+                if (EoliaFnct.SessionMesureDispo())
+                {
+                    string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + labelSessionMesureMoyPort.Text + "', '" + labelSessionMesureMoyTrainee.Text + "', '" + labelNomMesureSession.Text + "');";
+                    int ResultRequete = await EoliaFnct.ExecuterRequeteSansReponse(Requete);
+                    if (ResultRequete != 0)
+                    {
+                        buttonSauvegarderSession.Text = "Sauvegarder cette session (Succés)";
+                    }
+                    else
+                    {
+                        buttonSauvegarderSession.Text = "Sauvegarder cette session (Echec)";
+                    }
+                }
+                else
+                {
+                    buttonSauvegarderSession.Text = "Sauvegarder cette session (Session vide)";
+                }
+            }
+            else
+            {
+                buttonSauvegarderSession.Text = "Sauvegarder cette session (Non connecté)";
+            }
+            buttonSauvegarderSession.Enabled = true;
+    
+        }
     }
 }

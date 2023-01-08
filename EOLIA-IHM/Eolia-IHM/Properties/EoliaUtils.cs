@@ -7,6 +7,7 @@ using System.IO.Ports;
 //using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
+using System.IO;
 //using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
@@ -44,6 +45,12 @@ namespace Eolia_IHM.Properties
         private Label LabelMesPortance = null;
         private Label ReponseCMDMesure = null;
         private bool TransmissionMesure = false;
+        private Label LabelValMoyenneTrainee = null;
+        private Label LabelValMoyennePortance = null;
+        private Label LabelNombreDeMesure = null;
+        private Label LabelNomSessionMesure = null;
+        private string NomSessionMesure = null;
+        private Label LabelEtatSession = null;
 
         // Fonction relatif a la gestion des mesures
 
@@ -72,14 +79,44 @@ namespace Eolia_IHM.Properties
             return false;
         }
 
-        public bool EnregistrementMes()
+        public bool SessionMesureDispo()
+        {
+            if (ListeMesurePortance != null)
+            {
+                return true;
+            }
+            return false;
+        }
+       
+
+        public bool EnregistrementMes(Label labelValMoyenneTrainee, Label labelValMoyennePortance, Label labelNomSessionMesure, Label labelNombreDeMesure, Label labelEtatSession)
         {
             if(!EnregistreMesure)
             {
+                ListeMesureTrainee = null;
+                ListeMesurePortance = null;
+                ListeMesurePortance = new List<float>();
+                ListeMesureTrainee = new List<float>();
+                LabelNomSessionMesure = labelNomSessionMesure;
+                LabelNombreDeMesure = labelNombreDeMesure;
+                LabelValMoyennePortance = labelValMoyennePortance;
+                LabelValMoyenneTrainee = labelValMoyenneTrainee;
+                LabelEtatSession = labelEtatSession;
+
+
+                NomSessionMesure = DateTime.Now.ToString("MM/dd/yyyy_HH:mm");
+               
+                LabelEtatSession.Text = "Oui";
+                LabelNomSessionMesure.Text = NomSessionMesure;
+                LabelValMoyennePortance.Text = "0";
+                LabelValMoyenneTrainee.Text = "0";
+                LabelNombreDeMesure.Text = "0";
                 EnregistreMesure = true;
                 return false ;
             }
+
             EnregistreMesure = false;
+            LabelEtatSession.Text = "Non";
             return true;
         }
 
@@ -148,6 +185,11 @@ namespace Eolia_IHM.Properties
             if (EnregistreMesure) {
                 ListeMesureTrainee.Add(trainee);
                 ListeMesurePortance.Add(portance);
+
+                LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = ListeMesureTrainee.Average().ToString()));
+                LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = ListeMesurePortance.Average().ToString()));
+                LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text=ListeMesurePortance.Count().ToString() ));
+
             }
 
 
@@ -259,20 +301,39 @@ namespace Eolia_IHM.Properties
 
             if (SerialPort.GetPortNames().Contains(portChoisit))
             {
-                serialPort = new SerialPort(portChoisit);
-                // param liaison série
-                serialPort.BaudRate = 9600;
-                serialPort.Parity = Parity.None;
-                serialPort.StopBits = StopBits.One;
-                serialPort.DataBits = 8;
-                serialPort.Handshake = Handshake.None;
+                try
+                {
+                    using (serialPort = new SerialPort(portChoisit))
+                    {
+                        // param liaison série
+                        serialPort.BaudRate = 9600;
+                        serialPort.Parity = Parity.None;
+                        serialPort.StopBits = StopBits.One;
+                        serialPort.DataBits = 8;
+                        serialPort.Handshake = Handshake.None;
 
-                // définir les événements qui seront gérés de manière asynchrone
-                serialPort.DataReceived += DesQueDonneesRecu;
-                serialPort.ErrorReceived += DesQueErreurRecu;
-                serialPort.Open();
-                SerialLogBox.Text = "Liaison Série -> Démarrée";
-                
+                        // définir les événements qui seront gérés de manière asynchrone
+                        serialPort.DataReceived += DesQueDonneesRecu;
+                        serialPort.ErrorReceived += DesQueErreurRecu;
+                        serialPort.Open();
+                        SerialLogBox.Text = "Liaison Série -> Démarrée";
+                    }
+                }
+                catch (IOException ex)
+                {
+                    SerialLogBox.Text = "Liaison Série -> " + ex;
+                    serialPort = null;
+                }
+                catch (UnauthorizedAccessException ex)
+                {
+                    SerialLogBox.Text = "Liaison Série -> Acces refusé";
+                    serialPort = null;
+                }
+                catch (ArgumentException ex)
+                {
+                    SerialLogBox.Text = "Liaison Série -> " + ex;
+                    serialPort = null;
+                }
 
             }
             else
