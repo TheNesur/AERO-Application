@@ -8,6 +8,7 @@ using System.IO.Ports;
 using MySql.Data.MySqlClient;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 //using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 
@@ -83,7 +84,8 @@ namespace Eolia_IHM.Properties
         {
             if (ListeMesurePortance != null)
             {
-                return true;
+                if(ListeMesurePortance.Count() > 0)
+                    return true;
             }
             return false;
         }
@@ -426,6 +428,12 @@ namespace Eolia_IHM.Properties
                 
             }
         
+        }
+
+        public void MsgBoxNonBloquante(string Msg)
+        {
+            Thread MsgBoxThread = new Thread(() => MessageBox.Show(Msg));
+            MsgBoxThread.Start();
         }
 
         // Fonction relatif a la sauvegarde et au chargement des fichiers de configuration

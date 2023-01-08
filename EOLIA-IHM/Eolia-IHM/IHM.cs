@@ -304,7 +304,7 @@ namespace Eolia_IHM
             }
             else
             {
-                buttonSwitchTransmissionMesure.Text = "Vous devez établir une transmission avant de tarer";
+                EoliaFnct.MsgBoxNonBloquante("Vous devez établir une transmission avant de tarer");
             }
         }
 
@@ -319,21 +319,21 @@ namespace Eolia_IHM
                     int ResultRequete = await EoliaFnct.ExecuterRequeteSansReponse(Requete);
                     if (ResultRequete != 0)
                     {
-                        buttonSauvegarderSession.Text = "Sauvegarder cette session (Succés)";
+                        EoliaFnct.MsgBoxNonBloquante("Données envoyées avec Succés");
                     }
                     else
                     {
-                        buttonSauvegarderSession.Text = "Sauvegarder cette session (Echec)";
+                        EoliaFnct.MsgBoxNonBloquante("Echec de la transmission");
                     }
                 }
                 else
                 {
-                    buttonSauvegarderSession.Text = "Sauvegarder cette session (Session vide)";
+                    EoliaFnct.MsgBoxNonBloquante("La session de mesure est inexistante ou vide");
                 }
             }
             else
             {
-                buttonSauvegarderSession.Text = "Sauvegarder cette session (Non connecté)";
+                EoliaFnct.MsgBoxNonBloquante("Non connecté a la BDD, Transmission impossible");
             }
             buttonSauvegarderSession.Enabled = true;
     

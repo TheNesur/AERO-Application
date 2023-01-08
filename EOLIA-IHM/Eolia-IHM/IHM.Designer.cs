@@ -44,6 +44,19 @@
             this.textBoxEtatLiaisonSerie = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.GroupBoxMesure = new System.Windows.Forms.GroupBox();
+            this.groupBoxMesureValeurTheorique = new System.Windows.Forms.GroupBox();
+            this.groupBoxSessionMesure = new System.Windows.Forms.GroupBox();
+            this.buttonSauvegarderSession = new System.Windows.Forms.Button();
+            this.labelSessionMesureEtat = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.labelSessionMesureMoyTrainee = new System.Windows.Forms.Label();
+            this.labelSessionMesureMoyPort = new System.Windows.Forms.Label();
+            this.labelNombreMesureSession = new System.Windows.Forms.Label();
+            this.labelNomMesureSession = new System.Windows.Forms.Label();
             this.groupBoxAffichageMesure = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.labelMesPortance = new System.Windows.Forms.Label();
@@ -91,26 +104,13 @@
             this.BoutonNumpad1 = new System.Windows.Forms.Button();
             this.BoutonRecharger = new System.Windows.Forms.Button();
             this.BoutonSauvegarde = new System.Windows.Forms.Button();
-            this.groupBoxSessionMesure = new System.Windows.Forms.GroupBox();
-            this.labelNomMesureSession = new System.Windows.Forms.Label();
-            this.labelNombreMesureSession = new System.Windows.Forms.Label();
-            this.labelSessionMesureMoyPort = new System.Windows.Forms.Label();
-            this.labelSessionMesureMoyTrainee = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.labelSessionMesureEtat = new System.Windows.Forms.Label();
-            this.buttonSauvegarderSession = new System.Windows.Forms.Button();
-            this.groupBoxMesureValeurTheorique = new System.Windows.Forms.GroupBox();
             this.ConteneurOngletBouton.SuspendLayout();
             this.GroupBoxEtat.SuspendLayout();
             this.GroupBoxMesure.SuspendLayout();
+            this.groupBoxSessionMesure.SuspendLayout();
             this.groupBoxAffichageMesure.SuspendLayout();
             this.GroupBoxConfig.SuspendLayout();
             this.GroupBoxNumpad.SuspendLayout();
-            this.groupBoxSessionMesure.SuspendLayout();
             this.SuspendLayout();
             // 
             // EOLIATitre
@@ -304,6 +304,135 @@
             this.GroupBoxMesure.TabStop = false;
             this.GroupBoxMesure.Text = "Mesure";
             this.GroupBoxMesure.Visible = false;
+            // 
+            // groupBoxMesureValeurTheorique
+            // 
+            this.groupBoxMesureValeurTheorique.Location = new System.Drawing.Point(392, 43);
+            this.groupBoxMesureValeurTheorique.Name = "groupBoxMesureValeurTheorique";
+            this.groupBoxMesureValeurTheorique.Size = new System.Drawing.Size(214, 291);
+            this.groupBoxMesureValeurTheorique.TabIndex = 10;
+            this.groupBoxMesureValeurTheorique.TabStop = false;
+            this.groupBoxMesureValeurTheorique.Text = "Veleur théorique";
+            // 
+            // groupBoxSessionMesure
+            // 
+            this.groupBoxSessionMesure.Controls.Add(this.buttonSauvegarderSession);
+            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureEtat);
+            this.groupBoxSessionMesure.Controls.Add(this.label20);
+            this.groupBoxSessionMesure.Controls.Add(this.label19);
+            this.groupBoxSessionMesure.Controls.Add(this.label18);
+            this.groupBoxSessionMesure.Controls.Add(this.label17);
+            this.groupBoxSessionMesure.Controls.Add(this.label16);
+            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureMoyTrainee);
+            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureMoyPort);
+            this.groupBoxSessionMesure.Controls.Add(this.labelNombreMesureSession);
+            this.groupBoxSessionMesure.Controls.Add(this.labelNomMesureSession);
+            this.groupBoxSessionMesure.Location = new System.Drawing.Point(23, 141);
+            this.groupBoxSessionMesure.Name = "groupBoxSessionMesure";
+            this.groupBoxSessionMesure.Size = new System.Drawing.Size(343, 193);
+            this.groupBoxSessionMesure.TabIndex = 9;
+            this.groupBoxSessionMesure.TabStop = false;
+            this.groupBoxSessionMesure.Text = "Session de mesure";
+            // 
+            // buttonSauvegarderSession
+            // 
+            this.buttonSauvegarderSession.Location = new System.Drawing.Point(10, 159);
+            this.buttonSauvegarderSession.Name = "buttonSauvegarderSession";
+            this.buttonSauvegarderSession.Size = new System.Drawing.Size(327, 23);
+            this.buttonSauvegarderSession.TabIndex = 10;
+            this.buttonSauvegarderSession.Text = "Sauvegarder cette session";
+            this.buttonSauvegarderSession.UseVisualStyleBackColor = true;
+            this.buttonSauvegarderSession.Click += new System.EventHandler(this.buttonSauvegarderSession_Click);
+            // 
+            // labelSessionMesureEtat
+            // 
+            this.labelSessionMesureEtat.AutoSize = true;
+            this.labelSessionMesureEtat.Location = new System.Drawing.Point(199, 125);
+            this.labelSessionMesureEtat.Name = "labelSessionMesureEtat";
+            this.labelSessionMesureEtat.Size = new System.Drawing.Size(32, 16);
+            this.labelSessionMesureEtat.TabIndex = 9;
+            this.labelSessionMesureEtat.Text = "Non";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(15, 125);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(120, 16);
+            this.label20.TabIndex = 8;
+            this.label20.Text = "Session démarée :";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(13, 93);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(155, 16);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Valeur moyenne trainée :";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(13, 69);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(167, 16);
+            this.label18.TabIndex = 6;
+            this.label18.Text = "Valeur moyenne portance :";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(15, 47);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(129, 16);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Nombre de mesure :";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 21);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(125, 16);
+            this.label16.TabIndex = 4;
+            this.label16.Text = "Nom de la session :";
+            // 
+            // labelSessionMesureMoyTrainee
+            // 
+            this.labelSessionMesureMoyTrainee.AutoSize = true;
+            this.labelSessionMesureMoyTrainee.Location = new System.Drawing.Point(199, 93);
+            this.labelSessionMesureMoyTrainee.Name = "labelSessionMesureMoyTrainee";
+            this.labelSessionMesureMoyTrainee.Size = new System.Drawing.Size(23, 16);
+            this.labelSessionMesureMoyTrainee.TabIndex = 3;
+            this.labelSessionMesureMoyTrainee.Text = "XX";
+            // 
+            // labelSessionMesureMoyPort
+            // 
+            this.labelSessionMesureMoyPort.AutoSize = true;
+            this.labelSessionMesureMoyPort.Location = new System.Drawing.Point(199, 69);
+            this.labelSessionMesureMoyPort.Name = "labelSessionMesureMoyPort";
+            this.labelSessionMesureMoyPort.Size = new System.Drawing.Size(23, 16);
+            this.labelSessionMesureMoyPort.TabIndex = 2;
+            this.labelSessionMesureMoyPort.Text = "XX";
+            // 
+            // labelNombreMesureSession
+            // 
+            this.labelNombreMesureSession.AutoSize = true;
+            this.labelNombreMesureSession.Location = new System.Drawing.Point(199, 47);
+            this.labelNombreMesureSession.Name = "labelNombreMesureSession";
+            this.labelNombreMesureSession.Size = new System.Drawing.Size(23, 16);
+            this.labelNombreMesureSession.TabIndex = 1;
+            this.labelNombreMesureSession.Text = "XX";
+            // 
+            // labelNomMesureSession
+            // 
+            this.labelNomMesureSession.AutoSize = true;
+            this.labelNomMesureSession.Location = new System.Drawing.Point(199, 21);
+            this.labelNomMesureSession.Name = "labelNomMesureSession";
+            this.labelNomMesureSession.Size = new System.Drawing.Size(23, 16);
+            this.labelNomMesureSession.TabIndex = 0;
+            this.labelNomMesureSession.Text = "XX";
             // 
             // groupBoxAffichageMesure
             // 
@@ -828,135 +957,6 @@
             this.BoutonSauvegarde.UseVisualStyleBackColor = true;
             this.BoutonSauvegarde.Click += new System.EventHandler(this.BoutonSauvegarde_Click);
             // 
-            // groupBoxSessionMesure
-            // 
-            this.groupBoxSessionMesure.Controls.Add(this.buttonSauvegarderSession);
-            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureEtat);
-            this.groupBoxSessionMesure.Controls.Add(this.label20);
-            this.groupBoxSessionMesure.Controls.Add(this.label19);
-            this.groupBoxSessionMesure.Controls.Add(this.label18);
-            this.groupBoxSessionMesure.Controls.Add(this.label17);
-            this.groupBoxSessionMesure.Controls.Add(this.label16);
-            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureMoyTrainee);
-            this.groupBoxSessionMesure.Controls.Add(this.labelSessionMesureMoyPort);
-            this.groupBoxSessionMesure.Controls.Add(this.labelNombreMesureSession);
-            this.groupBoxSessionMesure.Controls.Add(this.labelNomMesureSession);
-            this.groupBoxSessionMesure.Location = new System.Drawing.Point(23, 141);
-            this.groupBoxSessionMesure.Name = "groupBoxSessionMesure";
-            this.groupBoxSessionMesure.Size = new System.Drawing.Size(343, 193);
-            this.groupBoxSessionMesure.TabIndex = 9;
-            this.groupBoxSessionMesure.TabStop = false;
-            this.groupBoxSessionMesure.Text = "Session de mesure";
-            // 
-            // labelNomMesureSession
-            // 
-            this.labelNomMesureSession.AutoSize = true;
-            this.labelNomMesureSession.Location = new System.Drawing.Point(199, 21);
-            this.labelNomMesureSession.Name = "labelNomMesureSession";
-            this.labelNomMesureSession.Size = new System.Drawing.Size(23, 16);
-            this.labelNomMesureSession.TabIndex = 0;
-            this.labelNomMesureSession.Text = "XX";
-            // 
-            // labelNombreMesureSession
-            // 
-            this.labelNombreMesureSession.AutoSize = true;
-            this.labelNombreMesureSession.Location = new System.Drawing.Point(199, 47);
-            this.labelNombreMesureSession.Name = "labelNombreMesureSession";
-            this.labelNombreMesureSession.Size = new System.Drawing.Size(23, 16);
-            this.labelNombreMesureSession.TabIndex = 1;
-            this.labelNombreMesureSession.Text = "XX";
-            // 
-            // labelSessionMesureMoyPort
-            // 
-            this.labelSessionMesureMoyPort.AutoSize = true;
-            this.labelSessionMesureMoyPort.Location = new System.Drawing.Point(199, 69);
-            this.labelSessionMesureMoyPort.Name = "labelSessionMesureMoyPort";
-            this.labelSessionMesureMoyPort.Size = new System.Drawing.Size(23, 16);
-            this.labelSessionMesureMoyPort.TabIndex = 2;
-            this.labelSessionMesureMoyPort.Text = "XX";
-            // 
-            // labelSessionMesureMoyTrainee
-            // 
-            this.labelSessionMesureMoyTrainee.AutoSize = true;
-            this.labelSessionMesureMoyTrainee.Location = new System.Drawing.Point(199, 93);
-            this.labelSessionMesureMoyTrainee.Name = "labelSessionMesureMoyTrainee";
-            this.labelSessionMesureMoyTrainee.Size = new System.Drawing.Size(23, 16);
-            this.labelSessionMesureMoyTrainee.TabIndex = 3;
-            this.labelSessionMesureMoyTrainee.Text = "XX";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(15, 21);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(125, 16);
-            this.label16.TabIndex = 4;
-            this.label16.Text = "Nom de la session :";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 47);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(129, 16);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Nombre de mesure :";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 69);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(167, 16);
-            this.label18.TabIndex = 6;
-            this.label18.Text = "Valeur moyenne portance :";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 93);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(155, 16);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Valeur moyenne trainée :";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(15, 125);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(120, 16);
-            this.label20.TabIndex = 8;
-            this.label20.Text = "Session démarée :";
-            // 
-            // labelSessionMesureEtat
-            // 
-            this.labelSessionMesureEtat.AutoSize = true;
-            this.labelSessionMesureEtat.Location = new System.Drawing.Point(199, 125);
-            this.labelSessionMesureEtat.Name = "labelSessionMesureEtat";
-            this.labelSessionMesureEtat.Size = new System.Drawing.Size(32, 16);
-            this.labelSessionMesureEtat.TabIndex = 9;
-            this.labelSessionMesureEtat.Text = "Non";
-            // 
-            // buttonSauvegarderSession
-            // 
-            this.buttonSauvegarderSession.Location = new System.Drawing.Point(10, 159);
-            this.buttonSauvegarderSession.Name = "buttonSauvegarderSession";
-            this.buttonSauvegarderSession.Size = new System.Drawing.Size(327, 23);
-            this.buttonSauvegarderSession.TabIndex = 10;
-            this.buttonSauvegarderSession.Text = "Sauvegarder cette session";
-            this.buttonSauvegarderSession.UseVisualStyleBackColor = true;
-            this.buttonSauvegarderSession.Click += new System.EventHandler(this.buttonSauvegarderSession_Click);
-            // 
-            // groupBoxMesureValeurTheorique
-            // 
-            this.groupBoxMesureValeurTheorique.Location = new System.Drawing.Point(392, 43);
-            this.groupBoxMesureValeurTheorique.Name = "groupBoxMesureValeurTheorique";
-            this.groupBoxMesureValeurTheorique.Size = new System.Drawing.Size(214, 291);
-            this.groupBoxMesureValeurTheorique.TabIndex = 10;
-            this.groupBoxMesureValeurTheorique.TabStop = false;
-            this.groupBoxMesureValeurTheorique.Text = "Veleur théorique";
-            // 
             // IHM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -965,9 +965,9 @@
             this.ClientSize = new System.Drawing.Size(1365, 738);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
-            this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
             this.Controls.Add(this.GroupBoxEtat);
+            this.Controls.Add(this.GroupBoxConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(4032, 1991);
@@ -980,13 +980,13 @@
             this.GroupBoxEtat.ResumeLayout(false);
             this.GroupBoxEtat.PerformLayout();
             this.GroupBoxMesure.ResumeLayout(false);
+            this.groupBoxSessionMesure.ResumeLayout(false);
+            this.groupBoxSessionMesure.PerformLayout();
             this.groupBoxAffichageMesure.ResumeLayout(false);
             this.groupBoxAffichageMesure.PerformLayout();
             this.GroupBoxConfig.ResumeLayout(false);
             this.GroupBoxConfig.PerformLayout();
             this.GroupBoxNumpad.ResumeLayout(false);
-            this.groupBoxSessionMesure.ResumeLayout(false);
-            this.groupBoxSessionMesure.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
