@@ -303,8 +303,8 @@ namespace Eolia_IHM.Properties
             {
                 try
                 {
-                    using (serialPort = new SerialPort(portChoisit))
-                    {
+                    serialPort = new SerialPort(portChoisit);
+                    
                         // param liaison série
                         serialPort.BaudRate = 9600;
                         serialPort.Parity = Parity.None;
@@ -317,7 +317,7 @@ namespace Eolia_IHM.Properties
                         serialPort.ErrorReceived += DesQueErreurRecu;
                         serialPort.Open();
                         SerialLogBox.Text = "Liaison Série -> Démarrée";
-                    }
+                    
                 }
                 catch (IOException ex)
                 {
