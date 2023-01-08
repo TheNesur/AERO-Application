@@ -83,7 +83,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.ComboxBoxChoixPortSerie = new System.Windows.Forms.ComboBox();
+            this.ComboxBoxChoixPortSerieCapteur = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -205,7 +205,7 @@
             // buttonArreterLiaisonBDD
             // 
             this.buttonArreterLiaisonBDD.Enabled = false;
-            this.buttonArreterLiaisonBDD.Location = new System.Drawing.Point(560, 89);
+            this.buttonArreterLiaisonBDD.Location = new System.Drawing.Point(585, 85);
             this.buttonArreterLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
             this.buttonArreterLiaisonBDD.Name = "buttonArreterLiaisonBDD";
             this.buttonArreterLiaisonBDD.Size = new System.Drawing.Size(129, 28);
@@ -216,7 +216,7 @@
             // 
             // buttonDemarrerLiaisonBDD
             // 
-            this.buttonDemarrerLiaisonBDD.Location = new System.Drawing.Point(423, 90);
+            this.buttonDemarrerLiaisonBDD.Location = new System.Drawing.Point(447, 85);
             this.buttonDemarrerLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDemarrerLiaisonBDD.Name = "buttonDemarrerLiaisonBDD";
             this.buttonDemarrerLiaisonBDD.Size = new System.Drawing.Size(129, 28);
@@ -227,7 +227,7 @@
             // 
             // textBoxEtatLiaisonBDD
             // 
-            this.textBoxEtatLiaisonBDD.Location = new System.Drawing.Point(189, 89);
+            this.textBoxEtatLiaisonBDD.Location = new System.Drawing.Point(216, 86);
             this.textBoxEtatLiaisonBDD.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEtatLiaisonBDD.Name = "textBoxEtatLiaisonBDD";
             this.textBoxEtatLiaisonBDD.Size = new System.Drawing.Size(209, 22);
@@ -247,7 +247,7 @@
             // buttonArreterLiaisonSerie
             // 
             this.buttonArreterLiaisonSerie.Enabled = false;
-            this.buttonArreterLiaisonSerie.Location = new System.Drawing.Point(560, 47);
+            this.buttonArreterLiaisonSerie.Location = new System.Drawing.Point(585, 47);
             this.buttonArreterLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.buttonArreterLiaisonSerie.Name = "buttonArreterLiaisonSerie";
             this.buttonArreterLiaisonSerie.Size = new System.Drawing.Size(129, 28);
@@ -258,7 +258,7 @@
             // 
             // buttonDemarrerLiaisonSerie
             // 
-            this.buttonDemarrerLiaisonSerie.Location = new System.Drawing.Point(423, 47);
+            this.buttonDemarrerLiaisonSerie.Location = new System.Drawing.Point(447, 47);
             this.buttonDemarrerLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDemarrerLiaisonSerie.Name = "buttonDemarrerLiaisonSerie";
             this.buttonDemarrerLiaisonSerie.Size = new System.Drawing.Size(129, 28);
@@ -269,7 +269,7 @@
             // 
             // textBoxEtatLiaisonSerie
             // 
-            this.textBoxEtatLiaisonSerie.Location = new System.Drawing.Point(189, 47);
+            this.textBoxEtatLiaisonSerie.Location = new System.Drawing.Point(216, 47);
             this.textBoxEtatLiaisonSerie.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEtatLiaisonSerie.Name = "textBoxEtatLiaisonSerie";
             this.textBoxEtatLiaisonSerie.Size = new System.Drawing.Size(209, 22);
@@ -282,9 +282,9 @@
             this.label12.Location = new System.Drawing.Point(52, 50);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(111, 16);
+            this.label12.Size = new System.Drawing.Size(156, 16);
             this.label12.TabIndex = 0;
-            this.label12.Text = "Etat liaison série :";
+            this.label12.Text = "Etat liaison série capteur:";
             // 
             // GroupBoxMesure
             // 
@@ -550,7 +550,7 @@
             this.GroupBoxConfig.Controls.Add(this.label8);
             this.GroupBoxConfig.Controls.Add(this.label7);
             this.GroupBoxConfig.Controls.Add(this.label6);
-            this.GroupBoxConfig.Controls.Add(this.ComboxBoxChoixPortSerie);
+            this.GroupBoxConfig.Controls.Add(this.ComboxBoxChoixPortSerieCapteur);
             this.GroupBoxConfig.Controls.Add(this.label5);
             this.GroupBoxConfig.Controls.Add(this.label4);
             this.GroupBoxConfig.Controls.Add(this.label3);
@@ -721,14 +721,14 @@
             this.label6.TabIndex = 9;
             this.label6.Text = "Cx";
             // 
-            // ComboxBoxChoixPortSerie
+            // ComboxBoxChoixPortSerieCapteur
             // 
-            this.ComboxBoxChoixPortSerie.FormattingEnabled = true;
-            this.ComboxBoxChoixPortSerie.Location = new System.Drawing.Point(187, 180);
-            this.ComboxBoxChoixPortSerie.Margin = new System.Windows.Forms.Padding(4);
-            this.ComboxBoxChoixPortSerie.Name = "ComboxBoxChoixPortSerie";
-            this.ComboxBoxChoixPortSerie.Size = new System.Drawing.Size(212, 24);
-            this.ComboxBoxChoixPortSerie.TabIndex = 8;
+            this.ComboxBoxChoixPortSerieCapteur.FormattingEnabled = true;
+            this.ComboxBoxChoixPortSerieCapteur.Location = new System.Drawing.Point(225, 183);
+            this.ComboxBoxChoixPortSerieCapteur.Margin = new System.Windows.Forms.Padding(4);
+            this.ComboxBoxChoixPortSerieCapteur.Name = "ComboxBoxChoixPortSerieCapteur";
+            this.ComboxBoxChoixPortSerieCapteur.Size = new System.Drawing.Size(212, 24);
+            this.ComboxBoxChoixPortSerieCapteur.TabIndex = 8;
             // 
             // label5
             // 
@@ -736,9 +736,9 @@
             this.label5.Location = new System.Drawing.Point(45, 186);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 16);
+            this.label5.Size = new System.Drawing.Size(168, 16);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Choix du port série :";
+            this.label5.Text = "Choix du port série capteur:";
             // 
             // label4
             // 
@@ -965,9 +965,9 @@
             this.ClientSize = new System.Drawing.Size(1365, 738);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
+            this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
             this.Controls.Add(this.GroupBoxEtat);
-            this.Controls.Add(this.GroupBoxConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(4032, 1991);
@@ -1033,7 +1033,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox ComboxBoxChoixPortSerie;
+        private System.Windows.Forms.ComboBox ComboxBoxChoixPortSerieCapteur;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;

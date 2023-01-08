@@ -57,7 +57,7 @@ namespace Eolia_IHM
             textBoxUsernameMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLUSERNAME");
             textBoxMotdepasseMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLPASSWORD");
             textBoxNomBDDMYSQL.Text = EoliaFnct.LireConfiguration("MYSQLDBNAME");
-            ComboxBoxChoixPortSerie.Text = EoliaFnct.LireConfiguration("SERIALPORT");
+            ComboxBoxChoixPortSerieCapteur.Text = EoliaFnct.LireConfiguration("PORTSERIECAPTEUR");
             textBoxCZ.Text = EoliaFnct.LireConfiguration("CZ");
             textBoxCX.Text = EoliaFnct.LireConfiguration("CX");
             textBoxS.Text = EoliaFnct.LireConfiguration("S");
@@ -71,7 +71,7 @@ namespace Eolia_IHM
             ListeValeurASauvegarder.Add("MYSQLUSERNAME", textBoxUsernameMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLPASSWORD", textBoxMotdepasseMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLDBNAME", textBoxNomBDDMYSQL.Text);
-            ListeValeurASauvegarder.Add("SERIALPORT", ComboxBoxChoixPortSerie.Text);
+            ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", ComboxBoxChoixPortSerieCapteur.Text);
             ListeValeurASauvegarder.Add("CZ", textBoxCZ.Text);
             ListeValeurASauvegarder.Add("CX", textBoxCX.Text);
             ListeValeurASauvegarder.Add("S", textBoxS.Text);
@@ -101,25 +101,25 @@ namespace Eolia_IHM
 
         private void BoutonOngletMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaFnct.SerialisConnected()) {
+            if (EoliaFnct.LiaisonSerieCapteur()) {
                 EoliaFnct.AfficherOnglet(GroupBoxMesure);
             }
             else
             {
-                MessageBox.Show("Vous ne pouvez pas acceder a la gestion des mesures si la liaison série n'est pas fonctionnelle ");
+                MessageBox.Show("Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle ");
             }
         }
 
         private void BoutonOngletConfig_Click(object sender, EventArgs e)
         {
-            if (EoliaFnct.BDDisConnected() || EoliaFnct.SerialisConnected())
+            if (EoliaFnct.BDDisConnected() || EoliaFnct.LiaisonSerieCapteur())
             {
                 MessageBox.Show("Vous ne pouvez pas modifier la configuration, si un ou plusieurs services sont lancés");
             }
             else
             {
                 EoliaFnct.AfficherOnglet(GroupBoxConfig);
-                EoliaFnct.AfficherPortSerie(ComboxBoxChoixPortSerie);
+                EoliaFnct.AfficherPortSerie(ComboxBoxChoixPortSerieCapteur);
             }
 
         }
@@ -216,13 +216,13 @@ namespace Eolia_IHM
 
         private void BoutonRechargerPortSerie_Click(object sender, EventArgs e)
         {
-            EoliaFnct.AfficherPortSerie(ComboxBoxChoixPortSerie);
+            EoliaFnct.AfficherPortSerie(ComboxBoxChoixPortSerieCapteur);
         }
 
         private void buttonDemarrerLiaisonSerie_Click(object sender, EventArgs e)
         {
-            EoliaFnct.InitialiserLiaisonSerie(ComboxBoxChoixPortSerie.Text, textBoxEtatLiaisonSerie);
-            if (EoliaFnct.SerialisConnected())
+            EoliaFnct.InitialiserLiaisonSerieCapteur(ComboxBoxChoixPortSerieCapteur.Text, textBoxEtatLiaisonSerie);
+            if (EoliaFnct.LiaisonSerieCapteur())
             {
                 buttonArreterLiaisonSerie.Enabled = true;
                 buttonDemarrerLiaisonSerie.Enabled = false;
@@ -232,7 +232,7 @@ namespace Eolia_IHM
 
         private void buttonArreterLiaisonSerie_Click(object sender, EventArgs e)
         {
-            EoliaFnct.FermerLiaisonSerie(ComboxBoxChoixPortSerie.Text);
+            EoliaFnct.FermerLiaisonSerieCapteur();
 
             buttonArreterLiaisonSerie.Enabled = false;
             buttonDemarrerLiaisonSerie.Enabled = true;

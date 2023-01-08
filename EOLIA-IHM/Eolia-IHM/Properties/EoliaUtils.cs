@@ -62,13 +62,13 @@ namespace Eolia_IHM.Properties
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
             ReponseCMDMesure.Text = "Les mesures reçues seront afichées au dessus";
-            EnvoyerMessageSerie("START");
+            EnvoyerMessageSerieCapteur("START");
 
         }
 
         public void TarerCapteur()
         {
-            EnvoyerMessageSerie("TARAGE");
+            EnvoyerMessageSerieCapteur("TARAGE");
         }
 
         public bool EtatTransMes()
@@ -124,7 +124,7 @@ namespace Eolia_IHM.Properties
 
         public void ArreterTransMes()
         {
-            EnvoyerMessageSerie("STOP");
+            EnvoyerMessageSerieCapteur("STOP");
 
             ReponseCMDMesure.Text = "Transmission des mesures arrêtés";
 
@@ -258,10 +258,10 @@ namespace Eolia_IHM.Properties
         }
 
 
-        // Fonction relatif a la liaison série
+        // Fonction relatif a la liaison série du capteur
 
 
-        public bool SerialisConnected()
+        public bool LiaisonSerieCapteur()
         {
             if (serialPort != null)
             {
@@ -285,19 +285,18 @@ namespace Eolia_IHM.Properties
 
         }
 
-        public  void FermerLiaisonSerie(string portChoisit)
+        public  void FermerLiaisonSerieCapteur()
         {
-            if (serialPort.PortName == portChoisit)
-            {
+
                 // fermer le port série
                 serialPort.Close();
                 serialPort = null;
                 SerialLogBox.Text = "Liaison Série -> Arrèté";
                 
-            }
+            
         }
         
-        public void InitialiserLiaisonSerie(string portChoisit, TextBox logTextBox)
+        public void InitialiserLiaisonSerieCapteur(string portChoisit, TextBox logTextBox)
         {
             SerialLogBox = logTextBox;
 
@@ -315,8 +314,8 @@ namespace Eolia_IHM.Properties
                         serialPort.Handshake = Handshake.None;
 
                         // définir les événements qui seront gérés de manière asynchrone
-                        serialPort.DataReceived += DesQueDonneesRecu;
-                        serialPort.ErrorReceived += DesQueErreurRecu;
+                        serialPort.DataReceived += DesQueDonneesRecuCapteur;
+                        serialPort.ErrorReceived += DesQueErreurRecuCapteur;
                         serialPort.Open();
                         SerialLogBox.Text = "Liaison Série -> Démarrée";
                     
@@ -346,7 +345,7 @@ namespace Eolia_IHM.Properties
             
         }
 
-        void EnvoyerMessageSerie(string message)
+        void EnvoyerMessageSerieCapteur(string message)
         {
             if (serialPort != null && serialPort.IsOpen)
             {
@@ -356,7 +355,7 @@ namespace Eolia_IHM.Properties
         }
 
 
-        private void DesQueDonneesRecu(object port, SerialDataReceivedEventArgs e)
+        private void DesQueDonneesRecuCapteur(object port, SerialDataReceivedEventArgs e)
         {
             // récupérer l'objet SerialPort qui a déclenché l'événement
             SerialPort portSerie = (SerialPort)port;
@@ -368,7 +367,7 @@ namespace Eolia_IHM.Properties
             VerifierCommandeMesure(data);
         }
 
-        private void DesQueErreurRecu(object port, SerialErrorReceivedEventArgs e)
+        private void DesQueErreurRecuCapteur(object port, SerialErrorReceivedEventArgs e)
         {
             
             SerialPort portSerie = (SerialPort)port;
