@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -75,7 +75,7 @@ namespace Eolia_IHM
             }
         }
 
-        public static void DestructLogsIHM()
+        public static void DestructLogs()
         {
             _mutex.WaitOne();
             try
