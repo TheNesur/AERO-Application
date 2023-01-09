@@ -212,25 +212,36 @@ namespace Eolia_IHM.Properties
             return false;
         }
 
-        public async Task InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox)
+        public void InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, TextBox SQLlogbox, Button BoutonStartSQL, Button BoutonStopSQL)
         {
                 string connexionString = "Server=" + Adresse + ";Database=" + NomBaseDeDonée + ";Uid=" + Utilisateur + ";Pwd=" + MotDePasse + ";";
                 //string connexionString = "Data Source=" + Adresse + ",3306;Initial Catalog = " + NomBaseDeDonée + "; User ID = " + Utilisateur + "; Password = " + MotDePasse;
                 SQLLogBox = SQLlogbox;
 
-                SqlConnexion = new MySqlConnection(connexionString);
+                BoutonStartSQL.Enabled = false;
 
-                try
+                SqlConnexion = new MySqlConnection(connexionString);
+                Task.Run(() =>
                 {
-                    await SqlConnexion.OpenAsync();
-                    SQLLogBox.Text = "BDD OK";
-                    BDDConnected = true;
-                }
-                catch (MySqlException ex)
-                {
-                    SQLLogBox.Text = "Erreur : " + ex.Message;
-                    SqlConnexion.Close();
-                }
+                    try
+                    {
+                        SqlConnexion.Open();
+                       // SQLLogBox.Text = "BDD OK";
+                        SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "BDD OK"));
+                        BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = false));
+                        BoutonStopSQL.Invoke(new Action(() => BoutonStopSQL.Enabled = true));
+                        BDDConnected = true;
+                    }
+                    catch (MySqlException ex)
+                    {
+                    //    SQLLogBox.Text = "Erreur : " + ex.Message;
+                        SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "Erreur : " + ex.Message));
+                        BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
+                        BoutonStopSQL.Invoke(new Action(() => BoutonStopSQL.Enabled = false));
+                        SqlConnexion.Close();
+                        SqlConnexion = null;
+                    }
+                });
             
         }
 
@@ -270,20 +281,7 @@ namespace Eolia_IHM.Properties
             return false;
         }
 
-        public void AfficherPortSerie(ComboBox cmbBox)
-        {
-            
-            cmbBox.Items.Clear();
-            
-            string[] ports = SerialPort.GetPortNames();
 
-            foreach (string port in ports)
-            {
-                cmbBox.Items.Add(port);
-            }
-
-
-        }
 
         public  void FermerLiaisonSerieCapteur()
         {
@@ -429,11 +427,7 @@ namespace Eolia_IHM.Properties
         
         }
 
-        public void MsgBoxNonBloquante(string Msg)
-        {
-            Thread MsgBoxThread = new Thread(() => MessageBox.Show(Msg));
-            MsgBoxThread.Start();
-        }
+
 
         // Fonction relatif a la sauvegarde et au chargement des fichiers de configuration
 
@@ -471,6 +465,30 @@ namespace Eolia_IHM.Properties
             //le configuration Userlevel.none ca permet simplement de signifier que c'est un fichier de configuration
             return config.AppSettings.Settings[champ].Value ;
 
+        }
+
+
+        // Fonction utilitaire
+
+        public void AfficherPortSerie(ComboBox cmbBox)
+        {
+
+            cmbBox.Items.Clear();
+
+            string[] ports = SerialPort.GetPortNames();
+
+            foreach (string port in ports)
+            {
+                cmbBox.Items.Add(port);
+            }
+
+
+        }
+
+        public void MsgBoxNonBloquante(string Msg)
+        {
+            Thread MsgBoxThread = new Thread(() => MessageBox.Show(Msg));
+            MsgBoxThread.Start();
         }
 
     }

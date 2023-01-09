@@ -965,9 +965,9 @@
             this.ClientSize = new System.Drawing.Size(1365, 738);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
+            this.Controls.Add(this.GroupBoxEtat);
             this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
-            this.Controls.Add(this.GroupBoxEtat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(4032, 1991);

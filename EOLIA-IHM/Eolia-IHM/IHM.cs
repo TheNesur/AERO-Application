@@ -239,18 +239,20 @@ namespace Eolia_IHM
 
         }
 
-        private async void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
+        private void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
         {
-            buttonDemarrerLiaisonBDD.Enabled = false;
-            await EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text,
+          //buttonDemarrerLiaisonBDD.Enabled = false;
+            EoliaFnct.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text,
                                             textBoxUsernameMYSQL.Text,
                                             textBoxMotdepasseMYSQL.Text,
                                             textBoxAdresseMYSQL.Text,
-                                            textBoxEtatLiaisonBDD);
-            if (EoliaFnct.BDDisConnected())
+                                            textBoxEtatLiaisonBDD,
+                                            buttonDemarrerLiaisonBDD,
+                                            buttonArreterLiaisonBDD);
+        /*    if (EoliaFnct.BDDisConnected())
                 buttonArreterLiaisonBDD.Enabled = true;
             else
-                buttonDemarrerLiaisonBDD.Enabled = true;
+                buttonDemarrerLiaisonBDD.Enabled = true; */
 
         }
 
