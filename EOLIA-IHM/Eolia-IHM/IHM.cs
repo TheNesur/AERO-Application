@@ -21,7 +21,7 @@ namespace Eolia_IHM
             InitializeComponent();
             if (!File.Exists("EoliaConfig.config"))
             {
-
+                
                 textBoxAdresseMYSQL.Text = "A MODIFIER";
                 textBoxUsernameMYSQL.Text = "A MODIFIER";
                 textBoxMotdepasseMYSQL.Text = "A MODIFIER";
@@ -45,6 +45,7 @@ namespace Eolia_IHM
             textBoxMotdepasseMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLPASSWORD");
             textBoxNomBDDMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLDBNAME");
             ComboxBoxChoixPortSerieCapteur.Text = EoliaUtils.LireConfiguration("PORTSERIECAPTEUR");
+            textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE");
             textBoxCZ.Text = EoliaUtils.LireConfiguration("CZ");
             textBoxCX.Text = EoliaUtils.LireConfiguration("CX");
             textBoxS.Text = EoliaUtils.LireConfiguration("S");
@@ -59,6 +60,7 @@ namespace Eolia_IHM
             ListeValeurASauvegarder.Add("MYSQLPASSWORD", textBoxMotdepasseMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLDBNAME", textBoxNomBDDMYSQL.Text);
             ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", ComboxBoxChoixPortSerieCapteur.Text);
+            ListeValeurASauvegarder.Add("NOMBREMESUREPARSECONDE", textBoxNbMesureSec.Text);
             ListeValeurASauvegarder.Add("CZ", textBoxCZ.Text);
             ListeValeurASauvegarder.Add("CX", textBoxCX.Text);
             ListeValeurASauvegarder.Add("S", textBoxS.Text);
@@ -269,7 +271,7 @@ namespace Eolia_IHM
             else
             {
                 buttonSwitchTransmissionMesure.Text = "Arrêter transmission mesure";
-                EoliaMes.InitialiserTransMes(labelMsgMesure, labelMesPortance, labelMesTainee);
+                EoliaMes.InitialiserTransMes(labelMsgMesure, labelMesPortance, labelMesTainee, textBoxNbMesureSec);
             }
         }
 
@@ -326,6 +328,11 @@ namespace Eolia_IHM
             }
             buttonSauvegarderSession.Enabled = true;
     
+        }
+
+        private void textBoxNbMesureSec_Click(object sender, EventArgs e)
+        {
+            EoliaUtils.TextBoxActif(textBoxNbMesureSec);
         }
     }
 }

@@ -41,14 +41,14 @@ namespace Eolia_IHM
 
         // Fonction relatif a la gestion des mesures
 
-        public static void InitialiserTransMes(Label RepMsg, Label LabelMesPort, Label LabelMesTra)
+        public static void InitialiserTransMes(Label RepMsg, Label LabelMesPort, Label LabelMesTra, TextBox nbMesureSec)
         {
             LabelMesTrainee = LabelMesTra;
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
             ReponseCMDMesure.Text = "Les mesures reçues seront afichées au dessus";
-            EnvoyerMessageSerieCapteur("START");
+            EnvoyerMessageSerieCapteur("START " + nbMesureSec.Text);
 
         }
 
@@ -92,7 +92,7 @@ namespace Eolia_IHM
                 LabelEtatSession = labelEtatSession;
 
 
-                NomSessionMesure = DateTime.Now.ToString("MM/dd/yyyy_HH:mm");
+                NomSessionMesure = DateTime.Now.ToString("MM/dd/yyyy_HH:mm:ss");
 
                 LabelEtatSession.Text = "Oui";
                 LabelNomSessionMesure.Text = NomSessionMesure;

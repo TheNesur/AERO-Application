@@ -67,6 +67,8 @@
             this.buttonSwitchEnregistrementMesure = new System.Windows.Forms.Button();
             this.buttonSwitchTransmissionMesure = new System.Windows.Forms.Button();
             this.GroupBoxConfig = new System.Windows.Forms.GroupBox();
+            this.textBoxNbMesureSec = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.BoutonRechargerPortSerie = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxS = new System.Windows.Forms.TextBox();
@@ -120,7 +122,7 @@
             this.EOLIATitre.Location = new System.Drawing.Point(581, 11);
             this.EOLIATitre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EOLIATitre.Name = "EOLIATitre";
-            this.EOLIATitre.Size = new System.Drawing.Size(149, 51);
+            this.EOLIATitre.Size = new System.Drawing.Size(118, 39);
             this.EOLIATitre.TabIndex = 2;
             this.EOLIATitre.Text = "EOLIA";
             // 
@@ -534,6 +536,8 @@
             // GroupBoxConfig
             // 
             this.GroupBoxConfig.BackColor = System.Drawing.Color.White;
+            this.GroupBoxConfig.Controls.Add(this.textBoxNbMesureSec);
+            this.GroupBoxConfig.Controls.Add(this.label21);
             this.GroupBoxConfig.Controls.Add(this.BoutonRechargerPortSerie);
             this.GroupBoxConfig.Controls.Add(this.label11);
             this.GroupBoxConfig.Controls.Add(this.textBoxS);
@@ -568,6 +572,23 @@
             this.GroupBoxConfig.TabStop = false;
             this.GroupBoxConfig.Text = "Configuration";
             this.GroupBoxConfig.Visible = false;
+            // 
+            // textBoxNbMesureSec
+            // 
+            this.textBoxNbMesureSec.Location = new System.Drawing.Point(698, 182);
+            this.textBoxNbMesureSec.Name = "textBoxNbMesureSec";
+            this.textBoxNbMesureSec.Size = new System.Drawing.Size(100, 22);
+            this.textBoxNbMesureSec.TabIndex = 26;
+            this.textBoxNbMesureSec.Click += new System.EventHandler(this.textBoxNbMesureSec_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(475, 186);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(208, 16);
+            this.label21.TabIndex = 25;
+            this.label21.Text = "Nombre de mesure par seconde :";
             // 
             // BoutonRechargerPortSerie
             // 
@@ -965,9 +986,9 @@
             this.ClientSize = new System.Drawing.Size(1365, 738);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
-            this.Controls.Add(this.GroupBoxEtat);
             this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
+            this.Controls.Add(this.GroupBoxEtat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximumSize = new System.Drawing.Size(4032, 1991);
@@ -1070,5 +1091,7 @@
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button buttonSauvegarderSession;
         private System.Windows.Forms.GroupBox groupBoxMesureValeurTheorique;
+        private System.Windows.Forms.TextBox textBoxNbMesureSec;
+        private System.Windows.Forms.Label label21;
     }
 }
