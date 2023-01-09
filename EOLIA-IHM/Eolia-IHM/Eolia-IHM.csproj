@@ -178,6 +178,8 @@
     <Compile Include="AccueilIHM.Designer.cs">
       <DependentUpon>AccueilIHM.cs</DependentUpon>
     </Compile>
+    <Compile Include="EoliaMes.cs" />
+    <Compile Include="EoliaSQL.cs" />
     <Compile Include="IHM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,7 +199,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="Properties\EoliaUtils.cs" />
+    <Compile Include="EoliaUtils.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
