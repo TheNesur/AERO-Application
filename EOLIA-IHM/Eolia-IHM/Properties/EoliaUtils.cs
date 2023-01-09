@@ -26,8 +26,8 @@ namespace Eolia_IHM.Properties
 
         // Variable relatif a la liaison série
 
-        private  SerialPort serialPort = null;
-        private  TextBox SerialLogBox = null;
+        private  SerialPort CapteurLiaisonSerie = null;
+        private  TextBox CapeurlLogBox = null;
        
 
         // Variable relatif a la liaison a la BDD
@@ -263,7 +263,7 @@ namespace Eolia_IHM.Properties
 
         public bool LiaisonSerieCapteur()
         {
-            if (serialPort != null)
+            if (CapteurLiaisonSerie != null)
             {
                 return true;
             }
@@ -288,58 +288,58 @@ namespace Eolia_IHM.Properties
         public  void FermerLiaisonSerieCapteur()
         {
 
-                // fermer le port série
-                serialPort.Close();
-                serialPort = null;
-                SerialLogBox.Text = "Liaison Série -> Arrèté";
+            // fermer le port série
+            CapteurLiaisonSerie.Close();
+            CapteurLiaisonSerie = null;
+            CapeurlLogBox.Text = "Liaison Série -> Arrèté";
                 
             
         }
         
         public void InitialiserLiaisonSerieCapteur(string portChoisit, TextBox logTextBox)
         {
-            SerialLogBox = logTextBox;
+            CapeurlLogBox = logTextBox;
 
             if (SerialPort.GetPortNames().Contains(portChoisit))
             {
                 try
                 {
-                    serialPort = new SerialPort(portChoisit);
-                    
-                        // param liaison série
-                        serialPort.BaudRate = 9600;
-                        serialPort.Parity = Parity.None;
-                        serialPort.StopBits = StopBits.One;
-                        serialPort.DataBits = 8;
-                        serialPort.Handshake = Handshake.None;
+                    CapteurLiaisonSerie = new SerialPort(portChoisit);
 
-                        // définir les événements qui seront gérés de manière asynchrone
-                        serialPort.DataReceived += DesQueDonneesRecuCapteur;
-                        serialPort.ErrorReceived += DesQueErreurRecuCapteur;
-                        serialPort.Open();
-                        SerialLogBox.Text = "Liaison Série -> Démarrée";
+                    // param liaison série
+                    CapteurLiaisonSerie.BaudRate = 9600;
+                    CapteurLiaisonSerie.Parity = Parity.None;
+                    CapteurLiaisonSerie.StopBits = StopBits.One;
+                    CapteurLiaisonSerie.DataBits = 8;
+                    CapteurLiaisonSerie.Handshake = Handshake.None;
+
+                    // définir les événements qui seront gérés de manière asynchrone
+                    CapteurLiaisonSerie.DataReceived += DesQueDonneesRecuCapteur;
+                    CapteurLiaisonSerie.ErrorReceived += DesQueErreurRecuCapteur;
+                    CapteurLiaisonSerie.Open();
+                    CapeurlLogBox.Text = "Liaison Série -> Démarrée";
                     
                 }
                 catch (IOException ex)
                 {
-                    SerialLogBox.Text = "Liaison Série -> " + ex;
-                    serialPort = null;
+                    CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    CapteurLiaisonSerie = null;
                 }
                 catch (UnauthorizedAccessException ex)
                 {
-                    SerialLogBox.Text = "Liaison Série -> Acces refusé";
-                    serialPort = null;
+                    CapeurlLogBox.Text = "Liaison Série -> Acces refusé";
+                    CapteurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
                 {
-                    SerialLogBox.Text = "Liaison Série -> " + ex;
-                    serialPort = null;
+                    CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    CapteurLiaisonSerie = null;
                 }
 
             }
             else
             {
-                SerialLogBox.Text = "Liaison Série -> Port Existant pas";
+                CapeurlLogBox.Text = "Liaison Série -> Port Existant pas";
             }
            
             
@@ -347,10 +347,10 @@ namespace Eolia_IHM.Properties
 
         void EnvoyerMessageSerieCapteur(string message)
         {
-            if (serialPort != null && serialPort.IsOpen)
+            if (CapteurLiaisonSerie != null && CapteurLiaisonSerie.IsOpen)
             {
                 // Envoi du message
-                serialPort.Write(message);
+                CapteurLiaisonSerie.Write(message);
             }
         }
 
@@ -372,7 +372,7 @@ namespace Eolia_IHM.Properties
             
             SerialPort portSerie = (SerialPort)port;
             portSerie.Close();
-            SerialLogBox.Text = "Liaison Série -> Arrêtée";
+            CapeurlLogBox.Text = "Liaison Série -> Arrêtée";
             // erreur reçu
         }
 
