@@ -1151,7 +1151,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1365, 738);
-            this.ControlBox = false;
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
             this.Controls.Add(this.GroupBoxConfig);
@@ -1159,7 +1158,6 @@
             this.Controls.Add(this.GroupBoxEtat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(1365, 738);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(1365, 738);

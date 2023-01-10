@@ -1,4 +1,5 @@
 ﻿using Eolia_IHM.Properties;
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,6 +36,7 @@ namespace Eolia_IHM
             {
 
                 Recharger();
+                Console.WriteLine("Eolia IHM");
             }
         }
 
@@ -79,6 +81,7 @@ namespace Eolia_IHM
             if (EoliaMes.EtatTransMes())
             {
                 EoliaMes.ArreterTransMes();
+                EoliaMes.FermerLiaisonSerieCapteur();
             }
             Application.Exit();
         }

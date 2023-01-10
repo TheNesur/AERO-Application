@@ -1,10 +1,13 @@
 ﻿using MySql.Data.MySqlClient;
+using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -17,9 +20,10 @@ namespace Eolia_IHM
 
         // Variable relatif a la liaison série
 
+        private static bool LireSerie = true;
         private static SerialPort CapteurLiaisonSerie = null;
         private static TextBox CapeurlLogBox = null;
-
+        private static Thread readThread;
 
         // Variable relatif a la gestion ges mesures
 
@@ -168,7 +172,9 @@ namespace Eolia_IHM
                 // On enleve l'espace en fin de chaîne
                 message = message.TrimEnd();
 
-                ReponseCMDMesure.Text = message;
+
+
+                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text = message));
             }
 
             if (EnregistreMesure)
@@ -207,9 +213,13 @@ namespace Eolia_IHM
         {
 
             // fermer le port série
+            LireSerie = false;
+            readThread.Join();
             CapteurLiaisonSerie.Close();
+            readThread.Abort();
             CapteurLiaisonSerie = null;
             CapeurlLogBox.Text = "Liaison Série -> Arrèté";
+           
 
 
         }
@@ -232,10 +242,16 @@ namespace Eolia_IHM
                     CapteurLiaisonSerie.Handshake = Handshake.None;
 
                     // définir les événements qui seront gérés de manière asynchrone
-                    CapteurLiaisonSerie.DataReceived += DesQueDonneesRecuCapteur;
-                    CapteurLiaisonSerie.ErrorReceived += DesQueErreurRecuCapteur;
+                    //  CapteurLiaisonSerie.DataReceived += DesQueDonneesRecuCapteur;
+                    //  CapteurLiaisonSerie.ErrorReceived += DesQueErreurRecuCapteur;
+                    
+
                     CapteurLiaisonSerie.Open();
                     CapeurlLogBox.Text = "Liaison Série -> Démarrée";
+
+                    LireSerie = true;
+                    readThread = new Thread(Read);
+                    readThread.Start();
 
                 }
                 catch (IOException ex)
@@ -273,7 +289,7 @@ namespace Eolia_IHM
         }
 
 
-        private static void DesQueDonneesRecuCapteur(object port, SerialDataReceivedEventArgs e)
+        /* private static void DesQueDonneesRecuCapteur(object port, SerialDataReceivedEventArgs e)
         {
             // récupérer l'objet SerialPort qui a déclenché l'événement
             SerialPort portSerie = (SerialPort)port;
@@ -283,6 +299,21 @@ namespace Eolia_IHM
 
             // donnée a traité sur data
             VerifierCommandeMesure(data);
+        } */
+
+        private static void Read()
+        {
+            Console.WriteLine("Démarrage thread liaison série");
+            while (LireSerie == true)
+            {
+                try
+                {
+                    string message = CapteurLiaisonSerie.ReadExisting();
+                    if(message.Length> 0)
+                        VerifierCommandeMesure(message);
+                }
+                catch (TimeoutException) { }
+            }
         }
 
         private static void DesQueErreurRecuCapteur(object port, SerialErrorReceivedEventArgs e)
