@@ -20,7 +20,7 @@ namespace Eolia_IHM
 
         // Variable relatif a la liaison série
 
-        private static bool LireSerie = false;
+        private static volatile bool LireSerie = false;
         private static SerialPort CapteurLiaisonSerie = null;
         private static TextBox CapeurlLogBox = null;
         private static Thread readThread = null;
