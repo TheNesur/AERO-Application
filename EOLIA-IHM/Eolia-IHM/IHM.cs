@@ -44,6 +44,7 @@ namespace Eolia_IHM
             textBoxUsernameMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLUSERNAME");
             textBoxMotdepasseMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLPASSWORD");
             textBoxNomBDDMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLDBNAME");
+            textBoxRepertoireSiteWEB.Text = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB");
             ComboxBoxChoixPortSerieCapteur.Text = EoliaUtils.LireConfiguration("PORTSERIECAPTEUR");
             textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE");
             textBoxCZ.Text = EoliaUtils.LireConfiguration("CZ");
@@ -59,8 +60,12 @@ namespace Eolia_IHM
             ListeValeurASauvegarder.Add("MYSQLUSERNAME", textBoxUsernameMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLPASSWORD", textBoxMotdepasseMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLDBNAME", textBoxNomBDDMYSQL.Text);
+            ListeValeurASauvegarder.Add("REPERTOIRESITEWEB", textBoxRepertoireSiteWEB.Text);
+
             ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", ComboxBoxChoixPortSerieCapteur.Text);
             ListeValeurASauvegarder.Add("NOMBREMESUREPARSECONDE", textBoxNbMesureSec.Text);
+            
+            
             ListeValeurASauvegarder.Add("CZ", textBoxCZ.Text);
             ListeValeurASauvegarder.Add("CX", textBoxCX.Text);
             ListeValeurASauvegarder.Add("S", textBoxS.Text);
