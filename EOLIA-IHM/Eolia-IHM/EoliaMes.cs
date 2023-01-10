@@ -147,7 +147,7 @@ namespace Eolia_IHM
             }
             else
             {
-                return;
+                ReponseCMDMesure.Text = "CMD Inconnu reçu =" + command;
             }
 
 
