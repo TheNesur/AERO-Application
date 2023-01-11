@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Eolia_IHM.Properties;
+using MySql.Data.MySqlClient;
 using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
@@ -75,6 +76,11 @@ namespace Eolia_IHM
 
         public static bool SessionMesureDispo()
         {
+            if (EnregistreMesure)
+            {
+                EoliaUtils.MsgBoxNonBloquante("Vous ne pouvez pas enregistrer la session tant que les mesures sont en cours");
+                return false;
+            }
             if (ListeMesurePortance != null)
             {
                 if (ListeMesurePortance.Count() > 0)
