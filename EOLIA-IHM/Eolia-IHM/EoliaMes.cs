@@ -23,7 +23,7 @@ namespace Eolia_IHM
         private static volatile bool LireSerie = false;
         private static SerialPort CapteurLiaisonSerie = null;
         private static TextBox CapeurlLogBox = null;
-        private static Thread readThread = null;
+        private static Task readThread = null;
 
         // Variable relatif a la gestion ges mesures
 
@@ -214,7 +214,7 @@ namespace Eolia_IHM
 
             // fermer le port série
             LireSerie = false;
-            readThread.Join();
+            readThread.Wait();
             readThread = null;
             CapteurLiaisonSerie.Close();
             CapteurLiaisonSerie = null;
@@ -250,7 +250,7 @@ namespace Eolia_IHM
                     CapeurlLogBox.Text = "Liaison Série -> Démarrée";
 
                     LireSerie = true;
-                    readThread = new Thread(Read);
+                    readThread = new Task(Read);
                     readThread.Start();
 
                 }

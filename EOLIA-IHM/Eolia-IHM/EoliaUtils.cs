@@ -142,8 +142,8 @@ namespace Eolia_IHM.Properties
 
         public static void MsgBoxNonBloquante(string Msg)
         {
-            Thread MsgBoxThread = new Thread(() => MessageBox.Show(Msg));
-            MsgBoxThread.Start();
+            Task.Run(() => { MessageBox.Show(Msg); });
+        
         }
 
     }
