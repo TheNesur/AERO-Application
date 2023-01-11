@@ -261,7 +261,7 @@ namespace Eolia_IHM
                 }
                 catch (UnauthorizedAccessException ex)
                 {
-                    CapeurlLogBox.Text = "Liaison Série -> Acces refusé";
+                    CapeurlLogBox.Text = "Liaison Série -> Acces refusé ("+ex+")";
                     CapteurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
@@ -304,7 +304,7 @@ namespace Eolia_IHM
         private static void Read()
         {
             Console.WriteLine("Démarrage thread liaison série");
-            while (LireSerie == true)
+            while (LireSerie)
             {
                 try
                 {

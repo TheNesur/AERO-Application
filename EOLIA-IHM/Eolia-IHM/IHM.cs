@@ -78,12 +78,14 @@ namespace Eolia_IHM
 
         private void BoutonQuitter_Click(object sender, EventArgs e)
         {
-            if (EoliaMes.EtatTransMes())
+            if (EoliaMes.LiaisonSerieCapteur())
             {
-                EoliaMes.ArreterTransMes();
+                if(EoliaMes.EtatTransMes())
+                    EoliaMes.ArreterTransMes();
                 EoliaMes.FermerLiaisonSerieCapteur();
             }
-            Application.Exit();
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         private void IHM_Load(object sender, EventArgs e)

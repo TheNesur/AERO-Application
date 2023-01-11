@@ -390,10 +390,10 @@
             this.groupBoxVisionCamera.Controls.Add(this.buttonPrendrePhotoInstantanee);
             this.groupBoxVisionCamera.Controls.Add(this.pictureBoxRetourCamera);
             this.groupBoxVisionCamera.Enabled = false;
-            this.groupBoxVisionCamera.Location = new System.Drawing.Point(294, 29);
-            this.groupBoxVisionCamera.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxVisionCamera.Location = new System.Drawing.Point(335, 28);
+            this.groupBoxVisionCamera.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxVisionCamera.Name = "groupBoxVisionCamera";
-            this.groupBoxVisionCamera.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxVisionCamera.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxVisionCamera.Size = new System.Drawing.Size(265, 255);
             this.groupBoxVisionCamera.TabIndex = 10;
             this.groupBoxVisionCamera.TabStop = false;
@@ -441,10 +441,10 @@
             this.groupBoxSessionMesure.Controls.Add(this.labelNombreMesureSession);
             this.groupBoxSessionMesure.Controls.Add(this.labelNomMesureSession);
             this.groupBoxSessionMesure.Location = new System.Drawing.Point(17, 115);
-            this.groupBoxSessionMesure.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxSessionMesure.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxSessionMesure.Name = "groupBoxSessionMesure";
-            this.groupBoxSessionMesure.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxSessionMesure.Size = new System.Drawing.Size(257, 157);
+            this.groupBoxSessionMesure.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxSessionMesure.Size = new System.Drawing.Size(303, 157);
             this.groupBoxSessionMesure.TabIndex = 9;
             this.groupBoxSessionMesure.TabStop = false;
             this.groupBoxSessionMesure.Text = "Session de mesure";
@@ -452,9 +452,9 @@
             // buttonSauvegarderSession
             // 
             this.buttonSauvegarderSession.Location = new System.Drawing.Point(8, 129);
-            this.buttonSauvegarderSession.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonSauvegarderSession.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSauvegarderSession.Name = "buttonSauvegarderSession";
-            this.buttonSauvegarderSession.Size = new System.Drawing.Size(245, 24);
+            this.buttonSauvegarderSession.Size = new System.Drawing.Size(291, 24);
             this.buttonSauvegarderSession.TabIndex = 10;
             this.buttonSauvegarderSession.Text = "Sauvegarder cette session";
             this.buttonSauvegarderSession.UseVisualStyleBackColor = true;
@@ -463,7 +463,7 @@
             // labelSessionMesureEtat
             // 
             this.labelSessionMesureEtat.AutoSize = true;
-            this.labelSessionMesureEtat.Location = new System.Drawing.Point(149, 102);
+            this.labelSessionMesureEtat.Location = new System.Drawing.Point(162, 102);
             this.labelSessionMesureEtat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureEtat.Name = "labelSessionMesureEtat";
             this.labelSessionMesureEtat.Size = new System.Drawing.Size(30, 15);
@@ -523,7 +523,7 @@
             // labelSessionMesureMoyTrainee
             // 
             this.labelSessionMesureMoyTrainee.AutoSize = true;
-            this.labelSessionMesureMoyTrainee.Location = new System.Drawing.Point(149, 76);
+            this.labelSessionMesureMoyTrainee.Location = new System.Drawing.Point(166, 76);
             this.labelSessionMesureMoyTrainee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureMoyTrainee.Name = "labelSessionMesureMoyTrainee";
             this.labelSessionMesureMoyTrainee.Size = new System.Drawing.Size(23, 15);
@@ -533,7 +533,7 @@
             // labelSessionMesureMoyPort
             // 
             this.labelSessionMesureMoyPort.AutoSize = true;
-            this.labelSessionMesureMoyPort.Location = new System.Drawing.Point(149, 56);
+            this.labelSessionMesureMoyPort.Location = new System.Drawing.Point(167, 56);
             this.labelSessionMesureMoyPort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureMoyPort.Name = "labelSessionMesureMoyPort";
             this.labelSessionMesureMoyPort.Size = new System.Drawing.Size(23, 15);
@@ -543,7 +543,7 @@
             // labelNombreMesureSession
             // 
             this.labelNombreMesureSession.AutoSize = true;
-            this.labelNombreMesureSession.Location = new System.Drawing.Point(149, 38);
+            this.labelNombreMesureSession.Location = new System.Drawing.Point(165, 38);
             this.labelNombreMesureSession.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNombreMesureSession.Name = "labelNombreMesureSession";
             this.labelNombreMesureSession.Size = new System.Drawing.Size(23, 15);
@@ -553,7 +553,7 @@
             // labelNomMesureSession
             // 
             this.labelNomMesureSession.AutoSize = true;
-            this.labelNomMesureSession.Location = new System.Drawing.Point(149, 17);
+            this.labelNomMesureSession.Location = new System.Drawing.Point(166, 17);
             this.labelNomMesureSession.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNomMesureSession.Name = "labelNomMesureSession";
             this.labelNomMesureSession.Size = new System.Drawing.Size(23, 15);
@@ -568,10 +568,10 @@
             this.groupBoxAffichageMesure.Controls.Add(this.labelMesTainee);
             this.groupBoxAffichageMesure.Controls.Add(this.labelMsgMesure);
             this.groupBoxAffichageMesure.Location = new System.Drawing.Point(17, 28);
-            this.groupBoxAffichageMesure.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxAffichageMesure.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxAffichageMesure.Name = "groupBoxAffichageMesure";
-            this.groupBoxAffichageMesure.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBoxAffichageMesure.Size = new System.Drawing.Size(257, 81);
+            this.groupBoxAffichageMesure.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBoxAffichageMesure.Size = new System.Drawing.Size(309, 81);
             this.groupBoxAffichageMesure.TabIndex = 8;
             this.groupBoxAffichageMesure.TabStop = false;
             this.groupBoxAffichageMesure.Text = "Affichage mesure";
@@ -588,7 +588,7 @@
             // labelMesPortance
             // 
             this.labelMesPortance.AutoSize = true;
-            this.labelMesPortance.Location = new System.Drawing.Point(126, 22);
+            this.labelMesPortance.Location = new System.Drawing.Point(144, 22);
             this.labelMesPortance.Name = "labelMesPortance";
             this.labelMesPortance.Size = new System.Drawing.Size(23, 15);
             this.labelMesPortance.TabIndex = 3;
@@ -606,7 +606,7 @@
             // labelMesTainee
             // 
             this.labelMesTainee.AutoSize = true;
-            this.labelMesTainee.Location = new System.Drawing.Point(126, 41);
+            this.labelMesTainee.Location = new System.Drawing.Point(145, 41);
             this.labelMesTainee.Name = "labelMesTainee";
             this.labelMesTainee.Size = new System.Drawing.Size(23, 15);
             this.labelMesTainee.TabIndex = 4;
@@ -710,8 +710,8 @@
             // 
             // textBoxNbMesureSec
             // 
-            this.textBoxNbMesureSec.Location = new System.Drawing.Point(521, 190);
-            this.textBoxNbMesureSec.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxNbMesureSec.Location = new System.Drawing.Point(548, 190);
+            this.textBoxNbMesureSec.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxNbMesureSec.Name = "textBoxNbMesureSec";
             this.textBoxNbMesureSec.Size = new System.Drawing.Size(76, 20);
             this.textBoxNbMesureSec.TabIndex = 26;
@@ -866,7 +866,7 @@
             // ComboxBoxChoixPortSerieCapteur
             // 
             this.ComboxBoxChoixPortSerieCapteur.FormattingEnabled = true;
-            this.ComboxBoxChoixPortSerieCapteur.Location = new System.Drawing.Point(166, 191);
+            this.ComboxBoxChoixPortSerieCapteur.Location = new System.Drawing.Point(190, 191);
             this.ComboxBoxChoixPortSerieCapteur.Name = "ComboxBoxChoixPortSerieCapteur";
             this.ComboxBoxChoixPortSerieCapteur.Size = new System.Drawing.Size(160, 21);
             this.ComboxBoxChoixPortSerieCapteur.TabIndex = 8;
@@ -1079,15 +1079,14 @@
             // 
             // IHM
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
-            this.Controls.Add(this.GroupBoxEtat);
             this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
+            this.Controls.Add(this.GroupBoxEtat);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1024, 600);
             this.MinimizeBox = false;

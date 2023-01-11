@@ -28,6 +28,9 @@ namespace Eolia_IHM
            
         }
 
-
+        private void buttonFermerProgramme_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
