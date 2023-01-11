@@ -214,7 +214,7 @@ namespace Eolia_IHM
 
             // fermer le port série
             LireSerie = false;
-            readThread.Wait();
+            
             readThread = null;
             CapteurLiaisonSerie.Close();
             CapteurLiaisonSerie = null;
