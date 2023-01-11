@@ -142,7 +142,7 @@ namespace Eolia_IHM
              if (!TransmissionMesure)
                     return;
 
-
+            cmdBuff = cmdBuff + nxtcmdBuff;
             cmdBuff = cmdBuff + command;
             if (cmdBuff.IndexOf("\r\n") != -1)
             {
@@ -160,7 +160,7 @@ namespace Eolia_IHM
 
 
             bool CommandeAvecMessage;
-            string[] words = command.Split(' ');
+            string[] words = cmdBuff.Split(' ');
             if (words.Length < 1)
             {
                 cmdBuff = "";
