@@ -2,6 +2,7 @@
 using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.IO.Ports;
@@ -24,6 +25,8 @@ namespace Eolia_IHM
         private static SerialPort CapteurLiaisonSerie = null;
         private static TextBox CapeurlLogBox = null;
         private static Task readThread = null;
+        private static string cmdBuff = "";
+        private static string nxtcmdBuff = "";
 
         // Variable relatif a la gestion ges mesures
 
@@ -130,24 +133,19 @@ namespace Eolia_IHM
 
         public static void VerifierCommandeMesure(string command)
         {
-            if (!TransmissionMesure)
-                return;
+             if (!TransmissionMesure)
+                    return;
 
-            bool CommandeAvecMessage;
-            string[] words = command.Split(' ');
-            if (words.Length < 3)
-            {
-                return;
-            }
 
-            // On vérifie que le premier mot de la commande est "PORTANCE" et que le troisième mot est "TRAINEE" et que le quatrième mot est "MSG"
-            if (words.Length > 4)
+            cmdBuff = cmdBuff + command;
+            if (cmdBuff.IndexOf("\r\n") != -1)
             {
-                CommandeAvecMessage = true;
-            }
-            else if (words[0] == "PORTANCE" && words[2] == "TRAINEE")
-            {
-                CommandeAvecMessage = false;
+                command = cmdBuff;
+
+                cmdBuff = cmdBuff.Substring(0, cmdBuff.IndexOf("\r\n") + 2);
+                nxtcmdBuff = cmdBuff.Substring(cmdBuff.IndexOf("\r\n") + 2);
+
+                
             }
             else
             {
@@ -155,16 +153,37 @@ namespace Eolia_IHM
             }
 
 
-            float portance, trainee;
-            if (!float.TryParse(words[1], out portance) || !float.TryParse(words[3], out trainee))
+            bool CommandeAvecMessage;
+            string[] words = command.Split(' ');
+            if (words.Length < 1)
             {
+                cmdBuff = "";
                 return;
             }
+
+            // On vérifie que le premier mot de la commande est "PORTANCE" et que le troisième mot est "TRAINEE" et que le quatrième mot est "MSG"
+            if (words[0] == "MSG")
+            {
+                CommandeAvecMessage = true;
+            }
+            else if (words[0] == "PORTANCE" && words[2] == "TRAINEE")
+            {
+                CommandeAvecMessage = false;
+               
+            }
+            else
+            {
+                cmdBuff = "";
+                return;
+            }
+
+
+
             if (CommandeAvecMessage)
             {
                 // On fusion tous les mots qui suivent dans une chaîne de caractères
                 string message = "";
-                for (int i = 5; i < words.Length; i++)
+                for (int i = 1; i < words.Length; i++)
                 {
                     message += words[i] + " ";
                 }
@@ -176,21 +195,34 @@ namespace Eolia_IHM
 
                 ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text = message));
             }
-
-            if (EnregistreMesure)
+            else
             {
-                ListeMesureTrainee.Add(trainee);
-                ListeMesurePortance.Add(portance);
+                float portance, trainee;
+                if (!float.TryParse(words[1], out portance) || !float.TryParse(words[3], out trainee))
+                {
+                    cmdBuff = "";
+                    return;
+                }
+                if (EnregistreMesure)
+                {
+                    ListeMesureTrainee.Add(trainee);
+                    ListeMesurePortance.Add(portance);
 
-                LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = ListeMesureTrainee.Average().ToString()));
-                LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = ListeMesurePortance.Average().ToString()));
-                LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text = ListeMesurePortance.Count().ToString()));
+                    LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = ListeMesureTrainee.Average().ToString()));
+                    LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = ListeMesurePortance.Average().ToString()));
+                    LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text = ListeMesurePortance.Count().ToString()));
 
+                }
+
+                LabelMesTrainee.Invoke(new Action(() => LabelMesTrainee.Text = words[1]));
+                LabelMesPortance.Invoke(new Action(() => LabelMesPortance.Text = words[3]));
+                
             }
 
 
-            LabelMesTrainee.Invoke(new Action(() => LabelMesTrainee.Text = words[1]));
-            LabelMesPortance.Invoke(new Action(() => LabelMesPortance.Text = words[3]));
+
+
+            cmdBuff = "";
 
         }
 
