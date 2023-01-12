@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-11T13:19:00.647Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76" etag="v5393Dv8yhsCgRmhWj6v" version="20.8.3" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-12T14:33:25.625Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76" etag="lbDDxDddKGx5fkb4AYPX" version="20.8.3" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
-    <mxGraphModel dx="407" dy="757" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="304" dy="561" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -207,6 +207,18 @@
         </mxCell>
         <mxCell id="S_WBxvZwrHdkooQUaEvx-9" value="- FolderExist(): void&#xa;+ InitializeLogs(): void&#xa;+ FinishLogs(): void&#xa;+ Read(nbrLigne = 1: int): String[]&#xa;+ Write(String args, Types type): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="S_WBxvZwrHdkooQUaEvx-6" vertex="1">
           <mxGeometry y="78" width="250" height="82" as="geometry" />
+        </mxCell>
+        <mxCell id="EXrrTwu7yXLMnrCZga6P-1" value="EoliaCam" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="1860" y="602" width="250" height="170" as="geometry" />
+        </mxCell>
+        <mxCell id="EXrrTwu7yXLMnrCZga6P-2" value="- capture: Capture&#xa;- isStream : bool" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="EXrrTwu7yXLMnrCZga6P-1">
+          <mxGeometry y="26" width="250" height="54" as="geometry" />
+        </mxCell>
+        <mxCell id="EXrrTwu7yXLMnrCZga6P-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="EXrrTwu7yXLMnrCZga6P-1">
+          <mxGeometry y="80" width="250" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="EXrrTwu7yXLMnrCZga6P-4" value="+ EoliaCam() : no&#xa;+ GetStream(): bool&#xa;+ Start(): bool&#xa;+ Stop(): bool&#xa;+ CaptureScreen(): ??&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="EXrrTwu7yXLMnrCZga6P-1">
+          <mxGeometry y="88" width="250" height="82" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
