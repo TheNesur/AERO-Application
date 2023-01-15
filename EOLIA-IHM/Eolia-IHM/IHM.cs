@@ -1,4 +1,5 @@
 ﻿using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using Renci.SshNet.Messages;
 using System;
 using System.Collections.Generic;
@@ -12,11 +13,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Eolia_IHM
 {
     public partial class IHM : Form
     {
-        
+
+        EoliaCam Retourcamera = new EoliaCam();
         public IHM()
         {
             InitializeComponent();
@@ -37,6 +41,7 @@ namespace Eolia_IHM
 
                 Recharger();
                 Console.WriteLine("Eolia IHM");
+                
             }
         }
 
@@ -343,6 +348,24 @@ namespace Eolia_IHM
         private void textBoxNbMesureSec_Click(object sender, EventArgs e)
         {
             EoliaUtils.TextBoxActif(textBoxNbMesureSec);
+        }
+
+        private void buttonDemarrerLiaisonCam_Click(object sender, EventArgs e)
+        {
+            if (Retourcamera.Start(pictureBoxRetourCamera))
+            {
+                buttonArreterLiaisonCam.Enabled = true;
+                buttonDemarrerLiaisonCam.Enabled = false;
+            }
+        }
+
+        private void buttonArreterLiaisonCam_Click(object sender, EventArgs e)
+        {
+            if (Retourcamera.Stop())
+            {
+                buttonArreterLiaisonCam.Enabled = false;
+                buttonDemarrerLiaisonCam.Enabled = true;
+            }
         }
     }
 }

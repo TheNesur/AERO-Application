@@ -30,7 +30,7 @@ namespace Eolia_IHM.Utils
         public EoliaCam()
         {
             // J'initialise capture
-            capture = new Capture();
+           // capture = new Capture();
             isStream = false;
         }
 
@@ -45,6 +45,7 @@ namespace Eolia_IHM.Utils
             {
                 if (!isStream)
                 {
+                    capture = new Capture();
                     pictureBox = picture;
                     // Lance une tâche en arrière plan
                     Application.Idle += streaming;
@@ -71,6 +72,7 @@ namespace Eolia_IHM.Utils
                     Application.Idle -= streaming;
 
                     capture.Stop();
+                    capture.Dispose();
                     return true;
                 }
             }

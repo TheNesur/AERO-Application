@@ -264,6 +264,7 @@
             this.buttonArreterLiaisonCam.TabIndex = 11;
             this.buttonArreterLiaisonCam.Text = "Arreter";
             this.buttonArreterLiaisonCam.UseVisualStyleBackColor = true;
+            this.buttonArreterLiaisonCam.Click += new System.EventHandler(this.buttonArreterLiaisonCam_Click);
             // 
             // buttonDemarrerLiaisonCam
             // 
@@ -273,6 +274,7 @@
             this.buttonDemarrerLiaisonCam.TabIndex = 10;
             this.buttonDemarrerLiaisonCam.Text = "Démarrer";
             this.buttonDemarrerLiaisonCam.UseVisualStyleBackColor = true;
+            this.buttonDemarrerLiaisonCam.Click += new System.EventHandler(this.buttonDemarrerLiaisonCam_Click);
             // 
             // textBoxEtatLiaisonCamera
             // 
@@ -424,6 +426,7 @@
             this.pictureBoxRetourCamera.Location = new System.Drawing.Point(10, 29);
             this.pictureBoxRetourCamera.Name = "pictureBoxRetourCamera";
             this.pictureBoxRetourCamera.Size = new System.Drawing.Size(243, 158);
+            this.pictureBoxRetourCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRetourCamera.TabIndex = 0;
             this.pictureBoxRetourCamera.TabStop = false;
             // 
