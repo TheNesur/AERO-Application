@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-15T20:37:34.461Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76" etag="MI9oIxxttBWWzOAfDWWI" version="20.8.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-15T20:46:24.069Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36 Edg/108.0.1462.76" etag="dnFzQO-sv-yUHUcuo7q0" version="20.8.5" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
-    <mxGraphModel dx="1366" dy="728" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1687" dy="899" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -187,12 +187,6 @@
         <mxCell id="HuRnm2rSPpH4nqsMaASo-30" value="Connecter" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
           <mxGeometry x="450" y="1900" width="110" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="HuRnm2rSPpH4nqsMaASo-33" value="" style="rhombus;whiteSpace=wrap;html=1;fontSize=21;" parent="1" vertex="1">
-          <mxGeometry x="702" y="1739" width="236" height="236" as="geometry" />
-        </mxCell>
-        <mxCell id="HuRnm2rSPpH4nqsMaASo-34" value="Caméra&lt;br&gt;&lt;br&gt;Disponible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
-          <mxGeometry x="790" y="1841" width="60" height="30" as="geometry" />
-        </mxCell>
         <mxCell id="S_WBxvZwrHdkooQUaEvx-6" value="LogsIHM (static)&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
           <mxGeometry x="2130" y="602" width="250" height="160" as="geometry" />
         </mxCell>
@@ -218,25 +212,25 @@
           <mxGeometry y="88" width="250" height="82" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-12" value="Configurable via le fichier .conf" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;rounded=0;shadow=0;glass=0;strokeColor=default;fillColor=none;" vertex="1" parent="1">
-          <mxGeometry x="2450" y="1724" width="420" height="140" as="geometry" />
+          <mxGeometry x="2450" y="1724" width="420" height="150" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-13" value="MYSQL" style="swimlane;startSize=20;html=1;rounded=0;shadow=0;glass=0;strokeColor=default;fillColor=none;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-12">
-          <mxGeometry y="20" width="210" height="120" as="geometry" />
+          <mxGeometry y="20" width="210" height="130" as="geometry" />
         </mxCell>
-        <mxCell id="8KWskMflxnfoTJ6MjDlv-16" value="Nom utilisateur : &lt;i&gt;eolia&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-13">
-          <mxGeometry x="10" y="26" width="170" height="30" as="geometry" />
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-16" value="Adresse serveur : localhost" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-13">
+          <mxGeometry x="10" y="26" width="170" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-19" value="Mot de passe utilisateur : eolia" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-13">
+          <mxGeometry x="10" y="76" width="170" height="20" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-14" value="Site Internet" style="swimlane;startSize=20;html=1;rounded=0;shadow=0;glass=0;strokeColor=default;fillColor=none;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-12">
-          <mxGeometry x="210" y="20" width="210" height="120" as="geometry" />
+          <mxGeometry x="210" y="20" width="210" height="130" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-20" value="Répertoire : &lt;i&gt;/var/www/eolia/&amp;nbsp;&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-14">
-          <mxGeometry x="10" y="26" width="170" height="30" as="geometry" />
+          <mxGeometry x="10" y="26" width="170" height="24" as="geometry" />
         </mxCell>
-        <mxCell id="8KWskMflxnfoTJ6MjDlv-18" value="Mot de passe utilisateur : &lt;i&gt;eolia&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="1">
-          <mxGeometry x="2460" y="1800" width="170" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="8KWskMflxnfoTJ6MjDlv-19" value="Nom base de donnée: &lt;i&gt;eolia&lt;/i&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="1">
-          <mxGeometry x="2460" y="1830" width="170" height="30" as="geometry" />
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-18" value="Nom d&#39;utilisateur : eolia" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="2460" y="1794" width="170" height="20" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-23" value="Choix des ports série pour &#xa;les différents capteurs" style="shape=table;startSize=50;container=1;collapsible=0;childLayout=tableLayout;fixedRows=1;rowLines=0;fontStyle=0;strokeColor=default;fontSize=16;rounded=0;shadow=0;glass=0;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="2450" y="1900" width="200" height="110" as="geometry" />
@@ -249,7 +243,7 @@
             <mxRectangle width="120" height="30" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="8KWskMflxnfoTJ6MjDlv-26" value="COM 1" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;strokeColor=inherit;fontSize=16;rounded=0;shadow=0;glass=0;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-24">
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-26" value="COM 1" style="shape=partialRectangle;html=1;whiteSpace=wrap;connectable=0;fillColor=none;top=0;left=0;bottom=0;right=0;align=left;spacingLeft=6;overflow=hidden;strokeColor=inherit;fontSize=16;rounded=0;shadow=0;glass=0;perimeterSpacing=1;" vertex="1" parent="8KWskMflxnfoTJ6MjDlv-24">
           <mxGeometry x="120" width="80" height="30" as="geometry">
             <mxRectangle width="80" height="30" as="alternateBounds" />
           </mxGeometry>
@@ -476,6 +470,21 @@
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-108" value="Actualiser les ports disponibles" style="html=1;whiteSpace=wrap;container=1;recursiveResize=0;collapsible=0;rounded=0;shadow=0;glass=0;strokeColor=default;fillColor=none;" vertex="1" parent="1">
           <mxGeometry x="3000" y="1724" width="200" height="52" as="geometry" />
+        </mxCell>
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-112" value="Nom Base de donnée :&amp;nbsp; eolia" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;shadow=0;glass=0;" vertex="1" parent="1">
+          <mxGeometry x="2460" y="1842" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-113" value="" style="html=1;whiteSpace=wrap;shape=isoCube2;backgroundOutline=1;isoAngle=15;rounded=0;shadow=0;glass=0;strokeColor=default;fontSize=20;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="698.5" y="1740" width="243" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-114" value="Régulateur&lt;br&gt;Disponible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="850" y="1890" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="8KWskMflxnfoTJ6MjDlv-115" value="Capteurs&lt;br&gt;Disponible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" vertex="1" parent="1">
+          <mxGeometry x="790" y="1784" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HuRnm2rSPpH4nqsMaASo-34" value="Caméra&lt;br&gt;Disponible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
+          <mxGeometry x="730" y="1882" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
