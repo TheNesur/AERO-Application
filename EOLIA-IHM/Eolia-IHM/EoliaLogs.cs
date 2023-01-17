@@ -9,7 +9,7 @@ using Eolia_IHM.Properties;
 
 namespace Eolia_IHM
 {
-    public static class LogsIHM
+    public static class EoliaLogs
     {
         // Emplacement du fichier de logs
         //private static String nameFileLogs = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.eolia\\logs";
@@ -26,6 +26,7 @@ namespace Eolia_IHM
             CONTROLLER = 3,
             CAMERA = 4,
             SITE = 5,
+            SERIAL = 6,
             LOGS = 88,
             OTHER = 99
 
@@ -61,11 +62,11 @@ namespace Eolia_IHM
 
                 // Vérifie si un fichier logs du même jour existe, si il existe pas je l'initialise à 0 et j'incrémente ma variable
                 bool fileLogsExist = File.Exists(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_0.log");
-                Console.WriteLine("fileLogsExist : " + fileLogsExist + "  > Exists : " + (nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_0.log"));
+               // Console.WriteLine("fileLogsExist : " + fileLogsExist + "  > Exists : " + (nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_0.log"));
 
                 if (fileLogsExist)
                 {
-                    Console.WriteLine("FileLogsExiste : " + fileLogsExist);
+                 //   Console.WriteLine("FileLogsExiste : " + fileLogsExist);
                     for (int i = 0; File.Exists(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + i + ".log"); i++, fileLogsExist = File.Exists(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + i + ".log"))
                     {
                         numberFile++;
@@ -74,7 +75,7 @@ namespace Eolia_IHM
                 }
 
                 // J'ouvre le fichier de log en écriture
-                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "\\" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
+                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
                 fileWriter.WriteLine(DateTime.Now.ToString("[HH:mm:ss] [") + Types.LOGS + "] Initialisation des logs...");
                 fileWriter.Close();
             }
@@ -97,7 +98,7 @@ namespace Eolia_IHM
             {
                 FolderExist();
                 // J'ouvre le fichier de log en écriture
-                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "\\" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
+                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
                 fileWriter.WriteLine(DateTime.Now.ToString("[HH:mm:ss] [") + Types.LOGS + "] Stopping...\n\n\n\n");
                 fileWriter.Close();
             }
@@ -118,7 +119,7 @@ namespace Eolia_IHM
             try
             {
                 // J'ouvre le fichier de log en lecture
-                StreamReader fileReader = new StreamReader(nameFileLogs + "\\" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log");
+                StreamReader fileReader = new StreamReader(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log");
                 // Je prend la première ligne du fichier
                 String line = fileReader.ReadLine();
                 // Et je la sauvegarde dans une Liste dynamique
@@ -153,7 +154,7 @@ namespace Eolia_IHM
             _mutex.WaitOne();
             try
             {
-                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "\\" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
+                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
 
                 fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] " + args + "\n");
                 fileWriter.Close();

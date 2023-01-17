@@ -1,5 +1,4 @@
-using Emgu.CV;
-using Emgu.CV.Structure;
+
 using Eolia_IHM.Properties;
 using System;
 using System.Drawing;
@@ -12,19 +11,15 @@ namespace Eolia_IHM.Utils
     class EoliaCam
     {
         private bool isStream;
-        private Capture capture;
         private PictureBox pictureBox;
         private int numberFileExist;
+
+
 
         // récupére l'image de la pictureBox pour donner par Start() à celle de l'objet
         private void streaming(object sender, System.EventArgs e)
         {
-            // Je récupère l'image que produit la caméra puis la convertie sous un format de la bibliothèque EmguCV
-            var img = capture.QueryFrame().ToImage<Bgr, byte>();
-            // Convertie de "Emgu.CV.Image<Bgr, byte>" à "System.Drawing.Bitmap" qui proviens de .NET Framework
-            var bmp = img.Bitmap;
-            // Je change l'image obtenue à l'image que contient la picturebox
-            pictureBox.Image = bmp;
+
         }
 
         public EoliaCam()
@@ -45,7 +40,7 @@ namespace Eolia_IHM.Utils
             {
                 if (!isStream)
                 {
-                    capture = new Capture();
+
                     pictureBox = picture;
                     // Lance une tâche en arrière plan
                     Application.Idle += streaming;
@@ -71,8 +66,6 @@ namespace Eolia_IHM.Utils
                     isStream = false;
                     Application.Idle -= streaming;
 
-                    capture.Stop();
-                    capture.Dispose();
                     return true;
                 }
             }

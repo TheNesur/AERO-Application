@@ -21,7 +21,7 @@ namespace Eolia_IHM
 
         private void BoutonLancer_Click(object sender, EventArgs e)
         {
-           
+
             this.Hide();
             IHM IHMForm = new IHM();
             IHMForm.Show();

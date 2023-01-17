@@ -49,11 +49,13 @@ namespace Eolia_IHM
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "BDD OK"));
                     BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = false));
                     BoutonStopSQL.Invoke(new Action(() => BoutonStopSQL.Enabled = true));
+                    EoliaLogs.Write("Connecté a la BDD MYSQL", EoliaLogs.Types.MYSQL);
                     BDDConnected = true;
                 }
                 catch (MySqlException ex)
                 {
                     //    SQLLogBox.Text = "Erreur : " + ex.Message;
+                    EoliaLogs.Write("Echec lors de la connexion a la BDD MYSQL ("+ex+")", EoliaLogs.Types.MYSQL);
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "Erreur : " + ex.Message));
                     BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
                     BoutonStopSQL.Invoke(new Action(() => BoutonStopSQL.Enabled = false));

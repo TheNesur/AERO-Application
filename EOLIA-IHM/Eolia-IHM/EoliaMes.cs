@@ -286,7 +286,7 @@ namespace Eolia_IHM
 
                     CapteurLiaisonSerie.Open();
                     CapeurlLogBox.Text = "Liaison Série -> Démarrée";
-
+                    EoliaLogs.Write("Liaison série démarée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
                     readThread = new Task(Read);
                     readThread.Start();
@@ -295,16 +295,19 @@ namespace Eolia_IHM
                 catch (IOException ex)
                 {
                     CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (UnauthorizedAccessException ex)
                 {
                     CapeurlLogBox.Text = "Liaison Série -> Acces refusé ("+ex+")";
+                    EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
                 {
                     CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
 
@@ -360,6 +363,7 @@ namespace Eolia_IHM
             SerialPort portSerie = (SerialPort)port;
             portSerie.Close();
             CapeurlLogBox.Text = "Liaison Série -> Arrêtée";
+            EoliaLogs.Write("Liaison série terminée ", EoliaLogs.Types.SERIAL);
             // erreur reçu
         }
 

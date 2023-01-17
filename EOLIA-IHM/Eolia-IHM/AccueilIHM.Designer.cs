@@ -39,7 +39,7 @@
             this.EOLIATitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.6F);
             this.EOLIATitre.Location = new System.Drawing.Point(436, 9);
             this.EOLIATitre.Name = "EOLIATitre";
-            this.EOLIATitre.Size = new System.Drawing.Size(149, 51);
+            this.EOLIATitre.Size = new System.Drawing.Size(118, 39);
             this.EOLIATitre.TabIndex = 1;
             this.EOLIATitre.Text = "EOLIA";
             // 
@@ -68,9 +68,8 @@
             // AccueilIHM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1024, 600);
-            this.ControlBox = false;
             this.Controls.Add(this.buttonFermerProgramme);
             this.Controls.Add(this.EOLIATitre);
             this.Controls.Add(this.BoutonLancer);

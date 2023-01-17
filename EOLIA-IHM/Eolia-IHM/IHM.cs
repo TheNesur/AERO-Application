@@ -41,7 +41,9 @@ namespace Eolia_IHM
 
                 Recharger();
                 Console.WriteLine("Eolia IHM");
-                
+                EoliaLogs.InitializeLogs();
+                EoliaLogs.Write("Démarrage de l'IHM", EoliaLogs.Types.LOGS);
+
             }
         }
 
@@ -228,6 +230,7 @@ namespace Eolia_IHM
             EoliaMes.InitialiserLiaisonSerieCapteur(ComboxBoxChoixPortSerieCapteur.Text, textBoxEtatLiaisonSerie);
             if (EoliaMes.LiaisonSerieCapteur())
             {
+                
                 buttonArreterLiaisonSerie.Enabled = true;
                 buttonDemarrerLiaisonSerie.Enabled = false;
             }

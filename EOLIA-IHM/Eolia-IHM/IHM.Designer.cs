@@ -136,7 +136,7 @@
             this.EOLIATitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 25.6F);
             this.EOLIATitre.Location = new System.Drawing.Point(436, 9);
             this.EOLIATitre.Name = "EOLIATitre";
-            this.EOLIATitre.Size = new System.Drawing.Size(149, 51);
+            this.EOLIATitre.Size = new System.Drawing.Size(118, 39);
             this.EOLIATitre.TabIndex = 2;
             this.EOLIATitre.Text = "EOLIA";
             // 
@@ -251,7 +251,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(39, 135);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(132, 15);
+            this.label24.Size = new System.Drawing.Size(114, 13);
             this.label24.TabIndex = 12;
             this.label24.Text = "Etat liaison régulateur :";
             // 
@@ -289,7 +289,7 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(39, 104);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(79, 15);
+            this.label23.Size = new System.Drawing.Size(70, 13);
             this.label23.TabIndex = 8;
             this.label23.Text = "Etat caméra :";
             // 
@@ -327,7 +327,7 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(39, 72);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(63, 15);
+            this.label13.Size = new System.Drawing.Size(58, 13);
             this.label13.TabIndex = 4;
             this.label13.Text = "Etat BDD :";
             // 
@@ -365,7 +365,7 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(39, 41);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(144, 15);
+            this.label12.Size = new System.Drawing.Size(125, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Etat liaison série capteur:";
             // 
@@ -406,7 +406,7 @@
             this.checkBoxSauvegarderPhotoMesurue.AutoSize = true;
             this.checkBoxSauvegarderPhotoMesurue.Location = new System.Drawing.Point(29, 229);
             this.checkBoxSauvegarderPhotoMesurue.Name = "checkBoxSauvegarderPhotoMesurue";
-            this.checkBoxSauvegarderPhotoMesurue.Size = new System.Drawing.Size(206, 19);
+            this.checkBoxSauvegarderPhotoMesurue.Size = new System.Drawing.Size(181, 17);
             this.checkBoxSauvegarderPhotoMesurue.TabIndex = 2;
             this.checkBoxSauvegarderPhotoMesurue.Text = "Sauvegarder photo avec mesure";
             this.checkBoxSauvegarderPhotoMesurue.UseVisualStyleBackColor = true;
@@ -469,7 +469,7 @@
             this.labelSessionMesureEtat.Location = new System.Drawing.Point(162, 102);
             this.labelSessionMesureEtat.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureEtat.Name = "labelSessionMesureEtat";
-            this.labelSessionMesureEtat.Size = new System.Drawing.Size(30, 15);
+            this.labelSessionMesureEtat.Size = new System.Drawing.Size(27, 13);
             this.labelSessionMesureEtat.TabIndex = 9;
             this.labelSessionMesureEtat.Text = "Non";
             // 
@@ -479,7 +479,7 @@
             this.label20.Location = new System.Drawing.Point(11, 102);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(110, 15);
+            this.label20.Size = new System.Drawing.Size(94, 13);
             this.label20.TabIndex = 8;
             this.label20.Text = "Session démarée :";
             // 
@@ -489,7 +489,7 @@
             this.label19.Location = new System.Drawing.Point(10, 76);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(143, 15);
+            this.label19.Size = new System.Drawing.Size(124, 13);
             this.label19.TabIndex = 7;
             this.label19.Text = "Valeur moyenne trainée :";
             // 
@@ -499,7 +499,7 @@
             this.label18.Location = new System.Drawing.Point(10, 56);
             this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(153, 15);
+            this.label18.Size = new System.Drawing.Size(134, 13);
             this.label18.TabIndex = 6;
             this.label18.Text = "Valeur moyenne portance :";
             // 
@@ -509,7 +509,7 @@
             this.label17.Location = new System.Drawing.Point(11, 38);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(120, 15);
+            this.label17.Size = new System.Drawing.Size(102, 13);
             this.label17.TabIndex = 5;
             this.label17.Text = "Nombre de mesure :";
             // 
@@ -519,7 +519,7 @@
             this.label16.Location = new System.Drawing.Point(11, 17);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(115, 15);
+            this.label16.Size = new System.Drawing.Size(99, 13);
             this.label16.TabIndex = 4;
             this.label16.Text = "Nom de la session :";
             // 
@@ -529,7 +529,7 @@
             this.labelSessionMesureMoyTrainee.Location = new System.Drawing.Point(166, 76);
             this.labelSessionMesureMoyTrainee.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureMoyTrainee.Name = "labelSessionMesureMoyTrainee";
-            this.labelSessionMesureMoyTrainee.Size = new System.Drawing.Size(23, 15);
+            this.labelSessionMesureMoyTrainee.Size = new System.Drawing.Size(21, 13);
             this.labelSessionMesureMoyTrainee.TabIndex = 3;
             this.labelSessionMesureMoyTrainee.Text = "XX";
             // 
@@ -539,7 +539,7 @@
             this.labelSessionMesureMoyPort.Location = new System.Drawing.Point(167, 56);
             this.labelSessionMesureMoyPort.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelSessionMesureMoyPort.Name = "labelSessionMesureMoyPort";
-            this.labelSessionMesureMoyPort.Size = new System.Drawing.Size(23, 15);
+            this.labelSessionMesureMoyPort.Size = new System.Drawing.Size(21, 13);
             this.labelSessionMesureMoyPort.TabIndex = 2;
             this.labelSessionMesureMoyPort.Text = "XX";
             // 
@@ -549,7 +549,7 @@
             this.labelNombreMesureSession.Location = new System.Drawing.Point(165, 38);
             this.labelNombreMesureSession.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNombreMesureSession.Name = "labelNombreMesureSession";
-            this.labelNombreMesureSession.Size = new System.Drawing.Size(23, 15);
+            this.labelNombreMesureSession.Size = new System.Drawing.Size(21, 13);
             this.labelNombreMesureSession.TabIndex = 1;
             this.labelNombreMesureSession.Text = "XX";
             // 
@@ -559,7 +559,7 @@
             this.labelNomMesureSession.Location = new System.Drawing.Point(166, 17);
             this.labelNomMesureSession.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelNomMesureSession.Name = "labelNomMesureSession";
-            this.labelNomMesureSession.Size = new System.Drawing.Size(23, 15);
+            this.labelNomMesureSession.Size = new System.Drawing.Size(21, 13);
             this.labelNomMesureSession.TabIndex = 0;
             this.labelNomMesureSession.Text = "XX";
             // 
@@ -584,7 +584,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(5, 22);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(136, 15);
+            this.label14.Size = new System.Drawing.Size(119, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Mesure de la portance :";
             // 
@@ -593,7 +593,7 @@
             this.labelMesPortance.AutoSize = true;
             this.labelMesPortance.Location = new System.Drawing.Point(144, 22);
             this.labelMesPortance.Name = "labelMesPortance";
-            this.labelMesPortance.Size = new System.Drawing.Size(23, 15);
+            this.labelMesPortance.Size = new System.Drawing.Size(21, 13);
             this.labelMesPortance.TabIndex = 3;
             this.labelMesPortance.Text = "XX";
             // 
@@ -602,7 +602,7 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(5, 41);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(126, 15);
+            this.label15.Size = new System.Drawing.Size(109, 13);
             this.label15.TabIndex = 1;
             this.label15.Text = "Mesure de la trainée :";
             // 
@@ -611,7 +611,7 @@
             this.labelMesTainee.AutoSize = true;
             this.labelMesTainee.Location = new System.Drawing.Point(145, 41);
             this.labelMesTainee.Name = "labelMesTainee";
-            this.labelMesTainee.Size = new System.Drawing.Size(23, 15);
+            this.labelMesTainee.Size = new System.Drawing.Size(21, 13);
             this.labelMesTainee.TabIndex = 4;
             this.labelMesTainee.Text = "XX";
             // 
@@ -620,7 +620,7 @@
             this.labelMsgMesure.AutoSize = true;
             this.labelMsgMesure.Location = new System.Drawing.Point(5, 60);
             this.labelMsgMesure.Name = "labelMsgMesure";
-            this.labelMsgMesure.Size = new System.Drawing.Size(186, 15);
+            this.labelMsgMesure.Size = new System.Drawing.Size(157, 13);
             this.labelMsgMesure.TabIndex = 2;
             this.labelMsgMesure.Text = "Démarrer la session de mesure !";
             // 
@@ -707,7 +707,7 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(31, 134);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(119, 15);
+            this.label22.Size = new System.Drawing.Size(104, 13);
             this.label22.TabIndex = 27;
             this.label22.Text = "Repertoire site web :";
             // 
@@ -726,7 +726,7 @@
             this.label21.Location = new System.Drawing.Point(353, 193);
             this.label21.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(191, 15);
+            this.label21.Size = new System.Drawing.Size(164, 13);
             this.label21.TabIndex = 25;
             this.label21.Text = "Nombre de mesure par seconde :";
             // 
@@ -745,7 +745,7 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(31, 35);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(415, 15);
+            this.label11.Size = new System.Drawing.Size(360, 13);
             this.label11.TabIndex = 23;
             this.label11.Text = "Les réglages de la BDD sont configurables uniquement via le fichier .config";
             // 
@@ -826,7 +826,7 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(36, 331);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(14, 15);
+            this.label10.Size = new System.Drawing.Size(14, 13);
             this.label10.TabIndex = 13;
             this.label10.Text = "V";
             // 
@@ -835,7 +835,7 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(37, 355);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(15, 15);
+            this.label9.Size = new System.Drawing.Size(14, 13);
             this.label9.TabIndex = 12;
             this.label9.Text = "S";
             // 
@@ -844,7 +844,7 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(37, 301);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(14, 15);
+            this.label8.Size = new System.Drawing.Size(13, 13);
             this.label8.TabIndex = 11;
             this.label8.Text = "p";
             // 
@@ -853,7 +853,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(31, 276);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(21, 15);
+            this.label7.Size = new System.Drawing.Size(19, 13);
             this.label7.TabIndex = 10;
             this.label7.Text = "Cz";
             // 
@@ -862,7 +862,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(31, 254);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(21, 15);
+            this.label6.Size = new System.Drawing.Size(19, 13);
             this.label6.TabIndex = 9;
             this.label6.Text = "Cx";
             // 
@@ -879,7 +879,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(31, 193);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 15);
+            this.label5.Size = new System.Drawing.Size(136, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "Choix du port série capteur:";
             // 
@@ -888,7 +888,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(31, 91);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(241, 15);
+            this.label4.Size = new System.Drawing.Size(211, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Mot de passe de la base de donée MYSQL";
             // 
@@ -897,7 +897,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(31, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(267, 15);
+            this.label3.Size = new System.Drawing.Size(230, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Nom d\'utilisateur de la base de donnée MYSQL";
             // 
@@ -906,7 +906,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(31, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(194, 15);
+            this.label2.Size = new System.Drawing.Size(169, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Nom de la base de donée MYSQL";
             // 
@@ -915,7 +915,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(31, 54);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(156, 15);
+            this.label1.Size = new System.Drawing.Size(138, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Adresse du serveur MYSQL";
             // 
@@ -1087,9 +1087,9 @@
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
-            this.Controls.Add(this.GroupBoxMesure);
             this.Controls.Add(this.GroupBoxEtat);
             this.Controls.Add(this.GroupBoxConfig);
+            this.Controls.Add(this.GroupBoxMesure);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1024, 600);
             this.MinimizeBox = false;
