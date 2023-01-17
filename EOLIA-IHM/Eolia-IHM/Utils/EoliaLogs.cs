@@ -149,7 +149,7 @@ namespace Eolia_IHM
         }
 
         // Fonction d'écriture dans le fichier logs, demander le texte a enregristrer et le type de logs via un enum
-        public static void Write(string args, Types type)
+        public static void Write(string args, Types type = Types.OTHER)
         {
             _mutex.WaitOne();
             try

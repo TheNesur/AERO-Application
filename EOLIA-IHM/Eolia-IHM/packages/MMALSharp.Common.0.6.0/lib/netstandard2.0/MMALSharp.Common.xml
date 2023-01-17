@@ -1,0 +1,572 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MMALSharp.Common</name>
+    </assembly>
+    <members>
+        <member name="T:MMALSharp.Common.BufferMetadata">
+            <summary>
+            This class contains metadata for a MMAL Buffer header.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.BufferMetadata.Eos">
+            <summary>
+            The buffer represents the end of stream.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.BufferMetadata.IFrame">
+            <summary>
+            The buffer contains IFrame data.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Common.CircularBuffer`1">
+            <inheritdoc/>
+            <summary>
+            Credit to @joaoportela - https://github.com/joaoportela/CircullarBuffer-CSharp
+            Circular buffer.
+            
+            When writing to a full buffer:
+            PushBack -> removes this[0] / Front()
+            PushFront -> removes this[Size-1] / Back()
+            
+            this implementation is inspired by
+            http://www.boost.org/doc/libs/1_53_0/libs/circular_buffer/doc/circular_buffer.html
+            because I liked their interface.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Common.CircularBuffer`1._start">
+            <summary>
+            The _start. Index of the first element in buffer.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Common.CircularBuffer`1._end">
+            <summary>
+            The _end. Index after the last element in the buffer.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Common.CircularBuffer`1._size">
+            <summary>
+            The _size. Buffer size.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.#ctor(System.Int32,`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:MMALSharp.Common.CircularBuffer`1"/> class.
+            
+            </summary>
+            <param name='capacity'>
+            Buffer capacity. Must be positive.
+            </param>
+            <param name='items'>
+            Items to fill buffer with. Items length must be less than capacity.
+            Suggestion: use Skip(x).Take(y).ToArray() to build this argument from
+            any enumerable.
+            </param>
+        </member>
+        <member name="P:MMALSharp.Common.CircularBuffer`1.Capacity">
+            <summary>
+            Maximum capacity of the buffer. Elements pushed into the buffer after
+            maximum capacity is reached (IsFull = true), will remove an element.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.CircularBuffer`1.Size">
+            <summary>
+            Current buffer size (the number of elements that the buffer has).
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.Front">
+            <summary>
+            Element at the front of the buffer - this[0].
+            </summary>
+            <returns>The value of the element of type T at the front of the buffer.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.Back">
+            <summary>
+            Element at the back of the buffer - this[Size - 1].
+            </summary>
+            <returns>The value of the element of type T at the back of the buffer.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.PushBack(`0)">
+            <summary>
+            Pushes a new element to the back of the buffer. Back()/this[Size-1]
+            will now return this element.
+            
+            When the buffer is full, the element at Front()/this[0] will be 
+            popped to allow for this new element to fit.
+            </summary>
+            <param name="item">Item to push to the back of the buffer</param>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.PushFront(`0)">
+            <summary>
+            Pushes a new element to the front of the buffer. Front()/this[0]
+            will now return this element.
+            
+            When the buffer is full, the element at Back()/this[Size-1] will be 
+            popped to allow for this new element to fit.
+            </summary>
+            <param name="item">Item to push to the front of the buffer</param>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.PopBack">
+            <summary>
+            Removes the element at the back of the buffer. Decreasing the 
+            Buffer size by 1.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.PopFront">
+            <summary>
+            Removes the element at the front of the buffer. Decreasing the 
+            Buffer size by 1.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.ToArray">
+            <summary>
+            Copies the buffer contents to an array, according to the logical
+            contents of the buffer (i.e. independent of the internal 
+            order/contents)
+            </summary>
+            <returns>A new array with a copy of the buffer contents.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.Increment(System.Int32@)">
+            <summary>
+            Increments the provided index variable by one, wrapping
+            around if necessary.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.Decrement(System.Int32@)">
+            <summary>
+            Decrements the provided index variable by one, wrapping
+            around if necessary.
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="M:MMALSharp.Common.CircularBuffer`1.InternalIndex(System.Int32)">
+            <summary>
+            Converts the index in the argument to an index in <code>_buffer</code>
+            </summary>
+            <returns>
+            The transformed index.
+            </returns>
+            <param name='index'>
+            External index.
+            </param>
+        </member>
+        <member name="T:MMALSharp.Common.CameraVersion">
+            <summary>
+            Represents a Raspberry Pi camera module model.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Common.CameraVersion.OV5647">
+            <summary>
+            SUNNY OV5647.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Common.CameraVersion.IMX219">
+            <summary>
+            Sony IMX219.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Common.GenericExtensions">
+            <summary>
+            Provides extension methods for mathematical operations.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.GenericExtensions.Clamp``1(``0,``0,``0)">
+            <summary>
+            Returns a representation of this object that is in the specified range. Too large values will be dreceased to max; too small values will be increased to min.
+            </summary>
+            <typeparam name="T">The type of the value to be clamped.</typeparam>
+            <param name="val">The value to be clamped.</param>
+            <param name="min">The mininum inclusive value.</param>
+            <param name="max">The maximum inclusive value.</param>
+            <returns>A clamped representation of the initial value.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.GenericExtensions.ToFloat(System.Byte)">
+            <summary>
+            Converts a <see cref="T:System.Byte"/> value to a <see cref="T:System.Single"/> value from 0.0 to 1.0.
+            </summary>
+            <param name="val">The byte value to convert.</param>
+            <returns>The converted float value.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.GenericExtensions.ToByte(System.Single)">
+            <summary>
+            Converts a <see cref="T:System.Single"/> value (0.0 to 1.0) to a <see cref="T:System.Byte"/> value from 0 to 255.
+            </summary>
+            <param name="val">The float value to convert.</param>
+            <remarks>https://stackoverflow.com/questions/1914115/converting-color-value-from-float-0-1-to-byte-0-255</remarks>
+            <returns>The converted byte value.</returns>
+        </member>
+        <member name="T:MMALSharp.Common.ImageContext">
+            <summary>
+            Represents a context to hold metadata for image frames.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.Data">
+            <summary>
+            The working data.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.Raw">
+            <summary>
+            Flag to indicate whether image frame is raw.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.Resolution">
+            <summary>
+            The resolution of the frame we're processing.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.Encoding">
+            <summary>
+            The encoding format of the frame we're processing.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.PixelFormat">
+            <summary>
+            The pixel format of the frame we're processing.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.StoreFormat">
+            <summary>
+            The image format to store the processed data in.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.Eos">
+            <summary>
+            Indicates if this frame represents the end of the stream.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.ImageContext.IFrame">
+            <summary>
+            Indicates if this frame contains IFrame data.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.MMALEncodingHelpers.EncodingList">
+            <summary>
+            Gets a list of all supported encodings.
+            Call <see cref="!:PortExtensions.GetSupportedEncodings"/> to get supported encodings for a specific port.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.MMALEncodingHelpers.ParseEncoding(System.Int32)">
+            <summary>
+            Parses an integer encoding value to an MMALEncoding object.
+            </summary>
+            <param name="encodingType">The encoding type value.</param>
+            <returns>The MMALEncoding object</returns>
+        </member>
+        <member name="M:MMALSharp.Common.MMALEncodingHelpers.ParseEncoding(System.String)">
+            <summary>
+            Parses a string encoding name to an MMALEncoding object.
+            </summary>
+            <param name="encodingName">The encoding type name.</param>
+            <returns>The MMALEncoding object</returns>
+        </member>
+        <member name="F:MMALSharp.Common.MMALEncoding.OPAQUE">
+            <summary>
+            An opaque buffer is a Broadcom specific format that references a GPU internal bitmap. It is typed as <see cref="F:MMALSharp.Common.MMALEncoding.EncodingType.Internal"/>.
+            </summary>
+            <remarks>https://www.raspberrypi.org/forums/viewtopic.php?t=53698</remarks>
+        </member>
+        <member name="T:MMALSharp.Common.Utility.CancellationTokenExtensions">
+            <summary>
+            This class provides extensions for <see cref="T:System.Threading.CancellationToken"/>s.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.CancellationTokenExtensions.AsTask(System.Threading.CancellationToken)">
+            <summary>
+            Returns a <see cref="T:System.Threading.Tasks.Task"/> whose state will be set to <see cref="F:System.Threading.Tasks.TaskStatus.Canceled"/> when this <see cref="T:System.Threading.CancellationToken"/> is canceled.
+            </summary>
+            <param name="cancellationToken">The cancellation token.</param>
+            <returns>The task.</returns>
+        </member>
+        <member name="T:MMALSharp.Common.Utility.MMALColor">
+            <summary>
+            Provides useful methods to convert from various colour spaces to RGB.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromCIE1960(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from CIE 1960 floating point values.
+            See: https://en.wikipedia.org/wiki/CIE_1960_color_space
+            </summary>
+            <param name="u">The chrominance U value.</param>
+            <param name="v">The chrominance V value.</param>
+            <param name="y">The CIE XYZ Y tristimulus value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the CIE 1960 parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToCIE1960(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the CIE 1960 uniform colour space.
+            See: https://en.wikipedia.org/wiki/CIE_1960_color_space        
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 2 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to CIE 1960.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToCIEXYZ(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the CIE XYZ colour space.
+            See: https://en.wikipedia.org/wiki/SRGB#The_forward_transformation_(CIE_XYZ_to_sRGB)
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to CIE XYZ.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToYIQ(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the YIQ colour space.
+            See: https://en.wikipedia.org/wiki/YIQ
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to YIQ.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToHLS(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the HLS colour space.
+            See: https://en.wikipedia.org/wiki/HSL_and_HSV
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to HLS.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToHSV(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the HSV colour space.
+            See: https://en.wikipedia.org/wiki/HSL_and_HSV
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to HSV.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToYUV(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the YUV colour space.
+            See: https://en.wikipedia.org/wiki/YUV#Converting_between_Y%E2%80%B2UV_and_RGB
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>        
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of floating point values representing the RGB conversion to YUV.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.RGBToYUVBytes(System.Drawing.Color)">
+            <summary>
+            Converts a RGB <see cref="T:System.Drawing.Color"/> structure to the YUV colour space as byte values.
+            See: https://en.wikipedia.org/wiki/YUV#Converting_between_Y%E2%80%B2UV_and_RGB
+            </summary>
+            <param name="c">The <see cref="T:System.Drawing.Color"/> structure.</param>
+            <returns>A 3 pair <see cref="T:System.Tuple"/> of byte values representing the RGB conversion to YUV.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromYUV(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from YUV floating point values.
+            See: https://en.wikipedia.org/wiki/YUV#Conversion_to/from_RGB
+            </summary>
+            <param name="y">The luma value.</param>
+            <param name="u">The chrominance U value.</param>
+            <param name="v">The chrominance V value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the YUV parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromYUVBytes(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from YUV byte values.
+            See: https://en.wikipedia.org/wiki/YUV#Converting_between_Y%E2%80%B2UV_and_RGB
+            </summary>
+            <param name="y">The luma value.</param>
+            <param name="u">The chrominance U value.</param>
+            <param name="v">The chrominance V value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the YUV parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromYIQ(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from YIQ floating point values.
+            See: https://en.wikipedia.org/wiki/YIQ
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="y">The luma value (between 0 - 1).</param>
+            <param name="i">The chrominance I value (between -1 - 1).</param>
+            <param name="q">The chrominance Q value (between -1 - 1).</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the YIQ parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromHLS(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from HLS floating point values.
+            See: https://en.wikipedia.org/wiki/HSL_and_HSV
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="h">The hue value.</param>
+            <param name="l">The lightness value.</param>
+            <param name="s">The saturation value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the HLS parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromHSV(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from HSV floating point values.
+            See: https://en.wikipedia.org/wiki/HSL_and_HSV
+            Math conversion from: https://github.com/python/cpython/blob/2.7/Lib/colorsys.py
+            </summary>
+            <param name="h">The hue value.</param>
+            <param name="s">The saturation value.</param>
+            <param name="v">The 'value' (lightness) value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the HSV parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromCieXYZ(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from CIEXYZ floating point values. Assumes D65 illuminant.
+            See: https://en.wikipedia.org/wiki/SRGB#The_forward_transformation_(CIE_XYZ_to_sRGB) 
+            </summary>
+            <param name="x">The chrominance X value (0 &lt;= x &lt;= 0.9505).</param>
+            <param name="y">The luminance Y value (0 &lt;= y &lt;= 1.0000).</param>
+            <param name="z">The chrominance Z value (0 &lt;= z &lt;= 1.0890).</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the CIEXYZ parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromCieLab(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from CIELab floating point values.
+            See: https://en.wikipedia.org/wiki/Lab_color_space#Forward_transformation
+            </summary>
+            <param name="l">The lightness L value.</param>
+            <param name="a">The chrominance A value.</param>
+            <param name="b">The chrominance B value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the CIELab parameter values.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.MMALColor.FromCieLUV(System.Single,System.Single,System.Single)">
+            <summary>
+            Returns a new <see cref="T:System.Drawing.Color"/> structure based from CIELUV floating point values.
+            See: https://en.wikipedia.org/wiki/CIELUV
+            </summary>
+            <param name="l">The lightness L value.</param>
+            <param name="u">The chrominance U value.</param>
+            <param name="v">The chrominance V value.</param>
+            <returns>A <see cref="T:System.Drawing.Color"/> structure representing the CIELUV parameter values.</returns>
+        </member>
+        <member name="T:MMALSharp.Common.Utility.Helpers">
+            <summary>
+            Provides general helper methods.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.Helpers.ConvertBytesToMegabytes(System.Int64)">
+            <summary>
+            Converts the count of bytes to megabytes in the format "0.00mb".
+            </summary>
+            <param name="bytes">The number of bytes.</param>
+            <returns>A string representing the byte-megabyte conversion.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.Helpers.FourCCFromString(System.String)">
+            <summary>
+            Returns an integer FourCC code from a string.
+            </summary>
+            <param name="s">The FourCC code.</param>
+            <returns>The FourCC code as an integer.</returns>
+        </member>
+        <member name="T:MMALSharp.Common.Utility.MMALLog">
+            <summary>
+            Provides static access to the global logger.
+            Credit to @snakefoot - https://github.com/NLog/NLog.Extensions.Logging/issues/379#issuecomment-569544196
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.MMALLog.Logger">
+            <summary>
+            Gets the global logger component.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.MMALLog.LoggerFactory">
+            <summary>
+            Responsible for getting/setting the working LoggerFactory.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Common.Utility.Resolution">
+            <summary>
+            Exposes properties for width and height. This class is used to specify a resolution for camera and ports.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.Width">
+            <summary>
+            The width of the <see cref="T:MMALSharp.Common.Utility.Resolution"/> object.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.Height">
+            <summary>
+            The height of the <see cref="T:MMALSharp.Common.Utility.Resolution"/> object.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.Resolution.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Common.Utility.Resolution"/> class with the specified width and height.
+            </summary>
+            <param name="width">The width to assign this resolution with.</param>
+            <param name="height">The height to assign this resolution with.</param>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As8MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 3264 pixels high and 2448 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As7MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 3072 pixels high and 2304 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As6MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 3032 pixels high and 2008 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As5MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 2560 pixels high and 1920 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As4MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 2240 pixels high and 1680 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As3MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 2048 pixels high and 1536 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As2MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 1600 pixels high and 1200 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As1MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 1280 pixels high and 960 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As03MPixel">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 640 pixels high and 480 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As720p">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 1280 pixels high and 720 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As1080p">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 1920 pixels high and 1080 pixels wide.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Common.Utility.Resolution.As1440p">
+            <summary>
+            Creates a new <see cref="T:MMALSharp.Common.Utility.Resolution"/> object with 2560 pixels high and 1440 pixels wide.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.Resolution.CompareTo(MMALSharp.Common.Utility.Resolution)">
+            <summary>
+            Compares this Resolution instance against the Resolution passed in. 
+            </summary>
+            <param name="res">The resolution we are comparing to.</param>
+            <returns>0 if width and height are same. 1 if source width is greater than target. -1 if target greater than source.</returns>
+        </member>
+        <member name="M:MMALSharp.Common.Utility.Resolution.Pad(System.Int32,System.Int32)">
+            <summary>
+            Pads a <see cref="T:MMALSharp.Common.Utility.Resolution"/> object to the desired width/height.
+            </summary>
+            <param name="width">The width to be padded to.</param>
+            <param name="height">The height to be padded to.</param>
+            <returns>A new <see cref="T:MMALSharp.Common.Utility.Resolution"/> struct, padded to the required width/height.</returns>
+        </member>
+    </members>
+</doc>

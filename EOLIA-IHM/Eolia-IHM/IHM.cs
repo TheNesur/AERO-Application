@@ -31,6 +31,7 @@ namespace Eolia_IHM
                 textBoxUsernameMYSQL.Text = "A MODIFIER";
                 textBoxMotdepasseMYSQL.Text = "A MODIFIER";
                 textBoxNomBDDMYSQL.Text = "A MODIFIER";
+                textBoxRepertoireSiteWEB.Text = "/var/www/eolia/";
                 Sauvegarder();
                 MessageBox.Show("Premier lancement, veuillez configurer la BDD dans EoliaConfig.config");
                 Application.Exit();
@@ -42,7 +43,7 @@ namespace Eolia_IHM
                 Recharger();
                 Console.WriteLine("Eolia IHM");
                 EoliaLogs.InitializeLogs();
-                EoliaLogs.Write("Démarrage de l'IHM", EoliaLogs.Types.LOGS);
+                EoliaLogs.Write("Démarrage de l'IHM");
 
             }
         }

@@ -1,0 +1,886 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MMALSharp.Processing</name>
+    </assembly>
+    <members>
+        <member name="T:MMALSharp.Handlers.CircularBufferCaptureHandler">
+            <summary>
+            Represents a capture handler working as a circular buffer.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.CircularBufferCaptureHandler.Buffer">
+            <summary>
+            The circular buffer object responsible for storing image data.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.#ctor(System.Int32,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.CircularBufferCaptureHandler"/> class with the specified Circular buffer capacity and directory/extension of the working file.
+            </summary>
+            <param name="bufferSize">The buffer's size.</param>
+            <param name="directory">The directory to save captured videos.</param>
+            <param name="extension">The filename extension for saving files.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.CircularBufferCaptureHandler"/> class with the specified Circular buffer capacity and working file path.
+            </summary>
+            <param name="bufferSize">The buffer's size.</param>
+            <param name="fullPath">The absolute full path to save captured data to.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.Process(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.ConfigureMotionDetection(MMALSharp.Processors.Motion.MotionConfig,System.Action,System.Action)">
+            <summary>
+            Call to enable motion detection.
+            </summary>
+            <param name="config">The motion configuration.</param>
+            <param name="onDetect">A callback for when motion is detected.</param>
+            <param name="onStopDetect">An optional callback for when the record duration has passed.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.EnableMotionDetection">
+            <summary>
+            Enables motion detection. When configured, this will instruct the capture handler to detect motion.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.DisableMotionDetection">
+            <summary>
+            Disables motion detection. When configured, this will instruct the capture handler not to detect motion.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.StartRecording">
+            <summary>
+            Call to start recording to FileStream.
+            </summary>        
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.StopRecording">
+            <summary>
+            Call to stop recording to FileStream.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.CircularBufferCaptureHandler.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Handlers.FileStreamCaptureHandler">
+            <summary>
+            Processes image data to a <see cref="T:System.IO.FileStream"/>.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.FileStreamCaptureHandler.ProcessedFiles">
+            <summary>
+            A list of files that have been processed by this capture handler.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.FileStreamCaptureHandler.Directory">
+            <summary>
+            The directory to save to (if applicable).
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.FileStreamCaptureHandler.Extension">
+            <summary>
+            The extension of the file (if applicable).
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.FileStreamCaptureHandler.CurrentFilename">
+            <summary>
+            The name of the current file associated with the FileStream.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.FileStreamCaptureHandler"/> class with the specified directory and filename extension. Filenames will be in the
+            format "dd-MMM-yy HH-mm-ss" taken from this moment in time.
+            </summary>
+            <param name="directory">The directory to save captured data.</param>
+            <param name="extension">The filename extension for saving files.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.FileStreamCaptureHandler"/> class with the specified file path.
+            </summary>
+            <param name="fullPath">The absolute full path to save captured data to.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.GetFilename">
+            <summary>
+            Gets the filename that a FileStream points to.
+            </summary>
+            <returns>The filename.</returns>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.GetFilepath">
+            <summary>
+            Gets the filepath that a FileStream points to.
+            </summary>
+            <returns>The filepath.</returns>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.NewFile">
+            <summary>
+            Creates a new File (FileStream), assigns it to the Stream instance of this class and disposes of any existing stream. 
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.PostProcess">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.FileStreamCaptureHandler.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Handlers.ICaptureHandler">
+            <summary>
+            Provides the functionality to process user provided or captured image data.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.ICaptureHandler.TotalProcessed">
+            <summary>
+            Returns a string of how much data has been processed by this capture handler.
+            </summary>
+            <returns>How much data has been processed by this capture handler.</returns>
+        </member>
+        <member name="T:MMALSharp.Handlers.IFileStreamCaptureHandler">
+            <summary>
+            Represents a FileStreamCaptureHandler.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IFileStreamCaptureHandler.NewFile">
+            <summary>
+            Creates a new File (FileStream), assigns it to the Stream instance of this class and disposes of any existing stream. 
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IFileStreamCaptureHandler.GetFilepath">
+            <summary>
+            Gets the filepath that a FileStream points to.
+            </summary>
+            <returns>The filepath.</returns>
+        </member>
+        <member name="M:MMALSharp.Handlers.IFileStreamCaptureHandler.GetFilename">
+            <summary>
+            Gets the filename that a FileStream points to.
+            </summary>
+            <returns>The filename.</returns>
+        </member>
+        <member name="T:MMALSharp.Handlers.IInputCaptureHandler">
+            <summary>
+            Represents a capture handler attached to an Input port.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IInputCaptureHandler.Process(System.UInt32)">
+            <summary>
+            Processes image data to an input port.
+            </summary>
+            <param name="allocSize">The feed chunk size.</param>
+            <returns>A <see cref="T:MMALSharp.Handlers.ProcessResult"/> with the fed image data.</returns>
+        </member>
+        <member name="T:MMALSharp.Handlers.ImageStreamCaptureHandler">
+            <summary>
+            Processes Image data to a <see cref="T:System.IO.FileStream"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.ImageStreamCaptureHandler.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.ImageStreamCaptureHandler"/> class with the specified directory and filename extension.
+            </summary>
+            <param name="directory">The directory to save captured images.</param>
+            <param name="extension">The filename extension for saving files.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.ImageStreamCaptureHandler.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.ImageStreamCaptureHandler"/> class with the specified file path.
+            </summary>
+            <param name="fullPath">The absolute full path to save captured data to.</param>
+        </member>
+        <member name="T:MMALSharp.Handlers.IMotionCaptureHandler">
+            <summary>
+            Represents a capture handler which can detect motion.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.IMotionCaptureHandler.MotionType">
+            <summary>
+            The motion type associated with this MotionCaptureHandler.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IMotionCaptureHandler.ConfigureMotionDetection(MMALSharp.Processors.Motion.MotionConfig,System.Action,System.Action)">
+            <summary>
+            Call to configure motion detection.
+            </summary>
+            <param name="config">The motion configuration.</param>
+            <param name="onDetect">A callback for when motion is detected.</param>
+            <param name="onStopDetect">An optional callback for when the record duration has passed.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.IMotionCaptureHandler.EnableMotionDetection">
+            <summary>
+            Enables motion detection. When configured, this will instruct the capture handler to detect motion.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IMotionCaptureHandler.DisableMotionDetection">
+            <summary>
+            Disables motion detection. When configured, this will instruct the capture handler not to detect motion.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Handlers.IMotionVectorCaptureHandler">
+            <summary>
+            Represents a capture handler which can process motion vectors.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IMotionVectorCaptureHandler.InitialiseMotionStore(System.IO.Stream)">
+            <summary>
+            Call to initialise the stream to write motion vectors to.
+            </summary>
+            <param name="stream">The stream to write to.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.IMotionVectorCaptureHandler.ProcessMotionVectors(System.Byte[])">
+            <summary>
+            Responsible for storing the motion vector data to an output stream.
+            </summary>
+            <param name="data">The byte array containing the motion vector data.</param>
+        </member>
+        <member name="T:MMALSharp.Handlers.InMemoryCaptureHandler">
+            <summary>
+            A capture handler which stores its data to memory.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.InMemoryCaptureHandler.WorkingData">
+            <summary>
+            The working data store.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.InMemoryCaptureHandler.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Handlers.InMemoryCaptureHandler"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.InMemoryCaptureHandler.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.InMemoryCaptureHandler.Process(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.InMemoryCaptureHandler.PostProcess">
+            <summary>
+            Allows us to do any further processing once the capture method has completed. Note: It is the user's responsibility to 
+            clear the WorkingData list after processing is complete.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.InMemoryCaptureHandler.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Handlers.InputCaptureHandler">
+            <summary>
+            Represents an InputCaptureHandler which is responsible for feeding data from a stream.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.InputCaptureHandler.CurrentStream">
+            <summary>
+            Gets or sets the stream to retrieve input data from.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.InputCaptureHandler.Processed">
+            <summary>
+            The total amount of data processed by this <see cref="T:MMALSharp.Handlers.InputCaptureHandler"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.InputCaptureHandler.#ctor(System.IO.Stream)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.InputCaptureHandler"/> class with the specified input stream, output directory and output filename extension.
+            </summary>
+            <param name="inputStream">The stream to retrieve input data from.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.InputCaptureHandler.Process(System.UInt32)">
+            <summary>
+            When overridden in a derived class, returns user provided image data.
+            </summary>
+            <param name="allocSize">The count of bytes to return at most in the <see cref="T:MMALSharp.Handlers.ProcessResult"/>.</param>
+            <returns>A <see cref="T:MMALSharp.Handlers.ProcessResult"/> object containing the user provided image data.</returns>
+        </member>
+        <member name="M:MMALSharp.Handlers.InputCaptureHandler.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.InputCaptureHandler.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Handlers.IOutputCaptureHandler">
+            <summary>
+            Represents a capture handler attached to an Output port.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IOutputCaptureHandler.Process(MMALSharp.Common.ImageContext)">
+            <summary>
+            Used to process the image data from an output port.
+            </summary>
+            <param name="context">Contains the data and metadata for an image frame.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.IOutputCaptureHandler.PostProcess">
+            <summary>
+            Used for any further processing once we have completed capture.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Handlers.IVideoCaptureHandler">
+            <summary>
+            Represents a VideoCaptureHandler for use when recording video frames.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.IVideoCaptureHandler.Split">
+            <summary>
+            Signals that we should begin writing to a new video file.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Handlers.MemoryStreamCaptureHandler">
+            <summary>
+            Processes frame data to a <see cref="T:System.IO.MemoryStream"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.MemoryStreamCaptureHandler.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Handlers.MemoryStreamCaptureHandler"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.MemoryStreamCaptureHandler.#ctor(System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Handlers.MemoryStreamCaptureHandler"/> with a specified capacity.
+            </summary>
+            <param name="size">The capacity of the <see cref="T:System.IO.MemoryStream"/>.</param>
+        </member>
+        <member name="T:MMALSharp.Handlers.OutputCaptureHandler">
+            <summary>
+            Represents an OutputCaptureHandler which is responsible for storing frames processed by a component.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.OutputCaptureHandler.OnManipulate">
+            <summary>
+            A callback for use with the Image Processing API.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.OutputCaptureHandler.OnAnalyse">
+            <summary>
+            A callback for use with the Image Analysis API.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.OutputCaptureHandler.ImageContext">
+            <summary>
+            An ImageContext providing metadata for image data.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.OutputCaptureHandler.StoreFormat">
+            <summary>
+            The image format to save manipulated files in.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.OutputCaptureHandler.Dispose">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.OutputCaptureHandler.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="P:MMALSharp.Handlers.OutputCaptureHandler.Processed">
+            <summary>
+            The total amount of data that has been processed by this capture handler.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.OutputCaptureHandler.Process(MMALSharp.Common.ImageContext)">
+            <summary>
+            Used to process the image data from an output port. Users who extend this class should call the base class
+            to ensure the ImageContext property is assigned with the current frame's context.
+            </summary>
+            <param name="context">Contains the data and metadata for an image frame.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.OutputCaptureHandler.PostProcess">
+            <summary>
+            Allows us to do any further processing once the capture method has completed.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.OutputCaptureHandler.Manipulate(System.Action{MMALSharp.Processors.IFrameProcessingContext},System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Allows manipulating of the image frame.
+            </summary>
+            <param name="context">A delegate to the manipulation you wish to carry out.</param>
+            <param name="storeFormat">The image format to save manipulated files in..</param>
+        </member>
+        <member name="T:MMALSharp.Handlers.ProcessedFileResult">
+            <summary>
+            Represents a file that contains the image data written by a capture handler.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessedFileResult.Directory">
+            <summary>
+            Gets or sets the directory path of the file.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessedFileResult.Filename">
+            <summary>
+            Gets or sets the filename without extension.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessedFileResult.Extension">
+            <summary>
+            Gets or sets the file extension without the leading dot.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.ProcessedFileResult.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.ProcessedFileResult"/> class with the specified directory, filename and extension.
+            </summary>
+            <param name="directory">The directory path of the file.</param>
+            <param name="filename">The filename without extension.</param>
+            <param name="extension">The file extension without the leading dot.</param>
+        </member>
+        <member name="T:MMALSharp.Handlers.ProcessResult">
+            <summary>
+            Contains the user provided image data with for a process operation.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.Success">
+            <summary>
+            Gets or sets a value indicated whether the associated process operation succeeded.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.Message">
+            <summary>
+            Gets or sets a message associated with this <see cref="T:MMALSharp.Handlers.ProcessResult"/>.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.EOF">
+            <summary>
+            Gets or sets a value indicating whether the end of file has been reached.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.BufferFeed">
+            <summary>
+            Gets or sets the buffer feed containing the image data.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.DataLength">
+            <summary>
+            Gets or sets the count of bytes in the buffer used for image data.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.ProcessResult.AllocSize">
+            <summary>
+            Gets or sets the count of bytes allocated for the buffer.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Handlers.StreamCaptureHandler`1">
+            <summary>
+            Processes the image data to a stream.
+            </summary>
+            <typeparam name="T">The <see cref="T:System.IO.Stream"/> type.</typeparam>
+        </member>
+        <member name="P:MMALSharp.Handlers.StreamCaptureHandler`1.CurrentStream">
+            <summary>
+            A Stream instance that we can process image data to.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.StreamCaptureHandler`1.Process(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.StreamCaptureHandler`1.PostProcess">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.StreamCaptureHandler`1.TotalProcessed">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Handlers.StreamCaptureHandler`1.Dispose">
+            <summary>
+            Releases the underlying stream.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Handlers.VideoStreamCaptureHandler">
+            <summary>
+            Processes the video data to a FileStream.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.VideoStreamCaptureHandler.MotionType">
+            <summary>
+            The motion type associated with this VideoCaptureHandler
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Handlers.VideoStreamCaptureHandler.MotionVectorStore">
+            <summary>
+            The data store for motion vectors.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.VideoStreamCaptureHandler.#ctor(System.String,System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.VideoStreamCaptureHandler"/> class with the specified directory and filename extension.
+            </summary>
+            <param name="directory">The directory to save captured videos.</param>
+            <param name="extension">The filename extension for saving files.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.VideoStreamCaptureHandler.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:MMALSharp.Handlers.VideoStreamCaptureHandler"/> class with the specified file path.
+            </summary>
+            <param name="fullPath">The absolute full path to save captured data to.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.VideoStreamCaptureHandler.Split">
+            <summary>
+            Splits the current file by closing the current stream and opening a new one.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Handlers.VideoStreamCaptureHandler.InitialiseMotionStore(System.IO.Stream)">
+            <summary>
+            Used to set the current working motion vector store.
+            </summary>
+            <param name="stream">The <see cref="T:System.IO.FileStream"/> to write to.</param>
+        </member>
+        <member name="M:MMALSharp.Handlers.VideoStreamCaptureHandler.ProcessMotionVectors(System.Byte[])">
+            <summary>
+            Responsible for storing the motion vector data to an output stream.
+            </summary>
+            <param name="data">The byte array containing the motion vector data.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.BayerMetaProcessor">
+            <summary>
+            The BayerMetaProcessor is used to strip Bayer metadata from a JPEG image frame via the Image Processing API.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.BayerMetaProcessor.CameraVersion">
+            <summary>
+            The camera version being used.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.BayerMetaProcessor.BayerMetaLengthV1">
+            <summary>
+            The length of the metadata for the OmniVision OV5647.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.BayerMetaProcessor.BayerMetaLengthV2">
+            <summary>
+            The length of the metadata for the Sony IMX219.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.BayerMetaProcessor.#ctor(MMALSharp.Common.CameraVersion)">
+            <summary>
+            Initialises a new instance of <see cref="T:MMALSharp.Processors.BayerMetaProcessor"/>.
+            </summary>
+            <param name="camVersion">The camera version you're using.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.BayerMetaProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.BayerOperationsExtensions">
+            <summary>
+            Extensions methods relating to Bayer metadata.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.BayerOperationsExtensions.StripBayerMetadata(MMALSharp.Processors.IFrameProcessingContext,MMALSharp.Common.CameraVersion)">
+            <summary>
+            Apply a processor to strip out Bayer metadata from a JPEG frame.
+            </summary>
+            <param name="context">The image context.</param>
+            <param name="version">The camera version.</param>
+            <returns>The active image context.</returns>
+        </member>
+        <member name="M:MMALSharp.Processors.BayerOperationsExtensions.Demosaic(MMALSharp.Processors.IFrameProcessingContext)">
+            <summary>
+            Apply a processor to apply a Demosaic to raw Bayer metadata.
+            </summary>
+            <param name="context">The image context.</param>
+            <returns>The active image context.</returns>
+        </member>
+        <member name="T:MMALSharp.Processors.Bayer.DemosaicProcessor">
+            <summary>
+            The DemosaicProcessor is used to apply a demosaic algorithm to Bayer metadata.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Bayer.DemosaicProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.ConvolutionBase">
+            <summary>
+            Base class for image processors using matrix convolution.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.ConvolutionBase.ApplyConvolution(System.Double[0:,0:],System.Int32,System.Int32,MMALSharp.Common.ImageContext)">
+            <summary>
+            Apply a convolution based on the kernel passed in.
+            </summary>
+            <param name="kernel">The kernel.</param>
+            <param name="kernelWidth">The kernel's width.</param>
+            <param name="kernelHeight">The kernel's height.</param>
+            <param name="context">An image context providing additional metadata on the data passed in.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.CustomConvolutionProcessor">
+            <summary>
+            A image processor allowing for user-defined kernels.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.CustomConvolutionProcessor.#ctor(System.Double[0:,0:],System.Int32,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Effects.CustomConvolutionProcessor"/>.
+            </summary>
+            <param name="kernel">The user-defined kernel.</param>
+            <param name="kernelWidth">The kernel's width.</param>
+            <param name="kernelHeight">The kernel's height.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.CustomConvolutionProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.EDStrength">
+            <summary>
+            Represents the strength of the Edge Detection algorithm.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EDStrength.Low">
+            <summary>
+            Low strength.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EDStrength.Medium">
+            <summary>
+            Medium strength.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EDStrength.High">
+            <summary>
+            High strength.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.EdgeDetection">
+            <summary>
+            A kernel based image processor used to apply Edge detection convolution.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EdgeDetection.KernelWidth">
+            <summary>
+            The kernel's width.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EdgeDetection.KernelHeight">
+            <summary>
+            The kernel's height.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EdgeDetection.LowStrengthKernel">
+            <summary>
+            A kernel used to apply a low strength edge detection convolution to an image.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EdgeDetection.MediumStrengthKernel">
+            <summary>
+            A kernel used to apply a medium strength edge detection convolution to an image.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.EdgeDetection.HighStrengthKernel">
+            <summary>
+            A kernel used to apply a high strength edge detection convolution to an image.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Effects.EdgeDetection.Kernel">
+            <summary>
+            The working kernel.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.EdgeDetection.#ctor(MMALSharp.Processors.Effects.EDStrength)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Effects.EdgeDetection"/> processor used to apply Edge detection convolution.
+            </summary>
+            <param name="strength">The Edge detection strength.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.EdgeDetection.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.GaussianMatrix">
+            <summary>
+            Represents the matrix to use when applying a Gaussian blur convolution to an image frame.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.GaussianMatrix.Matrix3x3">
+            <summary>
+            Use a 3x3 matrix.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Effects.GaussianMatrix.Matrix5x5">
+            <summary>
+            Use a 5x5 matrix.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.GaussianProcessor">
+            <summary>
+            A image processor used to apply a Gaussian blur effect.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.GaussianProcessor.#ctor(MMALSharp.Processors.Effects.GaussianMatrix)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Effects.GaussianProcessor"/>.
+            </summary>
+            <param name="matrix">The Gaussian matrix to apply.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.GaussianProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.Effects.SharpenProcessor">
+            <summary>
+            A image processor used to apply a sharpen effect.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Effects.SharpenProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.FrameAnalyser">
+            <summary>
+            The FrameAnalyser class is used with the Image Analysis API.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.FrameAnalyser.WorkingData">
+            <summary>
+            The frame we are working with.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.FrameAnalyser.FullFrame">
+            <summary>
+            True if the working data store contains a full frame.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.FrameAnalyser.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.FrameAnalyser"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.FrameAnalyser.Apply(MMALSharp.Common.ImageContext)">
+            <summary>
+            Applies an operation.
+            </summary>
+            <param name="context">Contains the data and metadata for an image frame.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.FrameProcessingContext">
+            <summary>
+            A context providing a means to apply image processing. 
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.FrameProcessingContext.#ctor(MMALSharp.Common.ImageContext)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.FrameProcessingContext"/>.
+            </summary>
+            <param name="context">Metadata for the image frame.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.FrameProcessingContext.Apply(MMALSharp.Processors.IFrameProcessor)">
+            <inheritdoc />
+        </member>
+        <member name="T:MMALSharp.Processors.IFrameAnalyser">
+            <summary>
+            Represents a frame analyser.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.IFrameAnalyser.Apply(MMALSharp.Common.ImageContext)">
+            <summary>
+            The operation to perform analysis.
+            </summary>
+            <param name="context">Contains the data and metadata for an image frame.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.IFrameProcessingContext">
+            <summary>
+            A context to apply image processing techniques on image frames.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.IFrameProcessingContext.Apply(MMALSharp.Processors.IFrameProcessor)">
+            <summary>
+            Applies a processing function on an image frame.
+            </summary>
+            <param name="processor">The image processor.</param>
+            <returns>The active image context.</returns>
+        </member>
+        <member name="T:MMALSharp.Processors.IFrameProcessor">
+            <summary>
+            A processor to apply image processing techniques on image frame data.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.IFrameProcessor.Apply(MMALSharp.Common.ImageContext)">
+            <summary>
+            Apply the convolution.
+            </summary>
+            <param name="context">The image's metadata.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.Motion.FrameDiffAnalyser">
+            <summary>
+            The <see cref="T:MMALSharp.Processors.Motion.FrameDiffAnalyser"/> is used to detect changes between two image frames.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.FrameDiffAnalyser.TestFrame">
+            <summary>
+            Working storage for the Test Frame. This is the original static image we are comparing to.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.FrameDiffAnalyser.FullTestFrame">
+            <summary>
+            Indicates whether we have a full test frame.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.FrameDiffAnalyser.MotionConfig">
+            <summary>
+            The motion configuration object.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.FrameDiffAnalyser.ImageContext">
+            <summary>
+            The image metadata.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.FrameDiffAnalyser.#ctor(MMALSharp.Processors.Motion.MotionConfig,System.Action)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Motion.FrameDiffAnalyser"/>.
+            </summary>
+            <param name="config">The motion configuration object.</param>
+            <param name="onDetect">A callback when changes are detected.</param>
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.FrameDiffAnalyser.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.FrameDiffAnalyser.ResetAnalyser">
+            <summary>
+            Resets the test and working frames this analyser is using.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Processors.Motion.MotionConfig">
+            <summary>
+            This class is used to store user preferences when detecting motion between two image frames.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.MotionConfig.RecordDuration">
+            <summary>
+            How long should we record for when detected.
+            </summary>
+        </member>
+        <member name="P:MMALSharp.Processors.Motion.MotionConfig.Threshold">
+            <summary>
+            The threshold to use.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.MotionConfig.#ctor(System.TimeSpan,System.Int32)">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Motion.MotionConfig"/>.
+            </summary>
+            <param name="recordDuration">The record duration.</param>
+            <param name="threshold">The threshold.</param>
+        </member>
+        <member name="T:MMALSharp.Processors.Motion.MotionType">
+            <summary>
+            Describes motion detection type to use.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Motion.MotionType.FrameDiff">
+            <summary>
+            Frame difference.
+            </summary>
+        </member>
+        <member name="F:MMALSharp.Processors.Motion.MotionType.MotionVector">
+            <summary>
+            Motion vector comparison.
+            </summary>
+        </member>
+        <member name="T:MMALSharp.Processors.Motion.MotionVectorAnalyser">
+            <summary>
+            A frame analyser for use with motion vector detection.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.MotionVectorAnalyser.#ctor">
+            <summary>
+            Creates a new instance of <see cref="T:MMALSharp.Processors.Motion.MotionVectorAnalyser"/>.
+            </summary>
+        </member>
+        <member name="M:MMALSharp.Processors.Motion.MotionVectorAnalyser.Apply(MMALSharp.Common.ImageContext)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
