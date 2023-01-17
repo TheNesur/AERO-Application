@@ -208,10 +208,10 @@
     <Compile Include="AccueilIHM.Designer.cs">
       <DependentUpon>AccueilIHM.cs</DependentUpon>
     </Compile>
-    <Compile Include="EoliaCam.cs" />
-    <Compile Include="EoliaLogs.cs" />
-    <Compile Include="EoliaMes.cs" />
-    <Compile Include="EoliaSQL.cs" />
+    <Compile Include="Utils\EoliaCam.cs" />
+    <Compile Include="Utils\EoliaLogs.cs" />
+    <Compile Include="Utils\EoliaMes.cs" />
+    <Compile Include="Utils\EoliaSQL.cs" />
     <Compile Include="IHM.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -231,7 +231,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Compile Include="EoliaUtils.cs" />
+    <Compile Include="Utils\EoliaUtils.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
