@@ -60,6 +60,48 @@ namespace Eolia_IHM
 
         }
 
+        public static string PortancePretPourEnvoi()
+        {
+            string PortanceFormate = "";
+            if (SessionMesureDispo())
+            {
+                for(int i = 0; i < ListeMesurePortance.Count(); i++)
+                {
+                    PortanceFormate= PortanceFormate + ListeMesurePortance[i].ToString();
+                    if(ListeMesurePortance.Count()-1 != i)
+                    {
+                        PortanceFormate = PortanceFormate + ";";
+                    }
+                }
+                return PortanceFormate;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
+        public static string TraineePretPourEnvoi()
+        {
+            string TraineeFormate = "";
+            if (SessionMesureDispo())
+            {
+                for (int i = 0; i < ListeMesureTrainee.Count(); i++)
+                {
+                    TraineeFormate = TraineeFormate + ListeMesureTrainee[i].ToString();
+                    if (ListeMesureTrainee.Count() - 1 != i)
+                    {
+                        TraineeFormate = TraineeFormate + ";";
+                    }
+                }
+                return TraineeFormate;
+            }
+            else
+            {
+                return "";
+            }
+        }
+
         public static void TarerCapteur()
         {
             EnvoyerMessageSerieCapteur("TARAGE");

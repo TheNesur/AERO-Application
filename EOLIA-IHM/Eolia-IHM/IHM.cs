@@ -24,7 +24,7 @@ namespace Eolia_IHM
         public IHM()
         {
             InitializeComponent();
-            if (!File.Exists("EoliaConfig.config"))
+            if (!EoliaUtils.EoliaConfigExiste())
             {
                 
                 textBoxAdresseMYSQL.Text = "A MODIFIER";
@@ -321,11 +321,12 @@ namespace Eolia_IHM
         private async void buttonSauvegarderSession_Click(object sender, EventArgs e)
         {
             buttonSauvegarderSession.Enabled = false;
+
             if (EoliaSQL.BDDisConnected())
             {
                 if (EoliaMes.SessionMesureDispo())
                 {
-                    string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + labelSessionMesureMoyPort.Text + "', '" + labelSessionMesureMoyTrainee.Text + "', '" + labelNomMesureSession.Text + "');";
+                    string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', '" + labelNomMesureSession.Text + "');";
                     int ResultRequete = await EoliaSQL.ExecuterRequeteSansReponse(Requete);
                     if (ResultRequete != 0)
                     {

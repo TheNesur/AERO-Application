@@ -102,7 +102,7 @@ namespace Eolia_IHM.Properties
             
 
             // sauvegarde du fichier de configuration sous le nom "EoliaConfig.config"
-            config.SaveAs("EoliaConfig.config", ConfigurationSaveMode.Modified);
+            config.SaveAs("config/EoliaConfig.config", ConfigurationSaveMode.Modified);
 
         }
 
@@ -113,7 +113,7 @@ namespace Eolia_IHM.Properties
             //permet de spécifier le chemin d'accès du fichier de configuration
             var map = new ExeConfigurationFileMap
             {
-                ExeConfigFilename = "EoliaConfig.config"
+                ExeConfigFilename = "config/EoliaConfig.config"
             };
 
             var config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
@@ -138,6 +138,15 @@ namespace Eolia_IHM.Properties
             }
 
 
+        }
+
+        public static bool EoliaConfigExiste()
+        {
+            if (File.Exists("config/EoliaConfig.config"))
+            {
+                return true;
+            }
+            return false;
         }
 
         public static void MsgBoxNonBloquante(string Msg)
