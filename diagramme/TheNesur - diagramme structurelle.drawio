@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-01-18T15:37:00.236Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.55" etag="uVz4bzJjD391j3tkpkRP" version="20.8.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-18T15:38:35.672Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.55" etag="VBZXgaoAJAP-XUu_aCMT" version="20.8.5" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
     <mxGraphModel dx="683" dy="379" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -188,7 +188,7 @@
           <mxGeometry x="450" y="1900" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="S_WBxvZwrHdkooQUaEvx-6" value="LogsIHM (static)&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="2130" y="602" width="250" height="160" as="geometry" />
+          <mxGeometry x="2130" y="602" width="250" height="180" as="geometry" />
         </mxCell>
         <mxCell id="S_WBxvZwrHdkooQUaEvx-7" value="- nbrFile: int&#xa;+ Types: enum" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="S_WBxvZwrHdkooQUaEvx-6" vertex="1">
           <mxGeometry y="26" width="250" height="44" as="geometry" />
@@ -196,11 +196,11 @@
         <mxCell id="S_WBxvZwrHdkooQUaEvx-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="S_WBxvZwrHdkooQUaEvx-6" vertex="1">
           <mxGeometry y="70" width="250" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="S_WBxvZwrHdkooQUaEvx-9" value="- FolderExist(): void&#xa;+ InitializeLogs(): void&#xa;+ FinishLogs(): void&#xa;+ Read(nbrLigne = 1: int): String[]&#xa;+ Write(String args, Types type): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="S_WBxvZwrHdkooQUaEvx-6" vertex="1">
-          <mxGeometry y="78" width="250" height="82" as="geometry" />
+        <mxCell id="S_WBxvZwrHdkooQUaEvx-9" value="- FolderExist(): void&#xa;+ InitializeLogs(): void&#xa;+ FinishLogs(): void&#xa;+ Read(nbrLigne = 1: int): String[]&#xa;+ Write(String args, &#xa;    Types type = Types.OTHER): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="S_WBxvZwrHdkooQUaEvx-6" vertex="1">
+          <mxGeometry y="78" width="250" height="102" as="geometry" />
         </mxCell>
         <mxCell id="EXrrTwu7yXLMnrCZga6P-1" value="EoliaCam" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="1" vertex="1">
-          <mxGeometry x="1860" y="602" width="250" height="290" as="geometry" />
+          <mxGeometry x="1860" y="602" width="250" height="260" as="geometry" />
         </mxCell>
         <mxCell id="EXrrTwu7yXLMnrCZga6P-2" value="- capture: Capture&#xa;- isStream : bool&#xa;- pictureBox : PictureBox&#xa;- numberFileExist : int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="EXrrTwu7yXLMnrCZga6P-1" vertex="1">
           <mxGeometry y="26" width="250" height="74" as="geometry" />
@@ -208,8 +208,8 @@
         <mxCell id="EXrrTwu7yXLMnrCZga6P-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="EXrrTwu7yXLMnrCZga6P-1" vertex="1">
           <mxGeometry y="100" width="250" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="EXrrTwu7yXLMnrCZga6P-4" value="- streaming(object sender, EventArgs e): void&#xa;+ EoliaCam() : &#xa;+ isStream(): bool&#xa;+ DisplayPicture(PictureBox) : bool&#xa;+ DisplayVideo(PictureBox) : bool&#xa;+ SavePicture(String folder, &#xa;    float portance = 0, float trainee = 0) : bool&#xa;+ SaveVideo(String folder,&#xa;    float portance = 0, float trainee = 0) : bool&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="EXrrTwu7yXLMnrCZga6P-1" vertex="1">
-          <mxGeometry y="108" width="250" height="182" as="geometry" />
+        <mxCell id="EXrrTwu7yXLMnrCZga6P-4" value="- streaming(object sender, EventArgs e): void&#xa;- convByteToImage(byte[] data) : Image&#xa;+ EoliaCam() : &#xa;+ isStream(): bool&#xa;+ DisplayPicture(PictureBox) : bool&#xa;+ DisplayVideo(PictureBox) : bool&#xa;+ SavePicture(String folder, &#xa;    float portance = 0, float trainee = 0) : bool&#xa;+ SaveVideo(String folder,&#xa;    float portance = 0, float trainee = 0) : bool&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="EXrrTwu7yXLMnrCZga6P-1" vertex="1">
+          <mxGeometry y="108" width="250" height="152" as="geometry" />
         </mxCell>
         <mxCell id="8KWskMflxnfoTJ6MjDlv-12" value="Configurable via le fichier .conf" style="swimlane;childLayout=stackLayout;resizeParent=1;resizeParentMax=0;startSize=20;html=1;rounded=0;shadow=0;glass=0;strokeColor=default;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="2450" y="1724" width="420" height="150" as="geometry" />
