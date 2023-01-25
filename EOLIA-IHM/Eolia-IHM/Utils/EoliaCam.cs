@@ -79,6 +79,7 @@ namespace Eolia_IHM.Utils
 
         public bool SavePicture(PictureBox picture, String folder, float portance = 0, float trainee = 0)
         {
+            
             picture.Image = pictureBox.Image;
             if (!Directory.Exists(folder)) System.IO.Directory.CreateDirectory(folder);
             String fileName = folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy HH-mm-ss]") + " PORTANCE " + portance + " TRAINEE " + trainee + " - " + numberFileExist + ".jpg";

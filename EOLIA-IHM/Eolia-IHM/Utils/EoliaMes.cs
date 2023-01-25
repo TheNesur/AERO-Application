@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -246,7 +247,10 @@ namespace Eolia_IHM
             else
             {
                 float portance, trainee;
-                if (!float.TryParse(words[1], out portance) || !float.TryParse(words[3], out trainee))
+                string strPort = words[1];
+                string strTra = words[3];
+   
+                if (!float.TryParse(strPort.Replace(".",","), out portance) || !float.TryParse(strTra.Replace(".",","), out trainee))
                 {
                     cmdBuff = "";
                     return;
