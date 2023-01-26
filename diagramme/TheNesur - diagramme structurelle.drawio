@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-18T15:38:35.672Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.55" etag="VBZXgaoAJAP-XUu_aCMT" version="20.8.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-26T13:56:19.596Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.61" etag="8YhGL1nQKqqh8WF8QWcA" version="20.8.11" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
-    <mxGraphModel dx="683" dy="379" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1434" dy="796" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -485,6 +485,30 @@
         </mxCell>
         <mxCell id="HuRnm2rSPpH4nqsMaASo-34" value="Caméra&lt;br&gt;Disponible" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=21;" parent="1" vertex="1">
           <mxGeometry x="730" y="1882" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="AQ2H8BXGr5mP1fWsH6qw-1" target="AQ2H8BXGr5mP1fWsH6qw-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-1" value="StartCaptureImage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3220" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-2" value="StopCaptureImage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3950" y="570" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-3" value="SaveImage" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3220" y="680" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="AQ2H8BXGr5mP1fWsH6qw-4" target="AQ2H8BXGr5mP1fWsH6qw-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-4" value="StartSaveVideo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3220" y="782" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-5" value="StopSaveVideo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3950" y="782" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AQ2H8BXGr5mP1fWsH6qw-8" value="New Image Buffer Ready Event Handler" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="3620" y="670" width="80" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
