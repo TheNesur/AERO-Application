@@ -12,15 +12,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using static Eolia_IHM.Utils.EoliaCam;
 
 namespace Eolia_IHM
 {
     public partial class IHM : Form
     {
 
-        EoliaCam Retourcamera = new EoliaCam();
+        EoliaCam cameraEolia = new EoliaCam();
         public IHM()
         {
             InitializeComponent();
@@ -113,7 +112,9 @@ namespace Eolia_IHM
             }
             else
             {
-                MessageBox.Show("Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle ");
+                EoliaUtils.AfficherOnglet(GroupBoxMesure);
+
+//                MessageBox.Show("Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle ");
             }
         }
 
@@ -282,16 +283,18 @@ namespace Eolia_IHM
 
         private void buttonSwitchTransmissionMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaMes.EtatTransMes())
-            {
-                buttonSwitchTransmissionMesure.Text = "Demarrer transmission mesure";
-                EoliaMes.ArreterTransMes();
-            }
-            else
-            {
-                buttonSwitchTransmissionMesure.Text = "Arrêter transmission mesure";
-                EoliaMes.InitialiserTransMes(labelMsgMesure, labelMesPortance, labelMesTainee, textBoxNbMesureSec);
-            }
+            groupBoxVisionCamera.Enabled = true;
+            //pictureBoxImage.Image = Image.FromFile("IMG/chargement.jpg");
+            //if (EoliaMes.EtatTransMes())
+            //{
+            //    buttonSwitchTransmissionMesure.Text = "Demarrer transmission mesure";
+            //    EoliaMes.ArreterTransMes();
+            //}
+            //else
+            //{
+            //    buttonSwitchTransmissionMesure.Text = "Arrêter transmission mesure";
+            //    EoliaMes.InitialiserTransMes(labelMsgMesure, labelMesPortance, labelMesTainee, textBoxNbMesureSec);
+            //}
         }
 
         private void buttonSwitchEnregistrementMesure_Click(object sender, EventArgs e)
@@ -357,20 +360,61 @@ namespace Eolia_IHM
 
         private void buttonDemarrerLiaisonCam_Click(object sender, EventArgs e)
         {
-            if (Retourcamera.Start(pictureBoxRetourCamera))
-            {
-                buttonArreterLiaisonCam.Enabled = true;
-                buttonDemarrerLiaisonCam.Enabled = false;
-            }
+           
         }
 
         private void buttonArreterLiaisonCam_Click(object sender, EventArgs e)
         {
-            if (Retourcamera.Stop())
+
+        }
+
+        private void startCapture_Click(object sender, EventArgs e)
+        {
+
+            int er;
+            if (!cameraEolia.CaptureIsStart())
+            {            
+                if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+                //er = 1;
+                er = cameraEolia.StartDisplayImage(pictureBoxImage);
+                buttonCaptureImage.Text = "Stop Capture";
+            } else
             {
-                buttonArreterLiaisonCam.Enabled = false;
-                buttonDemarrerLiaisonCam.Enabled = true;
+                if (cameraEolia.GetTypesCapture() != CameraTypes.IMAGECAPTURE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer  une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+
+                //er = 2;
+                er = cameraEolia.StopDisplayImage();
+                buttonCaptureImage.Text = "Start Capture";
+
             }
+            if (er != 0) EoliaLogs.Write("Erreur lancement capture d'image: " + er, EoliaLogs.Types.CAMERA);
+
+        }
+
+        private void buttonPrendrePhotoInstantanee_Click(object sender, EventArgs e)
+        {
+            //if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+            cameraEolia.SavePicture(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG", 0, 0);
+        }
+
+        private void prendreVideo_Click(object sender, EventArgs e)
+        {
+            int er;
+            if (!cameraEolia.CaptureIsStart())
+            {
+                if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+                er = cameraEolia.StartSaveVideo(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO");
+                buttonPrendreVideo.Text = "Stop Video";
+            }
+            else
+            {
+                if (cameraEolia.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+
+                er = cameraEolia.StopSaveVideo();
+                buttonPrendreVideo.Text = "Start Video";
+
+            }
+            if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
         }
     }
 }

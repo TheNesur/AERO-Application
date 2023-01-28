@@ -149,14 +149,15 @@ namespace Eolia_IHM
         }
 
         // Fonction d'écriture dans le fichier logs, demander le texte a enregristrer et le type de logs via un enum
-        public static void Write(string args, Types type = Types.OTHER)
+        public static void Write(string args, Types type = Types.OTHER, String other = null)
         {
             _mutex.WaitOne();
             try
             {
                 StreamWriter fileWriter = new StreamWriter(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
-
-                fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] " + args + "\n");
+                if (other == null)
+                    fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] " + args + "\n");
+                else fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] [" + other + "]"  + args + "\n");
                 fileWriter.Close();
             }
             catch (Exception e)

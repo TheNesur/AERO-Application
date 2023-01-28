@@ -53,9 +53,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.GroupBoxMesure = new System.Windows.Forms.GroupBox();
             this.groupBoxVisionCamera = new System.Windows.Forms.GroupBox();
+            this.buttonCaptureImage = new System.Windows.Forms.Button();
             this.checkBoxSauvegarderPhotoMesurue = new System.Windows.Forms.CheckBox();
             this.buttonPrendrePhotoInstantanee = new System.Windows.Forms.Button();
-            this.pictureBoxRetourCamera = new System.Windows.Forms.PictureBox();
+            this.pictureBoxImage = new System.Windows.Forms.PictureBox();
             this.groupBoxSessionMesure = new System.Windows.Forms.GroupBox();
             this.buttonSauvegarderSession = new System.Windows.Forms.Button();
             this.labelSessionMesureEtat = new System.Windows.Forms.Label();
@@ -119,11 +120,12 @@
             this.BoutonNumpad1 = new System.Windows.Forms.Button();
             this.BoutonRecharger = new System.Windows.Forms.Button();
             this.BoutonSauvegarde = new System.Windows.Forms.Button();
+            this.buttonPrendreVideo = new System.Windows.Forms.Button();
             this.ConteneurOngletBouton.SuspendLayout();
             this.GroupBoxEtat.SuspendLayout();
             this.GroupBoxMesure.SuspendLayout();
             this.groupBoxVisionCamera.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).BeginInit();
             this.groupBoxSessionMesure.SuspendLayout();
             this.groupBoxAffichageMesure.SuspendLayout();
             this.GroupBoxConfig.SuspendLayout();
@@ -388,18 +390,30 @@
             // 
             // groupBoxVisionCamera
             // 
+            this.groupBoxVisionCamera.Controls.Add(this.buttonPrendreVideo);
+            this.groupBoxVisionCamera.Controls.Add(this.buttonCaptureImage);
             this.groupBoxVisionCamera.Controls.Add(this.checkBoxSauvegarderPhotoMesurue);
             this.groupBoxVisionCamera.Controls.Add(this.buttonPrendrePhotoInstantanee);
-            this.groupBoxVisionCamera.Controls.Add(this.pictureBoxRetourCamera);
+            this.groupBoxVisionCamera.Controls.Add(this.pictureBoxImage);
             this.groupBoxVisionCamera.Enabled = false;
             this.groupBoxVisionCamera.Location = new System.Drawing.Point(335, 28);
             this.groupBoxVisionCamera.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxVisionCamera.Name = "groupBoxVisionCamera";
             this.groupBoxVisionCamera.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBoxVisionCamera.Size = new System.Drawing.Size(265, 255);
+            this.groupBoxVisionCamera.Size = new System.Drawing.Size(402, 426);
             this.groupBoxVisionCamera.TabIndex = 10;
             this.groupBoxVisionCamera.TabStop = false;
             this.groupBoxVisionCamera.Text = "Caméra";
+            // 
+            // buttonCaptureImage
+            // 
+            this.buttonCaptureImage.Location = new System.Drawing.Point(259, 38);
+            this.buttonCaptureImage.Name = "buttonCaptureImage";
+            this.buttonCaptureImage.Size = new System.Drawing.Size(138, 43);
+            this.buttonCaptureImage.TabIndex = 3;
+            this.buttonCaptureImage.Text = "Start Capture";
+            this.buttonCaptureImage.UseVisualStyleBackColor = true;
+            this.buttonCaptureImage.Click += new System.EventHandler(this.startCapture_Click);
             // 
             // checkBoxSauvegarderPhotoMesurue
             // 
@@ -419,16 +433,17 @@
             this.buttonPrendrePhotoInstantanee.TabIndex = 1;
             this.buttonPrendrePhotoInstantanee.Text = "Prendre photo instantanée";
             this.buttonPrendrePhotoInstantanee.UseVisualStyleBackColor = true;
+            this.buttonPrendrePhotoInstantanee.Click += new System.EventHandler(this.buttonPrendrePhotoInstantanee_Click);
             // 
-            // pictureBoxRetourCamera
+            // pictureBoxImage
             // 
-            this.pictureBoxRetourCamera.BackColor = System.Drawing.Color.Black;
-            this.pictureBoxRetourCamera.Location = new System.Drawing.Point(10, 29);
-            this.pictureBoxRetourCamera.Name = "pictureBoxRetourCamera";
-            this.pictureBoxRetourCamera.Size = new System.Drawing.Size(243, 158);
-            this.pictureBoxRetourCamera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxRetourCamera.TabIndex = 0;
-            this.pictureBoxRetourCamera.TabStop = false;
+            this.pictureBoxImage.BackColor = System.Drawing.Color.Black;
+            this.pictureBoxImage.Location = new System.Drawing.Point(10, 29);
+            this.pictureBoxImage.Name = "pictureBoxImage";
+            this.pictureBoxImage.Size = new System.Drawing.Size(243, 158);
+            this.pictureBoxImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxImage.TabIndex = 0;
+            this.pictureBoxImage.TabStop = false;
             // 
             // groupBoxSessionMesure
             // 
@@ -1080,6 +1095,16 @@
             this.BoutonSauvegarde.UseVisualStyleBackColor = true;
             this.BoutonSauvegarde.Click += new System.EventHandler(this.BoutonSauvegarde_Click);
             // 
+            // buttonPrendreVideo
+            // 
+            this.buttonPrendreVideo.Location = new System.Drawing.Point(259, 95);
+            this.buttonPrendreVideo.Name = "buttonPrendreVideo";
+            this.buttonPrendreVideo.Size = new System.Drawing.Size(138, 43);
+            this.buttonPrendreVideo.TabIndex = 4;
+            this.buttonPrendreVideo.Text = "Start Video";
+            this.buttonPrendreVideo.UseVisualStyleBackColor = true;
+            this.buttonPrendreVideo.Click += new System.EventHandler(this.prendreVideo_Click);
+            // 
             // IHM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1104,7 +1129,7 @@
             this.GroupBoxMesure.ResumeLayout(false);
             this.groupBoxVisionCamera.ResumeLayout(false);
             this.groupBoxVisionCamera.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxImage)).EndInit();
             this.groupBoxSessionMesure.ResumeLayout(false);
             this.groupBoxSessionMesure.PerformLayout();
             this.groupBoxAffichageMesure.ResumeLayout(false);
@@ -1198,7 +1223,7 @@
         private System.Windows.Forms.TextBox textBoxNbMesureSec;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button buttonPrendrePhotoInstantanee;
-        private System.Windows.Forms.PictureBox pictureBoxRetourCamera;
+        private System.Windows.Forms.PictureBox pictureBoxImage;
         private System.Windows.Forms.TextBox textBoxRepertoireSiteWEB;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.CheckBox checkBoxSauvegarderPhotoMesurue;
@@ -1210,5 +1235,7 @@
         private System.Windows.Forms.Button buttonDemarrerLiaisonReg;
         private System.Windows.Forms.TextBox textBoxEtatLiaisonReg;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Button buttonCaptureImage;
+        private System.Windows.Forms.Button buttonPrendreVideo;
     }
 }
