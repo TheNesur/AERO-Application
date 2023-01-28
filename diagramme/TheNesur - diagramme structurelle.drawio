@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-01-28T14:35:07.536Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.69" etag="SI1pAMJpJN0yV2jrgOmo" version="20.8.13" type="github">
+<mxfile host="app.diagrams.net" modified="2023-01-28T14:41:16.495Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 Edg/109.0.1518.69" etag="K0M0nuBoEqTANfnu5edq" version="20.8.13" type="github">
   <diagram id="sAFR3K0FHI-QMzSaqLU8" name="Page-1">
-    <mxGraphModel dx="765" dy="393" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1793" dy="955" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -603,10 +603,10 @@
         <mxCell id="UtrofRp7_irQ9of2Ki7m-65" value="Stop" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="4730" y="582" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="UtrofRp7_irQ9of2Ki7m-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-68" target="UtrofRp7_irQ9of2Ki7m-96">
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-104" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-68" target="UtrofRp7_irQ9of2Ki7m-96">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UtrofRp7_irQ9of2Ki7m-68" value="Capture" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-68" value="Capture" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
           <mxGeometry x="4415" y="872" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="UtrofRp7_irQ9of2Ki7m-69" value="Start" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
@@ -684,13 +684,13 @@
         <mxCell id="UtrofRp7_irQ9of2Ki7m-93" value="IsStart ?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="4550" y="532" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="UtrofRp7_irQ9of2Ki7m-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-96" target="UtrofRp7_irQ9of2Ki7m-69">
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-105" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-96" target="UtrofRp7_irQ9of2Ki7m-69">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UtrofRp7_irQ9of2Ki7m-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-96" target="UtrofRp7_irQ9of2Ki7m-70">
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-106" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;strokeColor=default;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-96" target="UtrofRp7_irQ9of2Ki7m-70">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="UtrofRp7_irQ9of2Ki7m-96" value="IsStart ?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-96" value="IsStart ?" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=default;" vertex="1" parent="1">
           <mxGeometry x="4550" y="872" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="UtrofRp7_irQ9of2Ki7m-108" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="UtrofRp7_irQ9of2Ki7m-97" target="UtrofRp7_irQ9of2Ki7m-77">
@@ -701,6 +701,18 @@
         </mxCell>
         <mxCell id="UtrofRp7_irQ9of2Ki7m-97" value="IsStart ?" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="4548" y="1152" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-110" value="" style="endArrow=none;html=1;rounded=0;strokeColor=default;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="4350" y="850" as="sourcePoint" />
+            <mxPoint x="4890" y="1000" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="UtrofRp7_irQ9of2Ki7m-111" value="" style="endArrow=none;html=1;rounded=0;strokeColor=default;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="4370" y="960" as="sourcePoint" />
+            <mxPoint x="4910" y="810" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
