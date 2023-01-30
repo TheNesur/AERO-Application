@@ -46,7 +46,7 @@ namespace Eolia_IHM.Menu
             this.buttonEtatBDD = new System.Windows.Forms.Button();
             this.buttonDemarrerESP32 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.buttonDemarrerTout = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -237,23 +237,24 @@ namespace Eolia_IHM.Menu
             this.button3.Text = "Démarrer liaison Régulateur";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // buttonDemarrerTout
             // 
-            this.button4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button4.Location = new System.Drawing.Point(683, 340);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(279, 50);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "Démarrer liaison Régulateur";
-            this.button4.UseVisualStyleBackColor = false;
+            this.buttonDemarrerTout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDemarrerTout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDemarrerTout.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonDemarrerTout.Location = new System.Drawing.Point(683, 340);
+            this.buttonDemarrerTout.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDemarrerTout.Name = "buttonDemarrerTout";
+            this.buttonDemarrerTout.Size = new System.Drawing.Size(279, 50);
+            this.buttonDemarrerTout.TabIndex = 19;
+            this.buttonDemarrerTout.Text = "Démarrer tout les services";
+            this.buttonDemarrerTout.UseVisualStyleBackColor = false;
+            this.buttonDemarrerTout.Click += new System.EventHandler(this.buttonDemarrerTout_Click);
             // 
             // StatusMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.buttonDemarrerTout);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.buttonDemarrerESP32);
             this.Controls.Add(this.buttonEtatBDD);
@@ -299,6 +300,6 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.Button buttonEtatBDD;
         private System.Windows.Forms.Button buttonDemarrerESP32;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonDemarrerTout;
     }
 }

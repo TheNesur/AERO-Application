@@ -60,5 +60,11 @@ namespace Eolia_IHM.Menu
                 EoliaSQL.FermerConnexionSQL();
             }
         }
+
+        private void buttonDemarrerTout_Click(object sender, EventArgs e)
+        {
+            buttonEtatBDD.PerformClick();
+            buttonDemarrerESP32.PerformClick();
+        }
     }
 }
