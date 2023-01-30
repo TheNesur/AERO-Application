@@ -238,6 +238,36 @@
     <Compile Include="AccueilIHM.Designer.cs">
       <DependentUpon>AccueilIHM.cs</DependentUpon>
     </Compile>
+    <Compile Include="MenuEolia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MenuEolia.Designer.cs">
+      <DependentUpon>MenuEolia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\CameraMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\CameraMenu.Designer.cs">
+      <DependentUpon>CameraMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\ConfigurationMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\ConfigurationMenu.Designer.cs">
+      <DependentUpon>ConfigurationMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\MesureMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\MesureMenu.Designer.cs">
+      <DependentUpon>MesureMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu\StatusMenu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Menu\StatusMenu.Designer.cs">
+      <DependentUpon>StatusMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\EoliaCam.cs" />
     <Compile Include="Utils\EoliaLogs.cs" />
     <Compile Include="Utils\EoliaMes.cs" />
@@ -255,6 +285,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IHM.resx">
       <DependentUpon>IHM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MenuEolia.resx">
+      <DependentUpon>MenuEolia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\ConfigurationMenu.resx">
+      <DependentUpon>ConfigurationMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\MesureMenu.resx">
+      <DependentUpon>MesureMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu\StatusMenu.resx">
+      <DependentUpon>StatusMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -282,6 +324,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets" Condition="Exists('packages\System.Runtime.WindowsRuntime.4.6.0\build\net461\System.Runtime.WindowsRuntime.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -536,3 +536,7 @@ C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.CoreCompileInputs.ca
 C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.CopyComplete
 C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia-IHM.exe
 C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia-IHM.pdb
+C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia_IHM.MenuEolia.resources
+C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.StatusMenu.resources
+C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.ConfigurationMenu.resources
+C:\Users\5400m\Desktop\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.MesureMenu.resources

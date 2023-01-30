@@ -23,8 +23,10 @@ namespace Eolia_IHM
         {
 
             this.Hide();
-            IHM IHMForm = new IHM();
-            IHMForm.Show();
+            //IHM IHMForm = new IHM();
+            //IHMForm.Show();
+            MenuEolia menu = new MenuEolia();
+            menu.Show();
            
         }
 
