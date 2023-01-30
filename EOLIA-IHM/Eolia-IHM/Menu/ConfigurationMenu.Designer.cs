@@ -116,7 +116,7 @@ namespace Eolia_IHM.Menu
             this.BoutonNumpadDel.TabIndex = 11;
             this.BoutonNumpadDel.Text = "Suppr";
             this.BoutonNumpadDel.UseVisualStyleBackColor = false;
-            this.BoutonNumpadDel.Click += new System.EventHandler(this.BoutonNumpadSupp_Click);
+            this.BoutonNumpadDel.Click += new System.EventHandler(this.BoutonNumpad_Click);
             // 
             // BoutonNumpad0
             // 
@@ -299,15 +299,15 @@ namespace Eolia_IHM.Menu
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 20);
+            this.label1.Size = new System.Drawing.Size(66, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "mes/sec";
+            this.label1.Text = "F mes";
             // 
             // textBoxNbMesureSec
             // 
             this.textBoxNbMesureSec.Location = new System.Drawing.Point(105, 63);
             this.textBoxNbMesureSec.Name = "textBoxNbMesureSec";
-            this.textBoxNbMesureSec.Size = new System.Drawing.Size(116, 26);
+            this.textBoxNbMesureSec.Size = new System.Drawing.Size(116, 30);
             this.textBoxNbMesureSec.TabIndex = 3;
             this.textBoxNbMesureSec.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -316,7 +316,7 @@ namespace Eolia_IHM.Menu
             this.comboBoxPortCapteur.FormattingEnabled = true;
             this.comboBoxPortCapteur.Location = new System.Drawing.Point(105, 28);
             this.comboBoxPortCapteur.Name = "comboBoxPortCapteur";
-            this.comboBoxPortCapteur.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxPortCapteur.Size = new System.Drawing.Size(121, 33);
             this.comboBoxPortCapteur.TabIndex = 2;
             // 
             // labelPortCapteur
@@ -325,7 +325,7 @@ namespace Eolia_IHM.Menu
             this.labelPortCapteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelPortCapteur.Location = new System.Drawing.Point(12, 31);
             this.labelPortCapteur.Name = "labelPortCapteur";
-            this.labelPortCapteur.Size = new System.Drawing.Size(78, 20);
+            this.labelPortCapteur.Size = new System.Drawing.Size(98, 25);
             this.labelPortCapteur.TabIndex = 0;
             this.labelPortCapteur.Text = "Capteur  :";
             // 
@@ -347,7 +347,7 @@ namespace Eolia_IHM.Menu
             this.comboBoxPortRegulateur.FormattingEnabled = true;
             this.comboBoxPortRegulateur.Location = new System.Drawing.Point(130, 28);
             this.comboBoxPortRegulateur.Name = "comboBoxPortRegulateur";
-            this.comboBoxPortRegulateur.Size = new System.Drawing.Size(111, 26);
+            this.comboBoxPortRegulateur.Size = new System.Drawing.Size(111, 30);
             this.comboBoxPortRegulateur.TabIndex = 2;
             // 
             // label4
@@ -356,7 +356,7 @@ namespace Eolia_IHM.Menu
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(18, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(109, 20);
+            this.label4.Size = new System.Drawing.Size(133, 25);
             this.label4.TabIndex = 0;
             this.label4.Text = "Régulateur 1 :";
             // 
@@ -397,7 +397,7 @@ namespace Eolia_IHM.Menu
             this.labelRepetoire.AutoSize = true;
             this.labelRepetoire.Location = new System.Drawing.Point(110, 130);
             this.labelRepetoire.Name = "labelRepetoire";
-            this.labelRepetoire.Size = new System.Drawing.Size(78, 20);
+            this.labelRepetoire.Size = new System.Drawing.Size(96, 25);
             this.labelRepetoire.TabIndex = 9;
             this.labelRepetoire.Text = "a modifier";
             // 
@@ -406,7 +406,7 @@ namespace Eolia_IHM.Menu
             this.labelNomBDDMYSQL.AutoSize = true;
             this.labelNomBDDMYSQL.Location = new System.Drawing.Point(207, 105);
             this.labelNomBDDMYSQL.Name = "labelNomBDDMYSQL";
-            this.labelNomBDDMYSQL.Size = new System.Drawing.Size(78, 20);
+            this.labelNomBDDMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelNomBDDMYSQL.TabIndex = 8;
             this.labelNomBDDMYSQL.Text = "a modifier";
             // 
@@ -415,7 +415,7 @@ namespace Eolia_IHM.Menu
             this.labelMDPMYSQL.AutoSize = true;
             this.labelMDPMYSQL.Location = new System.Drawing.Point(203, 80);
             this.labelMDPMYSQL.Name = "labelMDPMYSQL";
-            this.labelMDPMYSQL.Size = new System.Drawing.Size(78, 20);
+            this.labelMDPMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelMDPMYSQL.TabIndex = 7;
             this.labelMDPMYSQL.Text = "a modifier";
             // 
@@ -424,7 +424,7 @@ namespace Eolia_IHM.Menu
             this.labelUsernameMYSQL.AutoSize = true;
             this.labelUsernameMYSQL.Location = new System.Drawing.Point(153, 53);
             this.labelUsernameMYSQL.Name = "labelUsernameMYSQL";
-            this.labelUsernameMYSQL.Size = new System.Drawing.Size(78, 20);
+            this.labelUsernameMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelUsernameMYSQL.TabIndex = 6;
             this.labelUsernameMYSQL.Text = "a modifier";
             // 
@@ -433,7 +433,7 @@ namespace Eolia_IHM.Menu
             this.labelAdresseMYSQL.AutoSize = true;
             this.labelAdresseMYSQL.Location = new System.Drawing.Point(153, 31);
             this.labelAdresseMYSQL.Name = "labelAdresseMYSQL";
-            this.labelAdresseMYSQL.Size = new System.Drawing.Size(78, 20);
+            this.labelAdresseMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelAdresseMYSQL.TabIndex = 5;
             this.labelAdresseMYSQL.Text = "a modifier";
             // 
@@ -443,7 +443,7 @@ namespace Eolia_IHM.Menu
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label10.Location = new System.Drawing.Point(12, 130);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(92, 20);
+            this.label10.Size = new System.Drawing.Size(112, 25);
             this.label10.TabIndex = 4;
             this.label10.Text = "Répertoire :";
             // 
@@ -453,7 +453,7 @@ namespace Eolia_IHM.Menu
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(12, 105);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(187, 20);
+            this.label9.Size = new System.Drawing.Size(231, 25);
             this.label9.TabIndex = 3;
             this.label9.Text = "Nom de Base de Donée :";
             // 
@@ -463,7 +463,7 @@ namespace Eolia_IHM.Menu
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label8.Location = new System.Drawing.Point(12, 80);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(185, 20);
+            this.label8.Size = new System.Drawing.Size(228, 25);
             this.label8.TabIndex = 2;
             this.label8.Text = "Mot de passe utilisateur :";
             // 
@@ -473,7 +473,7 @@ namespace Eolia_IHM.Menu
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label5.Location = new System.Drawing.Point(12, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(134, 20);
+            this.label5.Size = new System.Drawing.Size(166, 25);
             this.label5.TabIndex = 1;
             this.label5.Text = "Nom d\'utilisateur :";
             // 
@@ -483,7 +483,7 @@ namespace Eolia_IHM.Menu
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(12, 30);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(135, 20);
+            this.label7.Size = new System.Drawing.Size(170, 25);
             this.label7.TabIndex = 0;
             this.label7.Text = "Adresse Serveur :";
             // 
@@ -512,7 +512,7 @@ namespace Eolia_IHM.Menu
             // 
             this.textBoxS.Location = new System.Drawing.Point(312, 63);
             this.textBoxS.Name = "textBoxS";
-            this.textBoxS.Size = new System.Drawing.Size(80, 26);
+            this.textBoxS.Size = new System.Drawing.Size(80, 30);
             this.textBoxS.TabIndex = 9;
             this.textBoxS.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -522,7 +522,7 @@ namespace Eolia_IHM.Menu
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(274, 64);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(32, 20);
+            this.label14.Size = new System.Drawing.Size(42, 25);
             this.label14.TabIndex = 8;
             this.label14.Text = "S : ";
             // 
@@ -530,7 +530,7 @@ namespace Eolia_IHM.Menu
             // 
             this.textBoxV.Location = new System.Drawing.Point(187, 64);
             this.textBoxV.Name = "textBoxV";
-            this.textBoxV.Size = new System.Drawing.Size(80, 26);
+            this.textBoxV.Size = new System.Drawing.Size(80, 30);
             this.textBoxV.TabIndex = 7;
             this.textBoxV.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -540,7 +540,7 @@ namespace Eolia_IHM.Menu
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(147, 64);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 20);
+            this.label12.Size = new System.Drawing.Size(42, 25);
             this.label12.TabIndex = 6;
             this.label12.Text = "V : ";
             // 
@@ -548,7 +548,7 @@ namespace Eolia_IHM.Menu
             // 
             this.textBoxCz.Location = new System.Drawing.Point(187, 31);
             this.textBoxCz.Name = "textBoxCz";
-            this.textBoxCz.Size = new System.Drawing.Size(80, 26);
+            this.textBoxCz.Size = new System.Drawing.Size(80, 30);
             this.textBoxCz.TabIndex = 5;
             this.textBoxCz.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -558,7 +558,7 @@ namespace Eolia_IHM.Menu
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.Location = new System.Drawing.Point(147, 31);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(40, 20);
+            this.label13.Size = new System.Drawing.Size(53, 25);
             this.label13.TabIndex = 4;
             this.label13.Text = "Cz : ";
             // 
@@ -566,7 +566,7 @@ namespace Eolia_IHM.Menu
             // 
             this.textBoxP.Location = new System.Drawing.Point(52, 63);
             this.textBoxP.Name = "textBoxP";
-            this.textBoxP.Size = new System.Drawing.Size(80, 26);
+            this.textBoxP.Size = new System.Drawing.Size(80, 30);
             this.textBoxP.TabIndex = 3;
             this.textBoxP.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -576,7 +576,7 @@ namespace Eolia_IHM.Menu
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(12, 63);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 20);
+            this.label11.Size = new System.Drawing.Size(41, 25);
             this.label11.TabIndex = 2;
             this.label11.Text = "P : ";
             // 
@@ -584,7 +584,7 @@ namespace Eolia_IHM.Menu
             // 
             this.textBoxCx.Location = new System.Drawing.Point(52, 30);
             this.textBoxCx.Name = "textBoxCx";
-            this.textBoxCx.Size = new System.Drawing.Size(80, 26);
+            this.textBoxCx.Size = new System.Drawing.Size(80, 30);
             this.textBoxCx.TabIndex = 1;
             this.textBoxCx.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -594,7 +594,7 @@ namespace Eolia_IHM.Menu
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(12, 30);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 20);
+            this.label15.Size = new System.Drawing.Size(53, 25);
             this.label15.TabIndex = 0;
             this.label15.Text = "Cx : ";
             // 

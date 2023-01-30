@@ -14,6 +14,15 @@ namespace Eolia_IHM.Menu
     public partial class ConfigurationMenu : UserControl
     {
         public static TextBox textBox;
+
+        public static string PortSerieCapteur;
+        public static string FrequenceMesure;
+        public static string AdresseBDD;
+        public static string NomBDD;
+        public static string UsernameBDD;
+        public static string PasswordBDD;
+
+
         public ConfigurationMenu()
         {
             InitializeComponent();
@@ -27,25 +36,21 @@ namespace Eolia_IHM.Menu
 
         private void BoutonNumpad_Click(object sender, EventArgs e)
         {
-            if (textBox == null) return;
+
             Button btn = (Button)sender;
-            if (textBox.Text.Contains(".") && btn.Text.Contains(".")) return;
-            textBox.Text += btn.Text;
+
+            EoliaUtils.PaveNumerique(btn.Text);
 
         }
 
         private void textBoxPad_Click(object sender, EventArgs e)
         {
-            textBox = (TextBox)sender;
-            //EoliaUtils.TextBoxActif((TextBox)sender);
+           // textBox = (TextBox)sender;
+            
+            EoliaUtils.TextBoxActif((TextBox)sender);
             
         }
-        private void BoutonNumpadSupp_Click(object sender, EventArgs e)
-        {
-            if (textBox == null) return;
-            if (textBox.Text.Length == 0) return;
-            textBox.Text = textBox.Text.Substring(0, textBox.Text.Length - 1);
-        }
+
 
         private void buttonConfiguration_Click(object sender, EventArgs e)
         {
@@ -61,11 +66,16 @@ namespace Eolia_IHM.Menu
         public void Recharger()
         {
             labelAdresseMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLADRESS");
+            AdresseBDD = labelAdresseMYSQL.Text;
             labelUsernameMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLUSERNAME");
+            UsernameBDD = labelUsernameMYSQL.Text;
             labelMDPMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLPASSWORD");
+            PasswordBDD = labelMDPMYSQL.Text;
             labelNomBDDMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLDBNAME");
+            NomBDD = labelNomBDDMYSQL.Text;
             labelRepetoire.Text = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB");
             comboBoxPortCapteur.Text = EoliaUtils.LireConfiguration("PORTSERIECAPTEUR");
+            PortSerieCapteur = comboBoxPortCapteur.Text;
             comboBoxPortRegulateur.Text = EoliaUtils.LireConfiguration("PORTSERIEREGULATEUR");
             textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE");
         }
@@ -79,7 +89,7 @@ namespace Eolia_IHM.Menu
             ListeValeurASauvegarder.Add("REPERTOIRESITEWEB", labelRepetoire.Text);
 
             ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", comboBoxPortCapteur.Text);
-            ListeValeurASauvegarder.Add("PORTSERIEREGULATEUR", comboBoxPortCapteur.Text);
+            ListeValeurASauvegarder.Add("PORTSERIEREGULATEUR", comboBoxPortRegulateur.Text);
 
             ListeValeurASauvegarder.Add("NOMBREMESUREPARSECONDE", textBoxNbMesureSec.Text);
 

@@ -25,7 +25,7 @@ namespace Eolia_IHM
 
         private static volatile bool LireSerie = false;
         private static SerialPort CapteurLiaisonSerie = null;
-        private static Label CapeurlLogBox = null;
+        private static Label CapteurlLogBox = null;
         private static Task readThread = null;
         private static string cmdBuff = "";
         private static string nxtcmdBuff = "";
@@ -302,15 +302,16 @@ namespace Eolia_IHM
             readThread = null;
             CapteurLiaisonSerie.Close();
             CapteurLiaisonSerie = null;
-            CapeurlLogBox.Text = "Arrèté";
-           
+            CapteurlLogBox.Text = "Arrèté";
+            CapteurlLogBox.ForeColor = System.Drawing.Color.Red;
+
 
 
         }
 
         public static void InitialiserLiaisonSerieCapteur(string portChoisit, Label logTextBox)
         {
-            CapeurlLogBox = logTextBox;
+            CapteurlLogBox = logTextBox;
 
             if (SerialPort.GetPortNames().Contains(portChoisit))
             {
@@ -331,7 +332,8 @@ namespace Eolia_IHM
                     
 
                     CapteurLiaisonSerie.Open();
-                    CapeurlLogBox.Text = " Démarrée";
+                    CapteurlLogBox.Text = " Démarrée";
+                    CapteurlLogBox.ForeColor = System.Drawing.Color.Green;
                     EoliaLogs.Write("Démarée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
                     readThread = new Task(Read);
@@ -340,19 +342,19 @@ namespace Eolia_IHM
                 }
                 catch (IOException ex)
                 {
-                    CapeurlLogBox.Text = "Arret " ;
+                    CapteurlLogBox.Text = "Arret " ;
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (UnauthorizedAccessException ex)
                 {
-                    CapeurlLogBox.Text = "Acces refusé ";
+                    CapteurlLogBox.Text = "Acces refusé ";
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
                 {
-                    CapeurlLogBox.Text = "Erreur";
+                    CapteurlLogBox.Text = "Erreur";
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
@@ -360,7 +362,8 @@ namespace Eolia_IHM
             }
             else
             {
-                CapeurlLogBox.Text = "Pb port";
+                CapteurlLogBox.Text = "Pb port";
+                CapteurlLogBox.ForeColor = System.Drawing.Color.Red;
             }
 
 
@@ -408,7 +411,8 @@ namespace Eolia_IHM
 
             SerialPort portSerie = (SerialPort)port;
             portSerie.Close();
-            CapeurlLogBox.Text = "Arrêtée";
+            CapteurlLogBox.Text = "Arrêtée";
+            CapteurlLogBox.ForeColor = System.Drawing.Color.Red;
             EoliaLogs.Write("Liaison série terminée ", EoliaLogs.Types.SERIAL);
             // erreur reçu
         }

@@ -36,21 +36,21 @@ namespace Eolia_IHM.Properties
             textBoxActif = txtbox;
         }
 
-        public static void PaveNumerique(int x) // x = caractère a entré dans la textbox
+        public static void PaveNumerique(string x) // x = caractère a entré dans la textbox
         {                                // 10 = . / 11 = del
             if(textBoxActif!= null) {
-                if (x == 10)
+
+                if (Int32.TryParse(x, out int result))
                 {
-                    textBoxActif.Text = textBoxActif.Text + ".";
-                }
-                else if (x == 11)
+                    textBoxActif.Text += result; 
+                }else if(x == "Suppr")
                 {
-                    if(textBoxActif.Text.Length > 0)
+                    if (textBoxActif.Text.Length > 0)
                         textBoxActif.Text = textBoxActif.Text.Remove(textBoxActif.TextLength - 1);
                 }
-                else
+                else if(x == ".")
                 {
-                    textBoxActif.Text = textBoxActif.Text + x.ToString();
+                    textBoxActif.Text += x;
                 }
 
                 textBoxActif.Focus();

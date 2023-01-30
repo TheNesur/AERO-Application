@@ -36,7 +36,7 @@ namespace Eolia_IHM.Menu
             }
             else
             {
-                EoliaMes.InitialiserLiaisonSerieCapteur(EoliaUtils.LireConfiguration("PORTSERIECAPTEUR"), labelStatutCapteurs);
+                EoliaMes.InitialiserLiaisonSerieCapteur(ConfigurationMenu.PortSerieCapteur, labelStatutCapteurs);
                 if (EoliaMes.LiaisonSerieCapteur())
                 {
                     buttonDemarrerESP32.Text = "Arrêter liaison série";
@@ -48,10 +48,10 @@ namespace Eolia_IHM.Menu
         {
             if (!EoliaSQL.BDDisConnected())
             {
-                EoliaSQL.InitialiserConnexionSQL(EoliaUtils.LireConfiguration("MYSQLDBNAME"),
-                EoliaUtils.LireConfiguration("MYSQLUSERNAME"),
-                EoliaUtils.LireConfiguration("MYSQLPASSWORD"),
-                EoliaUtils.LireConfiguration("MYSQLADRESS"),
+                EoliaSQL.InitialiserConnexionSQL(ConfigurationMenu.NomBDD,
+                ConfigurationMenu.UsernameBDD,
+                ConfigurationMenu.PasswordBDD,
+                ConfigurationMenu.AdresseBDD,
                 labelStatutBDD,
                 buttonEtatBDD);
             }

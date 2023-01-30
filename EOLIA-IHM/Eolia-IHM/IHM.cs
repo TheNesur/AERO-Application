@@ -164,62 +164,62 @@ namespace Eolia_IHM
 
         private void BoutonNumpad1_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(1);
+            //EoliaUtils.PaveNumerique(1);
         }
 
         private void BoutonNumpad2_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(2);
+           // EoliaUtils.PaveNumerique(2);
         }
 
         private void BoutonNumpad3_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(3);
+          //  EoliaUtils.PaveNumerique(3);
         }
 
         private void BoutonNumpad4_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(4);
+          //  EoliaUtils.PaveNumerique(4);
         }
 
         private void BoutonNumpad5_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(5);
+          //  EoliaUtils.PaveNumerique(5);
         }
 
         private void BoutonNumpad6_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(6);
+          //  EoliaUtils.PaveNumerique(6);
         }
 
         private void BoutonNumpad7_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(7);
+          //  EoliaUtils.PaveNumerique(7);
         }
 
         private void BoutonNumpad8_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(8);
+        //    EoliaUtils.PaveNumerique(8);
         }
 
         private void BoutonNumpad9_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(9);
+        //    EoliaUtils.PaveNumerique(9);
         }
 
         private void BoutonNumpadDot_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(10);
+         //   EoliaUtils.PaveNumerique(10);
         }
 
         private void BoutonNumpadDel_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(11);
+         //   EoliaUtils.PaveNumerique(11);
         }
 
         private void BoutonNumpad0_Click(object sender, EventArgs e)
         {
-            EoliaUtils.PaveNumerique(0);
+       //     EoliaUtils.PaveNumerique(0);
         }
 
         private void BoutonRechargerPortSerie_Click(object sender, EventArgs e)
