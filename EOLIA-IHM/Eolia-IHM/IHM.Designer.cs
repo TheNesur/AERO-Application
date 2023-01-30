@@ -53,6 +53,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.GroupBoxMesure = new System.Windows.Forms.GroupBox();
             this.groupBoxVisionCamera = new System.Windows.Forms.GroupBox();
+            this.buttonPrendreVideo = new System.Windows.Forms.Button();
             this.buttonCaptureImage = new System.Windows.Forms.Button();
             this.checkBoxSauvegarderPhotoMesurue = new System.Windows.Forms.CheckBox();
             this.buttonPrendrePhotoInstantanee = new System.Windows.Forms.Button();
@@ -120,7 +121,6 @@
             this.BoutonNumpad1 = new System.Windows.Forms.Button();
             this.BoutonRecharger = new System.Windows.Forms.Button();
             this.BoutonSauvegarde = new System.Windows.Forms.Button();
-            this.buttonPrendreVideo = new System.Windows.Forms.Button();
             this.ConteneurOngletBouton.SuspendLayout();
             this.GroupBoxEtat.SuspendLayout();
             this.GroupBoxMesure.SuspendLayout();
@@ -404,6 +404,16 @@
             this.groupBoxVisionCamera.TabIndex = 10;
             this.groupBoxVisionCamera.TabStop = false;
             this.groupBoxVisionCamera.Text = "Caméra";
+            // 
+            // buttonPrendreVideo
+            // 
+            this.buttonPrendreVideo.Location = new System.Drawing.Point(259, 95);
+            this.buttonPrendreVideo.Name = "buttonPrendreVideo";
+            this.buttonPrendreVideo.Size = new System.Drawing.Size(138, 43);
+            this.buttonPrendreVideo.TabIndex = 4;
+            this.buttonPrendreVideo.Text = "Start Video";
+            this.buttonPrendreVideo.UseVisualStyleBackColor = true;
+            this.buttonPrendreVideo.Click += new System.EventHandler(this.prendreVideo_Click);
             // 
             // buttonCaptureImage
             // 
@@ -803,6 +813,7 @@
             this.textBoxCX.Size = new System.Drawing.Size(71, 20);
             this.textBoxCX.TabIndex = 18;
             this.textBoxCX.Click += new System.EventHandler(this.textBoxCX_Click);
+            this.textBoxCX.TextChanged += new System.EventHandler(this.textBoxCX_TextChanged);
             // 
             // textBoxNomBDDMYSQL
             // 
@@ -1095,16 +1106,6 @@
             this.BoutonSauvegarde.UseVisualStyleBackColor = true;
             this.BoutonSauvegarde.Click += new System.EventHandler(this.BoutonSauvegarde_Click);
             // 
-            // buttonPrendreVideo
-            // 
-            this.buttonPrendreVideo.Location = new System.Drawing.Point(259, 95);
-            this.buttonPrendreVideo.Name = "buttonPrendreVideo";
-            this.buttonPrendreVideo.Size = new System.Drawing.Size(138, 43);
-            this.buttonPrendreVideo.TabIndex = 4;
-            this.buttonPrendreVideo.Text = "Start Video";
-            this.buttonPrendreVideo.UseVisualStyleBackColor = true;
-            this.buttonPrendreVideo.Click += new System.EventHandler(this.prendreVideo_Click);
-            // 
             // IHM
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -1112,9 +1113,9 @@
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.ConteneurOngletBouton);
             this.Controls.Add(this.EOLIATitre);
+            this.Controls.Add(this.GroupBoxConfig);
             this.Controls.Add(this.GroupBoxMesure);
             this.Controls.Add(this.GroupBoxEtat);
-            this.Controls.Add(this.GroupBoxConfig);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximumSize = new System.Drawing.Size(1024, 600);
             this.MinimizeBox = false;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Eolia_IHM.Properties;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,18 +16,76 @@ namespace Eolia_IHM.Menu
         public MesureMenu()
         {
             InitializeComponent();
-            textBox1.Text += "Mesure reçu avec Portance = 5 | Trainee = 10.";
-            textBox1.Text += "\r\nCapteurs tarer...";
-            textBox1.Text += "\r\nMesure reçu avec Portance = 0 | Trainee = 10.";
-            textBox1.Text += "\r\nMesure reçu avec Portance = 51 | Trainee = 75.";
-            textBox1.Text += "\r\nMesure reçu avec Portance = 145 | Trainee = 85.";
-            textBox1.Text += "\r\nSession sauvegarder...";
-            textBox1.Text += "\r\nEnregistrement des données lancer...";
-            textBox1.Text += "\r\nMesure reçu avec Portance = 145 | Trainee = 85.";
-            textBox1.Text += "\r\nMesure reçu avec Portance = 51 | Trainee = 75.";
-            textBox1.Text += "\r\nArrêt de l'enregistrement des donées.";
-            textBox1.Text += "\r\nSession sauvegarder...";
+
         }
 
+        private void buttonLancerTransmissionMesure_Click(object sender, EventArgs e)
+        {
+            if (EoliaMes.EtatTransMes())
+            {
+                buttonLancerTransmissionMesure.Text = "Demarrer transmission mesure";
+                EoliaMes.ArreterTransMes();
+            }
+            else
+            {
+                buttonLancerTransmissionMesure.Text = "Arrêter transmission mesure";
+                EoliaMes.InitialiserTransMes(textBoxLogMesure, labelMesurePortance, labelMesureTrainee, EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE"));
+            }
+        }
+
+        private void buttonLancerEnregistrementMesure_Click(object sender, EventArgs e)
+        {
+            if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession))
+            {
+                buttonLancerEnregistrementMesure.Text = "Demarrer enregistrement mesure";
+            }
+            else
+            {
+                buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement mesure";
+            }
+        }
+
+        private async void buttonSauvegarderSessionEnCours_Click(object sender, EventArgs e)
+        {
+            buttonSauvegarderSessionEnCours.Enabled = false;
+
+            if (EoliaSQL.BDDisConnected())
+            {
+                if (EoliaMes.SessionMesureDispo())
+                {
+                    string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', '" + labelNomSession.Text + "');";
+                    int ResultRequete = await EoliaSQL.ExecuterRequeteSansReponse(Requete);
+                    if (ResultRequete != 0)
+                    {
+                        EoliaUtils.MsgBoxNonBloquante("Données envoyées avec Succés");
+                    }
+                    else
+                    {
+                        EoliaUtils.MsgBoxNonBloquante("Echec de la transmission");
+                    }
+                }
+                else
+                {
+                    EoliaUtils.MsgBoxNonBloquante("La session de mesure est inexistante ou vide");
+                }
+            }
+            else
+            {
+                EoliaUtils.MsgBoxNonBloquante("Non connecté a la BDD, Transmission impossible");
+            }
+            buttonSauvegarderSessionEnCours.Enabled = true;
+        }
+
+        private void buttonTarerCapteurs_Click(object sender, EventArgs e)
+        {
+            if (EoliaMes.EtatTransMes())
+            {
+                EoliaMes.TarerCapteur();
+            }
+            else
+            {
+                EoliaUtils.MsgBoxNonBloquante("Vous devez établir une transmission avant de tarer");
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -24,7 +25,7 @@ namespace Eolia_IHM
 
         private static volatile bool LireSerie = false;
         private static SerialPort CapteurLiaisonSerie = null;
-        private static TextBox CapeurlLogBox = null;
+        private static Label CapeurlLogBox = null;
         private static Task readThread = null;
         private static string cmdBuff = "";
         private static string nxtcmdBuff = "";
@@ -36,7 +37,7 @@ namespace Eolia_IHM
         private static bool EnregistreMesure = false;
         private static Label LabelMesTrainee = null;
         private static Label LabelMesPortance = null;
-        private static Label ReponseCMDMesure = null;
+        private static TextBox ReponseCMDMesure = null;
         private static bool TransmissionMesure = false;
         private static Label LabelValMoyenneTrainee = null;
         private static Label LabelValMoyennePortance = null;
@@ -49,14 +50,14 @@ namespace Eolia_IHM
 
         // Fonction relatif a la gestion des mesures
 
-        public static void InitialiserTransMes(Label RepMsg, Label LabelMesPort, Label LabelMesTra, TextBox nbMesureSec)
+        public static void InitialiserTransMes(TextBox RepMsg, Label LabelMesPort, Label LabelMesTra, string nbMesureSec)
         {
             LabelMesTrainee = LabelMesTra;
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            ReponseCMDMesure.Text = "Les mesures reçues seront afichées au dessus";
-            EnvoyerMessageSerieCapteur("START " + nbMesureSec.Text);
+            ReponseCMDMesure.Text += "Les mesures reçues seront afichées a gauche\r\n";
+            EnvoyerMessageSerieCapteur("START " + nbMesureSec);
 
         }
 
@@ -167,7 +168,7 @@ namespace Eolia_IHM
         {
             EnvoyerMessageSerieCapteur("STOP");
 
-            ReponseCMDMesure.Text = "Transmission des mesures arrêtés";
+            ReponseCMDMesure.Text += "Transmission des mesures arrêtés\r\n";
 
             LabelMesTrainee = null;
             LabelMesPortance = null;
@@ -241,12 +242,15 @@ namespace Eolia_IHM
 
 
 
-                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text = message));
+                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text += message+"`\r\n"));
             }
             else
             {
                 float portance, trainee;
-                if (!float.TryParse(words[1], out portance) || !float.TryParse(words[3], out trainee))
+                string strPort = words[1];
+                string strTra = words[3];
+   
+                if (!float.TryParse(strPort.Replace(".",","), out portance) || !float.TryParse(strTra.Replace(".",","), out trainee))
                 {
                     cmdBuff = "";
                     return;
@@ -298,13 +302,13 @@ namespace Eolia_IHM
             readThread = null;
             CapteurLiaisonSerie.Close();
             CapteurLiaisonSerie = null;
-            CapeurlLogBox.Text = "Liaison Série -> Arrèté";
+            CapeurlLogBox.Text = "Arrèté";
            
 
 
         }
 
-        public static void InitialiserLiaisonSerieCapteur(string portChoisit, TextBox logTextBox)
+        public static void InitialiserLiaisonSerieCapteur(string portChoisit, Label logTextBox)
         {
             CapeurlLogBox = logTextBox;
 
@@ -327,8 +331,8 @@ namespace Eolia_IHM
                     
 
                     CapteurLiaisonSerie.Open();
-                    CapeurlLogBox.Text = "Liaison Série -> Démarrée";
-                    EoliaLogs.Write("Liaison série démarée", EoliaLogs.Types.SERIAL);
+                    CapeurlLogBox.Text = " Démarrée";
+                    EoliaLogs.Write("Démarée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
                     readThread = new Task(Read);
                     readThread.Start();
@@ -336,19 +340,19 @@ namespace Eolia_IHM
                 }
                 catch (IOException ex)
                 {
-                    CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    CapeurlLogBox.Text = "Arret " ;
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (UnauthorizedAccessException ex)
                 {
-                    CapeurlLogBox.Text = "Liaison Série -> Acces refusé ("+ex+")";
+                    CapeurlLogBox.Text = "Acces refusé ";
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
                 {
-                    CapeurlLogBox.Text = "Liaison Série -> " + ex;
+                    CapeurlLogBox.Text = "Erreur";
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     CapteurLiaisonSerie = null;
                 }
@@ -356,7 +360,7 @@ namespace Eolia_IHM
             }
             else
             {
-                CapeurlLogBox.Text = "Liaison Série -> Port Existant pas";
+                CapeurlLogBox.Text = "Pb port";
             }
 
 
@@ -404,7 +408,7 @@ namespace Eolia_IHM
 
             SerialPort portSerie = (SerialPort)port;
             portSerie.Close();
-            CapeurlLogBox.Text = "Liaison Série -> Arrêtée";
+            CapeurlLogBox.Text = "Arrêtée";
             EoliaLogs.Write("Liaison série terminée ", EoliaLogs.Types.SERIAL);
             // erreur reçu
         }

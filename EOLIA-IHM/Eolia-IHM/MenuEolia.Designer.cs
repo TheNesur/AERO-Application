@@ -43,7 +43,7 @@ namespace Eolia_IHM
             // buttonQuitter
             // 
             this.buttonQuitter.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonQuitter.Font = new System.Drawing.Font("Montserrat SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonQuitter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonQuitter.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonQuitter.Location = new System.Drawing.Point(818, 128);
             this.buttonQuitter.Margin = new System.Windows.Forms.Padding(0);
@@ -57,7 +57,7 @@ namespace Eolia_IHM
             // buttonConfiguration
             // 
             this.buttonConfiguration.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonConfiguration.Font = new System.Drawing.Font("Montserrat SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfiguration.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfiguration.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonConfiguration.Location = new System.Drawing.Point(614, 128);
             this.buttonConfiguration.Margin = new System.Windows.Forms.Padding(0);
@@ -71,7 +71,7 @@ namespace Eolia_IHM
             // buttonCamera
             // 
             this.buttonCamera.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonCamera.Font = new System.Drawing.Font("Montserrat SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCamera.Location = new System.Drawing.Point(410, 128);
             this.buttonCamera.Margin = new System.Windows.Forms.Padding(0);
             this.buttonCamera.Name = "buttonCamera";
@@ -84,7 +84,7 @@ namespace Eolia_IHM
             // buttonMesure
             // 
             this.buttonMesure.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonMesure.Font = new System.Drawing.Font("Montserrat SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMesure.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMesure.Location = new System.Drawing.Point(206, 128);
             this.buttonMesure.Margin = new System.Windows.Forms.Padding(0);
             this.buttonMesure.Name = "buttonMesure";
@@ -98,7 +98,7 @@ namespace Eolia_IHM
             // 
             this.buttonStatus.BackColor = System.Drawing.Color.DarkGray;
             this.buttonStatus.Cursor = System.Windows.Forms.Cursors.SizeAll;
-            this.buttonStatus.Font = new System.Drawing.Font("Montserrat SemiBold", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonStatus.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.buttonStatus.Location = new System.Drawing.Point(2, 128);
             this.buttonStatus.Margin = new System.Windows.Forms.Padding(0);
@@ -128,8 +128,7 @@ namespace Eolia_IHM
             // 
             // MenuEolia
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.panelMenu);
@@ -141,6 +140,7 @@ namespace Eolia_IHM
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MenuEolia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MenuEolia";
             this.Load += new System.EventHandler(this.MenuEolia_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

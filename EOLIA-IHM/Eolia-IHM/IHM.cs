@@ -229,14 +229,14 @@ namespace Eolia_IHM
 
         private void buttonDemarrerLiaisonSerie_Click(object sender, EventArgs e)
         {
-            EoliaMes.InitialiserLiaisonSerieCapteur(ComboxBoxChoixPortSerieCapteur.Text, textBoxEtatLiaisonSerie);
+            /*EoliaMes.InitialiserLiaisonSerieCapteur(ComboxBoxChoixPortSerieCapteur.Text, textBoxEtatLiaisonSerie);
             if (EoliaMes.LiaisonSerieCapteur())
             {
                 
                 buttonArreterLiaisonSerie.Enabled = true;
                 buttonDemarrerLiaisonSerie.Enabled = false;
             }
-
+            */
         }
 
         private void buttonArreterLiaisonSerie_Click(object sender, EventArgs e)
@@ -251,13 +251,13 @@ namespace Eolia_IHM
         private void buttonDemarrerLiaisonBDD_Click(object sender, EventArgs e)
         {
           //buttonDemarrerLiaisonBDD.Enabled = false;
-            EoliaSQL.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text,
+           /* EoliaSQL.InitialiserConnexionSQL(textBoxNomBDDMYSQL.Text,
                                             textBoxUsernameMYSQL.Text,
                                             textBoxMotdepasseMYSQL.Text,
                                             textBoxAdresseMYSQL.Text,
                                             textBoxEtatLiaisonBDD,
                                             buttonDemarrerLiaisonBDD,
-                                            buttonArreterLiaisonBDD);
+                                            buttonArreterLiaisonBDD);*/
         /*    if (EoliaFnct.BDDisConnected())
                 buttonArreterLiaisonBDD.Enabled = true;
             else
@@ -415,6 +415,11 @@ namespace Eolia_IHM
 
             }
             if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
+        }
+
+        private void textBoxCX_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
