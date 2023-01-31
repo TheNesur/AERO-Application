@@ -18,6 +18,10 @@ namespace Eolia_IHM.Menu
             InitializeComponent();
         }
 
+        private bool bddDemarrer = false;
+        private bool esp32Demarrer = false;
+        private bool liaisonRegulateurDemarrer = false;
+
         private void StatusMenu_Load(object sender, EventArgs e)
         {
 
@@ -31,7 +35,8 @@ namespace Eolia_IHM.Menu
                 EoliaMes.FermerLiaisonSerieCapteur();
                 if (!EoliaMes.LiaisonSerieCapteur())
                 {
-                    buttonDemarrerESP32.Text = "Démarrer liaison série";
+                    buttonDemarrerESP32.Text = "Démarrée liaison série";
+                    esp32Demarrer = false;
                 }
             }
             else
@@ -39,7 +44,8 @@ namespace Eolia_IHM.Menu
                 EoliaMes.InitialiserLiaisonSerieCapteur(ConfigurationMenu.PortSerieCapteur, labelStatutCapteurs);
                 if (EoliaMes.LiaisonSerieCapteur())
                 {
-                    buttonDemarrerESP32.Text = "Arrêter liaison série";
+                    buttonDemarrerESP32.Text = "Arrêtée liaison série";
+                    esp32Demarrer = true;
                 }
             }
         }
@@ -52,19 +58,37 @@ namespace Eolia_IHM.Menu
                 ConfigurationMenu.UsernameBDD,
                 ConfigurationMenu.PasswordBDD,
                 ConfigurationMenu.AdresseBDD,
-                labelStatutBDD,
-                buttonEtatBDD);
+                labelStatutBDD);
+                buttonDemarrerBDD.Text = "Arrêtée la BDD";
+                bddDemarrer = true;
+
             }
             else
             {
                 EoliaSQL.FermerConnexionSQL();
+                buttonDemarrerBDD.Text = "Démarrée la BDD";
+                bddDemarrer = false;
             }
         }
 
         private void buttonDemarrerTout_Click(object sender, EventArgs e)
         {
-            buttonEtatBDD.PerformClick();
-            buttonDemarrerESP32.PerformClick();
+            if (!bddDemarrer) buttonDemarrerBDD.PerformClick();
+            if (!esp32Demarrer) buttonDemarrerESP32.PerformClick();
+            if (!liaisonRegulateurDemarrer) buttonLiaisonRegulateur.PerformClick();
+        }
+
+        private void buttonArreterToutLesServices_Click(object sender, EventArgs e)
+        {
+            if (bddDemarrer) buttonDemarrerBDD.PerformClick();
+            if (esp32Demarrer) buttonDemarrerESP32.PerformClick();
+            if (liaisonRegulateurDemarrer) buttonLiaisonRegulateur.PerformClick();
+
+        }
+
+        private void buttonLiaisonRegulateur_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

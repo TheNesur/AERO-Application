@@ -4,7 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,22 +19,6 @@ namespace Eolia_IHM
         public MenuEolia()
         {
             InitializeComponent();
-            if (!EoliaUtils.EoliaConfigExiste())
-            {
-                configurationMenu.Sauvegarder();
-                MessageBox.Show("Premier lancement, veuillez configurer la BDD dans EoliaConfig.config");
-                Application.Exit();
-
-            }
-            else
-            {
-
-                configurationMenu.Recharger();
-                Console.WriteLine("Eolia IHM");
-                EoliaLogs.InitializeLogs();
-                EoliaLogs.Write("Démarrage de l'IHM");
-
-            }
         }
 
         StatusMenu statusMenu = new StatusMenu();
@@ -133,6 +119,33 @@ namespace Eolia_IHM
         }
 
 
+        private void MenuEolia_Load(object sender, EventArgs e)
+        {
+            statusMenu.Parent = panelMenu;
+            mesureMenu.Parent = panelMenu;
+            cameraMenu.Parent = panelMenu;
+            configurationMenu.Parent = panelMenu;
+            chooseMenu(MenuTypes.STATUS);
+
+
+            
+            if (!EoliaUtils.EoliaConfigExiste())
+            {
+
+                configurationMenu.Sauvegarder();
+                MessageBox.Show("Premier lancement, veuillez configurer la BDD dans EoliaConfig.config");
+                Application.Exit();
+
+            }/*
+            else
+            {
+
+                configurationMenu.Recharger();
+                Console.WriteLine("Eolia IHM");
+
+            }*/
+        }
+
 
         private void buttonStatus_Click(object sender, EventArgs e)
         {
@@ -154,8 +167,50 @@ namespace Eolia_IHM
 
         private void buttonCamera_Click(object sender, EventArgs e)
         {
-            chooseMenu(MenuTypes.CAMERA);
+            //foreach (string port in SerialPort.GetPortNames())
+            //{
+            //    if (port == "/dev/video0")
+            //    {
+            //        chooseMenu(MenuTypes.CAMERA);
+            //        return;
+            //    }
+            //}
             
+            try
+            {
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "vcgencmd",
+                        Arguments = "get_camera",
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                    }
+                };
+                process.Start();
+                string output = process.StandardOutput.ReadToEnd();
+                process.WaitForExit();
+
+                if (output.Contains("detected=0"))
+                {
+                    EoliaUtils.MsgBoxNonBloquante("Impossible d'accèder a la gestion de la caméra, aucune caméra n'est détecter.", "ERREUR CAMERA");
+                }
+                else
+                {
+                    chooseMenu(MenuTypes.CAMERA);
+                }
+            } catch (Exception ee)
+            {
+                EoliaUtils.MsgBoxNonBloquante("Impossible de vérifier si la caméra existe, vous n'utilisez pas la bonne version/sysème d'exploitation.", "ERREUR CAMERA");
+                Console.WriteLine(ee.Message);
+            }
+
+
+
+
+
         }
 
         private void buttonConfiguration_Click(object sender, EventArgs e)
@@ -174,15 +229,6 @@ namespace Eolia_IHM
             }
             Application.Restart();
             Environment.Exit(0);
-        }
-
-        private void MenuEolia_Load(object sender, EventArgs e)
-        {
-            statusMenu.Parent = panelMenu;
-            mesureMenu.Parent = panelMenu;
-            cameraMenu.Parent = panelMenu;
-            configurationMenu.Parent = panelMenu;
-            chooseMenu(MenuTypes.STATUS);
         }
 
     }

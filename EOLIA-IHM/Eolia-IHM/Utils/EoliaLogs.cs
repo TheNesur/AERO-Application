@@ -118,6 +118,9 @@ namespace Eolia_IHM
             _mutex.WaitOne();
             try
             {
+
+                if (!File.Exists(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log")) return null;
+
                 // J'ouvre le fichier de log en lecture
                 StreamReader fileReader = new StreamReader(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log");
                 // Je prend la première ligne du fichier
@@ -149,26 +152,25 @@ namespace Eolia_IHM
         }
 
         // Fonction d'écriture dans le fichier logs, demander le texte a enregristrer et le type de logs via un enum
-        public static void Write(string args, Types type = Types.OTHER, String other = null)
+        public static bool Write(string args, Types type = Types.OTHER, String other = null)
         {
             _mutex.WaitOne();
             try
             {
-                StreamWriter fileWriter = new StreamWriter(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", true);
                 if (other == null)
-                    fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] " + args + "\n");
-                else fileWriter.Write(DateTime.Now.ToString("[HH:mm:ss] [") + type + "] [" + other + "]"  + args + "\n");
-                fileWriter.Close();
+                    File.AppendAllText(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", DateTime.Now.ToString("[HH:mm:ss] [") + type + "] " + args + "\n");
+                else File.AppendAllText(nameFileLogs + "/" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + numberFile + ".log", DateTime.Now.ToString("[HH:mm:ss] [") + type + "] [" + other + "]" + args + "\n");
+                return true;
             }
             catch (Exception e)
             {
                 Console.WriteLine("Exception: " + e.Message);
+                return false;
             }
             finally
             {
                 _mutex.ReleaseMutex();
             }
         }
-
     }
 }

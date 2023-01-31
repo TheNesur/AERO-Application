@@ -31,14 +31,17 @@ namespace Eolia_IHM
             return false;
         }
 
-        public static void InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, Label SQLState, Button BoutonStartSQL)
+        public static void InitialiserConnexionSQL(string NomBaseDeDonée, string Utilisateur, string MotDePasse, string Adresse, Label SQLState = null, Button BoutonStartSQL = null)
         {
             string connexionString = "Server=" + Adresse + ";Database=" + NomBaseDeDonée + ";Uid=" + Utilisateur + ";Pwd=" + MotDePasse + ";";
             //string connexionString = "Data Source=" + Adresse + ",3306;Initial Catalog = " + NomBaseDeDonée + "; User ID = " + Utilisateur + "; Password = " + MotDePasse;
-            SQLLogBox = SQLState;
+            if (SQLState != null) SQLLogBox = SQLState;
+            if (BoutonStartSQL != null)
+            {
+                BoutonStartSQL.Enabled = false;
+                SwitchBouton = BoutonStartSQL;
 
-            BoutonStartSQL.Enabled = false;
-            SwitchBouton = BoutonStartSQL;
+            }
             SqlConnexion = new MySqlConnection(connexionString);
             Task.Run(() =>
             {
@@ -48,8 +51,13 @@ namespace Eolia_IHM
                     // SQLLogBox.Text = "BDD OK";
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "BDD OK"));
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.ForeColor = System.Drawing.Color.Green));
-                    BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
-                    BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Text = "Arreter la connexion MYSQL"));
+
+                    if (BoutonStartSQL != null)
+                    {
+                        BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
+                        BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Text = "Arreter la connexion MYSQL"));
+
+                    }
                     EoliaLogs.Write("Connecté a la BDD MYSQL", EoliaLogs.Types.MYSQL);
                     BDDConnected = true;
                 }
@@ -59,8 +67,8 @@ namespace Eolia_IHM
                     EoliaLogs.Write("Echec lors de la connexion a la BDD MYSQL ("+ex+")", EoliaLogs.Types.MYSQL);
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "Erreur "));
 
-                    BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
-                    
+                    if (BoutonStartSQL != null) BoutonStartSQL.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
+
                     SqlConnexion.Close();
                     SqlConnexion = null;
                 }
@@ -78,7 +86,7 @@ namespace Eolia_IHM
                 BDDConnected = false;
                 SQLLogBox.Text = "BDD Deconnecté";
                 SQLLogBox.ForeColor = System.Drawing.Color.Red;
-                SwitchBouton.Text = "Démarrer la liaison MYSQL";
+                if (SwitchBouton != null) SwitchBouton.Text = "Démarrer la liaison MYSQL";
             }
         }
 

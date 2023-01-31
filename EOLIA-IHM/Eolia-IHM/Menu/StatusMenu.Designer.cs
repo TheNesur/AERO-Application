@@ -43,10 +43,11 @@ namespace Eolia_IHM.Menu
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.labelStatutVitesse = new System.Windows.Forms.Label();
-            this.buttonEtatBDD = new System.Windows.Forms.Button();
+            this.buttonDemarrerBDD = new System.Windows.Forms.Button();
             this.buttonDemarrerESP32 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.buttonDemarrerTout = new System.Windows.Forms.Button();
+            this.buttonLiaisonRegulateur = new System.Windows.Forms.Button();
+            this.buttonDemarrerToutLesServices = new System.Windows.Forms.Button();
+            this.buttonArreterToutLesServices = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -86,10 +87,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.label1.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.label1.Location = new System.Drawing.Point(117, 154);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(158, 25);
+            this.label1.Size = new System.Drawing.Size(139, 21);
             this.label1.TabIndex = 3;
             this.label1.Text = "Base de Donnée";
             // 
@@ -97,22 +98,22 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutBDD.AutoSize = true;
             this.labelStatutBDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutBDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.labelStatutBDD.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.labelStatutBDD.ForeColor = System.Drawing.Color.Red;
-            this.labelStatutBDD.Location = new System.Drawing.Point(138, 214);
+            this.labelStatutBDD.Location = new System.Drawing.Point(110, 217);
             this.labelStatutBDD.Name = "labelStatutBDD";
-            this.labelStatutBDD.Size = new System.Drawing.Size(68, 25);
+            this.labelStatutBDD.Size = new System.Drawing.Size(157, 21);
             this.labelStatutBDD.TabIndex = 4;
-            this.labelStatutBDD.Text = "STOP";
+            this.labelStatutBDD.Text = "BDD Déconnectée";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label2.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.label2.Location = new System.Drawing.Point(470, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 24);
+            this.label2.Size = new System.Drawing.Size(71, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Caméra";
             // 
@@ -120,11 +121,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutCamera.AutoSize = true;
             this.labelStatutCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutCamera.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.labelStatutCamera.ForeColor = System.Drawing.Color.Red;
             this.labelStatutCamera.Location = new System.Drawing.Point(461, 121);
             this.labelStatutCamera.Name = "labelStatutCamera";
-            this.labelStatutCamera.Size = new System.Drawing.Size(102, 24);
+            this.labelStatutCamera.Size = new System.Drawing.Size(102, 21);
             this.labelStatutCamera.TabIndex = 6;
             this.labelStatutCamera.Text = "Introuvable";
             // 
@@ -132,11 +133,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutCapteurs.AutoSize = true;
             this.labelStatutCapteurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutCapteurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutCapteurs.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.labelStatutCapteurs.ForeColor = System.Drawing.Color.Red;
             this.labelStatutCapteurs.Location = new System.Drawing.Point(415, 219);
             this.labelStatutCapteurs.Name = "labelStatutCapteurs";
-            this.labelStatutCapteurs.Size = new System.Drawing.Size(61, 24);
+            this.labelStatutCapteurs.Size = new System.Drawing.Size(54, 21);
             this.labelStatutCapteurs.TabIndex = 8;
             this.labelStatutCapteurs.Text = "STOP";
             // 
@@ -144,10 +145,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label5.Location = new System.Drawing.Point(410, 197);
+            this.label5.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
+            this.label5.Location = new System.Drawing.Point(417, 197);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 24);
+            this.label5.Size = new System.Drawing.Size(59, 21);
             this.label5.TabIndex = 7;
             this.label5.Text = "ESP32";
             // 
@@ -155,11 +156,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutRegulateur.AutoSize = true;
             this.labelStatutRegulateur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutRegulateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutRegulateur.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.labelStatutRegulateur.ForeColor = System.Drawing.Color.Red;
             this.labelStatutRegulateur.Location = new System.Drawing.Point(526, 219);
             this.labelStatutRegulateur.Name = "labelStatutRegulateur";
-            this.labelStatutRegulateur.Size = new System.Drawing.Size(61, 24);
+            this.labelStatutRegulateur.Size = new System.Drawing.Size(54, 21);
             this.labelStatutRegulateur.TabIndex = 10;
             this.labelStatutRegulateur.Text = "STOP";
             // 
@@ -167,10 +168,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.label7.Location = new System.Drawing.Point(526, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(102, 24);
+            this.label7.Size = new System.Drawing.Size(100, 21);
             this.label7.TabIndex = 9;
             this.label7.Text = "Régulateur";
             // 
@@ -178,10 +179,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(735, 168);
+            this.label3.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
+            this.label3.Location = new System.Drawing.Point(725, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(200, 24);
+            this.label3.Size = new System.Drawing.Size(194, 21);
             this.label3.TabIndex = 11;
             this.label3.Text = "Vitesse Actuel-Desirée";
             // 
@@ -189,31 +190,31 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutVitesse.AutoSize = true;
             this.labelStatutVitesse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutVitesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutVitesse.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.labelStatutVitesse.Location = new System.Drawing.Point(826, 197);
             this.labelStatutVitesse.Name = "labelStatutVitesse";
-            this.labelStatutVitesse.Size = new System.Drawing.Size(16, 24);
+            this.labelStatutVitesse.Size = new System.Drawing.Size(16, 21);
             this.labelStatutVitesse.TabIndex = 12;
             this.labelStatutVitesse.Text = "-";
             // 
-            // buttonEtatBDD
+            // buttonDemarrerBDD
             // 
-            this.buttonEtatBDD.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonEtatBDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEtatBDD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonEtatBDD.Location = new System.Drawing.Point(50, 338);
-            this.buttonEtatBDD.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonEtatBDD.Name = "buttonEtatBDD";
-            this.buttonEtatBDD.Size = new System.Drawing.Size(279, 50);
-            this.buttonEtatBDD.TabIndex = 16;
-            this.buttonEtatBDD.Text = "Démarrer la BDD";
-            this.buttonEtatBDD.UseVisualStyleBackColor = false;
-            this.buttonEtatBDD.Click += new System.EventHandler(this.buttonEtatBDD_Click);
+            this.buttonDemarrerBDD.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDemarrerBDD.Font = new System.Drawing.Font("Montserrat ExtraBold", 16F);
+            this.buttonDemarrerBDD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonDemarrerBDD.Location = new System.Drawing.Point(50, 338);
+            this.buttonDemarrerBDD.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDemarrerBDD.Name = "buttonDemarrerBDD";
+            this.buttonDemarrerBDD.Size = new System.Drawing.Size(279, 50);
+            this.buttonDemarrerBDD.TabIndex = 16;
+            this.buttonDemarrerBDD.Text = "Démarrer la BDD";
+            this.buttonDemarrerBDD.UseVisualStyleBackColor = false;
+            this.buttonDemarrerBDD.Click += new System.EventHandler(this.buttonEtatBDD_Click);
             // 
             // buttonDemarrerESP32
             // 
             this.buttonDemarrerESP32.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDemarrerESP32.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDemarrerESP32.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
             this.buttonDemarrerESP32.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDemarrerESP32.Location = new System.Drawing.Point(370, 338);
             this.buttonDemarrerESP32.Margin = new System.Windows.Forms.Padding(0);
@@ -224,40 +225,56 @@ namespace Eolia_IHM.Menu
             this.buttonDemarrerESP32.UseVisualStyleBackColor = false;
             this.buttonDemarrerESP32.Click += new System.EventHandler(this.buttonDemarrerESP32_Click);
             // 
-            // button3
+            // buttonLiaisonRegulateur
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button3.Location = new System.Drawing.Point(510, 338);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(140, 50);
-            this.button3.TabIndex = 18;
-            this.button3.Text = "Démarrer liaison Régulateur";
-            this.button3.UseVisualStyleBackColor = false;
+            this.buttonLiaisonRegulateur.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonLiaisonRegulateur.Font = new System.Drawing.Font("Montserrat ExtraBold", 9.5F);
+            this.buttonLiaisonRegulateur.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonLiaisonRegulateur.Location = new System.Drawing.Point(510, 338);
+            this.buttonLiaisonRegulateur.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonLiaisonRegulateur.Name = "buttonLiaisonRegulateur";
+            this.buttonLiaisonRegulateur.Size = new System.Drawing.Size(140, 50);
+            this.buttonLiaisonRegulateur.TabIndex = 18;
+            this.buttonLiaisonRegulateur.Text = "Démarrer liaison Régulateur";
+            this.buttonLiaisonRegulateur.UseVisualStyleBackColor = false;
+            this.buttonLiaisonRegulateur.Click += new System.EventHandler(this.buttonLiaisonRegulateur_Click);
             // 
-            // buttonDemarrerTout
+            // buttonDemarrerToutLesServices
             // 
-            this.buttonDemarrerTout.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDemarrerTout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonDemarrerTout.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.buttonDemarrerTout.Location = new System.Drawing.Point(683, 340);
-            this.buttonDemarrerTout.Margin = new System.Windows.Forms.Padding(0);
-            this.buttonDemarrerTout.Name = "buttonDemarrerTout";
-            this.buttonDemarrerTout.Size = new System.Drawing.Size(279, 50);
-            this.buttonDemarrerTout.TabIndex = 19;
-            this.buttonDemarrerTout.Text = "Démarrer tout les services";
-            this.buttonDemarrerTout.UseVisualStyleBackColor = false;
-            this.buttonDemarrerTout.Click += new System.EventHandler(this.buttonDemarrerTout_Click);
+            this.buttonDemarrerToutLesServices.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonDemarrerToutLesServices.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
+            this.buttonDemarrerToutLesServices.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonDemarrerToutLesServices.Location = new System.Drawing.Point(683, 340);
+            this.buttonDemarrerToutLesServices.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonDemarrerToutLesServices.Name = "buttonDemarrerToutLesServices";
+            this.buttonDemarrerToutLesServices.Size = new System.Drawing.Size(140, 50);
+            this.buttonDemarrerToutLesServices.TabIndex = 19;
+            this.buttonDemarrerToutLesServices.Text = "Démarrer tout les services";
+            this.buttonDemarrerToutLesServices.UseVisualStyleBackColor = false;
+            this.buttonDemarrerToutLesServices.Click += new System.EventHandler(this.buttonDemarrerTout_Click);
+            // 
+            // buttonArreterToutLesServices
+            // 
+            this.buttonArreterToutLesServices.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonArreterToutLesServices.Font = new System.Drawing.Font("Montserrat ExtraBold", 11F);
+            this.buttonArreterToutLesServices.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.buttonArreterToutLesServices.Location = new System.Drawing.Point(822, 340);
+            this.buttonArreterToutLesServices.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonArreterToutLesServices.Name = "buttonArreterToutLesServices";
+            this.buttonArreterToutLesServices.Size = new System.Drawing.Size(140, 50);
+            this.buttonArreterToutLesServices.TabIndex = 20;
+            this.buttonArreterToutLesServices.Text = "Arrêter tout les services";
+            this.buttonArreterToutLesServices.UseVisualStyleBackColor = false;
+            this.buttonArreterToutLesServices.Click += new System.EventHandler(this.buttonArreterToutLesServices_Click);
             // 
             // StatusMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.buttonDemarrerTout);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.buttonArreterToutLesServices);
+            this.Controls.Add(this.buttonDemarrerToutLesServices);
+            this.Controls.Add(this.buttonLiaisonRegulateur);
             this.Controls.Add(this.buttonDemarrerESP32);
-            this.Controls.Add(this.buttonEtatBDD);
+            this.Controls.Add(this.buttonDemarrerBDD);
             this.Controls.Add(this.labelStatutVitesse);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.labelStatutRegulateur);
@@ -297,9 +314,10 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label labelStatutVitesse;
-        private System.Windows.Forms.Button buttonEtatBDD;
+        private System.Windows.Forms.Button buttonDemarrerBDD;
         private System.Windows.Forms.Button buttonDemarrerESP32;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button buttonDemarrerTout;
+        private System.Windows.Forms.Button buttonLiaisonRegulateur;
+        private System.Windows.Forms.Button buttonDemarrerToutLesServices;
+        private System.Windows.Forms.Button buttonArreterToutLesServices;
     }
 }

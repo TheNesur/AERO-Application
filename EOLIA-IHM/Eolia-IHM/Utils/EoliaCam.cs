@@ -54,10 +54,10 @@ namespace Eolia_IHM.Utils
             tabVideo = new List<byte[]>();
 
             //EoliaLogs.Write("Initialisation de la capture d'images...", EoliaLogs.Types.CAMERA);
-            settings = new VideoConnectionSettings(busId: 0, captureSize: (640, 480), pixelFormat: Iot.Device.Media.PixelFormat.JPEG);
-            device = VideoDevice.Create(settings);
-            tokenSource = new CancellationTokenSource();
-            device.NewImageBufferReady += NewImageBufferReadyEventHandler;
+            //settings = new VideoConnectionSettings(busId: 0, captureSize: (640, 480), pixelFormat: Iot.Device.Media.PixelFormat.JPEG);
+            //device = VideoDevice.Create(settings);
+            //tokenSource = new CancellationTokenSource();
+            //device.NewImageBufferReady += NewImageBufferReadyEventHandler;
 
         }
         /*-----------------------------------------------*/

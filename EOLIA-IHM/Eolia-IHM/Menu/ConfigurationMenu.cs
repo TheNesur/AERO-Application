@@ -21,6 +21,7 @@ namespace Eolia_IHM.Menu
         public static string NomBDD;
         public static string UsernameBDD;
         public static string PasswordBDD;
+        public static Label labelNomBDD;
 
 
         public ConfigurationMenu()
@@ -30,7 +31,6 @@ namespace Eolia_IHM.Menu
 
         private void ConfigurationMenu_Load(object sender, EventArgs e)
         {
-
         }
 
 
@@ -67,15 +67,21 @@ namespace Eolia_IHM.Menu
         {
             labelAdresseMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLADRESS");
             AdresseBDD = labelAdresseMYSQL.Text;
+
             labelUsernameMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLUSERNAME");
             UsernameBDD = labelUsernameMYSQL.Text;
+
             labelMDPMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLPASSWORD");
             PasswordBDD = labelMDPMYSQL.Text;
+
             labelNomBDDMYSQL.Text = EoliaUtils.LireConfiguration("MYSQLDBNAME");
             NomBDD = labelNomBDDMYSQL.Text;
+
             labelRepetoire.Text = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB");
+
             comboBoxPortCapteur.Text = EoliaUtils.LireConfiguration("PORTSERIECAPTEUR");
             PortSerieCapteur = comboBoxPortCapteur.Text;
+
             comboBoxPortRegulateur.Text = EoliaUtils.LireConfiguration("PORTSERIEREGULATEUR");
             textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE");
         }
@@ -100,5 +106,6 @@ namespace Eolia_IHM.Menu
         {
             Sauvegarder();
         }
+
     }
 }

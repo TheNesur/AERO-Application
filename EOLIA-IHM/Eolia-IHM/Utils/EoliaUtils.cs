@@ -111,6 +111,7 @@ namespace Eolia_IHM.Properties
         public static string LireConfiguration(string champ)
         {
             //permet de spécifier le chemin d'accès du fichier de configuration
+            if (!EoliaConfigExiste()) return null;
             var map = new ExeConfigurationFileMap
             {
                 ExeConfigFilename = "config/EoliaConfig.config"
@@ -142,16 +143,21 @@ namespace Eolia_IHM.Properties
 
         public static bool EoliaConfigExiste()
         {
+            //if (!Directory.Exists("config")) Directory.CreateDirectory("config");
             if (File.Exists("config/EoliaConfig.config"))
             {
                 return true;
             }
+
             return false;
         }
 
-        public static void MsgBoxNonBloquante(string Msg)
+        public static void MsgBoxNonBloquante(string Msg, string title = null)
         {
-            Task.Run(() => { MessageBox.Show(Msg); });
+            Task.Run(() => {
+                if (title != null) MessageBox.Show(Msg, title);
+                else MessageBox.Show(Msg);
+            });
         
         }
 
