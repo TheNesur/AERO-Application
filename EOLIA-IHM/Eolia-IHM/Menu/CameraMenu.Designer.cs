@@ -32,6 +32,7 @@ namespace Eolia_IHM.Menu
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CameraMenu));
             this.labelAucuneImageTrouvee = new System.Windows.Forms.Label();
             this.groupBoxDossierVideo = new System.Windows.Forms.GroupBox();
+            this.pictureBoxBigScreen = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanelDossierImage = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBoxRetourCamera = new System.Windows.Forms.PictureBox();
             this.buttonLancerEnregistrementVideo = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@ namespace Eolia_IHM.Menu
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBoxDossierVideo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBigScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -69,6 +71,7 @@ namespace Eolia_IHM.Menu
             // groupBoxDossierVideo
             // 
             this.groupBoxDossierVideo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.groupBoxDossierVideo.Controls.Add(this.pictureBoxBigScreen);
             this.groupBoxDossierVideo.Controls.Add(this.labelAucuneImageTrouvee);
             this.groupBoxDossierVideo.Controls.Add(this.flowLayoutPanelDossierImage);
             this.groupBoxDossierVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
@@ -78,6 +81,18 @@ namespace Eolia_IHM.Menu
             this.groupBoxDossierVideo.TabIndex = 20;
             this.groupBoxDossierVideo.TabStop = false;
             this.groupBoxDossierVideo.Text = "Dossier Image";
+            // 
+            // pictureBoxBigScreen
+            // 
+            this.pictureBoxBigScreen.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBoxBigScreen.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBigScreen.Image")));
+            this.pictureBoxBigScreen.Location = new System.Drawing.Point(5, 10);
+            this.pictureBoxBigScreen.Name = "pictureBoxBigScreen";
+            this.pictureBoxBigScreen.Size = new System.Drawing.Size(420, 380);
+            this.pictureBoxBigScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxBigScreen.TabIndex = 4;
+            this.pictureBoxBigScreen.TabStop = false;
+            this.pictureBoxBigScreen.Click += new System.EventHandler(this.activeBigScreen);
             // 
             // flowLayoutPanelDossierImage
             // 
@@ -518,6 +533,7 @@ namespace Eolia_IHM.Menu
             this.Load += new System.EventHandler(this.CameraMenu_Load);
             this.groupBoxDossierVideo.ResumeLayout(false);
             this.groupBoxDossierVideo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBigScreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -547,5 +563,6 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.ComboBox comboBoxFiltreImageSeconde;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.PictureBox pictureBoxBigScreen;
     }
 }

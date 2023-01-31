@@ -20,6 +20,11 @@ namespace Eolia_IHM.Menu
         private EoliaCam cameraEolia = new EoliaCam();
         private String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO";
         private String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG";
+        private bool bigScreenActived = false;
+                   
+        
+        
+        //this.pictureBoxBigScreen.Click += new System.EventHandler(this.pictureBoxBigScreen_Click);
 
 
 
@@ -27,6 +32,7 @@ namespace Eolia_IHM.Menu
         {
             InitializeComponent();
             labelAucuneImageTrouvee.Visible = false;
+            pictureBoxBigScreen.Visible = false;
         }
 
         private void CameraMenu_Load(object sender, EventArgs e)
@@ -53,6 +59,23 @@ namespace Eolia_IHM.Menu
         private void comboBoxFiltreImageReload(object sender, EventArgs e)
         {
             reloadDirectoryImage();
+        }
+
+        private void activeBigScreen(object sender, EventArgs e)
+        {
+            if (!bigScreenActived)
+            {
+                PictureBox pictureBox = (PictureBox)sender;
+                pictureBoxBigScreen.Image = pictureBox.Image;
+                pictureBoxBigScreen.Visible = true;
+                flowLayoutPanelDossierImage.Visible = false;
+                bigScreenActived = true;
+            } else
+            {
+                pictureBoxBigScreen.Visible = false;
+                flowLayoutPanelDossierImage.Visible = true;
+                bigScreenActived = false;
+            }
         }
 
 
@@ -99,8 +122,10 @@ namespace Eolia_IHM.Menu
                         pictureBox.Image = Image.FromFile(nameFileImage[i]);
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         pictureBox.Parent = flowLayoutPanelDossierImage;
-                    }
-                    if (flowLayoutPanelDossierImage.Controls.Count == 0) labelAucuneImageTrouvee.Visible = true;
+                        pictureBox.Click += new System.EventHandler(this.activeBigScreen);
+
+                }
+                if (flowLayoutPanelDossierImage.Controls.Count == 0) labelAucuneImageTrouvee.Visible = true;
                 //});
                 
 

@@ -175,8 +175,8 @@ namespace Eolia_IHM
             //        return;
             //    }
             //}
-            
-            try
+
+            /*try
             {
                 var process = new Process
                 {
@@ -205,7 +205,8 @@ namespace Eolia_IHM
             {
                 EoliaUtils.MsgBoxNonBloquante("Impossible de vérifier si la caméra existe, vous n'utilisez pas la bonne version/sysème d'exploitation.", "ERREUR CAMERA");
                 Console.WriteLine(ee.Message);
-            }
+            }*/
+            chooseMenu(MenuTypes.CAMERA);
 
 
 
