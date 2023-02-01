@@ -29,7 +29,7 @@ namespace Eolia_IHM.Menu
             else
             {
                 buttonLancerTransmissionMesure.Text = "Arrêter transmission mesure";
-                EoliaMes.InitialiserTransMes(textBoxLogMesure, labelMesurePortance, labelMesureTrainee, EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE"));
+                EoliaMes.InitialiserTransMes(textBoxLogMesure, labelMesurePortance, labelMesureTrainee, ConfigurationMenu.FREQUENCEMES, ConfigurationMenu.EQGVOLTPORTANCE, ConfigurationMenu.EQGVOLTTRAINEE);
             }
         }
 

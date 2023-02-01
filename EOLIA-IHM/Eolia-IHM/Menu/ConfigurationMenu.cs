@@ -21,6 +21,9 @@ namespace Eolia_IHM.Menu
         public static string NomBDD;
         public static string UsernameBDD;
         public static string PasswordBDD;
+        public static string FREQUENCEMES;
+        public static string EQGVOLTTRAINEE;
+        public static string EQGVOLTPORTANCE;
         public static Label labelNomBDD;
 
 
@@ -31,6 +34,8 @@ namespace Eolia_IHM.Menu
 
         private void ConfigurationMenu_Load(object sender, EventArgs e)
         {
+            Recharger();
+            buttonConfiguration.PerformClick();
         }
 
 
@@ -56,6 +61,9 @@ namespace Eolia_IHM.Menu
         {
             EoliaUtils.AfficherPortSerie(comboBoxPortCapteur);
             EoliaUtils.AfficherPortSerie(comboBoxPortRegulateur);
+
+
+
         }
 
         private void buttonRechargerConfiguration_Click(object sender, EventArgs e)
@@ -83,7 +91,16 @@ namespace Eolia_IHM.Menu
             PortSerieCapteur = comboBoxPortCapteur.Text;
 
             comboBoxPortRegulateur.Text = EoliaUtils.LireConfiguration("PORTSERIEREGULATEUR");
-            textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("NOMBREMESUREPARSECONDE");
+
+            textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("FREQUENCEMESURE");
+            FREQUENCEMES = textBoxNbMesureSec.Text;
+
+            textBoxGVoltPortance.Text = EoliaUtils.LireConfiguration("EQUIVALENCEVOLTPORTANCE");
+            EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
+
+            textBoxGVoltTrainee.Text = EoliaUtils.LireConfiguration("EQUIVALENCEVOLTTRAINEE");
+            EQGVOLTTRAINEE = textBoxGVoltPortance.Text;
+
         }
         public void Sauvegarder()
         {
@@ -93,11 +110,11 @@ namespace Eolia_IHM.Menu
             ListeValeurASauvegarder.Add("MYSQLPASSWORD", labelMDPMYSQL.Text);
             ListeValeurASauvegarder.Add("MYSQLDBNAME", labelNomBDDMYSQL.Text);
             ListeValeurASauvegarder.Add("REPERTOIRESITEWEB", labelRepetoire.Text);
-
             ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", comboBoxPortCapteur.Text);
             ListeValeurASauvegarder.Add("PORTSERIEREGULATEUR", comboBoxPortRegulateur.Text);
-
-            ListeValeurASauvegarder.Add("NOMBREMESUREPARSECONDE", textBoxNbMesureSec.Text);
+            ListeValeurASauvegarder.Add("FREQUENCEMESURE", textBoxNbMesureSec.Text);
+            ListeValeurASauvegarder.Add("EQUIVALENCEVOLTPORTANCE", textBoxGVoltPortance.Text);
+            ListeValeurASauvegarder.Add("EQUIVALENCEVOLTTRAINEE", textBoxGVoltTrainee.Text);
 
             EoliaUtils.SauvegarderConfiguration(ListeValeurASauvegarder);
         }
@@ -107,5 +124,33 @@ namespace Eolia_IHM.Menu
             Sauvegarder();
         }
 
+        private void comboBoxPortRegulateur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPortRegulateur.SelectedIndex != -1)
+            {
+                comboBoxPortCapteur.Items.Remove(comboBoxPortRegulateur.SelectedItem);
+
+            }
+        }
+
+        private void comboBoxPortCapteur_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBoxPortCapteur.SelectedIndex != -1)
+            {
+                comboBoxPortRegulateur.Items.Remove(comboBoxPortCapteur.SelectedItem);
+
+            }
+        }
+
+
+        private void comboBoxPortCapteur_Click(object sender, EventArgs e)
+        {
+            EoliaUtils.AfficherPortSerie((ComboBox)sender);
+        }
+
+        private void comboBoxPortRegulateur_Click(object sender, EventArgs e)
+        {
+            EoliaUtils.AfficherPortSerie((ComboBox)sender);
+        }
     }
 }

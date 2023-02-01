@@ -692,3 +692,4 @@ E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.Configurati
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.MesureMenu.resources
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.StatusMenu.resources
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.CameraMenu.resources
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Menu.CameraMenu.resources

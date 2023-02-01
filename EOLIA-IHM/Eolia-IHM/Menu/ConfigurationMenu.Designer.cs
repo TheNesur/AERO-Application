@@ -46,6 +46,10 @@ namespace Eolia_IHM.Menu
             this.buttonRechargerConfiguration = new System.Windows.Forms.Button();
             this.buttonSauvegarderConfig = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxGVoltTrainee = new System.Windows.Forms.TextBox();
+            this.textBoxGVoltPortance = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxNbMesureSec = new System.Windows.Forms.TextBox();
             this.comboBoxPortCapteur = new System.Windows.Forms.ComboBox();
@@ -281,6 +285,10 @@ namespace Eolia_IHM.Menu
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.textBoxGVoltTrainee);
+            this.groupBox1.Controls.Add(this.textBoxGVoltPortance);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBoxNbMesureSec);
             this.groupBox1.Controls.Add(this.comboBoxPortCapteur);
@@ -288,10 +296,46 @@ namespace Eolia_IHM.Menu
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox1.Location = new System.Drawing.Point(458, 100);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(247, 124);
+            this.groupBox1.Size = new System.Drawing.Size(247, 163);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuration Ports Capteurs";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(12, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "g/volt trainée";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 102);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "g/volt portance";
+            // 
+            // textBoxGVoltTrainee
+            // 
+            this.textBoxGVoltTrainee.Location = new System.Drawing.Point(125, 131);
+            this.textBoxGVoltTrainee.Name = "textBoxGVoltTrainee";
+            this.textBoxGVoltTrainee.Size = new System.Drawing.Size(116, 26);
+            this.textBoxGVoltTrainee.TabIndex = 6;
+            this.textBoxGVoltTrainee.Click += new System.EventHandler(this.textBoxPad_Click);
+            // 
+            // textBoxGVoltPortance
+            // 
+            this.textBoxGVoltPortance.Location = new System.Drawing.Point(125, 99);
+            this.textBoxGVoltPortance.Name = "textBoxGVoltPortance";
+            this.textBoxGVoltPortance.Size = new System.Drawing.Size(116, 26);
+            this.textBoxGVoltPortance.TabIndex = 5;
+            this.textBoxGVoltPortance.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
             // label1
             // 
@@ -299,13 +343,13 @@ namespace Eolia_IHM.Menu
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 66);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 20);
+            this.label1.Size = new System.Drawing.Size(92, 20);
             this.label1.TabIndex = 4;
-            this.label1.Text = "F mes";
+            this.label1.Text = "F (mes/sec)";
             // 
             // textBoxNbMesureSec
             // 
-            this.textBoxNbMesureSec.Location = new System.Drawing.Point(105, 63);
+            this.textBoxNbMesureSec.Location = new System.Drawing.Point(125, 60);
             this.textBoxNbMesureSec.Name = "textBoxNbMesureSec";
             this.textBoxNbMesureSec.Size = new System.Drawing.Size(116, 26);
             this.textBoxNbMesureSec.TabIndex = 3;
@@ -314,10 +358,12 @@ namespace Eolia_IHM.Menu
             // comboBoxPortCapteur
             // 
             this.comboBoxPortCapteur.FormattingEnabled = true;
-            this.comboBoxPortCapteur.Location = new System.Drawing.Point(105, 28);
+            this.comboBoxPortCapteur.Location = new System.Drawing.Point(125, 26);
             this.comboBoxPortCapteur.Name = "comboBoxPortCapteur";
-            this.comboBoxPortCapteur.Size = new System.Drawing.Size(121, 28);
+            this.comboBoxPortCapteur.Size = new System.Drawing.Size(116, 28);
             this.comboBoxPortCapteur.TabIndex = 2;
+            this.comboBoxPortCapteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxPortCapteur_SelectedIndexChanged);
+            this.comboBoxPortCapteur.Click += new System.EventHandler(this.comboBoxPortCapteur_Click);
             // 
             // labelPortCapteur
             // 
@@ -335,7 +381,7 @@ namespace Eolia_IHM.Menu
             this.groupBox2.Controls.Add(this.comboBoxPortRegulateur);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox2.Location = new System.Drawing.Point(458, 230);
+            this.groupBox2.Location = new System.Drawing.Point(458, 269);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(247, 60);
             this.groupBox2.TabIndex = 19;
@@ -345,16 +391,18 @@ namespace Eolia_IHM.Menu
             // comboBoxPortRegulateur
             // 
             this.comboBoxPortRegulateur.FormattingEnabled = true;
-            this.comboBoxPortRegulateur.Location = new System.Drawing.Point(130, 28);
+            this.comboBoxPortRegulateur.Location = new System.Drawing.Point(125, 28);
             this.comboBoxPortRegulateur.Name = "comboBoxPortRegulateur";
-            this.comboBoxPortRegulateur.Size = new System.Drawing.Size(111, 26);
+            this.comboBoxPortRegulateur.Size = new System.Drawing.Size(116, 26);
             this.comboBoxPortRegulateur.TabIndex = 2;
+            this.comboBoxPortRegulateur.SelectedIndexChanged += new System.EventHandler(this.comboBoxPortRegulateur_SelectedIndexChanged);
+            this.comboBoxPortRegulateur.Click += new System.EventHandler(this.comboBoxPortRegulateur_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(18, 30);
+            this.label4.Location = new System.Drawing.Point(12, 30);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(109, 20);
             this.label4.TabIndex = 0;
@@ -364,9 +412,9 @@ namespace Eolia_IHM.Menu
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.groupBox3.Location = new System.Drawing.Point(458, 296);
+            this.groupBox3.Location = new System.Drawing.Point(458, 335);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(247, 118);
+            this.groupBox3.Size = new System.Drawing.Size(247, 79);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Configuration Vitesse";
@@ -675,5 +723,9 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.Label labelAdresseMYSQL;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxNbMesureSec;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBoxGVoltTrainee;
+        private System.Windows.Forms.TextBox textBoxGVoltPortance;
     }
 }

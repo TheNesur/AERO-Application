@@ -50,14 +50,14 @@ namespace Eolia_IHM
 
         // Fonction relatif a la gestion des mesures
 
-        public static void InitialiserTransMes(TextBox RepMsg, Label LabelMesPort, Label LabelMesTra, string nbMesureSec)
+        public static void InitialiserTransMes(TextBox RepMsg, Label LabelMesPort, Label LabelMesTra, string FMES, string EQGVOLTPORTANCE, string EQGVOLTTRAINEE)
         {
             LabelMesTrainee = LabelMesTra;
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            ReponseCMDMesure.Text += "Les mesures reçues seront afichées a gauche\r\n";
-            EnvoyerMessageSerieCapteur("START " + nbMesureSec);
+            ReponseCMDMesure.Text += "Envoi de la requete a l'ESP32 sur le port "+ CapteurLiaisonSerie.PortName +"\r\n\r\n";
+            EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE);
 
         }
 
@@ -168,7 +168,7 @@ namespace Eolia_IHM
         {
             EnvoyerMessageSerieCapteur("STOP");
 
-            ReponseCMDMesure.Text += "Transmission des mesures arrêtés\r\n";
+            ReponseCMDMesure.Text += "Transmission des mesures arrêtés\r\n\r\n";
 
             LabelMesTrainee = null;
             LabelMesPortance = null;
@@ -242,7 +242,7 @@ namespace Eolia_IHM
 
 
 
-                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text += message+"`\r\n"));
+                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text += message+ "`\r\n\r\n"));
             }
             else
             {
