@@ -53,7 +53,8 @@ namespace Eolia_IHM.Menu
             {
                 if (EoliaMes.SessionMesureDispo())
                 {
-                    string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', '" + labelNomSession.Text + "');";
+                    string Requete = "INSERT INTO `mesure` (`idMesure`, `nom`, `date`, `portance`, `trainee`, `vitesse`, `cz`, `cx`, `repertoirephoto`, `repertoirevideo`, `frequence_mesure`) VALUES (NULL, '"+ labelNomSession.Text + "', NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', NULL, NULL, NULL, NULL, NULL, '"+ConfigurationMenu.FREQUENCEMES+"');";
+                 //   string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', '" + labelNomSession.Text + "');";
                     int ResultRequete = await EoliaSQL.ExecuterRequeteSansReponse(Requete);
                     if (ResultRequete != 0)
                     {

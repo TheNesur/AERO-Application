@@ -268,11 +268,11 @@ namespace Eolia_IHM.Menu
             this.labelEtatSession.AutoSize = true;
             this.labelEtatSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelEtatSession.ForeColor = System.Drawing.Color.Green;
-            this.labelEtatSession.Location = new System.Drawing.Point(82, 135);
+            this.labelEtatSession.Location = new System.Drawing.Point(66, 149);
             this.labelEtatSession.Name = "labelEtatSession";
-            this.labelEtatSession.Size = new System.Drawing.Size(139, 20);
+            this.labelEtatSession.Size = new System.Drawing.Size(165, 20);
             this.labelEtatSession.TabIndex = 2;
-            this.labelEtatSession.Text = "Session en cours..";
+            this.labelEtatSession.Text = "Démarrer une session";
             // 
             // labelqzdqz
             // 

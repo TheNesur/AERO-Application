@@ -58,15 +58,13 @@ namespace Eolia_IHM.Menu
                 ConfigurationMenu.UsernameBDD,
                 ConfigurationMenu.PasswordBDD,
                 ConfigurationMenu.AdresseBDD,
-                labelStatutBDD);
-                buttonDemarrerBDD.Text = "Arrêtée la BDD";
+                labelStatutBDD, buttonDemarrerBDD);
                 bddDemarrer = true;
 
             }
             else
             {
                 EoliaSQL.FermerConnexionSQL();
-                buttonDemarrerBDD.Text = "Démarrée la BDD";
                 bddDemarrer = false;
             }
         }
