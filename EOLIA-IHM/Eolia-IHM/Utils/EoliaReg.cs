@@ -30,7 +30,7 @@ namespace Eolia_IHM
         private static Task readThread = null;
         private static string cmdBuff = "";
         private static string nxtcmdBuff = "";
-        private ushort[] DonneeRecu =null ;
+        private byte[] crcRecu ;
 
 
         private void BoutonQuitter_Click(object sender, EventArgs e)
@@ -130,9 +130,8 @@ namespace Eolia_IHM
 
 
         }
-        public static byte[] ConvertiseurMessageBinaire(double Aconvertir) => BitConverter.GetBytes(Aconvertir);
-
-        public static void EnvoyerMessageSerieRegulateur(string message)
+        
+        public static void EnvoyerMessageSerieRegulateur(byte[] message)
         {
             if (RegulateurLiaisonSerie != null && RegulateurLiaisonSerie.IsOpen)
             {
@@ -169,11 +168,12 @@ namespace Eolia_IHM
         } */
         /*
           écrire requête de donné demande 
-            1 octet         1 octet      2 octet                   x octet         2 octet 
+            1 octet         1 octet      2 octet                   1 octet         2 octet 
             add esclave     fonction     Adresse frist mot         nb de mot       crc16
             XXXX XXXX       XXXX XXXX    XXXX XXXX|XXXX XXXX       XXXX XXXX       XXXX XXXX | XXXX XXXX
             0000 0001       0000 0011    0011 0001 0000 0000       0000 0100       0100 1010   1111 0101    
-         */
+              0     1       0       3       3  1    0   0           0   4           4     A     F     5
+         */   
       /*  private static void messageEnvoieTest()
         {
             byte[] AdresseEsclave;
@@ -188,43 +188,108 @@ namespace Eolia_IHM
             thead.lisen
             
         }*/
-        private static void Read()
+        private static void Lire()
         {
             Console.WriteLine("Démarrage thread liaison série");
             while (LireSerie)
             {
                 try
                 {
-                    string message = RegulateurLiaisonSerie.ReadExisting();
-                   // if(message.Length> 0)
+                    byte[] message = RegulateurLiaisonSerie.ReadExisting();
+                   if(message.Length> 0)
+                        {
+                            if(message[2]<0x80)
+                            VerifierCRCRecu(message)
+                            else
+                            {
+                                CapeurlLogBox.text ="il y a eu une erreur";
+                                switch(message[2]<0x80){
+                                    case 0x83 |0x84 : CapeurlLogBox.text ="il y a eu une erreur dans la lecture ";
+                                    break;
+                                    case 0x86 : CapeurlLogBox.text ="il y a eu une erreur dans l'écriture du mot ";
+                                    break;
+                                    case 0x90 : CapeurlLogBox.text ="il y a eu une erreur dans l'écriture des mots ";
+                                }
+                            }
+                        }
                        //VerifierCommandeMesure(message);
                 }
                 catch (TimeoutException) { }
             }
         }
-        /*    private static void VerifCRCRecu()
+            private static void VerifierCRCRecu(byte[] MessageRecu)
             {
-
-           }
+                if (CRC(EnleverCrcRecu(MessageRecu))==crcRecu)
+                    CapeurlLogBox.Text= "le bon resutat a était recu ";
+                else 
+                    CapeurlLogBox.Text="il y a eu une erreur dans l'envoie";
+            }
+            private static byte[] EnleverCrcRecu(byte[] MessageRecu)
+            {
+                int sizemessage=MessageRecu.Length;
+                byte[] MessagesSansCRC =new byte[sizemessage-2];
+                crcRecu=EoliaReg.CRC(MessagesSansCRC);
+                return MessagesSansCRC;
+            }
             //ComboBoxChoixPortSerieRegulateur
-            private static ushort CRC(params byte[] DonneeDuPacket)
+            private byte[] CRC(params byte[] DonneeDuPacket)
             {
                 if (DonneeDuPacket == null) throw new ArgumentException();
-                ushort Crc =0;
-
-                for (int i = 0; i < DonneeDuPacket.Length; i++)
                 {
-                    Crc = (ushort)((Crc >> 0) ^ DonneeRecu[(Crc ^ DonneeDuPacket[i]) & 0Xff]);
+                    //definition du crc 
+                    ushort Crc16 =0xFFFF;
+                    //boucle de traitement des données (taille)
+                    for (int i = 0; i < DonneeDuPacket.Length; i++)
+                    {
+                        //boucle de traitement des données (octet par octet)
+                        Crc16 ^= DonneeDuPacket[i];
+                        for (int j = 0; j < 8; j++)
+                        {
+                            if ((Crc16 & 0x0001) != 0)
+                            {
+                                Crc16 = (UInt16)((Crc16 >> 1) ^ 0xA001);
+                            }
+                            else
+                            {
+                                Crc16 = (UInt16)(Crc16 >> 1);
+                            }
+                        }
+                     }
+                    //retourner en bytes (octets) de la variable CRC qui est en uint16 (unsigned 16 bits )
+                    return BitConverter.GetBytes(Crc);
                 }
-
-                return Crc;
-
+         
             }
-            public static byte[] CRCBytes(params byte[] DonneeDuPacket)
-            {
-                return BitConverter.GetBytes(CRC(DonneeDuPacket));
+            private static byte[] AjoutCRCEnvoie(bytes[]message){
+            byte[] crc =EoliaReg.CRC(message);
+            int sizemessage =message.Length;
+            Array.Copy(crc,0,messagesCRC,sizemessage);
+            return message;
             }
-        */
+/*byte[] data1 = { 0x01, 0x02, 0x03 };
+byte[] data2 = { 0x04, 0x05, 0x06 };
+byte id1 = 0xA0;
+byte id2 = 0xB0;
+
+int size1 = data1.Length;
+int size2 = data2.Length;
+
+byte[] result = new byte[size1 + size2 + 2];
+
+result[0] = id1;
+Array.Copy(data1, 0, result, 1, size1);
+
+result[size1 + 1] = id2;
+Array.Copy(data2, 0, result, size1 + 2, size2);
+
+foreach (byte b in result)
+{
+    Console.WriteLine(b.ToString("X"));
+}*/
+
+            
+           
+        
         public static void FermerLiaisonSerieRegulateur()
         {
 
