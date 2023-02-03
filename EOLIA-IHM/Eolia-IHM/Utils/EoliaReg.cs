@@ -57,21 +57,7 @@ namespace Eolia_IHM
 
 
 
-        /*public static void FermerLiaisonSerieRegulateur()
-        {
-
-            // fermer le port série
-            LireSerie = false;
-
-            readThread = null;
-            RegulateurLiaisonSerie.Close();
-            RegulateurLiaisonSerie = null;
-            CapeurlLogBox.Text = "Liaison Série -> Arrèté";
-
-
-
-        }*/
-
+        
 
         public static void InitialiserLiaisonSerieRegulateur(string portChoisit, TextBox logTextBox)
         {
@@ -90,16 +76,11 @@ namespace Eolia_IHM
                     RegulateurLiaisonSerie.DataBits = 8;
                     RegulateurLiaisonSerie.Handshake = Handshake.None;
 
-                    // définir les événements qui seront gérés de manière asynchrone
-                    //  RegulateurLiaisonSerie.DataReceived += DesQueDonneesRecuRegulateur;
-                    //  RegulateurLiaisonSerie.ErrorReceived += DesQueErreurRecuRegulateur;
-
-
                     RegulateurLiaisonSerie.Open();
                     CapeurlLogBox.Text = "Liaison Série -> Démarrée";
                     EoliaLogs.Write("Liaison série démarée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
-                    readThread = new Task(Read);
+                    readThread = new Task(Lire);
                     readThread.Start();
 
                 }
@@ -139,33 +120,7 @@ namespace Eolia_IHM
                 RegulateurLiaisonSerie.Write(message);
             }
         }
-        /*
-        using System;  
-  
-        namespace WayToLearnX  
-        {  
-            public class App  
-            {  
-                public static void Main(string[] args)  
-                {  
-                    Console.WriteLine(String.Format("{0:0.##}", 199.8856)); // "199.89"
-                    Console.WriteLine(String.Format("{0:0.##}", 199.6));    // "199.6"
-                    Console.WriteLine(String.Format("{0:0.##}", 199.0));    // "199"
-                }  
-            }  
-        }
-        */
-        /* private static void DesQueDonneesRecuRegulateur(object port, SerialDataReceivedEventArgs e)
-        {
-            // récupérer l'objet SerialPort qui a déclenché l'événement
-            SerialPort portSerie = (SerialPort)port;
-
-            // lire les données reçues
-            string data = portSerie.ReadExisting();
-
-            // donnée a traité sur data
-            VerifierCommandeMesure(data);
-        } */
+        
         /*
           écrire requête de donné demande 
             1 octet         1 octet      2 octet                   1 octet         2 octet 
@@ -174,20 +129,36 @@ namespace Eolia_IHM
             0000 0001       0000 0011    0011 0001 0000 0000       0000 0100       0100 1010   1111 0101    
               0     1       0       3       3  1    0   0           0   4           4     A     F     5
          */   
-      /*  private static void messageEnvoieTest()
+       private static void messageDemandeInfo(byte[] message )
         {
-            byte[] AdresseEsclave;
-            byte[] Fonction;
-            ushort[] AdresseFristMot;
-            ushort[] NbMot;
-            ushort[] CRC16;
-            for (int i=0;i<8;i++)
-            {
-            BitConverter.GetBytes()
+            byte AdresseEsclave;
+            byte Fonction;
+            switch (Fonction){ // change selon la valeur de la variable fonction 
+                case 0x03 |0x04:{
+                    byte[2] AdressePremiersMot;
+                    byte[2] NbMot;
+                    message =new byte [8] ;   
+                    Array.Copy (AdresseEsclave,0,message,0);
+                    Array.Copy (Fonction,0,message,1 );
+                    Array.Copy (AdressePremiersMot,0,message,2);
+                    Array.Copy (NbMot,0,message,4);
+                    AjoutCRCEnvoie(CRC(message));
+                }
+                break;
+                case 0x06:{
+                    byte[2] AdresseDuMot;
+                    byte[2] ValeurDuMot;
+                    message =new byte [8] ;  
+                    Array.Copy (AdresseEsclave,0,message,0);
+                    Array.Copy (Fonction,0,message,1 );
+                    Array.Copy (AdressePremiersMot,0,message,2);
+                    Array.Copy (NbMot,0,message,4);
+                    AjoutCRCEnvoie(CRC(message));   
+                }
+                break;
             }
-            thead.lisen
-            
-        }*/
+        }
+        
         private static void Lire()
         {
             Console.WriteLine("Démarrage thread liaison série");
@@ -199,20 +170,21 @@ namespace Eolia_IHM
                    if(message.Length> 0)
                         {
                             if(message[2]<0x80)
-                            VerifierCRCRecu(message)
+                            VerifierCRCRecu(message);
+                            
                             else
                             {
-                                CapeurlLogBox.text ="il y a eu une erreur";
                                 switch(message[2]<0x80){
                                     case 0x83 |0x84 : CapeurlLogBox.text ="il y a eu une erreur dans la lecture ";
                                     break;
                                     case 0x86 : CapeurlLogBox.text ="il y a eu une erreur dans l'écriture du mot ";
                                     break;
                                     case 0x90 : CapeurlLogBox.text ="il y a eu une erreur dans l'écriture des mots ";
+                                    break;
                                 }
                             }
                         }
-                       //VerifierCommandeMesure(message);
+                       //Verifi la Commande message);
                 }
                 catch (TimeoutException) { }
             }
@@ -260,36 +232,14 @@ namespace Eolia_IHM
                 }
          
             }
+
             private static byte[] AjoutCRCEnvoie(bytes[]message){
             byte[] crc =EoliaReg.CRC(message);
             int sizemessage =message.Length;
             Array.Copy(crc,0,messagesCRC,sizemessage);
             return message;
-            }
-/*byte[] data1 = { 0x01, 0x02, 0x03 };
-byte[] data2 = { 0x04, 0x05, 0x06 };
-byte id1 = 0xA0;
-byte id2 = 0xB0;
+            }  
 
-int size1 = data1.Length;
-int size2 = data2.Length;
-
-byte[] result = new byte[size1 + size2 + 2];
-
-result[0] = id1;
-Array.Copy(data1, 0, result, 1, size1);
-
-result[size1 + 1] = id2;
-Array.Copy(data2, 0, result, size1 + 2, size2);
-
-foreach (byte b in result)
-{
-    Console.WriteLine(b.ToString("X"));
-}*/
-
-            
-           
-        
         public static void FermerLiaisonSerieRegulateur()
         {
 
@@ -300,20 +250,15 @@ foreach (byte b in result)
             RegulateurLiaisonSerie.Close();
             RegulateurLiaisonSerie = null;
             CapeurlLogBox.Text = "Liaison Série -> Arrèté";
-
-
-
         }
+
         private static void DesQueErreurRecuRegulateur(object port, SerialErrorReceivedEventArgs e)
         {
-
             SerialPort portSerie = (SerialPort)port;
             portSerie.Close();
             CapeurlLogBox.Text = "Liaison Série -> Arrêtée";
             EoliaLogs.Write("Liaison série terminée ", EoliaLogs.Types.SERIAL);
             // erreur reçu
         }
-
-
     }
 }
