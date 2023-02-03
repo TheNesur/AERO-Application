@@ -74,7 +74,7 @@ namespace Eolia_IHM
                         PortanceFormate = PortanceFormate + ";";
                     }
                 }
-                return PortanceFormate;
+                return PortanceFormate.Replace(",", ".");
             }
             else
             {
@@ -95,7 +95,7 @@ namespace Eolia_IHM
                         TraineeFormate = TraineeFormate + ";";
                     }
                 }
-                return TraineeFormate;
+                return TraineeFormate.Replace(",", "."); ;
             }
             else
             {
