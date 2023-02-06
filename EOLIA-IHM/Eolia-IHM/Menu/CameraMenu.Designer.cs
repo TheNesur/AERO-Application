@@ -1,7 +1,7 @@
 ﻿
 namespace Eolia_IHM.Menu
 {
-    partial class CameraMenu
+    partial class CameraMen
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@ namespace Eolia_IHM.Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CameraMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CameraMen));
             this.labelAucuneImageTrouvee = new System.Windows.Forms.Label();
             this.groupBoxDossierVideo = new System.Windows.Forms.GroupBox();
             this.pictureBoxBigScreen = new System.Windows.Forms.PictureBox();
@@ -52,6 +52,8 @@ namespace Eolia_IHM.Menu
             this.comboBoxFiltreImageSeconde = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.buttonActualiserDossier = new System.Windows.Forms.Button();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBoxDossierVideo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBigScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).BeginInit();
@@ -77,7 +79,7 @@ namespace Eolia_IHM.Menu
             this.groupBoxDossierVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBoxDossierVideo.Location = new System.Drawing.Point(572, 17);
             this.groupBoxDossierVideo.Name = "groupBoxDossierVideo";
-            this.groupBoxDossierVideo.Size = new System.Drawing.Size(429, 383);
+            this.groupBoxDossierVideo.Size = new System.Drawing.Size(429, 397);
             this.groupBoxDossierVideo.TabIndex = 20;
             this.groupBoxDossierVideo.TabStop = false;
             this.groupBoxDossierVideo.Text = "Dossier Image";
@@ -86,9 +88,9 @@ namespace Eolia_IHM.Menu
             // 
             this.pictureBoxBigScreen.BackColor = System.Drawing.Color.Transparent;
             this.pictureBoxBigScreen.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBigScreen.Image")));
-            this.pictureBoxBigScreen.Location = new System.Drawing.Point(5, 10);
+            this.pictureBoxBigScreen.Location = new System.Drawing.Point(5, 0);
             this.pictureBoxBigScreen.Name = "pictureBoxBigScreen";
-            this.pictureBoxBigScreen.Size = new System.Drawing.Size(420, 380);
+            this.pictureBoxBigScreen.Size = new System.Drawing.Size(418, 400);
             this.pictureBoxBigScreen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxBigScreen.TabIndex = 4;
             this.pictureBoxBigScreen.TabStop = false;
@@ -100,7 +102,7 @@ namespace Eolia_IHM.Menu
             this.flowLayoutPanelDossierImage.AutoScrollMargin = new System.Drawing.Size(10, 10);
             this.flowLayoutPanelDossierImage.Location = new System.Drawing.Point(1, 26);
             this.flowLayoutPanelDossierImage.Name = "flowLayoutPanelDossierImage";
-            this.flowLayoutPanelDossierImage.Size = new System.Drawing.Size(428, 357);
+            this.flowLayoutPanelDossierImage.Size = new System.Drawing.Size(428, 342);
             this.flowLayoutPanelDossierImage.TabIndex = 3;
             // 
             // pictureBoxRetourCamera
@@ -118,56 +120,60 @@ namespace Eolia_IHM.Menu
             // buttonLancerEnregistrementVideo
             // 
             this.buttonLancerEnregistrementVideo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLancerEnregistrementVideo.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.buttonLancerEnregistrementVideo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonLancerEnregistrementVideo.BackgroundImage")));
+            this.buttonLancerEnregistrementVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonLancerEnregistrementVideo.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonLancerEnregistrementVideo.Font = new System.Drawing.Font("Montserrat ExtraBold", 10F);
-            this.buttonLancerEnregistrementVideo.Location = new System.Drawing.Point(22, 350);
+            this.buttonLancerEnregistrementVideo.Location = new System.Drawing.Point(123, 276);
             this.buttonLancerEnregistrementVideo.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancerEnregistrementVideo.Name = "buttonLancerEnregistrementVideo";
-            this.buttonLancerEnregistrementVideo.Size = new System.Drawing.Size(257, 50);
+            this.buttonLancerEnregistrementVideo.Size = new System.Drawing.Size(80, 80);
             this.buttonLancerEnregistrementVideo.TabIndex = 23;
-            this.buttonLancerEnregistrementVideo.Text = "Lancer l\'enregistrement vidéo";
             this.buttonLancerEnregistrementVideo.UseVisualStyleBackColor = false;
             this.buttonLancerEnregistrementVideo.Click += new System.EventHandler(this.buttonLancerEnregistrementVideo_Click);
             // 
             // buttonActiverRetourCamera
             // 
             this.buttonActiverRetourCamera.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonActiverRetourCamera.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.buttonActiverRetourCamera.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonActiverRetourCamera.BackgroundImage")));
+            this.buttonActiverRetourCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonActiverRetourCamera.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonActiverRetourCamera.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonActiverRetourCamera.Location = new System.Drawing.Point(22, 290);
+            this.buttonActiverRetourCamera.Location = new System.Drawing.Point(22, 276);
             this.buttonActiverRetourCamera.Margin = new System.Windows.Forms.Padding(0);
             this.buttonActiverRetourCamera.Name = "buttonActiverRetourCamera";
-            this.buttonActiverRetourCamera.Size = new System.Drawing.Size(257, 50);
+            this.buttonActiverRetourCamera.Size = new System.Drawing.Size(80, 80);
             this.buttonActiverRetourCamera.TabIndex = 22;
-            this.buttonActiverRetourCamera.Text = "Activée la caméra";
             this.buttonActiverRetourCamera.UseVisualStyleBackColor = false;
             this.buttonActiverRetourCamera.Click += new System.EventHandler(this.buttonActiverRetourCamera_Click);
             // 
             // buttonRemiseAZeroDuFiltre
             // 
             this.buttonRemiseAZeroDuFiltre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonRemiseAZeroDuFiltre.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.buttonRemiseAZeroDuFiltre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemiseAZeroDuFiltre.BackgroundImage")));
+            this.buttonRemiseAZeroDuFiltre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonRemiseAZeroDuFiltre.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonRemiseAZeroDuFiltre.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonRemiseAZeroDuFiltre.Location = new System.Drawing.Point(287, 350);
+            this.buttonRemiseAZeroDuFiltre.Location = new System.Drawing.Point(357, 276);
             this.buttonRemiseAZeroDuFiltre.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRemiseAZeroDuFiltre.Name = "buttonRemiseAZeroDuFiltre";
-            this.buttonRemiseAZeroDuFiltre.Size = new System.Drawing.Size(257, 50);
+            this.buttonRemiseAZeroDuFiltre.Size = new System.Drawing.Size(80, 80);
             this.buttonRemiseAZeroDuFiltre.TabIndex = 25;
-            this.buttonRemiseAZeroDuFiltre.Text = "Remise a zéro du filtre";
             this.buttonRemiseAZeroDuFiltre.UseVisualStyleBackColor = false;
             this.buttonRemiseAZeroDuFiltre.Click += new System.EventHandler(this.buttonRemiseAZeroDuFiltre_Click);
             // 
             // buttonPrendrePhoto
             // 
             this.buttonPrendrePhoto.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonPrendrePhoto.Cursor = System.Windows.Forms.Cursors.SizeAll;
+            this.buttonPrendrePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPrendrePhoto.BackgroundImage")));
+            this.buttonPrendrePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonPrendrePhoto.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonPrendrePhoto.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonPrendrePhoto.Location = new System.Drawing.Point(287, 290);
+            this.buttonPrendrePhoto.Location = new System.Drawing.Point(222, 276);
             this.buttonPrendrePhoto.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPrendrePhoto.Name = "buttonPrendrePhoto";
-            this.buttonPrendrePhoto.Size = new System.Drawing.Size(257, 50);
+            this.buttonPrendrePhoto.Size = new System.Drawing.Size(80, 80);
             this.buttonPrendrePhoto.TabIndex = 24;
-            this.buttonPrendrePhoto.Text = "Prendre Photo";
             this.buttonPrendrePhoto.UseVisualStyleBackColor = false;
             this.buttonPrendrePhoto.Click += new System.EventHandler(this.buttonPrendrePhoto_Click);
             // 
@@ -186,15 +192,15 @@ namespace Eolia_IHM.Menu
             this.comboBoxFiltreImageJour.FormattingEnabled = true;
             this.comboBoxFiltreImageJour.IntegralHeight = false;
             this.comboBoxFiltreImageJour.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
             "10",
             "11",
             "12",
@@ -217,7 +223,7 @@ namespace Eolia_IHM.Menu
             "29",
             "30",
             "31"});
-            this.comboBoxFiltreImageJour.Location = new System.Drawing.Point(71, 25);
+            this.comboBoxFiltreImageJour.Location = new System.Drawing.Point(102, 25);
             this.comboBoxFiltreImageJour.MaxDropDownItems = 10;
             this.comboBoxFiltreImageJour.Name = "comboBoxFiltreImageJour";
             this.comboBoxFiltreImageJour.Size = new System.Drawing.Size(121, 28);
@@ -253,7 +259,7 @@ namespace Eolia_IHM.Menu
             "22",
             "23",
             "24"});
-            this.comboBoxFiltreImageHeure.Location = new System.Drawing.Point(85, 143);
+            this.comboBoxFiltreImageHeure.Location = new System.Drawing.Point(102, 143);
             this.comboBoxFiltreImageHeure.MaxDropDownItems = 10;
             this.comboBoxFiltreImageHeure.Name = "comboBoxFiltreImageHeure";
             this.comboBoxFiltreImageHeure.Size = new System.Drawing.Size(121, 28);
@@ -297,7 +303,7 @@ namespace Eolia_IHM.Menu
             "10",
             "11",
             "12"});
-            this.comboBoxFiltreImageMois.Location = new System.Drawing.Point(71, 59);
+            this.comboBoxFiltreImageMois.Location = new System.Drawing.Point(102, 59);
             this.comboBoxFiltreImageMois.MaxDropDownItems = 10;
             this.comboBoxFiltreImageMois.Name = "comboBoxFiltreImageMois";
             this.comboBoxFiltreImageMois.Size = new System.Drawing.Size(121, 28);
@@ -370,7 +376,7 @@ namespace Eolia_IHM.Menu
             "58",
             "59",
             "60\t"});
-            this.comboBoxFiltreImageMinute.Location = new System.Drawing.Point(86, 177);
+            this.comboBoxFiltreImageMinute.Location = new System.Drawing.Point(103, 177);
             this.comboBoxFiltreImageMinute.MaxDropDownItems = 10;
             this.comboBoxFiltreImageMinute.Name = "comboBoxFiltreImageMinute";
             this.comboBoxFiltreImageMinute.Size = new System.Drawing.Size(121, 28);
@@ -405,7 +411,7 @@ namespace Eolia_IHM.Menu
             "2022",
             "2023",
             "2024"});
-            this.comboBoxFiltreImageAnnee.Location = new System.Drawing.Point(85, 93);
+            this.comboBoxFiltreImageAnnee.Location = new System.Drawing.Point(102, 93);
             this.comboBoxFiltreImageAnnee.MaxDropDownItems = 10;
             this.comboBoxFiltreImageAnnee.Name = "comboBoxFiltreImageAnnee";
             this.comboBoxFiltreImageAnnee.Size = new System.Drawing.Size(121, 28);
@@ -518,9 +524,37 @@ namespace Eolia_IHM.Menu
             this.label5.TabIndex = 0;
             this.label5.Text = "Heure :";
             // 
-            // CameraMenu
+            // buttonActualiserDossier
+            // 
+            this.buttonActualiserDossier.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.buttonActualiserDossier.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonActualiserDossier.BackgroundImage")));
+            this.buttonActualiserDossier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonActualiserDossier.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonActualiserDossier.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
+            this.buttonActualiserDossier.Location = new System.Drawing.Point(452, 276);
+            this.buttonActualiserDossier.Margin = new System.Windows.Forms.Padding(0);
+            this.buttonActualiserDossier.Name = "buttonActualiserDossier";
+            this.buttonActualiserDossier.Size = new System.Drawing.Size(80, 80);
+            this.buttonActualiserDossier.TabIndex = 26;
+            this.buttonActualiserDossier.UseVisualStyleBackColor = false;
+            this.buttonActualiserDossier.Click += new System.EventHandler(this.buttonActualiserDossier_Click);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBox1.Location = new System.Drawing.Point(22, 367);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(95, 21);
+            this.checkBox1.TabIndex = 27;
+            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // CameraMen
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.buttonActualiserDossier);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonRemiseAZeroDuFiltre);
             this.Controls.Add(this.buttonPrendrePhoto);
@@ -528,7 +562,7 @@ namespace Eolia_IHM.Menu
             this.Controls.Add(this.buttonActiverRetourCamera);
             this.Controls.Add(this.pictureBoxRetourCamera);
             this.Controls.Add(this.groupBoxDossierVideo);
-            this.Name = "CameraMenu";
+            this.Name = "CameraMen";
             this.Size = new System.Drawing.Size(1020, 417);
             this.Load += new System.EventHandler(this.CameraMenu_Load);
             this.groupBoxDossierVideo.ResumeLayout(false);
@@ -538,6 +572,7 @@ namespace Eolia_IHM.Menu
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -549,7 +584,6 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.Button buttonRemiseAZeroDuFiltre;
         private System.Windows.Forms.Button buttonPrendrePhoto;
         private System.Windows.Forms.Label labelAucuneImageTrouvee;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDossierImage;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox comboBoxFiltreImageJour;
         private System.Windows.Forms.ComboBox comboBoxFiltreImageHeure;
@@ -564,5 +598,8 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.PictureBox pictureBoxBigScreen;
+        private System.Windows.Forms.Button buttonActualiserDossier;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDossierImage;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
