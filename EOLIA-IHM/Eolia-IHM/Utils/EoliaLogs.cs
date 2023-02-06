@@ -15,7 +15,7 @@ namespace Eolia_IHM
         //private static String nameFileLogs = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.eolia\\logs";
         private static String nameFileLogs = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/logs";
         private static int numberFile = 0;
-        private static Mutex _mutex;
+        private static Mutex _mutex = new Mutex();
 
         // Une enumération pour définir la tâche
         public enum Types

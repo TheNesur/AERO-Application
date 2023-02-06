@@ -194,10 +194,9 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE IMAGE                -*/
         /*-----------------------------------------------*/
 
-        public int SavePicture(String folder, float portance = 0, float trainee = 0)
+        public int SavePicture(String folder, float portance = -1, float trainee = -1, bool saveMesureInImage = false)
         {
             //if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
-            int er;
             try
             {
                 EoliaLogs.Write("Lancement de l'enregristrement d'une image ", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
@@ -205,8 +204,23 @@ namespace Eolia_IHM.Utils
 
                 //streamStart = true;
                 //typeCapture = CameraTypes.IMAGESAVE;
+                String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
                 if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG) != true) return 2;
-                device.Capture(folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg");
+                if ((portance != -1 && portance !=-1 ) || saveMesureInImage == false)
+                {
+                    device.Capture(folder + "/" + nameCapture);
+                }
+                else
+                {
+                    Image imageNPT = ByteToImage(device.Capture());
+                    Bitmap bitmapNPT = new Bitmap(imageNPT.Width, imageNPT.Height);
+                    using (Graphics g = Graphics.FromImage(imageNPT))
+                    {
+                        g.DrawImage(imageNPT, 0, 0, imageNPT.Width, imageNPT.Height);
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.White, new PointF(10, imageNPT.Height - 50));
+                    }
+                    imageNPT.Save($"{folder}/{nameCapture}-{imageNPT.Height}");
+                }
 
                 destructCamera();
                 //streamStart = false;
