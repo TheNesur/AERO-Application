@@ -33,7 +33,7 @@ namespace Eolia_IHM.Menu
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label0 = new System.Windows.Forms.Label();
             this.labelStatutBDD = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.labelStatutCamera = new System.Windows.Forms.Label();
@@ -83,26 +83,26 @@ namespace Eolia_IHM.Menu
             this.pictureBox3.TabIndex = 2;
             this.pictureBox3.TabStop = false;
             // 
-            // label1
+            // label0
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label1.Location = new System.Drawing.Point(117, 154);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 18);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Base de Donnée";
+            this.label0.AutoSize = true;
+            this.label0.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.label0.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.label0.Location = new System.Drawing.Point(117, 154);
+            this.label0.Name = "label0";
+            this.label0.Size = new System.Drawing.Size(141, 18);
+            this.label0.TabIndex = 3;
+            this.label0.Text = "Base de Données";
             // 
             // labelStatutBDD
             // 
             this.labelStatutBDD.AutoSize = true;
             this.labelStatutBDD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutBDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutBDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.labelStatutBDD.ForeColor = System.Drawing.Color.Red;
-            this.labelStatutBDD.Location = new System.Drawing.Point(130, 219);
+            this.labelStatutBDD.Location = new System.Drawing.Point(105, 210);
             this.labelStatutBDD.Name = "labelStatutBDD";
-            this.labelStatutBDD.Size = new System.Drawing.Size(132, 18);
+            this.labelStatutBDD.Size = new System.Drawing.Size(147, 18);
             this.labelStatutBDD.TabIndex = 4;
             this.labelStatutBDD.Text = "BDD Déconnectée";
             // 
@@ -110,10 +110,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(470, 103);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 18);
+            this.label2.Size = new System.Drawing.Size(67, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "Caméra";
             // 
@@ -121,11 +121,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutCamera.AutoSize = true;
             this.labelStatutCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.labelStatutCamera.ForeColor = System.Drawing.Color.Red;
             this.labelStatutCamera.Location = new System.Drawing.Point(461, 121);
             this.labelStatutCamera.Name = "labelStatutCamera";
-            this.labelStatutCamera.Size = new System.Drawing.Size(79, 18);
+            this.labelStatutCamera.Size = new System.Drawing.Size(90, 18);
             this.labelStatutCamera.TabIndex = 6;
             this.labelStatutCamera.Text = "Introuvable";
             // 
@@ -133,11 +133,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutCapteurs.AutoSize = true;
             this.labelStatutCapteurs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutCapteurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutCapteurs.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.labelStatutCapteurs.ForeColor = System.Drawing.Color.Red;
             this.labelStatutCapteurs.Location = new System.Drawing.Point(422, 219);
             this.labelStatutCapteurs.Name = "labelStatutCapteurs";
-            this.labelStatutCapteurs.Size = new System.Drawing.Size(49, 18);
+            this.labelStatutCapteurs.Size = new System.Drawing.Size(53, 18);
             this.labelStatutCapteurs.TabIndex = 8;
             this.labelStatutCapteurs.Text = "STOP";
             // 
@@ -145,10 +145,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(417, 197);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 18);
+            this.label5.Size = new System.Drawing.Size(59, 18);
             this.label5.TabIndex = 7;
             this.label5.Text = "ESP32";
             // 
@@ -156,11 +156,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelStatutRegulateur.AutoSize = true;
             this.labelStatutRegulateur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutRegulateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.labelStatutRegulateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.labelStatutRegulateur.ForeColor = System.Drawing.Color.Red;
             this.labelStatutRegulateur.Location = new System.Drawing.Point(544, 219);
             this.labelStatutRegulateur.Name = "labelStatutRegulateur";
-            this.labelStatutRegulateur.Size = new System.Drawing.Size(49, 18);
+            this.labelStatutRegulateur.Size = new System.Drawing.Size(53, 18);
             this.labelStatutRegulateur.TabIndex = 10;
             this.labelStatutRegulateur.Text = "STOP";
             // 
@@ -168,10 +168,10 @@ namespace Eolia_IHM.Menu
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.label7.Location = new System.Drawing.Point(526, 197);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(79, 18);
+            this.label7.Size = new System.Drawing.Size(89, 18);
             this.label7.TabIndex = 9;
             this.label7.Text = "Régulateur";
             // 
@@ -179,28 +179,28 @@ namespace Eolia_IHM.Menu
             // 
             this.label3.AutoSize = true;
             this.label3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.label3.Location = new System.Drawing.Point(725, 168);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(715, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(156, 18);
+            this.label3.Size = new System.Drawing.Size(191, 18);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Vitesse Actuel-Desirée";
+            this.label3.Text = "Vitesse Actuelle-Desirée";
             // 
             // labelStatutVitesse
             // 
             this.labelStatutVitesse.AutoSize = true;
             this.labelStatutVitesse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
-            this.labelStatutVitesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.labelStatutVitesse.Location = new System.Drawing.Point(826, 197);
+            this.labelStatutVitesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
+            this.labelStatutVitesse.Location = new System.Drawing.Point(810, 197);
             this.labelStatutVitesse.Name = "labelStatutVitesse";
-            this.labelStatutVitesse.Size = new System.Drawing.Size(13, 18);
+            this.labelStatutVitesse.Size = new System.Drawing.Size(14, 18);
             this.labelStatutVitesse.TabIndex = 12;
             this.labelStatutVitesse.Text = "-";
             // 
             // buttonDemarrerBDD
             // 
             this.buttonDemarrerBDD.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDemarrerBDD.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F);
+            this.buttonDemarrerBDD.Font = new System.Drawing.Font("Arial Black", 13F, System.Drawing.FontStyle.Bold);
             this.buttonDemarrerBDD.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDemarrerBDD.Location = new System.Drawing.Point(35, 338);
             this.buttonDemarrerBDD.Margin = new System.Windows.Forms.Padding(0);
@@ -214,7 +214,7 @@ namespace Eolia_IHM.Menu
             // buttonDemarrerESP32
             // 
             this.buttonDemarrerESP32.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDemarrerESP32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonDemarrerESP32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonDemarrerESP32.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDemarrerESP32.Location = new System.Drawing.Point(370, 338);
             this.buttonDemarrerESP32.Margin = new System.Windows.Forms.Padding(0);
@@ -228,7 +228,7 @@ namespace Eolia_IHM.Menu
             // buttonLiaisonRegulateur
             // 
             this.buttonLiaisonRegulateur.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonLiaisonRegulateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.buttonLiaisonRegulateur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
             this.buttonLiaisonRegulateur.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonLiaisonRegulateur.Location = new System.Drawing.Point(510, 338);
             this.buttonLiaisonRegulateur.Margin = new System.Windows.Forms.Padding(0);
@@ -242,28 +242,28 @@ namespace Eolia_IHM.Menu
             // buttonDemarrerToutLesServices
             // 
             this.buttonDemarrerToutLesServices.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDemarrerToutLesServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonDemarrerToutLesServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonDemarrerToutLesServices.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonDemarrerToutLesServices.Location = new System.Drawing.Point(683, 340);
             this.buttonDemarrerToutLesServices.Margin = new System.Windows.Forms.Padding(0);
             this.buttonDemarrerToutLesServices.Name = "buttonDemarrerToutLesServices";
             this.buttonDemarrerToutLesServices.Size = new System.Drawing.Size(140, 50);
             this.buttonDemarrerToutLesServices.TabIndex = 19;
-            this.buttonDemarrerToutLesServices.Text = "Démarrer tout les services";
+            this.buttonDemarrerToutLesServices.Text = "Démarrer tous les services";
             this.buttonDemarrerToutLesServices.UseVisualStyleBackColor = false;
             this.buttonDemarrerToutLesServices.Click += new System.EventHandler(this.buttonDemarrerTout_Click);
             // 
             // buttonArreterToutLesServices
             // 
             this.buttonArreterToutLesServices.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonArreterToutLesServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.buttonArreterToutLesServices.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.buttonArreterToutLesServices.ForeColor = System.Drawing.SystemColors.ControlText;
             this.buttonArreterToutLesServices.Location = new System.Drawing.Point(822, 340);
             this.buttonArreterToutLesServices.Margin = new System.Windows.Forms.Padding(0);
             this.buttonArreterToutLesServices.Name = "buttonArreterToutLesServices";
             this.buttonArreterToutLesServices.Size = new System.Drawing.Size(140, 50);
             this.buttonArreterToutLesServices.TabIndex = 20;
-            this.buttonArreterToutLesServices.Text = "Arrêter tout les services";
+            this.buttonArreterToutLesServices.Text = "Arrêter tous les services";
             this.buttonArreterToutLesServices.UseVisualStyleBackColor = false;
             this.buttonArreterToutLesServices.Click += new System.EventHandler(this.buttonArreterToutLesServices_Click);
             // 
@@ -284,7 +284,7 @@ namespace Eolia_IHM.Menu
             this.Controls.Add(this.labelStatutCamera);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.labelStatutBDD);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label0);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -304,7 +304,7 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label0;
         private System.Windows.Forms.Label labelStatutBDD;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labelStatutCamera;

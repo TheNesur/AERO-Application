@@ -33,6 +33,8 @@ namespace Eolia_IHM.Utils
         private VideoDevice device = null;
         private CancellationTokenSource tokenSource = null;
 
+        private Mutex mutex;
+
         public enum CameraTypes
         {
             IMAGECAPTURE = 0,
@@ -206,9 +208,12 @@ namespace Eolia_IHM.Utils
                 //typeCapture = CameraTypes.IMAGESAVE;
                 String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
                 if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG) != true) return 2;
-                if ((portance != -1 && portance !=-1 ) || saveMesureInImage == false)
+
+                if ((portance == -1 && portance == -1 ) || saveMesureInImage == false)
                 {
                     device.Capture(folder + "/" + nameCapture);
+                    EoliaLogs.Write("Capture de l'image sans la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
+
                 }
                 else
                 {
@@ -220,6 +225,8 @@ namespace Eolia_IHM.Utils
                         g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.White, new PointF(10, imageNPT.Height - 50));
                     }
                     imageNPT.Save($"{folder}/{nameCapture}-{imageNPT.Height}");
+                    EoliaLogs.Write("Capture de l'image avec la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
+
                 }
 
                 destructCamera();

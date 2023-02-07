@@ -37,7 +37,6 @@ namespace Eolia_IHM
 
         private void AccueilIHM_Load(object sender, EventArgs e)
         {
-
             EoliaLogs.InitializeLogs();
             EoliaLogs.Write("Démarrage de l'IHM");
         }

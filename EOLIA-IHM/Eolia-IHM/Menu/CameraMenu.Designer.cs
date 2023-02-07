@@ -1,7 +1,7 @@
 ﻿
 namespace Eolia_IHM.Menu
 {
-    partial class CameraMen
+    partial class CameraMenu
     {
         /// <summary> 
         /// Variable nécessaire au concepteur.
@@ -29,7 +29,7 @@ namespace Eolia_IHM.Menu
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CameraMen));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CameraMenu));
             this.labelAucuneImageTrouvee = new System.Windows.Forms.Label();
             this.groupBoxDossierVideo = new System.Windows.Forms.GroupBox();
             this.pictureBoxBigScreen = new System.Windows.Forms.PictureBox();
@@ -53,7 +53,7 @@ namespace Eolia_IHM.Menu
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.buttonActualiserDossier = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxDisplayMesureInImage = new System.Windows.Forms.CheckBox();
             this.groupBoxDossierVideo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBigScreen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRetourCamera)).BeginInit();
@@ -124,7 +124,7 @@ namespace Eolia_IHM.Menu
             this.buttonLancerEnregistrementVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonLancerEnregistrementVideo.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonLancerEnregistrementVideo.Font = new System.Drawing.Font("Montserrat ExtraBold", 10F);
-            this.buttonLancerEnregistrementVideo.Location = new System.Drawing.Point(123, 276);
+            this.buttonLancerEnregistrementVideo.Location = new System.Drawing.Point(123, 284);
             this.buttonLancerEnregistrementVideo.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancerEnregistrementVideo.Name = "buttonLancerEnregistrementVideo";
             this.buttonLancerEnregistrementVideo.Size = new System.Drawing.Size(80, 80);
@@ -139,7 +139,7 @@ namespace Eolia_IHM.Menu
             this.buttonActiverRetourCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonActiverRetourCamera.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonActiverRetourCamera.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonActiverRetourCamera.Location = new System.Drawing.Point(22, 276);
+            this.buttonActiverRetourCamera.Location = new System.Drawing.Point(22, 284);
             this.buttonActiverRetourCamera.Margin = new System.Windows.Forms.Padding(0);
             this.buttonActiverRetourCamera.Name = "buttonActiverRetourCamera";
             this.buttonActiverRetourCamera.Size = new System.Drawing.Size(80, 80);
@@ -154,7 +154,7 @@ namespace Eolia_IHM.Menu
             this.buttonRemiseAZeroDuFiltre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRemiseAZeroDuFiltre.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonRemiseAZeroDuFiltre.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonRemiseAZeroDuFiltre.Location = new System.Drawing.Point(357, 276);
+            this.buttonRemiseAZeroDuFiltre.Location = new System.Drawing.Point(357, 284);
             this.buttonRemiseAZeroDuFiltre.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRemiseAZeroDuFiltre.Name = "buttonRemiseAZeroDuFiltre";
             this.buttonRemiseAZeroDuFiltre.Size = new System.Drawing.Size(80, 80);
@@ -169,7 +169,7 @@ namespace Eolia_IHM.Menu
             this.buttonPrendrePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPrendrePhoto.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonPrendrePhoto.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonPrendrePhoto.Location = new System.Drawing.Point(222, 276);
+            this.buttonPrendrePhoto.Location = new System.Drawing.Point(222, 284);
             this.buttonPrendrePhoto.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPrendrePhoto.Name = "buttonPrendrePhoto";
             this.buttonPrendrePhoto.Size = new System.Drawing.Size(80, 80);
@@ -531,7 +531,7 @@ namespace Eolia_IHM.Menu
             this.buttonActualiserDossier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonActualiserDossier.Cursor = System.Windows.Forms.Cursors.Default;
             this.buttonActualiserDossier.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
-            this.buttonActualiserDossier.Location = new System.Drawing.Point(452, 276);
+            this.buttonActualiserDossier.Location = new System.Drawing.Point(452, 284);
             this.buttonActualiserDossier.Margin = new System.Windows.Forms.Padding(0);
             this.buttonActualiserDossier.Name = "buttonActualiserDossier";
             this.buttonActualiserDossier.Size = new System.Drawing.Size(80, 80);
@@ -539,21 +539,24 @@ namespace Eolia_IHM.Menu
             this.buttonActualiserDossier.UseVisualStyleBackColor = false;
             this.buttonActualiserDossier.Click += new System.EventHandler(this.buttonActualiserDossier_Click);
             // 
-            // checkBox1
+            // checkBoxDisplayMesureInImage
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(22, 367);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(95, 21);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "checkBox1";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxDisplayMesureInImage.AutoSize = true;
+            this.checkBoxDisplayMesureInImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.checkBoxDisplayMesureInImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxDisplayMesureInImage.Location = new System.Drawing.Point(22, 375);
+            this.checkBoxDisplayMesureInImage.Name = "checkBoxDisplayMesureInImage";
+            this.checkBoxDisplayMesureInImage.Padding = new System.Windows.Forms.Padding(7, 0, 0, 0);
+            this.checkBoxDisplayMesureInImage.Size = new System.Drawing.Size(344, 29);
+            this.checkBoxDisplayMesureInImage.TabIndex = 27;
+            this.checkBoxDisplayMesureInImage.Text = "Afficher les mesures sur l\'image";
+            this.checkBoxDisplayMesureInImage.UseVisualStyleBackColor = false;
+            this.checkBoxDisplayMesureInImage.CheckedChanged += new System.EventHandler(this.checkBoxDisplayMesureInImage_CheckedChanged);
             // 
-            // CameraMen
+            // CameraMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkBoxDisplayMesureInImage);
             this.Controls.Add(this.buttonActualiserDossier);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.buttonRemiseAZeroDuFiltre);
@@ -562,7 +565,7 @@ namespace Eolia_IHM.Menu
             this.Controls.Add(this.buttonActiverRetourCamera);
             this.Controls.Add(this.pictureBoxRetourCamera);
             this.Controls.Add(this.groupBoxDossierVideo);
-            this.Name = "CameraMen";
+            this.Name = "CameraMenu";
             this.Size = new System.Drawing.Size(1020, 417);
             this.Load += new System.EventHandler(this.CameraMenu_Load);
             this.groupBoxDossierVideo.ResumeLayout(false);
@@ -600,6 +603,6 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.PictureBox pictureBoxBigScreen;
         private System.Windows.Forms.Button buttonActualiserDossier;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDossierImage;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox checkBoxDisplayMesureInImage;
     }
 }

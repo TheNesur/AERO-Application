@@ -48,8 +48,9 @@ namespace Eolia_IHM
                 try
                 {
                     SqlConnexion.Open();
-                    // SQLLogBox.Text = "BDD OK";
-                    SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "BDD OK"));
+
+                    // Cacher par Maxime
+                    SQLLogBox.Invoke(new Action(() => SQLLogBox.Text = "BDD connectée"));
                     SQLLogBox.Invoke(new Action(() => SQLLogBox.ForeColor = System.Drawing.Color.Green));
 
                     if (BoutonStartSQL != null)

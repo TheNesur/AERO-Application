@@ -136,14 +136,16 @@ namespace Eolia_IHM
                 MessageBox.Show("Premier lancement, veuillez configurer la BDD dans EoliaConfig.config");
                 Application.Exit();
 
-            }/*
+            }
             else
             {
 
+                //EoliaLogs.InitializeLogs();
+                //EoliaLogs.Write("Démarrage de l'IHM");
                 configurationMenu.Recharger();
                 Console.WriteLine("Eolia IHM");
 
-            }*/
+            }
         }
 
 
