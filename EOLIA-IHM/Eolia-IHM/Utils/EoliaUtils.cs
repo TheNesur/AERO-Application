@@ -24,7 +24,10 @@ namespace Eolia_IHM.Properties
 
         static TextBox textBoxActif = null;
 
+        // Variable relatif a la gestion de la config
 
+        static string DossierExecutable = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+        static string FichierConfig = System.IO.Path.Combine(DossierExecutable, "EoliaConfig.conf");
 
 
 
@@ -102,7 +105,7 @@ namespace Eolia_IHM.Properties
             
 
             // sauvegarde du fichier de configuration sous le nom "EoliaConfig.config"
-            config.SaveAs("config/EoliaConfig.config", ConfigurationSaveMode.Modified);
+            config.SaveAs(FichierConfig, ConfigurationSaveMode.Modified);
 
         }
 
@@ -114,12 +117,20 @@ namespace Eolia_IHM.Properties
             if (!EoliaConfigExiste()) return null;
             var map = new ExeConfigurationFileMap
             {
-                ExeConfigFilename = "config/EoliaConfig.config"
+                ExeConfigFilename = FichierConfig
             };
-
-            var config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
-            //le configuration Userlevel.none ca permet simplement de signifier que c'est un fichier de configuration
-            return config.AppSettings.Settings[champ].Value ;
+            try
+            {
+                var config = ConfigurationManager.OpenMappedExeConfiguration(map, ConfigurationUserLevel.None);
+                //le configuration Userlevel.none ca permet simplement de signifier que c'est un fichier de configuration
+                return config.AppSettings.Settings[champ].Value;
+            }
+            catch (Exception e)
+            {
+                MsgBoxNonBloquante("Un problème a eut lieu avec le fichier de configuration");
+                EoliaLogs.Write(e.Message, EoliaLogs.Types.ERROR);
+                return null;
+            }
 
         }
 
@@ -144,7 +155,7 @@ namespace Eolia_IHM.Properties
         public static bool EoliaConfigExiste()
         {
             //if (!Directory.Exists("config")) Directory.CreateDirectory("config");
-            if (File.Exists("config/EoliaConfig.config"))
+            if (File.Exists(FichierConfig))
             {
                 return true;
             }
