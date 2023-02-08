@@ -105,17 +105,19 @@ namespace Eolia_IHM.Menu
         }
         public void Sauvegarder()
         {
-            IDictionary<string, string> ListeValeurASauvegarder = new Dictionary<string, string>();
-            ListeValeurASauvegarder.Add("MYSQLADRESS", labelAdresseMYSQL.Text);
-            ListeValeurASauvegarder.Add("MYSQLUSERNAME", labelUsernameMYSQL.Text);
-            ListeValeurASauvegarder.Add("MYSQLPASSWORD", labelMDPMYSQL.Text);
-            ListeValeurASauvegarder.Add("MYSQLDBNAME", labelNomBDDMYSQL.Text);
-            ListeValeurASauvegarder.Add("REPERTOIRESITEWEB", labelRepetoire.Text);
-            ListeValeurASauvegarder.Add("PORTSERIECAPTEUR", comboBoxPortCapteur.Text);
-            ListeValeurASauvegarder.Add("PORTSERIEREGULATEUR", comboBoxPortRegulateur.Text);
-            ListeValeurASauvegarder.Add("FREQUENCEMESURE", textBoxNbMesureSec.Text);
-            ListeValeurASauvegarder.Add("EQUIVALENCEVOLTPORTANCE", textBoxGVoltPortance.Text);
-            ListeValeurASauvegarder.Add("EQUIVALENCEVOLTTRAINEE", textBoxGVoltTrainee.Text);
+            IDictionary<string, string> ListeValeurASauvegarder = new Dictionary<string, string>
+            {
+                { "MYSQLADRESS", labelAdresseMYSQL.Text },
+                { "MYSQLUSERNAME", labelUsernameMYSQL.Text },
+                { "MYSQLPASSWORD", labelMDPMYSQL.Text },
+                { "MYSQLDBNAME", labelNomBDDMYSQL.Text },
+                { "REPERTOIRESITEWEB", labelRepetoire.Text },
+                { "PORTSERIECAPTEUR", comboBoxPortCapteur.Text },
+                { "PORTSERIEREGULATEUR", comboBoxPortRegulateur.Text },
+                { "FREQUENCEMESURE", textBoxNbMesureSec.Text },
+                { "EQUIVALENCEVOLTPORTANCE", textBoxGVoltPortance.Text },
+                { "EQUIVALENCEVOLTTRAINEE", textBoxGVoltTrainee.Text }
+            };
 
             EoliaUtils.SauvegarderConfiguration(ListeValeurASauvegarder);
         }
