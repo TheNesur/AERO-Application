@@ -59,6 +59,7 @@ namespace Eolia_IHM.Menu
                     if (ResultRequete != 0)
                     {
                         EoliaUtils.MsgBoxNonBloquante("Données envoyées avec Succés");
+
                     }
                     else
                     {

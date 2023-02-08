@@ -56,7 +56,7 @@ namespace Eolia_IHM
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            ReponseCMDMesure.Text += "Envoi de la requete a l'ESP32 sur le port "+ CapteurLiaisonSerie.PortName +"\r\n\r\n";
+            ReponseCMDMesure.AppendText( "Envoi de la requete a l'ESP32 sur le port "+ CapteurLiaisonSerie.PortName +"\r\n\r\n");
             EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE);
 
         }
@@ -168,7 +168,7 @@ namespace Eolia_IHM
         {
             EnvoyerMessageSerieCapteur("STOP");
 
-            ReponseCMDMesure.Text += "Transmission des mesures arrêtés\r\n\r\n";
+            ReponseCMDMesure.AppendText( "Transmission des mesures arrêtés\r\n\r\n");
 
             LabelMesTrainee = null;
             LabelMesPortance = null;
@@ -242,7 +242,7 @@ namespace Eolia_IHM
 
 
 
-                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.Text += message+ "`\r\n\r\n"));
+                ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.AppendText( message+ "`\r\n\r\n")));
             }
             else
             {
