@@ -34,7 +34,8 @@ namespace Eolia_IHM.Menu
 
         private void ConfigurationMenu_Load(object sender, EventArgs e)
         {
-            Recharger();
+            if(EoliaUtils.EoliaConfigExiste())
+                Recharger();
             buttonConfiguration.PerformClick();
         }
 

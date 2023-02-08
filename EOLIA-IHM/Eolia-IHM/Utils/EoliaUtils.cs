@@ -27,7 +27,7 @@ namespace Eolia_IHM.Properties
         // Variable relatif a la gestion de la config
 
         static string DossierExecutable = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
-        static string FichierConfig = System.IO.Path.Combine(DossierExecutable, "EoliaConfig.conf");
+        static string FichierConfig = System.IO.Path.Combine(DossierExecutable, "config/EoliaConfig.conf");
 
 
 
@@ -128,6 +128,7 @@ namespace Eolia_IHM.Properties
             catch (Exception e)
             {
                 MsgBoxNonBloquante("Un problème a eut lieu avec le fichier de configuration");
+                File.Delete(FichierConfig);
                 EoliaLogs.Write(e.Message, EoliaLogs.Types.ERROR);
                 return null;
             }
