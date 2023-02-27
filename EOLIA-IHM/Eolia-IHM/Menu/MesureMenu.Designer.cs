@@ -141,7 +141,7 @@ namespace Eolia_IHM.Menu
             this.groupBox1.Size = new System.Drawing.Size(325, 110);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dernière mesure enregistrer";
+            this.groupBox1.Text = "Dernière mesure reçue";
             // 
             // labelMesureTrainee
             // 
@@ -201,7 +201,7 @@ namespace Eolia_IHM.Menu
             this.groupBox2.Size = new System.Drawing.Size(325, 231);
             this.groupBox2.TabIndex = 18;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Dernière mesure enregistrer";
+            this.groupBox2.Text = "Dernière mesure enregistrée";
             // 
             // labelValeurMoyenneTrainee
             // 

@@ -71,7 +71,7 @@
             // 
             // AccueilIHM
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None; // bloque mono
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.pictureBox1);

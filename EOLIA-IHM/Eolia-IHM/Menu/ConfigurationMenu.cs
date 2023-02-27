@@ -118,7 +118,7 @@ namespace Eolia_IHM.Menu
                 { "EQUIVALENCEVOLTPORTANCE", textBoxGVoltPortance.Text },
                 { "EQUIVALENCEVOLTTRAINEE", textBoxGVoltTrainee.Text }
             };
-
+            
             EoliaUtils.SauvegarderConfiguration(ListeValeurASauvegarder);
         }
 

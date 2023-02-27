@@ -63,19 +63,19 @@ namespace Eolia_IHM
 
         public static string PortancePretPourEnvoi()
         {
-            string PortanceFormate = "";
-            if (SessionMesureDispo())
-            {
+            string PortanceFormate = ""; // Initialise une chaine de caractere vide
+            if (SessionMesureDispo()) // Vérifie que une session n'est pas en cours    
+            {                         // d'enregistrement et qu'il y a bien des mesures
                 for(int i = 0; i < ListeMesurePortance.Count(); i++)
-                {
+                { // Traite l'ensemble de la liste
                     PortanceFormate= PortanceFormate + ListeMesurePortance[i].ToString();
-                    if(ListeMesurePortance.Count()-1 != i)
+                    if(ListeMesurePortance.Count()-1 != i) 
                     {
-                        PortanceFormate = PortanceFormate + ";";
-                    }
-                }
-                return PortanceFormate.Replace(",", ".");
-            }
+                        PortanceFormate = PortanceFormate + ";"; // sépare les mesures par des ";" sauf 
+                    }                                            //la dernière qui n'est pas suivie de ";"
+                }                                                  
+                return PortanceFormate.Replace(",", "."); // Le Replace est simplement une sécurité pour 
+            }                                             // être sure que les "." ne sont pas des "," 
             else
             {
                 return "";
@@ -148,7 +148,7 @@ namespace Eolia_IHM
                 LabelEtatSession = labelEtatSession;
 
 
-                NomSessionMesure = DateTime.Now.ToString("MM/dd/yyyy_HH:mm:ss");
+                NomSessionMesure = DateTime.Now.ToString("dd/MM/yyyy_HH:mm:ss");
 
                 LabelEtatSession.Text = "Oui";
                 LabelNomSessionMesure.Text = NomSessionMesure;
@@ -190,11 +190,8 @@ namespace Eolia_IHM
             if (cmdBuff.IndexOf("\r\n") != -1)
             {
                 command = cmdBuff;
-
                 cmdBuff = cmdBuff.Substring(0, cmdBuff.IndexOf("\r\n") + 2);
-                nxtcmdBuff = cmdBuff.Substring(cmdBuff.IndexOf("\r\n") + 2);
-
-                
+                nxtcmdBuff = cmdBuff.Substring(cmdBuff.IndexOf("\r\n") + 2); 
             }
             else
             {
@@ -202,15 +199,15 @@ namespace Eolia_IHM
             }
 
 
-            bool CommandeAvecMessage;
+            bool CommandeAvecMessage; // sera mise a true si la commande contient un message
             string[] words = cmdBuff.Split(' ');
-            if (words.Length < 1)
-            {
+            if (words.Length < 1) // découpe les arguments de la commande
+            {                     // pour l'exploiter ensuite
                 cmdBuff = "";
                 return;
             }
 
-            // On vérifie que le premier mot de la commande est "PORTANCE" et que le troisième mot est "TRAINEE" et que le quatrième mot est "MSG"
+            // Vérifie la commande
             if (words[0] == "MSG")
             {
                 CommandeAvecMessage = true;
@@ -218,9 +215,8 @@ namespace Eolia_IHM
             else if (words[0] == "PORTANCE" && words[2] == "TRAINEE")
             {
                 CommandeAvecMessage = false;
-               
             }
-            else
+            else // si aucune des conditions précédentes commande non existante
             {
                 cmdBuff = "";
                 return;
@@ -326,11 +322,6 @@ namespace Eolia_IHM
                     CapteurLiaisonSerie.DataBits = 8;
                     CapteurLiaisonSerie.Handshake = Handshake.None;
 
-                    // définir les événements qui seront gérés de manière asynchrone
-                    //  CapteurLiaisonSerie.DataReceived += DesQueDonneesRecuCapteur;
-                    //  CapteurLiaisonSerie.ErrorReceived += DesQueErreurRecuCapteur;
-                    
-
                     CapteurLiaisonSerie.Open();
                     CapteurlLogBox.Text = " Démarrée";
                     CapteurlLogBox.ForeColor = System.Drawing.Color.Green;
@@ -394,12 +385,12 @@ namespace Eolia_IHM
         private static void Read()
         {
             Console.WriteLine("Démarrage thread liaison série");
-            while (LireSerie)
+            while (LireSerie) // condition de sortie
             {
                 try
                 {
                     string message = CapteurLiaisonSerie.ReadExisting();
-                    if(message.Length> 0)
+                    if(message.Length> 0) 
                         VerifierCommandeMesure(message);
                 }
                 catch (TimeoutException) { }
