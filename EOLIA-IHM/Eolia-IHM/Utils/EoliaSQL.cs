@@ -1,6 +1,7 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -96,12 +97,41 @@ namespace Eolia_IHM
         {
             if (SqlConnexion != null)
             {
+                try
+                {
+                    MySqlCommand command = new MySqlCommand(requete, SqlConnexion);
+                    int LigneAffecte = await command.ExecuteNonQueryAsync();
+                    return LigneAffecte;
+                }
+                catch
+                {
+                    return -1;
+                }
+                
+            }
+            return -1;
+        }
+
+        public static async Task<int> ExecuterRequeteAvecReponse(string requete)
+        {
+            if (SqlConnexion != null)
+            {
                 MySqlCommand command = new MySqlCommand(requete, SqlConnexion);
-                int LigneAffecte = await command.ExecuteNonQueryAsync();
-                return LigneAffecte;
+                try
+                {
+                    object result = await command.ExecuteScalarAsync();
+                    return Convert.ToInt32(result);
+                }
+                catch
+                {
+                    return -1;
+                }
+                
             }
             return 0;
         }
+
+
 
     }
 }

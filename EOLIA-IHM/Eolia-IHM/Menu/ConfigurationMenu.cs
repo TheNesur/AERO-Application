@@ -24,6 +24,10 @@ namespace Eolia_IHM.Menu
         public static string FREQUENCEMES;
         public static string EQGVOLTTRAINEE;
         public static string EQGVOLTPORTANCE;
+        public static string CZ;
+        public static string CX;
+        public static string rho;
+        public static string S; 
         public static Label labelNomBDD;
 
 
@@ -96,11 +100,24 @@ namespace Eolia_IHM.Menu
             textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("FREQUENCEMESURE");
             FREQUENCEMES = textBoxNbMesureSec.Text;
 
-            textBoxGVoltPortance.Text = EoliaUtils.LireConfiguration("EQUIVALENCEVOLTPORTANCE");
+            textBoxGVoltPortance.Text = EoliaUtils.LireConfiguration("VALEURMAXPORTANCE");
             EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
 
-            textBoxGVoltTrainee.Text = EoliaUtils.LireConfiguration("EQUIVALENCEVOLTTRAINEE");
+            textBoxGVoltTrainee.Text = EoliaUtils.LireConfiguration("VALEURMAXTRAINEE");
             EQGVOLTTRAINEE = textBoxGVoltPortance.Text;
+
+            textBoxCx.Text = EoliaUtils.LireConfiguration("CX");
+            CX = textBoxCx.Text;
+
+
+            textBoxCz.Text = EoliaUtils.LireConfiguration("CZ");
+            CZ = textBoxCz.Text;
+
+            textBoxRho.Text = EoliaUtils.LireConfiguration("RHO");
+            rho = textBoxRho.Text;
+
+            textBoxS.Text = EoliaUtils.LireConfiguration("SURFACEALAIR");
+            S = textBoxS.Text;
 
         }
         public void Sauvegarder()
@@ -115,8 +132,12 @@ namespace Eolia_IHM.Menu
                 { "PORTSERIECAPTEUR", comboBoxPortCapteur.Text },
                 { "PORTSERIEREGULATEUR", comboBoxPortRegulateur.Text },
                 { "FREQUENCEMESURE", textBoxNbMesureSec.Text },
-                { "EQUIVALENCEVOLTPORTANCE", textBoxGVoltPortance.Text },
-                { "EQUIVALENCEVOLTTRAINEE", textBoxGVoltTrainee.Text }
+                { "VALEURMAXPORTANCE", textBoxGVoltPortance.Text },
+                { "VALEURMAXTRAINEE", textBoxGVoltTrainee.Text },
+                { "CX", textBoxCx.Text },
+                { "CZ", textBoxCz.Text },
+                { "RHO", textBoxRho.Text },
+                { "SURFACEALAIR", textBoxS.Text }
             };
             
             EoliaUtils.SauvegarderConfiguration(ListeValeurASauvegarder);

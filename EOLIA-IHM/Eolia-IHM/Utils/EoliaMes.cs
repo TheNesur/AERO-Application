@@ -1,4 +1,5 @@
-﻿using Eolia_IHM.Properties;
+﻿using Eolia_IHM.Menu;
+using Eolia_IHM.Properties;
 using MySql.Data.MySqlClient;
 using Renci.SshNet.Messages;
 using System;
@@ -87,14 +88,7 @@ namespace Eolia_IHM
             string TraineeFormate = "";
             if (SessionMesureDispo())
             {
-                for (int i = 0; i < ListeMesureTrainee.Count(); i++)
-                {
-                    TraineeFormate = TraineeFormate + ListeMesureTrainee[i].ToString();
-                    if (ListeMesureTrainee.Count() - 1 != i)
-                    {
-                        TraineeFormate = TraineeFormate + ";";
-                    }
-                }
+
                 return TraineeFormate.Replace(",", "."); ;
             }
             else
@@ -103,10 +97,29 @@ namespace Eolia_IHM
             }
         }
 
+        public static string RequeteMesurePrete(int idSession)
+        {
+            string MesureFormate = "";
+          //  if (SessionMesureDispo())
+           // {
+                for (int i = 0; i < ListeMesureTrainee.Count(); i++)
+                {
+                    MesureFormate = MesureFormate + "(NULL,'" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','0','" + idSession + "')";
+                    if (ListeMesureTrainee.Count() - 1 != i)
+                    {
+                        MesureFormate = MesureFormate + ",";
+                    }
+                }
+                return MesureFormate;
+          //  }
+         //   return "";
+        }
+
         public static void TarerCapteur()
         {
             EnvoyerMessageSerieCapteur("TARAGE");
         }
+
 
         public static bool EtatTransMes()
         {

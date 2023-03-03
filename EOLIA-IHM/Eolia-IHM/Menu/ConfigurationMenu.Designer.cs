@@ -72,11 +72,9 @@ namespace Eolia_IHM.Menu
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.textBoxS = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBoxV = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.textBoxCz = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBoxP = new System.Windows.Forms.TextBox();
+            this.textBoxRho = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.textBoxCx = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
@@ -540,11 +538,9 @@ namespace Eolia_IHM.Menu
             this.groupBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.groupBox5.Controls.Add(this.textBoxS);
             this.groupBox5.Controls.Add(this.label14);
-            this.groupBox5.Controls.Add(this.textBoxV);
-            this.groupBox5.Controls.Add(this.label12);
             this.groupBox5.Controls.Add(this.textBoxCz);
             this.groupBox5.Controls.Add(this.label13);
-            this.groupBox5.Controls.Add(this.textBoxP);
+            this.groupBox5.Controls.Add(this.textBoxRho);
             this.groupBox5.Controls.Add(this.label11);
             this.groupBox5.Controls.Add(this.textBoxCx);
             this.groupBox5.Controls.Add(this.label15);
@@ -558,7 +554,7 @@ namespace Eolia_IHM.Menu
             // 
             // textBoxS
             // 
-            this.textBoxS.Location = new System.Drawing.Point(312, 63);
+            this.textBoxS.Location = new System.Drawing.Point(323, 31);
             this.textBoxS.Name = "textBoxS";
             this.textBoxS.Size = new System.Drawing.Size(80, 26);
             this.textBoxS.TabIndex = 9;
@@ -568,29 +564,11 @@ namespace Eolia_IHM.Menu
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(274, 64);
+            this.label14.Location = new System.Drawing.Point(285, 32);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(32, 20);
             this.label14.TabIndex = 8;
             this.label14.Text = "S : ";
-            // 
-            // textBoxV
-            // 
-            this.textBoxV.Location = new System.Drawing.Point(187, 64);
-            this.textBoxV.Name = "textBoxV";
-            this.textBoxV.Size = new System.Drawing.Size(80, 26);
-            this.textBoxV.TabIndex = 7;
-            this.textBoxV.Click += new System.EventHandler(this.textBoxPad_Click);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(147, 64);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(32, 20);
-            this.label12.TabIndex = 6;
-            this.label12.Text = "V : ";
             // 
             // textBoxCz
             // 
@@ -610,23 +588,23 @@ namespace Eolia_IHM.Menu
             this.label13.TabIndex = 4;
             this.label13.Text = "Cz : ";
             // 
-            // textBoxP
+            // textBoxRho
             // 
-            this.textBoxP.Location = new System.Drawing.Point(52, 63);
-            this.textBoxP.Name = "textBoxP";
-            this.textBoxP.Size = new System.Drawing.Size(80, 26);
-            this.textBoxP.TabIndex = 3;
-            this.textBoxP.Click += new System.EventHandler(this.textBoxPad_Click);
+            this.textBoxRho.Location = new System.Drawing.Point(187, 67);
+            this.textBoxRho.Name = "textBoxRho";
+            this.textBoxRho.Size = new System.Drawing.Size(80, 26);
+            this.textBoxRho.TabIndex = 3;
+            this.textBoxRho.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(12, 63);
+            this.label11.Location = new System.Drawing.Point(147, 68);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(31, 20);
+            this.label11.Size = new System.Drawing.Size(32, 20);
             this.label11.TabIndex = 2;
-            this.label11.Text = "P : ";
+            this.label11.Text = "rho";
             // 
             // textBoxCx
             // 
@@ -708,11 +686,9 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.TextBox textBoxS;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBoxV;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBoxCz;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBoxP;
+        private System.Windows.Forms.TextBox textBoxRho;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox textBoxCx;
         private System.Windows.Forms.Label label15;
