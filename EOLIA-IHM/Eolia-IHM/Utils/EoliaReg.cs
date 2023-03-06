@@ -18,6 +18,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Eolia_IHM.Menu;
+using Iot.Device.Ip5306;
 
 namespace Eolia_IHM
 {
@@ -25,6 +26,7 @@ namespace Eolia_IHM
 
     internal class EoliaReg
     {
+       
 
         // Variable relatif a la liaison série
 
@@ -32,9 +34,14 @@ namespace Eolia_IHM
         private static SerialPort RegulateurLiaisonSerie = null;
         private static Label ReguleurlLogBox = null;
         private static Task readThread = null;
-        
+        private static Task readThreadInfini = null
+        private static byte[] MessageEcoute = [0x01, 0x03, 0x00, 0x2A, 0x04 ,0x07, 0x27];
         private static byte[] crcRecu= new byte[1];
 
+        // variable relatif a la communication au Régulateur 
+        private Label labelVitesse = null;
+        private static Button RecevoireBouton =null;
+        private static Button EnvoieBouton=null ;
 
         private void BoutonQuitter_Click(object sender, EventArgs e)
         {
@@ -46,7 +53,7 @@ namespace Eolia_IHM
             Environment.Exit(0);
         }
 
-        // Fonction relatif a la liaison série du Regulateur
+       
 
 
         public static bool LiaisonSerieRegulateur()
@@ -58,9 +65,9 @@ namespace Eolia_IHM
             return false;
         }
 
-        public static void InitialiserLiaisonSerieRegulateur(string portChoisit, Label logTextBox)
+        public static void InitialiserLiaisonSerieRegulateur(string portChoisit, Label logTextBoxregu)
         {
-            ReguleurlLogBox = logTextBox;
+            ReguleurlLogBox = logTextBoxregu;
             if (SerialPort.GetPortNames().Contains(portChoisit))
             {
                 try
@@ -80,46 +87,59 @@ namespace Eolia_IHM
                     EoliaLogs.Write("Démarée", EoliaLogs.Types.SERIAL);
                     EoliaLogs.Write("Liaison série démarée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
+                  
                     readThread = new Task(Lire);
                     readThread.Start();
-
-                }
+                    Task.run(() =>
+                    {
+                        while (SerialPort.GetPortNames().Contains(portChoisit))
+                        {
+                            RegulateurLiaisonSerie.Write(MessageEcoute);
+                            readThreadInfini = new Task(Lire);
+                            if (LireSerie == false)
+                                break;
+                            else
+                                Thread.Sleep(1000); //attent 1000 milliseconde ou 1 seconde pour reprendre la boucle while 
+                        }
+                    });
+                    }
                 catch (IOException ex)
                 {
-                    ReguleurlLogBox.Text = "Liaison Série -> " + ex;
+                    ReguleurlLogBox.Text = "Liaison Série 1 -> " + ex;
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     RegulateurLiaisonSerie = null;
+
                 }
                 catch (UnauthorizedAccessException ex)
                 {
-                    ReguleurlLogBox.Text = "Liaison Série -> Acces refusé (" + ex + ")";
+                    ReguleurlLogBox.Text = "Liaison Série 2-> Acces refusé (" + ex + ")";
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     RegulateurLiaisonSerie = null;
                 }
                 catch (ArgumentException ex)
                 {
-                    ReguleurlLogBox.Text = "Liaison Série -> " + ex;
+                    ReguleurlLogBox.Text = "Liaison Série3 -> " + ex;
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
                     RegulateurLiaisonSerie = null;
                 }
 
             }
             else
-            {
+            { 
                 ReguleurlLogBox.Text = "pb port ";
-                ReguleurlLogBox.ForeColor =System.Drawing.Color.DarkBlue;
             }
 
-
         }
+        
 
         public  void EnvoyerMessageSerieRegulateur(byte[] message)
         {
             if (RegulateurLiaisonSerie != null && RegulateurLiaisonSerie.IsOpen)
             {
-                string messageString = Convert.ToBase64String(message);
+                
+                string messageString= ToString(messagePrépa(message))
                 // Envoi du message
-                RegulateurLiaisonSerie.Write(messageString);
+                RegulateurLiaisonSerie.Write(getstring);
             }
         }
 
@@ -131,49 +151,30 @@ namespace Eolia_IHM
             0000 0001       0000 0011    0011 0001 0000 0000       0000 0100       0100 1010   1111 0101    
               0     1       0       3       3  1    0   0           0   4           4     A     F     5
          */
-        private  void messageDemandeInfo(byte[] message)
+     
+        private  byte messagePrépa(byte[] message,byte fonction )
         {
             byte AdresseEsclave=0x01;
-            byte Fonction=0x03;
-            switch (Fonction)
-            { // change selon la valeur de la variable fonction 
-                case 0x03 | 0x04:
-                    {
-                        byte[] AdressePremiersMot= new byte[1];
-                        byte[] NbMot= new byte[1];
-                        message = new byte[8];
-                        message[0] = AdresseEsclave;
-                        message[1] = Fonction;
-                        Array.Copy(AdressePremiersMot,0, message, 2,2);
-                        Array.Copy(NbMot,0, message, 4,2);
-                        AjoutCRCEnvoie(message);
-                    }
-                    break;
-                    /*            case 0x06:
-                                    {
-                                        byte[2] AdresseDuMot;
-                                        byte[2] ValeurDuMot;
-                                        message = new byte[8];
-                                        Array.Copy(AdresseEsclave, 0, message, 0);
-                                        Array.Copy(Fonction, 0, message, 1);
-                                        Array.Copy(AdressePremiersMot, 0, message, 2);
-                                        Array.Copy(NbMot, 0, message, 4);
-                                        AjoutCRCEnvoie(CRC(message));
-                                    }
-                                    break;
-                            }*/
-            }
+            ushort AdressePremiersMot = 0x002A;
+            byte[] AdresseMot = BitConverter.GetBytes(AdressePremiersMot);
+            byte[] NbMot= new byte[1];
+            message = new byte[8];
+            message[0] = AdresseEsclave;
+            message[1] = 0x06;
+            Array.Copy(AdresseMot,0, message, 2,2);
+            Array.Copy(NbMot,0, message, 4,2);
+            return AjoutCRCEnvoie(message);        
         }
-
-        private static void Lire()
+        //boucle d'écoute infini 
+    private static void Lire()
         {
             Console.WriteLine("Démarrage thread liaison série");
             while (LireSerie)
             {
                 try
                 {
-                    string message = (RegulateurLiaisonSerie.ReadExisting());
-                    byte[] messageoctet = GetBytesFromHexString(message);
+                    string messageString = RegulateurLiaisonSerie.ReadExisting();
+                    byte[] messageoctet = Convert.ToByte( messageString);
                     if (messageoctet.Length > 0)
                     {
                         
@@ -188,30 +189,11 @@ namespace Eolia_IHM
                     }
                     //Verifi la Commande message);
                 }
-                catch (TimeoutException) { }
+                catch (TimeoutException) { 
             }
         }
-        public static Byte[] GetBytesFromHexString(string strInput)
-        {
-            Byte[] bytArOutput = new Byte[] { };
-            if (!string.IsNullOrEmpty(strInput) && strInput.Length % 2 == 0)
-            {
-                SoapHexBinary hexBinary = null;
-                try
-                {
-                    hexBinary = SoapHexBinary.Parse(strInput);
-                    if (hexBinary != null)
-                    {
-                        bytArOutput = hexBinary.Value;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-            return bytArOutput;
-        }
+       
+        
         private static void VerifierCRCRecu(byte[] MessageRecu)
         {
             Array.Copy(MessageRecu, MessageRecu.Length - 2, crcRecu, 0, 2);
@@ -262,7 +244,7 @@ namespace Eolia_IHM
         {
             byte[] crc = CRC(message);
             int sizemessage = message.Length;
-            Array.Copy(crc, 0, message, sizemessage+1,sizemessage+2);
+            Array.Copy(crc, 0, message, sizemessage+1,2);
             return message;
         }
 
