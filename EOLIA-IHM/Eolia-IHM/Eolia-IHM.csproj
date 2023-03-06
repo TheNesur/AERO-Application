@@ -272,19 +272,10 @@
     <Compile Include="Utils\EoliaLogs.cs" />
     <Compile Include="Utils\EoliaMes.cs" />
     <Compile Include="Utils\EoliaSQL.cs" />
-    <Compile Include="IHM.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="IHM.Designer.cs">
-      <DependentUpon>IHM.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AccueilIHM.resx">
       <DependentUpon>AccueilIHM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="IHM.resx">
-      <DependentUpon>IHM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuEolia.resx">
       <DependentUpon>MenuEolia.cs</DependentUpon>
