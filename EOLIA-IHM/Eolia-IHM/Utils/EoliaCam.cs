@@ -207,12 +207,12 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE VIDEO                -*/
         /*-----------------------------------------------*/
 
-        public static int StartSaveVideo(String folder)
+        public static int StartSaveVideo()
         {
             return 1;
         }
 
-        public static int StopSaveVideo()
+        public static int StopSaveVideo(String folder)
         {
             return 0;
         }

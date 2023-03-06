@@ -19,6 +19,7 @@ namespace Eolia_IHM
         public MenuEolia()
         {
             InitializeComponent();
+            EoliaLogs.InitializeLogs();
         }
 
         StatusMenu statusMenu = new StatusMenu();

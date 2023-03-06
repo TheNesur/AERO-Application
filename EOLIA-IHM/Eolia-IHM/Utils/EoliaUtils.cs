@@ -166,9 +166,11 @@ namespace Eolia_IHM.Properties
 
         public static void MsgBoxNonBloquante(string Msg, string title = null)
         {
+            EoliaLogs.Write("Message affiché : " + Msg, EoliaLogs.Types.DEBUG);
             Task.Run(() => {
                 if (title != null) MessageBox.Show(Msg, title);
                 else MessageBox.Show(Msg);
+
             });
         
         }

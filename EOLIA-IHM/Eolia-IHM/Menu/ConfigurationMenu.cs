@@ -119,6 +119,8 @@ namespace Eolia_IHM.Menu
             textBoxS.Text = EoliaUtils.LireConfiguration("SURFACEALAIR");
             S = textBoxS.Text;
 
+
+            EoliaLogs.Write("Configuration chargée", EoliaLogs.Types.OTHER);
         }
         public void Sauvegarder()
         {
@@ -139,7 +141,17 @@ namespace Eolia_IHM.Menu
                 { "RHO", textBoxRho.Text },
                 { "SURFACEALAIR", textBoxS.Text }
             };
-            
+
+            EoliaLogs.Write("Nouvelle configuration enregistrée", EoliaLogs.Types.OTHER);
+            PortSerieCapteur = comboBoxPortCapteur.Text;
+            FREQUENCEMES = textBoxNbMesureSec.Text;
+            EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
+            EQGVOLTTRAINEE = textBoxGVoltPortance.Text;
+            CX = textBoxCx.Text;
+            CZ = textBoxCz.Text;
+            rho = textBoxRho.Text;
+            S = textBoxS.Text;
+
             EoliaUtils.SauvegarderConfiguration(ListeValeurASauvegarder);
         }
 

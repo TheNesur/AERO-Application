@@ -205,7 +205,7 @@ namespace Eolia_IHM
                 if (prendreVideo)
                 {
                     video = true;
-                    EoliaCam.StartSaveVideo(RepEnregistrement);
+                    EoliaCam.StartSaveVideo();
                 }
                 else {                 
                     photo = prendrePhoto;
@@ -221,12 +221,14 @@ namespace Eolia_IHM
                 LabelValMoyenneTrainee.Text = "0";
                 LabelNombreDeMesure.Text = "0";
                 EnregistreMesure = true;
+                EoliaLogs.Write("Enregistrement mesure démarée", EoliaLogs.Types.SERIAL);
                 return false;
+                
             }
 
             if (prendreVideo)
-                EoliaCam.StopSaveVideo();
-
+                EoliaCam.StopSaveVideo(RepEnregistrement);
+            EoliaLogs.Write("Enregistrement mesure arrêtée", EoliaLogs.Types.SERIAL);
             EnregistreMesure = false;
             LabelEtatSession.Text = "Session arrêtée";
             return true;
@@ -235,7 +237,7 @@ namespace Eolia_IHM
         public static void ArreterTransMes()
         {
             EnvoyerMessageSerieCapteur("STOP");
-
+            EoliaLogs.Write("Transmission mesure arrêtée", EoliaLogs.Types.SERIAL);
             ReponseCMDMesure.AppendText( "Transmission des mesures arrêtés\r\n\r\n");
 
             LabelMesTrainee = null;
@@ -266,7 +268,7 @@ namespace Eolia_IHM
                 return;
             }
 
-
+            EoliaLogs.Write("Commande liaison série capteur reçue " + cmdBuff, EoliaLogs.Types.SERIAL);
             bool CommandeAvecMessage; // sera mise a true si la commande contient un message
             string[] words = cmdBuff.Split(' ');
             if (words.Length < 1) // découpe les arguments de la commande
@@ -373,7 +375,7 @@ namespace Eolia_IHM
             CapteurLiaisonSerie = null;
             CapteurlLogBox.Text = "Arrèté";
             CapteurlLogBox.ForeColor = System.Drawing.Color.Red;
-
+            EoliaLogs.Write("Liaison série ESP32 arrêtée", EoliaLogs.Types.SERIAL);
 
 
         }
@@ -399,7 +401,7 @@ namespace Eolia_IHM
                     CapteurLiaisonSerie.Open();
                     CapteurlLogBox.Text = " Démarrée";
                     CapteurlLogBox.ForeColor = System.Drawing.Color.Green;
-                    EoliaLogs.Write("Démarée", EoliaLogs.Types.SERIAL);
+                    EoliaLogs.Write("Liaison série ESP32 démarrée", EoliaLogs.Types.SERIAL);
                     LireSerie = true;
                     readThread = new Task(Read);
                     readThread.Start();
