@@ -326,14 +326,15 @@ namespace Eolia_IHM
             {
                 try
                 {
-                    CapteurLiaisonSerie = new SerialPort(portChoisit);
-
-                    // param liaison série
-                    CapteurLiaisonSerie.BaudRate = 9600;
-                    CapteurLiaisonSerie.Parity = Parity.None;
-                    CapteurLiaisonSerie.StopBits = StopBits.One;
-                    CapteurLiaisonSerie.DataBits = 8;
-                    CapteurLiaisonSerie.Handshake = Handshake.None;
+                    CapteurLiaisonSerie = new SerialPort(portChoisit)
+                    {
+                        // param liaison série
+                        BaudRate = 9600,
+                        Parity = Parity.None,
+                        StopBits = StopBits.One,
+                        DataBits = 8,
+                        Handshake = Handshake.None
+                    };
 
                     CapteurLiaisonSerie.Open();
                     CapteurlLogBox.Text = " Démarrée";
@@ -378,7 +379,7 @@ namespace Eolia_IHM
             if (CapteurLiaisonSerie != null && CapteurLiaisonSerie.IsOpen)
             {
                 // Envoi du message
-                CapteurLiaisonSerie.Write(message);
+                CapteurLiaisonSerie.Write(message + " /r/n");
             }
         }
 
