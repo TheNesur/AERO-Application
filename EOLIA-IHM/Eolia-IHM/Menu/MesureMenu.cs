@@ -1,4 +1,5 @@
 ﻿using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,11 @@ namespace Eolia_IHM.Menu
         public MesureMenu()
         {
             InitializeComponent();
+
+            if (!EoliaCam.CameraExist())
+            {
+                multimediaParam.Enabled = false;
+            }
 
         }
 
@@ -35,12 +41,17 @@ namespace Eolia_IHM.Menu
 
         private void buttonLancerEnregistrementMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession))
+            if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession, photoParam.Checked,videoParam.Checked))
             {
+                if (EoliaCam.CameraExist())
+                {
+                    multimediaParam.Enabled = true;
+                }
                 buttonLancerEnregistrementMesure.Text = "Demarrer enregistrement mesure";
             }
             else
             {
+                multimediaParam.Enabled = false; 
                 buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement mesure";
             }
         }
@@ -53,7 +64,7 @@ namespace Eolia_IHM.Menu
             {
                 if (EoliaMes.SessionMesureDispo())
                 {
-                    string Requete = "INSERT INTO sessionmesure (idSession, nomMesure, dateMesure, czMesure, cxMesure, rhoMesure, sMesure, fMesure) VALUES(NULL, '" + labelNomSession.Text + "', NULL, '"+ConfigurationMenu.CZ+"', '"+ConfigurationMenu.CX+"', '"+ConfigurationMenu.rho+"', '"+ConfigurationMenu.S+"', '"+ ConfigurationMenu.FREQUENCEMES + "'); SELECT LAST_INSERT_ID();";
+                    string Requete = "INSERT INTO sessionmesure (idSession, nomMesure, dateMesure, czMesure, cxMesure, rhoMesure, sMesure, fMesure, photoMesure, videoMesure) VALUES(NULL, '" + labelNomSession.Text + "', NULL, '"+ConfigurationMenu.CZ+"', '"+ConfigurationMenu.CX+"', '"+ConfigurationMenu.rho+"', '"+ConfigurationMenu.S+"', '"+ ConfigurationMenu.FREQUENCEMES + "', '" + EoliaMes.ObtenirRepPhoto() + "', '" + EoliaMes.ObtenirRepVideo() + "'); SELECT LAST_INSERT_ID();";
                     //   string Requete = "INSERT INTO `Mesure` (`idMesure`, `MesurePortance`, `MesureTrainee`, `NomMesure`) VALUES (NULL, '" + EoliaMes.PortancePretPourEnvoi() + "', '" + EoliaMes.TraineePretPourEnvoi() + "', '" + labelNomSession.Text + "');";
                     int ResultRequete = await EoliaSQL.ExecuterRequeteAvecReponse(Requete);
                     int idSession = ResultRequete;
@@ -65,7 +76,8 @@ namespace Eolia_IHM.Menu
                         ResultRequete = await EoliaSQL.ExecuterRequeteSansReponse(Requete);
                         if (ResultRequete != -1)
                         {
-                            EoliaUtils.MsgBoxNonBloquante("Transmission de la session numéro " + idSession + " bien effectué.");
+                            EoliaUtils.MsgBoxNonBloquante("Transmission de la session numéro " + idSession + " bien effectuée.");
+                            EoliaMes.ReinitialiserSession();
                         }
                         else
                         {

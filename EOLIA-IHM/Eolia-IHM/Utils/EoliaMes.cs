@@ -1,5 +1,6 @@
 ﻿using Eolia_IHM.Menu;
 using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using MySql.Data.MySqlClient;
 using Renci.SshNet.Messages;
 using System;
@@ -46,8 +47,9 @@ namespace Eolia_IHM
         private static Label LabelNomSessionMesure = null;
         private static string NomSessionMesure = null;
         private static Label LabelEtatSession = null;
-
-
+        private static bool photo = false;
+        private static bool video = false;
+        private static string RepEnregistrement = null;
 
         // Fonction relatif a la gestion des mesures
 
@@ -81,6 +83,38 @@ namespace Eolia_IHM
             {
                 return "";
             }
+        }
+
+        public static string ObtenirPortance()
+        {
+
+            return LabelMesPortance.Text;
+        }
+
+
+
+        public static string ObtenirTrainee()
+        {
+            return LabelMesTrainee.Text;
+        }
+
+        public static string ObtenirRepPhoto()
+        {
+
+            if (photo)
+            {
+                return RepEnregistrement;
+            }
+            return "NULL";
+        }
+
+        public static string ObtenirRepVideo()
+        {
+            if (video)
+            {
+                return RepEnregistrement;
+            }
+            return "NULL";
         }
 
         public static string TraineePretPourEnvoi()
@@ -130,6 +164,12 @@ namespace Eolia_IHM
             return false;
         }
 
+        public static void ReinitialiserSession()
+        {
+            ListeMesurePortance = null;
+            ListeMesureTrainee = null;
+        }
+
         public static bool SessionMesureDispo()
         {
             if (EnregistreMesure)
@@ -146,7 +186,7 @@ namespace Eolia_IHM
         }
 
 
-        public static bool EnregistrementMes(Label labelValMoyenneTrainee, Label labelValMoyennePortance, Label labelNomSessionMesure, Label labelNombreDeMesure, Label labelEtatSession)
+        public static bool EnregistrementMes(Label labelValMoyenneTrainee, Label labelValMoyennePortance, Label labelNomSessionMesure, Label labelNombreDeMesure, Label labelEtatSession, bool prendrePhoto, bool prendreVideo)
         {
             if (!EnregistreMesure)
             {
@@ -161,9 +201,21 @@ namespace Eolia_IHM
                 LabelEtatSession = labelEtatSession;
 
 
+                RepEnregistrement = DateTime.Now.ToString("ddMMyyyy_HHmmss");
+                if (prendreVideo)
+                {
+                    video = true;
+                    EoliaCam.StartSaveVideo(RepEnregistrement);
+                }
+                else {                 
+                    photo = prendrePhoto;
+                }
+
+
+
                 NomSessionMesure = DateTime.Now.ToString("dd/MM/yyyy_HH:mm:ss");
 
-                LabelEtatSession.Text = "Oui";
+                LabelEtatSession.Text = "Session lancée";
                 LabelNomSessionMesure.Text = NomSessionMesure;
                 LabelValMoyennePortance.Text = "0";
                 LabelValMoyenneTrainee.Text = "0";
@@ -172,8 +224,11 @@ namespace Eolia_IHM
                 return false;
             }
 
+            if (prendreVideo)
+                EoliaCam.StopSaveVideo();
+
             EnregistreMesure = false;
-            LabelEtatSession.Text = "Non";
+            LabelEtatSession.Text = "Session arrêtée";
             return true;
         }
 
@@ -272,6 +327,11 @@ namespace Eolia_IHM
                     LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = ListeMesureTrainee.Average().ToString()));
                     LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = ListeMesurePortance.Average().ToString()));
                     LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text = ListeMesurePortance.Count().ToString()));
+
+                    if (photo)
+                        EoliaCam.SavePicture(RepEnregistrement, true);
+
+
 
                 }
 

@@ -299,14 +299,7 @@ namespace Eolia_IHM
 
         private void buttonSwitchEnregistrementMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaMes.EnregistrementMes(labelSessionMesureMoyTrainee, labelSessionMesureMoyPort, labelNomMesureSession, labelNombreMesureSession, labelSessionMesureEtat))
-            {
-                buttonSwitchEnregistrementMesure.Text = "Demarrer enregistrement mesure";
-            }
-            else
-            {
-                buttonSwitchEnregistrementMesure.Text = "Arrêter enregistrement mesure";
-            }
+ 
         }
 
         private void buttonTarCapteurs_Click(object sender, EventArgs e)
@@ -394,27 +387,27 @@ namespace Eolia_IHM
         private void buttonPrendrePhotoInstantanee_Click(object sender, EventArgs e)
         {
             //if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
-            cameraEolia.SavePicture(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG", 0, 0);
+          //  cameraEolia.SavePicture(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG", 0, 0);
         }
 
         private void prendreVideo_Click(object sender, EventArgs e)
         {
             int er;
-            if (!cameraEolia.CaptureIsStart())
-            {
-                if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
-                er = cameraEolia.StartSaveVideo(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO");
-                buttonPrendreVideo.Text = "Stop Video";
-            }
-            else
-            {
-                if (cameraEolia.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+            /* if (!cameraEolia.CaptureIsStart())
+             {
+                 if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
+                 er = cameraEolia.StartSaveVideo(EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO");
+                 buttonPrendreVideo.Text = "Stop Video";
+             }
+             else
+             {
+                 if (cameraEolia.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier."); return; }
 
-                er = cameraEolia.StopSaveVideo();
-                buttonPrendreVideo.Text = "Start Video";
+                 er = cameraEolia.StopSaveVideo();
+                 buttonPrendreVideo.Text = "Start Video";
 
-            }
-            if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
+             }
+             if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);*/
         }
 
         private void textBoxCX_TextChanged(object sender, EventArgs e)

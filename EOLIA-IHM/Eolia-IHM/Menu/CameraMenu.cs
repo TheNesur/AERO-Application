@@ -250,9 +250,9 @@ namespace Eolia_IHM.Menu
             {
                 Task.Run(() =>
                 {
-                    
-                    var task = Task.Run(() => { cameraEolia.SavePicture(directoryImage, 0, 0, true); });
-                    task.Wait();
+
+             //       var task = Task.Run(() => { cameraEolia.SavePicture(directoryImage, 0, 0, true); });
+                    //task.Wait();
 
                     reloadDirectoryImage();
                     if (iconIsExist("buttonStartScreenshotBig.png"))
@@ -264,8 +264,8 @@ namespace Eolia_IHM.Menu
             {
                 Task.Run(() =>
                 {
-                    var task = Task.Run(() => { cameraEolia.SavePicture(directoryImage, 0, 0); });
-                    task.Wait();
+                  //  var task = Task.Run(() => { cameraEolia.SavePicture(directoryImage, 0, 0); });
+                //    task.Wait();
 
                     reloadDirectoryImage();
                     if (iconIsExist("buttonStartScreenshotBig.png"))
@@ -284,7 +284,7 @@ namespace Eolia_IHM.Menu
             if (!cameraEolia.CaptureIsStart())
             {
                 if (cameraEolia.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
-                er = cameraEolia.StartSaveVideo(directoryVideo);
+            //er = cameraEolia.StartSaveVideo(directoryVideo);
                 //buttonLancerEnregistrementVideo.Text = "Arrêter l'enregistrement vidéo";
                 if (iconIsExist("buttonStopRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopRecBig.png");
@@ -292,13 +292,13 @@ namespace Eolia_IHM.Menu
             else
             {
                 if (cameraEolia.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
-                er = cameraEolia.StopSaveVideo();
+             //   er = cameraEolia.StopSaveVideo();
                 //buttonLancerEnregistrementVideo.Text = "Lancer l'enregistrement vidéo";
                 if (iconIsExist("buttonStartRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartRecBig.png");
 
             }
-            if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
+           // if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
         }
 
         private void buttonActualiserDossier_Click(object sender, EventArgs e)

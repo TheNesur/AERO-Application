@@ -196,52 +196,9 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE IMAGE                -*/
         /*-----------------------------------------------*/
 
-        public int SavePicture(String folder, float portance = -1, float trainee = -1, bool saveMesureInImage = false)
+        public static int SavePicture(String folder, bool saveMesureInImage = false)
         {
-            //if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
-            try
-            {
-                EoliaLogs.Write("Lancement de l'enregristrement d'une image ", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-                if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-
-                //streamStart = true;
-                //typeCapture = CameraTypes.IMAGESAVE;
-                String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
-                if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG) != true) return 2;
-
-                if ((portance == -1 && portance == -1 ) || saveMesureInImage == false)
-                {
-                    device.Capture(folder + "/" + nameCapture);
-                    EoliaLogs.Write("Capture de l'image sans la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-
-                }
-                else
-                {
-                    Image imageNPT = ByteToImage(device.Capture());
-                    Bitmap bitmapNPT = new Bitmap(imageNPT.Width, imageNPT.Height);
-                    using (Graphics g = Graphics.FromImage(imageNPT))
-                    {
-                        g.DrawImage(imageNPT, 0, 0, imageNPT.Width, imageNPT.Height);
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.White, new PointF(10, imageNPT.Height - 50));
-                    }
-                    imageNPT.Save($"{folder}/{nameCapture}-{imageNPT.Height}");
-                    EoliaLogs.Write("Capture de l'image avec la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-
-                }
-
-                destructCamera();
-                //streamStart = false;
-                //typeCapture = CameraTypes.NOTCAPTURE;
-                EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-
-
-                return 0;
-            } catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer l'image.", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-                return -1;
-            }
+            return 0;
         }
 
 
@@ -250,78 +207,19 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE VIDEO                -*/
         /*-----------------------------------------------*/
 
-        public int StartSaveVideo(String folder)
+        public static int StartSaveVideo(String folder)
         {
-            if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
-            try
-            {
-                EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
-
-                streamStart = true;
-                captureIsStart = true;
-                folderVideo = folder;
-                typeCapture = CameraTypes.VIDEOSAVE;
-
-                if (initializeCamera(Iot.Device.Media.PixelFormat.H264) != true) return 2;
-
-                EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                //checkInitializeCamera();
-                EoliaLogs.Write("Capture en cours...", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                new Thread(() => { device.CaptureContinuous(tokenSource.Token); }).Start();
-
-
-                //EoliaLogs.Write("Capture enregistrer de la vidéo dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + ".H264", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                return 0;
-            } catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo.", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                return -1;
-            }
+            return 1;
         }
 
-        public int StopSaveVideo()
+        public static int StopSaveVideo()
         {
-            if (typeCapture != CameraTypes.VIDEOSAVE) return 10;
-            try
-            {
-                EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                if (!Directory.Exists(folderVideo)) Directory.CreateDirectory(folderVideo);
+            return 0;
+        }
 
-
-                destructCamera();
-                fileStreamVideo = File.Create(folderVideo + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + ".H264");
-                //Task.Run(() =>
-                //{
-
-                EoliaLogs.Write("Enregistrement des bits en cours...", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-
-                for (int i = 0; i < tabVideo.Count; i++)
-                {
-                    fileStreamVideo.Write(tabVideo[i], 0, tabVideo[i].Length);
-
-                    EoliaLogs.Write($"{i} : " + tabVideo[i], EoliaLogs.Types.CAMERA, "VIDEO");
-                }
-
-                tabVideo.Clear();
-                //});
-
-                //checkInitializeCamera();
-
-                streamStart = false;
-                captureIsStart = false;
-                typeCapture = CameraTypes.NOTCAPTURE;
-
-                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + folderVideo + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + ".H264", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                return 0;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo.", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                return -1;
-            }
+        public static bool CameraExist()
+        {
+            return false;
         }
     }
 }

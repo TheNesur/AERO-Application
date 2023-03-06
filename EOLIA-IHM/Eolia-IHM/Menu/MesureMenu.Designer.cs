@@ -56,9 +56,13 @@ namespace Eolia_IHM.Menu
             this.labelVitesseIntantanee = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.multimediaParam = new System.Windows.Forms.GroupBox();
+            this.photoParam = new System.Windows.Forms.CheckBox();
+            this.videoParam = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.multimediaParam.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonLancerTransmissionMesure
@@ -125,7 +129,7 @@ namespace Eolia_IHM.Menu
             this.textBoxLogMesure.Name = "textBoxLogMesure";
             this.textBoxLogMesure.ReadOnly = true;
             this.textBoxLogMesure.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxLogMesure.Size = new System.Drawing.Size(314, 351);
+            this.textBoxLogMesure.Size = new System.Drawing.Size(314, 246);
             this.textBoxLogMesure.TabIndex = 16;
             // 
             // groupBox1
@@ -149,7 +153,7 @@ namespace Eolia_IHM.Menu
             this.labelMesureTrainee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMesureTrainee.Location = new System.Drawing.Point(200, 50);
             this.labelMesureTrainee.Name = "labelMesureTrainee";
-            this.labelMesureTrainee.Size = new System.Drawing.Size(31, 20);
+            this.labelMesureTrainee.Size = new System.Drawing.Size(40, 25);
             this.labelMesureTrainee.TabIndex = 4;
             this.labelMesureTrainee.Text = "XX";
             // 
@@ -159,7 +163,7 @@ namespace Eolia_IHM.Menu
             this.labelMesurePortance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelMesurePortance.Location = new System.Drawing.Point(210, 28);
             this.labelMesurePortance.Name = "labelMesurePortance";
-            this.labelMesurePortance.Size = new System.Drawing.Size(31, 20);
+            this.labelMesurePortance.Size = new System.Drawing.Size(40, 25);
             this.labelMesurePortance.TabIndex = 3;
             this.labelMesurePortance.Text = "XX";
             // 
@@ -169,7 +173,7 @@ namespace Eolia_IHM.Menu
             this.labelter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelter.Location = new System.Drawing.Point(15, 50);
             this.labelter.Name = "labelter";
-            this.labelter.Size = new System.Drawing.Size(169, 20);
+            this.labelter.Size = new System.Drawing.Size(213, 25);
             this.labelter.TabIndex = 1;
             this.labelter.Text = "Mesure de la Trainée : ";
             // 
@@ -179,7 +183,7 @@ namespace Eolia_IHM.Menu
             this.labelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelt.Location = new System.Drawing.Point(15, 28);
             this.labelt.Name = "labelt";
-            this.labelt.Size = new System.Drawing.Size(180, 20);
+            this.labelt.Size = new System.Drawing.Size(224, 25);
             this.labelt.TabIndex = 0;
             this.labelt.Text = "Mesure de la Portance : ";
             // 
@@ -209,7 +213,7 @@ namespace Eolia_IHM.Menu
             this.labelValeurMoyenneTrainee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValeurMoyenneTrainee.Location = new System.Drawing.Point(270, 101);
             this.labelValeurMoyenneTrainee.Name = "labelValeurMoyenneTrainee";
-            this.labelValeurMoyenneTrainee.Size = new System.Drawing.Size(31, 20);
+            this.labelValeurMoyenneTrainee.Size = new System.Drawing.Size(40, 25);
             this.labelValeurMoyenneTrainee.TabIndex = 8;
             this.labelValeurMoyenneTrainee.Text = "XX";
             // 
@@ -219,7 +223,7 @@ namespace Eolia_IHM.Menu
             this.labelValeurMoyennePortance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelValeurMoyennePortance.Location = new System.Drawing.Point(280, 74);
             this.labelValeurMoyennePortance.Name = "labelValeurMoyennePortance";
-            this.labelValeurMoyennePortance.Size = new System.Drawing.Size(31, 20);
+            this.labelValeurMoyennePortance.Size = new System.Drawing.Size(40, 25);
             this.labelValeurMoyennePortance.TabIndex = 7;
             this.labelValeurMoyennePortance.Text = "XX";
             // 
@@ -229,7 +233,7 @@ namespace Eolia_IHM.Menu
             this.labelNombreMesure.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNombreMesure.Location = new System.Drawing.Point(184, 50);
             this.labelNombreMesure.Name = "labelNombreMesure";
-            this.labelNombreMesure.Size = new System.Drawing.Size(31, 20);
+            this.labelNombreMesure.Size = new System.Drawing.Size(40, 25);
             this.labelNombreMesure.TabIndex = 6;
             this.labelNombreMesure.Text = "XX";
             // 
@@ -239,7 +243,7 @@ namespace Eolia_IHM.Menu
             this.labelNomSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNomSession.Location = new System.Drawing.Point(170, 28);
             this.labelNomSession.Name = "labelNomSession";
-            this.labelNomSession.Size = new System.Drawing.Size(31, 20);
+            this.labelNomSession.Size = new System.Drawing.Size(40, 25);
             this.labelNomSession.TabIndex = 5;
             this.labelNomSession.Text = "XX";
             // 
@@ -249,7 +253,7 @@ namespace Eolia_IHM.Menu
             this.labelValValT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelValValT.Location = new System.Drawing.Point(15, 101);
             this.labelValValT.Name = "labelValValT";
-            this.labelValValT.Size = new System.Drawing.Size(227, 20);
+            this.labelValValT.Size = new System.Drawing.Size(285, 25);
             this.labelValValT.TabIndex = 4;
             this.labelValValT.Text = "Valeur moyenne de la Trainee :";
             // 
@@ -259,7 +263,7 @@ namespace Eolia_IHM.Menu
             this.labelValValP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelValValP.Location = new System.Drawing.Point(15, 74);
             this.labelValValP.Name = "labelValValP";
-            this.labelValValP.Size = new System.Drawing.Size(238, 20);
+            this.labelValValP.Size = new System.Drawing.Size(296, 25);
             this.labelValValP.TabIndex = 3;
             this.labelValValP.Text = "Valeur moyenne de la Portance :";
             // 
@@ -270,7 +274,7 @@ namespace Eolia_IHM.Menu
             this.labelEtatSession.ForeColor = System.Drawing.Color.Green;
             this.labelEtatSession.Location = new System.Drawing.Point(66, 149);
             this.labelEtatSession.Name = "labelEtatSession";
-            this.labelEtatSession.Size = new System.Drawing.Size(165, 20);
+            this.labelEtatSession.Size = new System.Drawing.Size(203, 25);
             this.labelEtatSession.TabIndex = 2;
             this.labelEtatSession.Text = "Démarrer une session";
             // 
@@ -280,7 +284,7 @@ namespace Eolia_IHM.Menu
             this.labelqzdqz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelqzdqz.Location = new System.Drawing.Point(15, 50);
             this.labelqzdqz.Name = "labelqzdqz";
-            this.labelqzdqz.Size = new System.Drawing.Size(152, 20);
+            this.labelqzdqz.Size = new System.Drawing.Size(189, 25);
             this.labelqzdqz.TabIndex = 1;
             this.labelqzdqz.Text = "Nombre de mesure :";
             // 
@@ -290,7 +294,7 @@ namespace Eolia_IHM.Menu
             this.labelsegf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelsegf.Location = new System.Drawing.Point(15, 28);
             this.labelsegf.Name = "labelsegf";
-            this.labelsegf.Size = new System.Drawing.Size(149, 20);
+            this.labelsegf.Size = new System.Drawing.Size(187, 25);
             this.labelsegf.TabIndex = 0;
             this.labelsegf.Text = "Nom de la Session :";
             // 
@@ -317,7 +321,7 @@ namespace Eolia_IHM.Menu
             this.labelTempsPourAtteindreVitesse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTempsPourAtteindreVitesse.Location = new System.Drawing.Point(280, 70);
             this.labelTempsPourAtteindreVitesse.Name = "labelTempsPourAtteindreVitesse";
-            this.labelTempsPourAtteindreVitesse.Size = new System.Drawing.Size(31, 20);
+            this.labelTempsPourAtteindreVitesse.Size = new System.Drawing.Size(40, 25);
             this.labelTempsPourAtteindreVitesse.TabIndex = 6;
             this.labelTempsPourAtteindreVitesse.Text = "XX";
             // 
@@ -327,7 +331,7 @@ namespace Eolia_IHM.Menu
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label2.Location = new System.Drawing.Point(15, 70);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(237, 20);
+            this.label2.Size = new System.Drawing.Size(293, 25);
             this.label2.TabIndex = 5;
             this.label2.Text = "Temps pour atteindre la Vitesse:";
             // 
@@ -337,7 +341,7 @@ namespace Eolia_IHM.Menu
             this.labelVitesseSouhaiter.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVitesseSouhaiter.Location = new System.Drawing.Point(170, 50);
             this.labelVitesseSouhaiter.Name = "labelVitesseSouhaiter";
-            this.labelVitesseSouhaiter.Size = new System.Drawing.Size(31, 20);
+            this.labelVitesseSouhaiter.Size = new System.Drawing.Size(40, 25);
             this.labelVitesseSouhaiter.TabIndex = 4;
             this.labelVitesseSouhaiter.Text = "XX";
             // 
@@ -347,7 +351,7 @@ namespace Eolia_IHM.Menu
             this.labelVitesseIntantanee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelVitesseIntantanee.Location = new System.Drawing.Point(190, 28);
             this.labelVitesseIntantanee.Name = "labelVitesseIntantanee";
-            this.labelVitesseIntantanee.Size = new System.Drawing.Size(31, 20);
+            this.labelVitesseIntantanee.Size = new System.Drawing.Size(40, 25);
             this.labelVitesseIntantanee.TabIndex = 3;
             this.labelVitesseIntantanee.Text = "XX";
             // 
@@ -357,7 +361,7 @@ namespace Eolia_IHM.Menu
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label3.Location = new System.Drawing.Point(15, 50);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(144, 20);
+            this.label3.Size = new System.Drawing.Size(178, 25);
             this.label3.TabIndex = 1;
             this.label3.Text = "Vitesse souhaitée :";
             // 
@@ -367,13 +371,48 @@ namespace Eolia_IHM.Menu
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(15, 28);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(158, 20);
+            this.label5.Size = new System.Drawing.Size(194, 25);
             this.label5.TabIndex = 0;
             this.label5.Text = "Vitesse instantanée :";
+            // 
+            // multimediaParam
+            // 
+            this.multimediaParam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.multimediaParam.Controls.Add(this.videoParam);
+            this.multimediaParam.Controls.Add(this.photoParam);
+            this.multimediaParam.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.multimediaParam.Location = new System.Drawing.Point(358, 309);
+            this.multimediaParam.Name = "multimediaParam";
+            this.multimediaParam.Size = new System.Drawing.Size(314, 82);
+            this.multimediaParam.TabIndex = 20;
+            this.multimediaParam.TabStop = false;
+            this.multimediaParam.Text = "Option multimédias";
+            // 
+            // photoParam
+            // 
+            this.photoParam.AutoSize = true;
+            this.photoParam.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.photoParam.Location = new System.Drawing.Point(16, 22);
+            this.photoParam.Name = "photoParam";
+            this.photoParam.Size = new System.Drawing.Size(374, 36);
+            this.photoParam.TabIndex = 0;
+            this.photoParam.Text = "Enregistrer photo avec mesure";
+            this.photoParam.UseVisualStyleBackColor = true;
+            // 
+            // videoParam
+            // 
+            this.videoParam.AutoSize = true;
+            this.videoParam.Location = new System.Drawing.Point(16, 47);
+            this.videoParam.Name = "videoParam";
+            this.videoParam.Size = new System.Drawing.Size(343, 36);
+            this.videoParam.TabIndex = 1;
+            this.videoParam.Text = "Prendre vidéo de la session";
+            this.videoParam.UseVisualStyleBackColor = true;
             // 
             // MesureMenu
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.Controls.Add(this.multimediaParam);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -390,6 +429,8 @@ namespace Eolia_IHM.Menu
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.multimediaParam.ResumeLayout(false);
+            this.multimediaParam.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -424,5 +465,8 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.Label labelVitesseIntantanee;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox multimediaParam;
+        private System.Windows.Forms.CheckBox videoParam;
+        private System.Windows.Forms.CheckBox photoParam;
     }
 }
