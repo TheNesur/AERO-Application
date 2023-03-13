@@ -19,9 +19,9 @@ namespace Eolia_IHM.Menu
     public partial class CameraMenu : UserControl
     {
         //private EoliaCam cameraEolia = new EoliaCam();
-        private String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO";
-        private String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG";
-        private String directoryIcon = "ICON";
+        private String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
+        private String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
+        private String directoryIcon = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/ICON/";
         private bool bigScreenActived = false;
 
         private bool savePictureAvecMesure = false;
@@ -230,6 +230,10 @@ namespace Eolia_IHM.Menu
                 //buttonActiverRetourCamera.Text = "Activée la camera";
                 if (iconIsExist("buttonStopBig.png"))
                     buttonActiverRetourCamera.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopBig.png");
+                else EoliaLogs.Write("Bouton start retour cam introuvable !!!", EoliaLogs.Types.CAMERA);
+                if (File.Exists("ICON/buttonStopBig.png")) EoliaLogs.Write("OUIIIIIIIIIIII", EoliaLogs.Types.CAMERA);
+
+
             }
             else
             {
@@ -245,7 +249,7 @@ namespace Eolia_IHM.Menu
 
         private void buttonPrendrePhoto_Click(object sender, EventArgs e)
         {
-            if (iconIsExist("buttonStopScreenshotBig.png"))
+            if (iconIsExist("buttonStopScreenshotBig.png")) 
                 buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopScreenshotBig.png");
             if (savePictureAvecMesure)
             {
@@ -285,16 +289,20 @@ namespace Eolia_IHM.Menu
             if (!EoliaCam.CaptureIsStart())
             {
                 if (EoliaCam.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
-                er = EoliaCam.StartSaveVideo();
+                er = EoliaCam.StartSaveVideo("");
                 //buttonLancerEnregistrementVideo.Text = "Arrêter l'enregistrement vidéo";
+                buttonPrendrePhoto.Enabled = false;
+                buttonPrendrePhoto.BackColor = Color.Gray;
                 if (iconIsExist("buttonStopRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopRecBig.png");
             }
             else
             {
                 if (EoliaCam.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
-                er = EoliaCam.StopSaveVideo(directoryVideo);
+                er = EoliaCam.StopSaveVideo();
                 //buttonLancerEnregistrementVideo.Text = "Lancer l'enregistrement vidéo";
+                buttonPrendrePhoto.Enabled = true;
+                buttonPrendrePhoto.BackColor = Color.White;
                 if (iconIsExist("buttonStartRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartRecBig.png");
 
