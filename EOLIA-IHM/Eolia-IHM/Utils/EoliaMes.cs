@@ -51,6 +51,9 @@ namespace Eolia_IHM
         private static bool video = false;
         private static string RepEnregistrement = null;
 
+        private static String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
+        private static String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
+
         // Fonction relatif a la gestion des mesures
 
         public static void InitialiserTransMes(TextBox RepMsg, Label LabelMesPort, Label LabelMesTra, string FMES, string EQGVOLTPORTANCE, string EQGVOLTTRAINEE)
@@ -87,15 +90,18 @@ namespace Eolia_IHM
 
         public static string ObtenirPortance()
         {
-
-            return LabelMesPortance.Text;
+            if(LabelMesPortance != null)
+                return LabelMesPortance.Text;
+            return "";
         }
 
 
 
         public static string ObtenirTrainee()
         {
-            return LabelMesTrainee.Text;
+            if (LabelMesPortance != null)
+                return LabelMesTrainee.Text;
+            return "";
         }
 
         public static string ObtenirRepPhoto()
@@ -205,7 +211,8 @@ namespace Eolia_IHM
                 if (prendreVideo)
                 {
                     video = true;
-                    EoliaCam.StartSaveVideo();
+                    // RepEnregistrement
+                    EoliaCam.StartSaveVideo(true, directoryVideo + RepEnregistrement);
                 }
                 else {                 
                     photo = prendrePhoto;
@@ -227,7 +234,7 @@ namespace Eolia_IHM
             }
 
             if (prendreVideo)
-                EoliaCam.StopSaveVideo(RepEnregistrement);
+                EoliaCam.StopSaveVideo();
             EoliaLogs.Write("Enregistrement mesure arrêtée", EoliaLogs.Types.SERIAL);
             EnregistreMesure = false;
             LabelEtatSession.Text = "Session arrêtée";
@@ -331,7 +338,7 @@ namespace Eolia_IHM
                     LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text = ListeMesurePortance.Count().ToString()));
 
                     if (photo)
-                        EoliaCam.SavePicture(RepEnregistrement, true);
+                        EoliaCam.SavePicture(directoryImage + RepEnregistrement, true);
 
 
 
