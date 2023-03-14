@@ -24,7 +24,7 @@ namespace Eolia_IHM.Menu
         private String directoryIcon = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/ICON/";
         private bool bigScreenActived = false;
 
-        private bool savePictureAvecMesure = false;
+        private bool savePictureAvecMesure = true;
 
         //private static Mutex mtx;
 
@@ -289,7 +289,7 @@ namespace Eolia_IHM.Menu
             if (!EoliaCam.CaptureIsStart())
             {
                 if (EoliaCam.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
-                er = EoliaCam.StartSaveVideo("");
+                er = EoliaCam.StartSaveVideo(false , directoryVideo);
                 //buttonLancerEnregistrementVideo.Text = "Arrêter l'enregistrement vidéo";
                 buttonPrendrePhoto.Enabled = false;
                 buttonPrendrePhoto.BackColor = Color.Gray;

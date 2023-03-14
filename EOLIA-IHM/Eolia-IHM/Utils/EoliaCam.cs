@@ -25,15 +25,13 @@ namespace Eolia_IHM.Utils
         static FileStream fileStreamVideo = null;
 
         private static String nameFileVideo = null;
-        private static String nameFolderVideo = null;
 
-        static Queue<byte[]> queueImage;
-        static Queue<byte[]> queueVideo;
 
         private static byte countImageVideo = 0;
 
         private static bool streamStart;
         private static bool captureIsStart; // Un flux est actuellement capturer = true
+        private static bool saveMesureInImageForVideo = false;
         private static CameraTypes typeCapture = CameraTypes.NOTCAPTURE;
 
 
@@ -64,6 +62,11 @@ namespace Eolia_IHM.Utils
             Bitmap bm = new Bitmap(mstream, false);
             return bm;
         }
+        public static byte[] ImageToByte(Image img)
+        {
+            ImageConverter converter = new ImageConverter();
+            return (byte[])converter.ConvertTo(img, typeof(byte[]));
+        }
 
         private static bool initializeCamera(Iot.Device.Media.PixelFormat format, bool initializeCapture = true)
         {
@@ -77,6 +80,7 @@ namespace Eolia_IHM.Utils
                     captureIsStart = false;
                     typeCapture = CameraTypes.NOTCAPTURE;
                     tabVideo = new List<byte[]>();
+                    saveMesureInImageForVideo = false;
                 }
 
                 settings = new VideoConnectionSettings(busId: 0, captureSize: (640, 480), pixelFormat: format);
@@ -170,6 +174,7 @@ namespace Eolia_IHM.Utils
                         er = 2; 
                         if (countImageVideo == 9)
                         {
+                            fileStreamVideo.Close();
                             fileStreamVideo = File.Open(nameFileVideo, FileMode.Append);
                             for (int i = 0; i < tabVideo.Count; i++)
                             {
@@ -183,8 +188,52 @@ namespace Eolia_IHM.Utils
                             tabVideo.Clear();
                             countImageVideo = 0;
                         }
+                        er = 3;
+                        if (saveMesureInImageForVideo)
+                        {
+                            er = 5;
+                            Image imageNPT = ByteToImage(newImageBufferReadyEventArgs.ImageBuffer);
+                            er = 6;
+                            Console.WriteLine("Image Width : " + imageNPT.Width + " | Image Height : " + imageNPT.Height);
+                            Bitmap bitmapNPT = new Bitmap(imageNPT.Width, imageNPT.Height);
+                            er = 7;
+                            using (Graphics g = Graphics.FromImage(imageNPT))
+                            {
+                                String portance = null, trainee = null;
+                                if (EoliaMes.ObtenirPortance() == null) portance = "0";
+                                else portance = EoliaMes.ObtenirPortance();
 
-                        tabVideo.Add(newImageBufferReadyEventArgs.ImageBuffer);
+                                if (EoliaMes.ObtenirTrainee() == null) trainee = "0";
+                                else trainee = EoliaMes.ObtenirTrainee();
+                                er = 8;
+                                g.DrawImage(imageNPT, 0, 0, imageNPT.Width, imageNPT.Height);
+                                Brush colorBorder = Brushes.Black;
+                                Brush colorText = Brushes.White;
+                                //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(8, imageNPT.Height - 52));
+                                //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 48));
+                                //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 50));
+
+                                portance = portance.Replace('\n', ' ');
+                                portance = portance.Replace('\r', ' ');
+                                g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 48));
+                                g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 52));
+                                g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(12, imageNPT.Height - 50));
+                                g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(8, imageNPT.Height - 50));
+                                g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorText, new PointF(10, imageNPT.Height - 50));
+                                er = 9;
+                            }
+                            er = 10;
+
+                            tabVideo.Add(ImageToByte(imageNPT));
+                        }
+                         else
+                        {
+                            er = 12;
+
+                            tabVideo.Add(newImageBufferReadyEventArgs.ImageBuffer);
+
+                        }                            er = 14;
+
                         countImageVideo++;
                         EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count + "/" + countImageVideo); 
                         
@@ -268,7 +317,7 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE IMAGE                -*/
         /*-----------------------------------------------*/
 
-        public static int SavePicture(String folder = null, bool saveMesureInImage = false, float portance = -1, float trainee = -1)
+        public static int SavePicture(String folder = null, bool saveMesureInImage = false, String portance = null, String trainee = null)
         {
             //if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             if (typeCapture == CameraTypes.VIDEOSAVE) return 10;
@@ -279,18 +328,18 @@ namespace Eolia_IHM.Utils
 
                 if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
-
                 //String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
                 if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG, false) != true) return 2;
 
-                if (portance == -1 && portance == -1)
+                if (portance == null && portance == null)
                 {
-                    portance = EoliaMes.ObtenirPortance();
-                    trainee = EoliaMes.ObtenirTrainee();
+                    if (EoliaMes.ObtenirPortance() == null) portance = "0";
+                    else portance = EoliaMes.ObtenirPortance();
 
+                    if (EoliaMes.ObtenirTrainee() == null) trainee = "0";
+                    else trainee = EoliaMes.ObtenirTrainee();
                 }
                 String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
-
 
                 if (saveMesureInImage == false)
                 {
@@ -305,13 +354,25 @@ namespace Eolia_IHM.Utils
                     using (Graphics g = Graphics.FromImage(imageNPT))
                     {
                         g.DrawImage(imageNPT, 0, 0, imageNPT.Width, imageNPT.Height);
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.White, new PointF(10, imageNPT.Height - 50));
+                        Brush colorBorder = Brushes.Black;
+                        Brush colorText = Brushes.White;
+                        //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(8, imageNPT.Height - 52));
+                        //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 48));
+                        //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 50));
+                        portance = portance.Replace('\n', ' '); 
+                        portance = portance.Replace('\r', ' ');
+
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 48));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 52));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(12, imageNPT.Height - 50));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(8, imageNPT.Height - 50));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorText, new PointF(10, imageNPT.Height - 50));
+
                     }
-                    imageNPT.Save($"{folder}/{nameCapture}-{imageNPT.Height}");
+                    imageNPT.Save($"{folder}/{nameCapture}");
                     EoliaLogs.Write("Capture de l'image avec la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
                 }
-
                 //destructCamera();
                 EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
@@ -331,7 +392,7 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE VIDEO                -*/
         /*-----------------------------------------------*/
 
-        public static int StartSaveVideo(String FolderVideo = null)
+        public static int StartSaveVideo(bool saveMesureInImage = false, String FolderVideo = null)
         {
             if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             try
@@ -344,6 +405,7 @@ namespace Eolia_IHM.Utils
 
                 streamStart = true;
                 captureIsStart = true;
+                saveMesureInImageForVideo = saveMesureInImage;
                 typeCapture = CameraTypes.VIDEOSAVE;
 
                 EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
@@ -351,10 +413,16 @@ namespace Eolia_IHM.Utils
 
                 nameFileVideo = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss]") + ".H264";
 
-                if (FolderVideo != null)
-                    nameFolderVideo = FolderVideo;
-                else
-                    nameFolderVideo = folderVIDEO;
+                if (FolderVideo == null)
+                {
+                    if (!Directory.Exists(folderVIDEO)) Directory.CreateDirectory(folderVIDEO);
+                    nameFileVideo = folderVIDEO + "/" + nameFileVideo;
+                } else
+                {
+                    if (!Directory.Exists(FolderVideo)) Directory.CreateDirectory(FolderVideo);
+                    nameFileVideo = FolderVideo + "/" + nameFileVideo;
+                }
+                Console.WriteLine("Lien video : " + nameFileVideo);
                 fileStreamVideo = File.Create(nameFileVideo);
                 fileStreamVideo.Close();
 
@@ -375,32 +443,37 @@ namespace Eolia_IHM.Utils
 
         public static int StopSaveVideo()
         {
+            var er = -1;
             if (typeCapture != CameraTypes.VIDEOSAVE) return 10;
             try
             {
                 EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 //if (!Directory.Exists(FolderVideo)) Directory.CreateDirectory(FolderVideo);
 
-
+                er = 1;
                 destructCamera();
+                er = 2;
 
                 // Vérifier si le nom FileStartVideo fini par .H264
 
-
-                //fileStreamVideo = File.Create(nameFolderVideo + "/" + nameFileVideo);
                 //Task.Run(() =>
                 //{
 
                 EoliaLogs.Write("Enregistrement des bits en cours...", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 fileStreamVideo = File.Open(nameFileVideo, FileMode.Append);
+                er = 3;
                 for (int i = 0; i < tabVideo.Count; i++)
                 {
+                    er = 4;
                     fileStreamVideo.Write(tabVideo[i], 0, tabVideo[i].Length);
-
+                    er = 5;
                     EoliaLogs.Write($"{i} : " + tabVideo[i].Length, EoliaLogs.Types.CAMERA, "VIDEO");
                 }
                 fileStreamVideo.Close();
+                fileStreamVideo.Dispose();
+                er = 6;
                 tabVideo.Clear();
+                er = 7;
                 EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count);
                 //});
 
@@ -408,15 +481,17 @@ namespace Eolia_IHM.Utils
 
                 streamStart = false;
                 captureIsStart = false;
+                saveMesureInImageForVideo = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
+                er = 0;
 
-                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFolderVideo + "/" + nameFileVideo, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFileVideo + " : zqdqzdqz : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return 0;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo.", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Impossible d'enregistrer la vidéo." + " : zqdqzdqz : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return -1;
             }
         }
