@@ -274,7 +274,7 @@ namespace Eolia_IHM
             {
                 return;
             }
-
+            cmdBuff.Replace("\r\n", String.Empty);
             EoliaLogs.Write("Commande liaison série capteur reçue " + cmdBuff, EoliaLogs.Types.SERIAL);
             bool CommandeAvecMessage; // sera mise a true si la commande contient un message
             string[] words = cmdBuff.Split(' ');
