@@ -31,7 +31,7 @@ namespace Eolia_IHM.Utils
 
         private static bool streamStart;
         private static bool captureIsStart; // Un flux est actuellement capturer = true
-        private static bool saveMesureInImageForVideo = false;
+        //private static bool saveMesureInImageForVideo = false;
         private static CameraTypes typeCapture = CameraTypes.NOTCAPTURE;
 
 
@@ -80,7 +80,7 @@ namespace Eolia_IHM.Utils
                     captureIsStart = false;
                     typeCapture = CameraTypes.NOTCAPTURE;
                     tabVideo = new List<byte[]>();
-                    saveMesureInImageForVideo = false;
+                    //saveMesureInImageForVideo = false;
                 }
 
                 settings = new VideoConnectionSettings(busId: 0, captureSize: (640, 480), pixelFormat: format);
@@ -189,6 +189,7 @@ namespace Eolia_IHM.Utils
                             countImageVideo = 0;
                         }
                         er = 3;
+                        /*
                         if (saveMesureInImageForVideo)
                         {
                             er = 5;
@@ -229,10 +230,10 @@ namespace Eolia_IHM.Utils
                          else
                         {
                             er = 12;
-
+                        */
                             tabVideo.Add(newImageBufferReadyEventArgs.ImageBuffer);
 
-                        }                            er = 14;
+                        //}                            er = 14;
 
                         countImageVideo++;
                         EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count + "/" + countImageVideo); 
@@ -392,7 +393,7 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE VIDEO                -*/
         /*-----------------------------------------------*/
 
-        public static int StartSaveVideo(bool saveMesureInImage = false, String FolderVideo = null)
+        public static int StartSaveVideo(String FolderVideo = null)
         {
             if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             try
@@ -405,7 +406,7 @@ namespace Eolia_IHM.Utils
 
                 streamStart = true;
                 captureIsStart = true;
-                saveMesureInImageForVideo = saveMesureInImage;
+                //saveMesureInImageForVideo = saveMesureInImage;
                 typeCapture = CameraTypes.VIDEOSAVE;
 
                 EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
@@ -481,7 +482,7 @@ namespace Eolia_IHM.Utils
 
                 streamStart = false;
                 captureIsStart = false;
-                saveMesureInImageForVideo = false;
+                //saveMesureInImageForVideo = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
                 er = 0;
 

@@ -212,7 +212,7 @@ namespace Eolia_IHM
                 {
                     video = true;
                     // RepEnregistrement
-                    EoliaCam.StartSaveVideo(true, directoryVideo + RepEnregistrement);
+                    EoliaCam.StartSaveVideo(directoryVideo + RepEnregistrement);
                 }
                 else {                 
                     photo = prendrePhoto;
