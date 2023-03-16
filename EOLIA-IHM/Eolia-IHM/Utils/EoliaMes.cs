@@ -328,6 +328,10 @@ namespace Eolia_IHM
                     cmdBuff = "";
                     return;
                 }
+
+                    LabelMesTrainee.Invoke(new Action(() => LabelMesTrainee.Text = trainee.ToString()));
+                    LabelMesPortance.Invoke(new Action(() => LabelMesPortance.Text = portance.ToString()));
+                
                 if (EnregistreMesure)
                 {
                     ListeMesureTrainee.Add(trainee);
@@ -344,8 +348,7 @@ namespace Eolia_IHM
 
                 }
 
-                LabelMesTrainee.Invoke(new Action(() => LabelMesTrainee.Text = words[1]));
-                LabelMesPortance.Invoke(new Action(() => LabelMesPortance.Text = words[3]));
+
                 
             }
 
