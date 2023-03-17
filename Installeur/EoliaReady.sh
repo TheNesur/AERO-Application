@@ -23,7 +23,7 @@ if [ "$answer" = "LOGICIEL" ] || [ "$answer" = "TOUT" ]; then
 		
 	fi
 
-	 if grep -q "[Desktop" /home/$SUDO_USER/Desktop/Eolia.desktop; then
+	 if grep -q "Desktop" /home/$SUDO_USER/Desktop/Eolia.desktop; then
 		echo "Raccourci déja existant"
 	else
 		echo "Raccourci créé"
