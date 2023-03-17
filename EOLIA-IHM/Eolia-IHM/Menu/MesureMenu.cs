@@ -72,7 +72,7 @@ namespace Eolia_IHM.Menu
 
                     if (ResultRequete != -1)
                     {
-                        Requete = "INSERT INTO `mesure` (`idMesure`, `portanceMesure`, `vitesseMesure`, `traineeMesure`, `idSession`) VALUES " + EoliaMes.RequeteMesurePrete(ResultRequete) + ";";
+                        Requete = "INSERT INTO `mesure` (`idMesure`, `portanceMesure`, `traineeMesure`, `vitesseMesure`, `idSession`) VALUES " + EoliaMes.RequeteMesurePrete(ResultRequete) + ";";
                         ResultRequete = await EoliaSQL.ExecuterRequeteSansReponse(Requete);
                         if (ResultRequete != -1)
                         {

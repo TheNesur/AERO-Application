@@ -321,9 +321,9 @@ namespace Eolia_IHM
             {
                 float portance, trainee;
                 string strPort = words[1];
-                string strTra = words[3];
-   
-                if (!float.TryParse(strPort.Replace(".",","), out portance) || !float.TryParse(strTra.Replace(".",","), out trainee))
+                string strTra = "1.14";
+                CultureInfo culture = CultureInfo.InvariantCulture;
+                if (!float.TryParse(strPort, NumberStyles.Float, culture, out portance) || !float.TryParse(strTra, NumberStyles.Float, culture, out trainee))
                 {
                     cmdBuff = "";
                     return;
