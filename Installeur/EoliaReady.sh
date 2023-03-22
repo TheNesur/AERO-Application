@@ -13,12 +13,14 @@ if [ "$answer" = "LOGICIEL" ] || [ "$answer" = "TOUT" ]; then
 	sudo apt-get install mono-complete mono-devel
 	
 	cp Eolia-IHM / -r
+	chown -R $SUDO_USER:$SUDO_USER /Eolia-IHM/
 	chmod a+rwx /Eolia-IHM/config/EoliaConfig.conf
+	
 	
 	if grep -q "eolia-launch" /home/$SUDO_USER/.bashrc; then
 		echo "alias existant\n"
 	else
-		echo "alias eolia-launch='sudo mono /Eolia-IHM/Eolia-IHM.exe'" >> /home/$SUDO_USER/.bashrc
+		echo "alias eolia-launch='mono /Eolia-IHM/Eolia-IHM.exe'" >> /home/$SUDO_USER/.bashrc
 		echo "Alias créée : 'eolia-launch'"
 		
 	fi
@@ -27,7 +29,7 @@ if [ "$answer" = "LOGICIEL" ] || [ "$answer" = "TOUT" ]; then
 		echo "Raccourci déja existant"
 	else
 		echo "Raccourci créé"
-		echo "[Desktop Entry]\nName=Eolia\nExec=sudo mono /Eolia-IHM/Eolia-IHM.exe\nTerminal=true\nType=Application" >> /home/$SUDO_USER/Desktop/Eolia.desktop
+		echo "[Desktop Entry]\nName=Eolia\nExec=mono /Eolia-IHM/Eolia-IHM.exe\nTerminal=true\nType=Application" >> /home/$SUDO_USER/Desktop/Eolia.desktop
 		chmod a+rwx /home/$SUDO_USER/Desktop/Eolia.desktop
 	fi
 fi
@@ -52,7 +54,7 @@ if [ "$answer" = "TOUT" ] || [ "$answer" = "LAMP" ]; then
 	echo  "\n Installation da la pile LAMP\n"
 
 	sudo apt-get install apache2 apache2-doc php php-mysql libapache2-mod-php mariadb-server 
-
+	usermod -a -G $SUDO_USER www-data
 
 
 	if [ -x "($command -v apache2)" ];
@@ -87,12 +89,16 @@ fi
 
 if [ "$answer" = "SITE" ] || [ "$answer" = "TOUT" ]; then
 	cp Eolia-site/* /var/www/html/ -r
+	chown -R $SUDO_USER:$SUDO_USER /var/www/html/ 
+	chmod -R g+rwx  /var/www/html
 fi
 
 if [ "$answer" = "TOUT" ] || [ "$answer" = "CONFIGSERIE" ]; then
 	echo  "\nChangement permissions port séries\n"
 
-	sudo usermod -a -G dialout $USER
+	sudo usermod -a -G dialout $SUDO_USER
+	
 
-	echo  "\n"$USER" est désormais l'utilisateur avec le quel il audra lancer Eolia"
+
+	echo  "\n"$SUDO_USER" est désormais l'utilisateur avec le quel il audra lancer Eolia"
 fi

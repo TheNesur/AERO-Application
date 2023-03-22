@@ -1,0 +1,11 @@
+[15:44:12] [LOGS] Initialisation des logs...[15:44:13] [OTHER] Configuration chargée
+[15:44:13] [OTHER] Configuration chargée
+[15:44:14] [SERIAL] Liaison série ESP32 démarrée
+[15:44:15] [MYSQL] Connecté a la BDD MYSQL
+[15:44:17] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[15:44:17] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:44:17] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:44:17] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[15:44:17] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[15:44:17] [CAMERA] Bouton start retour cam introuvable !!!
+[15:44:26] [SERIAL] Liaison série ESP32 arrêtée

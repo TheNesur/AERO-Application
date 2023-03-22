@@ -1,0 +1,5 @@
+[14:50:33] [LOGS] Initialisation des logs...[14:50:33] [OTHER] Configuration chargée
+[14:50:33] [OTHER] Configuration chargée
+[14:50:39] [SERIAL] Liaison série ESP32 démarrée
+[14:50:39] [MYSQL] Connecté a la BDD MYSQL
+[14:51:16] [SERIAL] Liaison série ESP32 arrêtée

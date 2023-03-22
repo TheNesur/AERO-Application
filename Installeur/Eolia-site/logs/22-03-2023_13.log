@@ -1,0 +1,12 @@
+[15:52:17] [LOGS] Initialisation des logs...[15:52:17] [OTHER] Nombre d'image : 1
+[15:52:17] [OTHER] Configuration chargée
+[15:52:17] [OTHER] Configuration chargée
+[15:52:19] [SERIAL] Liaison série ESP32 démarrée
+[15:52:19] [MYSQL] Connecté a la BDD MYSQL
+[15:52:22] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[15:52:22] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:52:22] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:52:22] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[15:52:22] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[15:52:22] [CAMERA] Bouton start retour cam introuvable !!! : /Eolia-IHM/Eolia-IHM.exe : /Eolia-IHM/Eolia-IHM.exe/ICON/
+[15:53:59] [SERIAL] Liaison série ESP32 arrêtée

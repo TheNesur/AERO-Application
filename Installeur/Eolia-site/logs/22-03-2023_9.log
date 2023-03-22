@@ -1,0 +1,13 @@
+[15:47:04] [LOGS] Initialisation des logs...[15:47:05] [OTHER] Configuration chargée
+[15:47:05] [OTHER] Configuration chargée
+[15:47:06] [SERIAL] Liaison série ESP32 démarrée
+[15:47:07] [MYSQL] Connecté a la BDD MYSQL
+[15:47:10] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[15:47:10] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:47:10] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:47:10] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[15:47:10] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[15:47:10] [CAMERA] Bouton start retour cam introuvable !!! : /home/eolia
+[15:47:12] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[15:47:12] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[15:47:13] [SERIAL] Liaison série ESP32 arrêtée

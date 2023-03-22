@@ -1,0 +1,510 @@
+[15:29:33] [LOGS] Initialisation des logs...[15:29:33] [OTHER] Nombre d'image : 8
+[15:29:34] [OTHER] Configuration chargée
+[15:29:34] [OTHER] Configuration chargée
+[15:29:35] [SERIAL] Liaison série ESP32 démarrée
+[15:29:35] [MYSQL] Connecté a la BDD MYSQL
+[15:29:37] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[15:29:37] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:29:37] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:29:37] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[15:29:37] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[15:29:37] [CAMERA] Bouton start retour cam introuvable !!!
+[15:29:44] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[15:29:44] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[15:29:45] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:29:45] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:29:45] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:29:45] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:29:45] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[22-03-2023--15-29-45] PORTANCE  TRAINEE .jpg
+[15:29:45] [OTHER] Nombre d'image : 9
+[15:30:01] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:30:01] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:30:01] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:30:02] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:30:02] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[22-03-2023--15-30-02] PORTANCE  TRAINEE .jpg
+[15:30:02] [OTHER] Nombre d'image : 10
+[15:30:14] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.55 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en g : 2; Trainee maximum en g : 2)
+
+[15:30:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:18] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:20] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:22] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:24] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:25] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:30:25] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:30:25] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:30:26] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:30:26] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[22-03-2023--15-30-26] PORTANCE 0 TRAINEE 0.jpg
+[15:30:26] [OTHER] Nombre d'image : 11
+[15:30:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:29] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.40
+
+[15:30:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[15:30:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:49] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:51] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:30:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[15:31:00] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:02] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:08] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:10] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:12] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:14] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:23] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:27] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:29] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[15:31:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:44] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.00
+
+[15:31:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:52] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:31:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:00] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:05] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:09] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:15] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:17] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:23] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:27] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:34] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:34] [SERIAL] Enregistrement mesure démarée
+[15:32:36] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:37] [SERIAL] Enregistrement mesure arrêtée
+[15:32:38] [DEBUG] Message affiché : Transmission de la session numéro 55 bien effectuée.
+[15:32:38] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:41] [SERIAL] Enregistrement mesure démarée
+[15:32:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:42] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:32:42] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:32:42] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:32:43] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:32:43] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG/22032023_153241/[22-03-2023--15-32-43] PORTANCE 0 TRAINEE 0.jpg
+[15:32:44] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:44] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:32:44] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:32:44] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:32:45] [SERIAL] Enregistrement mesure arrêtée
+[15:32:45] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:32:45] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG/22032023_153241/[22-03-2023--15-32-45] PORTANCE 0 TRAINEE 0.jpg
+[15:32:46] [DEBUG] Message affiché : Transmission de la session numéro 56 bien effectuée.
+[15:32:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:55] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:57] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:32:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:05] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:09] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:18] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:20] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:22] [SERIAL] Enregistrement mesure démarée
+[15:33:22] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:22] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:33:22] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:33:22] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:33:23] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:33:23] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG/22032023_153322/[22-03-2023--15-33-23] PORTANCE 0 TRAINEE 0.jpg
+[15:33:24] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:24] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[15:33:24] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:33:24] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:33:25] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[15:33:25] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG/22032023_153322/[22-03-2023--15-33-25] PORTANCE 0 TRAINEE 0.jpg
+[15:33:25] [SERIAL] Enregistrement mesure arrêtée
+[15:33:25] [DEBUG] Message affiché : Transmission de la session numéro 57 bien effectuée.
+[15:33:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:28] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:29] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[15:33:29] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[15:33:29] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[15:33:29] [CAMERA] [SAVE-VIDEO]Initialisation terminer
+[15:33:29] [CAMERA] [SAVE-VIDEO]Capture en cours...
+[15:33:29] [SERIAL] Enregistrement mesure démarée
+[15:33:29] [OTHER] Mémoire actuelle : 25819208 / 1 || TabVideo : 1/1
+[15:33:29] [OTHER] Mémoire actuelle : 26126424 / 1 || TabVideo : 2/2
+[15:33:29] [OTHER] Mémoire actuelle : 26433640 / 1 || TabVideo : 3/3
+[15:33:29] [OTHER] Mémoire actuelle : 26740856 / 1 || TabVideo : 4/4
+[15:33:29] [OTHER] Mémoire actuelle : 27048072 / 1 || TabVideo : 5/5
+[15:33:29] [OTHER] Mémoire actuelle : 27355288 / 1 || TabVideo : 6/6
+[15:33:29] [OTHER] Mémoire actuelle : 27662504 / 1 || TabVideo : 7/7
+[15:33:29] [OTHER] Mémoire actuelle : 27969720 / 1 || TabVideo : 8/8
+[15:33:29] [OTHER] Mémoire actuelle : 28276936 / 1 || TabVideo : 9/9
+[15:33:29] [CAMERA] [VIDEO]0 : 307200
+[15:33:29] [CAMERA] [VIDEO]1 : 307200
+[15:33:29] [CAMERA] [VIDEO]2 : 307200
+[15:33:29] [CAMERA] [VIDEO]3 : 307200
+[15:33:29] [CAMERA] [VIDEO]4 : 307200
+[15:33:29] [CAMERA] [VIDEO]5 : 307200
+[15:33:29] [CAMERA] [VIDEO]6 : 307200
+[15:33:29] [CAMERA] [VIDEO]7 : 307200
+[15:33:29] [CAMERA] [VIDEO]8 : 307200
+[15:33:29] [OTHER] Mémoire actuelle : 28584152 / 1 || TabVideo : 1/1
+[15:33:29] [OTHER] Mémoire actuelle : 28891368 / 1 || TabVideo : 2/2
+[15:33:30] [OTHER] Mémoire actuelle : 29198584 / 1 || TabVideo : 3/3
+[15:33:30] [OTHER] Mémoire actuelle : 29505800 / 1 || TabVideo : 4/4
+[15:33:30] [OTHER] Mémoire actuelle : 29813016 / 1 || TabVideo : 5/5
+[15:33:30] [OTHER] Mémoire actuelle : 30120232 / 1 || TabVideo : 6/6
+[15:33:30] [OTHER] Mémoire actuelle : 30427448 / 1 || TabVideo : 7/7
+[15:33:30] [OTHER] Mémoire actuelle : 30734664 / 1 || TabVideo : 8/8
+[15:33:30] [OTHER] Mémoire actuelle : 31041880 / 1 || TabVideo : 9/9
+[15:33:30] [CAMERA] [VIDEO]0 : 307200
+[15:33:30] [CAMERA] [VIDEO]1 : 307200
+[15:33:30] [CAMERA] [VIDEO]2 : 307200
+[15:33:30] [CAMERA] [VIDEO]3 : 307200
+[15:33:30] [CAMERA] [VIDEO]4 : 307200
+[15:33:30] [CAMERA] [VIDEO]5 : 307200
+[15:33:30] [CAMERA] [VIDEO]6 : 307200
+[15:33:30] [CAMERA] [VIDEO]7 : 307200
+[15:33:30] [CAMERA] [VIDEO]8 : 307200
+[15:33:30] [OTHER] Mémoire actuelle : 31349096 / 1 || TabVideo : 1/1
+[15:33:30] [OTHER] Mémoire actuelle : 31656312 / 1 || TabVideo : 2/2
+[15:33:30] [OTHER] Mémoire actuelle : 31963528 / 1 || TabVideo : 3/3
+[15:33:30] [OTHER] Mémoire actuelle : 32270744 / 1 || TabVideo : 4/4
+[15:33:30] [OTHER] Mémoire actuelle : 32690224 / 1 || TabVideo : 5/5
+[15:33:30] [OTHER] Mémoire actuelle : 9055448 / 1 || TabVideo : 6/6
+[15:33:30] [OTHER] Mémoire actuelle : 9362664 / 1 || TabVideo : 7/7
+[15:33:30] [OTHER] Mémoire actuelle : 9669880 / 1 || TabVideo : 8/8
+[15:33:30] [OTHER] Mémoire actuelle : 9977096 / 1 || TabVideo : 9/9
+[15:33:30] [CAMERA] [VIDEO]0 : 307200
+[15:33:30] [CAMERA] [VIDEO]1 : 307200
+[15:33:30] [CAMERA] [VIDEO]2 : 307200
+[15:33:30] [CAMERA] [VIDEO]3 : 307200
+[15:33:30] [CAMERA] [VIDEO]4 : 307200
+[15:33:30] [CAMERA] [VIDEO]5 : 307200
+[15:33:30] [CAMERA] [VIDEO]6 : 307200
+[15:33:30] [CAMERA] [VIDEO]7 : 307200
+[15:33:30] [CAMERA] [VIDEO]8 : 307200
+[15:33:30] [OTHER] Mémoire actuelle : 10284312 / 1 || TabVideo : 1/1
+[15:33:30] [OTHER] Mémoire actuelle : 10591528 / 1 || TabVideo : 2/2
+[15:33:30] [OTHER] Mémoire actuelle : 10898744 / 1 || TabVideo : 3/3
+[15:33:30] [OTHER] Mémoire actuelle : 11205960 / 1 || TabVideo : 4/4
+[15:33:30] [OTHER] Mémoire actuelle : 11513176 / 1 || TabVideo : 5/5
+[15:33:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:30] [OTHER] Mémoire actuelle : 11820392 / 1 || TabVideo : 6/6
+[15:33:30] [OTHER] Mémoire actuelle : 12127608 / 1 || TabVideo : 7/7
+[15:33:30] [OTHER] Mémoire actuelle : 12434824 / 1 || TabVideo : 8/8
+[15:33:30] [OTHER] Mémoire actuelle : 12742040 / 1 || TabVideo : 9/9
+[15:33:30] [CAMERA] [VIDEO]0 : 307200
+[15:33:30] [CAMERA] [VIDEO]1 : 307200
+[15:33:30] [CAMERA] [VIDEO]2 : 307200
+[15:33:30] [CAMERA] [VIDEO]3 : 307200
+[15:33:30] [CAMERA] [VIDEO]4 : 307200
+[15:33:30] [CAMERA] [VIDEO]5 : 307200
+[15:33:30] [CAMERA] [VIDEO]6 : 307200
+[15:33:30] [CAMERA] [VIDEO]7 : 307200
+[15:33:30] [CAMERA] [VIDEO]8 : 307200
+[15:33:30] [OTHER] Mémoire actuelle : 13049256 / 1 || TabVideo : 1/1
+[15:33:30] [OTHER] Mémoire actuelle : 13356472 / 1 || TabVideo : 2/2
+[15:33:30] [OTHER] Mémoire actuelle : 13663688 / 1 || TabVideo : 3/3
+[15:33:30] [OTHER] Mémoire actuelle : 13970904 / 1 || TabVideo : 4/4
+[15:33:30] [OTHER] Mémoire actuelle : 14278120 / 1 || TabVideo : 5/5
+[15:33:30] [OTHER] Mémoire actuelle : 14585336 / 1 || TabVideo : 6/6
+[15:33:31] [OTHER] Mémoire actuelle : 14892552 / 1 || TabVideo : 7/7
+[15:33:31] [OTHER] Mémoire actuelle : 15199768 / 1 || TabVideo : 8/8
+[15:33:31] [OTHER] Mémoire actuelle : 15506984 / 1 || TabVideo : 9/9
+[15:33:31] [CAMERA] [VIDEO]0 : 307200
+[15:33:31] [CAMERA] [VIDEO]1 : 307200
+[15:33:31] [CAMERA] [VIDEO]2 : 307200
+[15:33:31] [CAMERA] [VIDEO]3 : 307200
+[15:33:31] [CAMERA] [VIDEO]4 : 307200
+[15:33:31] [CAMERA] [VIDEO]5 : 307200
+[15:33:31] [CAMERA] [VIDEO]6 : 307200
+[15:33:31] [CAMERA] [VIDEO]7 : 307200
+[15:33:31] [CAMERA] [VIDEO]8 : 307200
+[15:33:31] [OTHER] Mémoire actuelle : 15814200 / 1 || TabVideo : 1/1
+[15:33:31] [OTHER] Mémoire actuelle : 16121416 / 1 || TabVideo : 2/2
+[15:33:31] [OTHER] Mémoire actuelle : 16428632 / 1 || TabVideo : 3/3
+[15:33:31] [OTHER] Mémoire actuelle : 16735848 / 1 || TabVideo : 4/4
+[15:33:31] [OTHER] Mémoire actuelle : 17043064 / 1 || TabVideo : 5/5
+[15:33:31] [OTHER] Mémoire actuelle : 17350280 / 1 || TabVideo : 6/6
+[15:33:31] [OTHER] Mémoire actuelle : 17657496 / 1 || TabVideo : 7/7
+[15:33:31] [OTHER] Mémoire actuelle : 17964712 / 1 || TabVideo : 8/8
+[15:33:31] [OTHER] Mémoire actuelle : 18271928 / 1 || TabVideo : 9/9
+[15:33:31] [CAMERA] [VIDEO]0 : 307200
+[15:33:31] [CAMERA] [VIDEO]1 : 307200
+[15:33:31] [CAMERA] [VIDEO]2 : 307200
+[15:33:31] [CAMERA] [VIDEO]3 : 307200
+[15:33:31] [CAMERA] [VIDEO]4 : 307200
+[15:33:31] [CAMERA] [VIDEO]5 : 307200
+[15:33:31] [CAMERA] [VIDEO]6 : 307200
+[15:33:31] [CAMERA] [VIDEO]7 : 307200
+[15:33:31] [CAMERA] [VIDEO]8 : 307200
+[15:33:31] [OTHER] Mémoire actuelle : 18579144 / 1 || TabVideo : 1/1
+[15:33:31] [OTHER] Mémoire actuelle : 18886360 / 1 || TabVideo : 2/2
+[15:33:31] [OTHER] Mémoire actuelle : 19193576 / 1 || TabVideo : 3/3
+[15:33:31] [OTHER] Mémoire actuelle : 19500792 / 1 || TabVideo : 4/4
+[15:33:31] [OTHER] Mémoire actuelle : 19808008 / 1 || TabVideo : 5/5
+[15:33:31] [OTHER] Mémoire actuelle : 20115224 / 1 || TabVideo : 6/6
+[15:33:31] [OTHER] Mémoire actuelle : 20422440 / 1 || TabVideo : 7/7
+[15:33:31] [OTHER] Mémoire actuelle : 20729656 / 1 || TabVideo : 8/8
+[15:33:31] [OTHER] Mémoire actuelle : 21036872 / 1 || TabVideo : 9/9
+[15:33:31] [CAMERA] [VIDEO]0 : 307200
+[15:33:31] [CAMERA] [VIDEO]1 : 307200
+[15:33:31] [CAMERA] [VIDEO]2 : 307200
+[15:33:31] [CAMERA] [VIDEO]3 : 307200
+[15:33:31] [CAMERA] [VIDEO]4 : 307200
+[15:33:31] [CAMERA] [VIDEO]5 : 307200
+[15:33:31] [CAMERA] [VIDEO]6 : 307200
+[15:33:31] [CAMERA] [VIDEO]7 : 307200
+[15:33:31] [CAMERA] [VIDEO]8 : 307200
+[15:33:31] [OTHER] Mémoire actuelle : 21344088 / 1 || TabVideo : 1/1
+[15:33:31] [OTHER] Mémoire actuelle : 21651304 / 1 || TabVideo : 2/2
+[15:33:31] [OTHER] Mémoire actuelle : 21958520 / 1 || TabVideo : 3/3
+[15:33:31] [OTHER] Mémoire actuelle : 22265736 / 1 || TabVideo : 4/4
+[15:33:31] [OTHER] Mémoire actuelle : 22572952 / 1 || TabVideo : 5/5
+[15:33:31] [OTHER] Mémoire actuelle : 22880168 / 1 || TabVideo : 6/6
+[15:33:31] [OTHER] Mémoire actuelle : 23187384 / 1 || TabVideo : 7/7
+[15:33:31] [OTHER] Mémoire actuelle : 23494600 / 1 || TabVideo : 8/8
+[15:33:32] [OTHER] Mémoire actuelle : 23801816 / 1 || TabVideo : 9/9
+[15:33:32] [CAMERA] [VIDEO]0 : 307200
+[15:33:32] [CAMERA] [VIDEO]1 : 307200
+[15:33:32] [CAMERA] [VIDEO]2 : 307200
+[15:33:32] [CAMERA] [VIDEO]3 : 307200
+[15:33:32] [CAMERA] [VIDEO]4 : 307200
+[15:33:32] [CAMERA] [VIDEO]5 : 307200
+[15:33:32] [CAMERA] [VIDEO]6 : 307200
+[15:33:32] [CAMERA] [VIDEO]7 : 307200
+[15:33:32] [CAMERA] [VIDEO]8 : 307200
+[15:33:32] [OTHER] Mémoire actuelle : 24109032 / 1 || TabVideo : 1/1
+[15:33:32] [OTHER] Mémoire actuelle : 24416248 / 1 || TabVideo : 2/2
+[15:33:32] [OTHER] Mémoire actuelle : 24723464 / 1 || TabVideo : 3/3
+[15:33:32] [OTHER] Mémoire actuelle : 25030680 / 1 || TabVideo : 4/4
+[15:33:32] [OTHER] Mémoire actuelle : 25337896 / 1 || TabVideo : 5/5
+[15:33:32] [OTHER] Mémoire actuelle : 25645112 / 1 || TabVideo : 6/6
+[15:33:32] [OTHER] Mémoire actuelle : 25958872 / 1 || TabVideo : 7/7
+[15:33:32] [OTHER] Mémoire actuelle : 8094616 / 1 || TabVideo : 8/8
+[15:33:32] [OTHER] Mémoire actuelle : 8401832 / 1 || TabVideo : 9/9
+[15:33:32] [CAMERA] [VIDEO]0 : 307200
+[15:33:32] [CAMERA] [VIDEO]1 : 307200
+[15:33:32] [CAMERA] [VIDEO]2 : 307200
+[15:33:32] [CAMERA] [VIDEO]3 : 307200
+[15:33:32] [CAMERA] [VIDEO]4 : 307200
+[15:33:32] [CAMERA] [VIDEO]5 : 307200
+[15:33:32] [CAMERA] [VIDEO]6 : 307200
+[15:33:32] [CAMERA] [VIDEO]7 : 307200
+[15:33:32] [CAMERA] [VIDEO]8 : 307200
+[15:33:32] [OTHER] Mémoire actuelle : 8709048 / 1 || TabVideo : 1/1
+[15:33:32] [OTHER] Mémoire actuelle : 9016264 / 1 || TabVideo : 2/2
+[15:33:32] [OTHER] Mémoire actuelle : 9323480 / 1 || TabVideo : 3/3
+[15:33:32] [OTHER] Mémoire actuelle : 9630696 / 1 || TabVideo : 4/4
+[15:33:32] [OTHER] Mémoire actuelle : 9937912 / 1 || TabVideo : 5/5
+[15:33:32] [OTHER] Mémoire actuelle : 10245128 / 1 || TabVideo : 6/6
+[15:33:32] [OTHER] Mémoire actuelle : 10552344 / 1 || TabVideo : 7/7
+[15:33:32] [OTHER] Mémoire actuelle : 10859560 / 1 || TabVideo : 8/8
+[15:33:32] [OTHER] Mémoire actuelle : 11166776 / 1 || TabVideo : 9/9
+[15:33:32] [CAMERA] [VIDEO]0 : 307200
+[15:33:32] [CAMERA] [VIDEO]1 : 307200
+[15:33:32] [CAMERA] [VIDEO]2 : 307200
+[15:33:32] [CAMERA] [VIDEO]3 : 307200
+[15:33:32] [CAMERA] [VIDEO]4 : 307200
+[15:33:32] [CAMERA] [VIDEO]5 : 307200
+[15:33:32] [CAMERA] [VIDEO]6 : 307200
+[15:33:32] [CAMERA] [VIDEO]7 : 307200
+[15:33:32] [CAMERA] [VIDEO]8 : 307200
+[15:33:32] [OTHER] Mémoire actuelle : 11473992 / 1 || TabVideo : 1/1
+[15:33:32] [OTHER] Mémoire actuelle : 11781208 / 1 || TabVideo : 2/2
+[15:33:32] [OTHER] Mémoire actuelle : 12088424 / 1 || TabVideo : 3/3
+[15:33:32] [OTHER] Mémoire actuelle : 12395640 / 1 || TabVideo : 4/4
+[15:33:32] [OTHER] Mémoire actuelle : 12702856 / 1 || TabVideo : 5/5
+[15:33:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:32] [OTHER] Mémoire actuelle : 13010072 / 1 || TabVideo : 6/6
+[15:33:32] [OTHER] Mémoire actuelle : 13317288 / 1 || TabVideo : 7/7
+[15:33:32] [OTHER] Mémoire actuelle : 13624504 / 1 || TabVideo : 8/8
+[15:33:32] [OTHER] Mémoire actuelle : 13931720 / 1 || TabVideo : 9/9
+[15:33:32] [CAMERA] [VIDEO]0 : 307200
+[15:33:32] [CAMERA] [VIDEO]1 : 307200
+[15:33:32] [CAMERA] [VIDEO]2 : 307200
+[15:33:32] [CAMERA] [VIDEO]3 : 307200
+[15:33:32] [CAMERA] [VIDEO]4 : 307200
+[15:33:32] [CAMERA] [VIDEO]5 : 307200
+[15:33:32] [CAMERA] [VIDEO]6 : 307200
+[15:33:32] [CAMERA] [VIDEO]7 : 307200
+[15:33:32] [CAMERA] [VIDEO]8 : 307200
+[15:33:32] [OTHER] Mémoire actuelle : 14238936 / 1 || TabVideo : 1/1
+[15:33:32] [OTHER] Mémoire actuelle : 14546152 / 1 || TabVideo : 2/2
+[15:33:32] [OTHER] Mémoire actuelle : 14853368 / 1 || TabVideo : 3/3
+[15:33:33] [OTHER] Mémoire actuelle : 15160584 / 1 || TabVideo : 4/4
+[15:33:33] [OTHER] Mémoire actuelle : 15467800 / 1 || TabVideo : 5/5
+[15:33:33] [OTHER] Mémoire actuelle : 15775016 / 1 || TabVideo : 6/6
+[15:33:33] [OTHER] Mémoire actuelle : 16082232 / 1 || TabVideo : 7/7
+[15:33:33] [OTHER] Mémoire actuelle : 16389448 / 1 || TabVideo : 8/8
+[15:33:33] [OTHER] Mémoire actuelle : 16696664 / 1 || TabVideo : 9/9
+[15:33:33] [CAMERA] [VIDEO]0 : 307200
+[15:33:33] [CAMERA] [VIDEO]1 : 307200
+[15:33:33] [CAMERA] [VIDEO]2 : 307200
+[15:33:33] [CAMERA] [VIDEO]3 : 307200
+[15:33:33] [CAMERA] [VIDEO]4 : 307200
+[15:33:33] [CAMERA] [VIDEO]5 : 307200
+[15:33:33] [CAMERA] [VIDEO]6 : 307200
+[15:33:33] [CAMERA] [VIDEO]7 : 307200
+[15:33:33] [CAMERA] [VIDEO]8 : 307200
+[15:33:33] [OTHER] Mémoire actuelle : 17003880 / 1 || TabVideo : 1/1
+[15:33:33] [OTHER] Mémoire actuelle : 17311096 / 1 || TabVideo : 2/2
+[15:33:33] [OTHER] Mémoire actuelle : 17618312 / 1 || TabVideo : 3/3
+[15:33:33] [OTHER] Mémoire actuelle : 17925528 / 1 || TabVideo : 4/4
+[15:33:33] [OTHER] Mémoire actuelle : 18232744 / 1 || TabVideo : 5/5
+[15:33:33] [OTHER] Mémoire actuelle : 18539960 / 1 || TabVideo : 6/6
+[15:33:33] [OTHER] Mémoire actuelle : 18847176 / 1 || TabVideo : 7/7
+[15:33:33] [OTHER] Mémoire actuelle : 19154392 / 1 || TabVideo : 8/8
+[15:33:33] [OTHER] Mémoire actuelle : 19461608 / 1 || TabVideo : 9/9
+[15:33:33] [CAMERA] [VIDEO]0 : 307200
+[15:33:33] [CAMERA] [VIDEO]1 : 307200
+[15:33:33] [CAMERA] [VIDEO]2 : 307200
+[15:33:33] [CAMERA] [VIDEO]3 : 307200
+[15:33:33] [CAMERA] [VIDEO]4 : 307200
+[15:33:33] [CAMERA] [VIDEO]5 : 307200
+[15:33:33] [CAMERA] [VIDEO]6 : 307200
+[15:33:33] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[15:33:33] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[15:33:33] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[15:33:33] [CAMERA] [VIDEO]7 : 307200
+[15:33:33] [CAMERA] [SAVE-VIDEO]Enregistrement des bits en cours...
+[15:33:33] [CAMERA] [SAVE-VIDEO]Impossible d'enregistrer la vidéo. : zqdqzdqz : 2
+[15:33:33] [SERIAL] Enregistrement mesure arrêtée
+[15:33:33] [CAMERA] [VIDEO]8 : 307200
+[15:33:33] [OTHER] Mémoire actuelle : 19771032 / 1 || TabVideo : 1/1
+[15:33:34] [DEBUG] Message affiché : Transmission de la session numéro 58 bien effectuée.
+[15:33:34] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:36] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[15:33:38] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[15:33:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[15:33:41] [SERIAL] Transmission mesure arrêtée
+[15:33:41] [SERIAL] Liaison série ESP32 arrêtée
