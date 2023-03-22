@@ -21,7 +21,7 @@ namespace Eolia_IHM.Menu
         //private EoliaCam cameraEolia = new EoliaCam();
         private String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
         private String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
-        private String directoryIcon = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/ICON/";
+        private String directoryIcon = AppDomain.CurrentDomain.BaseDirectory + "/ICON/";
         private bool bigScreenActived = false;
 
         private bool savePictureAvecMesure = true;
@@ -226,7 +226,7 @@ namespace Eolia_IHM.Menu
                 //buttonActiverRetourCamera.Text = "Activée la camera";
                 if (iconIsExist("buttonStopBig.png"))
                     buttonActiverRetourCamera.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopBig.png");
-                else EoliaLogs.Write("Bouton start retour cam introuvable !!!", EoliaLogs.Types.CAMERA);
+                else EoliaLogs.Write("Bouton start retour cam introuvable !!! : " + directoryIcon, EoliaLogs.Types.CAMERA);
                 if (File.Exists("ICON/buttonStopBig.png")) EoliaLogs.Write("OUIIIIIIIIIIII", EoliaLogs.Types.CAMERA);
 
 

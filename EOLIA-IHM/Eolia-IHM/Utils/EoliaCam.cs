@@ -27,6 +27,13 @@ namespace Eolia_IHM.Utils
         private static String nameFileVideo = null;
         private static DriveInfo driveInfo = new DriveInfo("/");
 
+        private static Iot.Device.Media.PixelFormat formatImage = Iot.Device.Media.PixelFormat.JPEG;
+        private static Iot.Device.Media.PixelFormat formatVideo = Iot.Device.Media.PixelFormat.H264;
+
+        private static String extensionImage = "jpg";
+        private static String extensionVideo = "h264";
+
+
 
         private static byte countImageVideo = 0;
 
@@ -188,7 +195,7 @@ namespace Eolia_IHM.Utils
                             {
                                 fileStreamVideo.Write(tabVideo[i], 0, tabVideo[i].Length);
 
-                                EoliaLogs.Write($"{i} : " + tabVideo[i].Length, EoliaLogs.Types.CAMERA, "VIDEO");
+                                //EoliaLogs.Write($"{i} : " + tabVideo[i].Length, EoliaLogs.Types.CAMERA, "VIDEO");
                             }
                             fileStreamVideo.Close();
 
@@ -251,7 +258,7 @@ namespace Eolia_IHM.Utils
                         //}                            er = 14;
 
                         countImageVideo++;
-                        EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count + "/" + countImageVideo); 
+                        //EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count + "/" + countImageVideo); 
                         
                     }
                     
@@ -286,7 +293,7 @@ namespace Eolia_IHM.Utils
                 pictureBox = picture;
 
 
-                if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG) != true) return 2;
+                if (initializeCamera(formatImage) != true) return 2;
 
                 streamStart = true;
                 captureIsStart = true;
@@ -345,17 +352,17 @@ namespace Eolia_IHM.Utils
                 if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
                 //String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
-                if (initializeCamera(Iot.Device.Media.PixelFormat.JPEG, false) != true) return 2;
+                if (initializeCamera(formatImage, false) != true) return 2;
 
                 if (portance == null && portance == null)
                 {
-                    if (EoliaMes.ObtenirPortance() == null) portance = "0";
+                    if (EoliaMes.ObtenirPortance() == "") portance = "NULL";
                     else portance = EoliaMes.ObtenirPortance();
 
-                    if (EoliaMes.ObtenirTrainee() == null) trainee = "0";
+                    if (EoliaMes.ObtenirTrainee() == "") trainee = "NULL";
                     else trainee = EoliaMes.ObtenirTrainee();
                 }
-                String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
+                String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage;
 
                 if (saveMesureInImage == false)
                 {
@@ -388,7 +395,7 @@ namespace Eolia_IHM.Utils
 
                 }
                 //destructCamera();
-                EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
+                EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
 
                 return 0;
@@ -415,7 +422,7 @@ namespace Eolia_IHM.Utils
                 //if (folder == null) folder = folderVIDEO;
                 //if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
-                if (initializeCamera(Iot.Device.Media.PixelFormat.H264) != true) return 2;
+                if (initializeCamera(formatVideo) != true) return 2;
 
                 streamStart = true;
                 captureIsStart = true;
@@ -426,7 +433,7 @@ namespace Eolia_IHM.Utils
                 EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 //checkInitializeCamera();
 
-                nameFileVideo = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss]") + ".H264";
+                nameFileVideo = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss]") + "." + extensionVideo;
 
                 if (FolderVideo == null)
                 {
@@ -500,13 +507,13 @@ namespace Eolia_IHM.Utils
                 typeCapture = CameraTypes.NOTCAPTURE;
                 er = 0;
 
-                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFileVideo + " : zqdqzdqz : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFileVideo, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return 0;
             }
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo." + " : zqdqzdqz : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Impossible d'enregistrer la vidéo." + " |  erreur : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return -1;
             }
         }
