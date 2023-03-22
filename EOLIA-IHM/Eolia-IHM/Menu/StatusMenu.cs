@@ -127,15 +127,19 @@ namespace Eolia_IHM.Menu
             if (EoliaReg.LiaisonSerieReg())
             {
                 EoliaReg.FermerLiaisonSerieCapteur();
-                if (!EoliaReg.LiaisonSerieReg())
+                if (!EoliaReg.LiaisonSerieReg()) { 
                     buttonLiaisonRegulateur.Text = "Démarrer liaison régulateur";
-
+                    liaisonRegulateurDemarrer = false;
+                }
             }
             else
             {
                 EoliaReg.InitialiserLiaisonSerieCapteur(ConfigurationMenu.PortSerieRegulateur, labelStatutRegulateur);
                 if (EoliaReg.LiaisonSerieReg())
+                {
                     buttonLiaisonRegulateur.Text = "Arrêter liaison régulateur";
+                    liaisonRegulateurDemarrer = true;
+                }
             }
 
         }

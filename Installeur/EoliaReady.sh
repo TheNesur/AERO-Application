@@ -91,6 +91,8 @@ if [ "$answer" = "SITE" ] || [ "$answer" = "TOUT" ]; then
 	cp Eolia-site/* /var/www/html/ -r
 	chown -R $SUDO_USER:$SUDO_USER /var/www/html/ 
 	chmod -R g+rwx  /var/www/html
+	mkdir /var/www/html/IMG
+	mkdir /var/www/html/VIDEO
 	setfacl -d -m g:$SUDO_USER:rwx /var/www/html/IMG
 	setfacl -R -m g:$SUDO_USER:rwx /var/www/html/IMG
 	setfacl -d -m g:$SUDO_USER:rwx /var/www/html/VIDEO

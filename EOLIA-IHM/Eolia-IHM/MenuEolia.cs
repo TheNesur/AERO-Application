@@ -1,5 +1,6 @@
 ﻿using Eolia_IHM.Menu;
 using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -231,6 +232,10 @@ namespace Eolia_IHM
                     EoliaMes.ArreterTransMes();
                 EoliaMes.FermerLiaisonSerieCapteur();
             }
+
+            if (EoliaReg.LiaisonSerieReg())
+                EoliaReg.FermerLiaisonSerieCapteur();
+
             Application.Restart();
             Environment.Exit(0);
         }
