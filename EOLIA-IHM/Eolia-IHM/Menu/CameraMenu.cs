@@ -49,7 +49,6 @@ namespace Eolia_IHM.Menu
 
         private void buttonRemiseAZeroDuFiltre_Click(object sender, EventArgs e)
         {
-
             comboBoxFiltreImageJour.ResetText();
             comboBoxFiltreImageMois.ResetText();
             comboBoxFiltreImageAnnee.ResetText();
@@ -58,9 +57,7 @@ namespace Eolia_IHM.Menu
             comboBoxFiltreImageMinute.ResetText();
             comboBoxFiltreImageSeconde.ResetText();
 
-
             reloadDirectoryImage();
-
         }
 
         // Evenement des comboBox si ils changent
@@ -206,7 +203,6 @@ namespace Eolia_IHM.Menu
                     Console.WriteLine(ee.Message);
                     return -1;
                 }
-
                 //});
 
                 //return er;
@@ -277,10 +273,7 @@ namespace Eolia_IHM.Menu
                         buttonPrendrePhoto.Invoke((MethodInvoker)delegate { buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png"); });
                     //buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png");
                 });
-
             }
-
-
         }
 
         private void buttonLancerEnregistrementVideo_Click(object sender, EventArgs e)
