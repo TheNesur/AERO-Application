@@ -53,7 +53,7 @@ namespace Eolia_IHM.Menu
             this.checkBoxAutoReload = new System.Windows.Forms.CheckBox();
             this.buttonMoins = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.checkBoxSaveVitesse = new System.Windows.Forms.CheckBox();
             this.labelVitesseSouhaitée = new System.Windows.Forms.Label();
             this.labelVitesseIntantanee = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -213,7 +213,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelValeurMoyenneTrainee.AutoSize = true;
             this.labelValeurMoyenneTrainee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValeurMoyenneTrainee.Location = new System.Drawing.Point(270, 101);
+            this.labelValeurMoyenneTrainee.Location = new System.Drawing.Point(270, 98);
             this.labelValeurMoyenneTrainee.Name = "labelValeurMoyenneTrainee";
             this.labelValeurMoyenneTrainee.Size = new System.Drawing.Size(40, 25);
             this.labelValeurMoyenneTrainee.TabIndex = 8;
@@ -233,7 +233,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelNombreMesure.AutoSize = true;
             this.labelNombreMesure.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNombreMesure.Location = new System.Drawing.Point(200, 50);
+            this.labelNombreMesure.Location = new System.Drawing.Point(196, 49);
             this.labelNombreMesure.Name = "labelNombreMesure";
             this.labelNombreMesure.Size = new System.Drawing.Size(40, 25);
             this.labelNombreMesure.TabIndex = 6;
@@ -243,7 +243,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelNomSession.AutoSize = true;
             this.labelNomSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNomSession.Location = new System.Drawing.Point(196, 28);
+            this.labelNomSession.Location = new System.Drawing.Point(189, 25);
             this.labelNomSession.Name = "labelNomSession";
             this.labelNomSession.Size = new System.Drawing.Size(40, 25);
             this.labelNomSession.TabIndex = 5;
@@ -253,7 +253,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelValValT.AutoSize = true;
             this.labelValValT.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelValValT.Location = new System.Drawing.Point(15, 101);
+            this.labelValValT.Location = new System.Drawing.Point(5, 99);
             this.labelValValT.Name = "labelValValT";
             this.labelValValT.Size = new System.Drawing.Size(285, 25);
             this.labelValValT.TabIndex = 4;
@@ -263,7 +263,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelValValP.AutoSize = true;
             this.labelValValP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelValValP.Location = new System.Drawing.Point(15, 74);
+            this.labelValValP.Location = new System.Drawing.Point(5, 72);
             this.labelValValP.Name = "labelValValP";
             this.labelValValP.Size = new System.Drawing.Size(296, 25);
             this.labelValValP.TabIndex = 3;
@@ -274,7 +274,7 @@ namespace Eolia_IHM.Menu
             this.labelEtatSession.AutoSize = true;
             this.labelEtatSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.labelEtatSession.ForeColor = System.Drawing.Color.Green;
-            this.labelEtatSession.Location = new System.Drawing.Point(47, 129);
+            this.labelEtatSession.Location = new System.Drawing.Point(119, 135);
             this.labelEtatSession.Name = "labelEtatSession";
             this.labelEtatSession.Size = new System.Drawing.Size(203, 25);
             this.labelEtatSession.TabIndex = 2;
@@ -284,7 +284,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelqzdqz.AutoSize = true;
             this.labelqzdqz.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.labelqzdqz.Location = new System.Drawing.Point(15, 50);
+            this.labelqzdqz.Location = new System.Drawing.Point(5, 48);
             this.labelqzdqz.Name = "labelqzdqz";
             this.labelqzdqz.Size = new System.Drawing.Size(189, 25);
             this.labelqzdqz.TabIndex = 1;
@@ -294,7 +294,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelsegf.AutoSize = true;
             this.labelsegf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelsegf.Location = new System.Drawing.Point(15, 28);
+            this.labelsegf.Location = new System.Drawing.Point(5, 25);
             this.labelsegf.Name = "labelsegf";
             this.labelsegf.Size = new System.Drawing.Size(187, 25);
             this.labelsegf.TabIndex = 0;
@@ -306,7 +306,7 @@ namespace Eolia_IHM.Menu
             this.groupBoxReg.Controls.Add(this.checkBoxAutoReload);
             this.groupBoxReg.Controls.Add(this.buttonMoins);
             this.groupBoxReg.Controls.Add(this.buttonPlus);
-            this.groupBoxReg.Controls.Add(this.checkBox1);
+            this.groupBoxReg.Controls.Add(this.checkBoxSaveVitesse);
             this.groupBoxReg.Controls.Add(this.labelVitesseSouhaitée);
             this.groupBoxReg.Controls.Add(this.labelVitesseIntantanee);
             this.groupBoxReg.Controls.Add(this.label3);
@@ -359,16 +359,17 @@ namespace Eolia_IHM.Menu
             this.buttonPlus.UseVisualStyleBackColor = false;
             this.buttonPlus.Click += new System.EventHandler(this.buttonPlus_Click);
             // 
-            // checkBox1
+            // checkBoxSaveVitesse
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.checkBox1.Location = new System.Drawing.Point(11, 75);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(313, 29);
-            this.checkBox1.TabIndex = 2;
-            this.checkBox1.Text = "Enregistrer vitesse avec session";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBoxSaveVitesse.AutoSize = true;
+            this.checkBoxSaveVitesse.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.checkBoxSaveVitesse.Location = new System.Drawing.Point(11, 75);
+            this.checkBoxSaveVitesse.Name = "checkBoxSaveVitesse";
+            this.checkBoxSaveVitesse.Size = new System.Drawing.Size(313, 29);
+            this.checkBoxSaveVitesse.TabIndex = 2;
+            this.checkBoxSaveVitesse.Text = "Enregistrer vitesse avec session";
+            this.checkBoxSaveVitesse.UseVisualStyleBackColor = true;
+            this.checkBoxSaveVitesse.CheckStateChanged += new System.EventHandler(this.checkBoxSaveVitesse_CheckStateChanged);
             // 
             // labelVitesseSouhaitée
             // 
@@ -504,7 +505,7 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.CheckBox photoParam;
         private System.Windows.Forms.Button buttonMoins;
         private System.Windows.Forms.Button buttonPlus;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBoxAutoReload;
+        private System.Windows.Forms.CheckBox checkBoxSaveVitesse;
     }
 }

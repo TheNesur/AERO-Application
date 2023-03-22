@@ -47,7 +47,7 @@ namespace Eolia_IHM.Menu
 
         private void buttonLancerEnregistrementMesure_Click(object sender, EventArgs e)
         {
-            if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession, photoParam.Checked,videoParam.Checked))
+            if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession, photoParam.Checked,videoParam.Checked, checkBoxAutoReload.Checked))
             {
                 if (EoliaCam.CameraExist())
                 {
@@ -131,7 +131,7 @@ namespace Eolia_IHM.Menu
         {
             if (EoliaReg.LiaisonSerieReg())
             {
-                if (groupBoxReg.Enabled == false)
+                if (groupBoxReg.Enabled)
                 {
                     EoliaReg.SaveLogBox(textBoxLogMesure);
                     groupBoxReg.Enabled = true;
@@ -139,7 +139,8 @@ namespace Eolia_IHM.Menu
             }
             else
             {
-                groupBoxReg.Enabled = false;
+                if(!groupBoxReg.Enabled)
+                    groupBoxReg.Enabled = false;
             }
         }
 
@@ -153,13 +154,34 @@ namespace Eolia_IHM.Menu
 
         private async void buttonPlus_Click(object sender, EventArgs e)
         {
-            float actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            float actuelDesir;
+            if (checkBoxAutoReload.Checked)
+            {
+                actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            }
+            else {
+                try { 
+                    actuelDesir = await EoliaReg.readVitesseAsync();
+                }catch(Exception ex)
+                {
+                    textBoxLogMesure.AppendText("Erreur "+ex.Message+" (regulateur) \r\n");
+                    return;
+                }
+            }
             bool result = false;
             if (actuelDesir == float.NaN)
             {
-                result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() + 5);
+                try { 
+                    result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() + 5);
+                }
+                catch (Exception ex)
+                {
+                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    return;
+                }
                 if (result)
                 {
+
                     textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
                 }
                 else
@@ -177,13 +199,38 @@ namespace Eolia_IHM.Menu
 
         private async void buttonMoins_Click_1(object sender, EventArgs e)
         {
-            float actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            float actuelDesir;
+            if (checkBoxAutoReload.Checked)
+            {
+                actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            }
+            else
+            {
+                try
+                {
+                    actuelDesir = await EoliaReg.readVitesseAsync();
+                }
+                catch (Exception ex)
+                {
+                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    return;
+                }
+            }
             bool result = false;
             if (actuelDesir == float.NaN)
             {
-                result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() - 5);
+                try
+                {
+                    result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() - 5);
+                }
+                catch (Exception ex)
+                {
+                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    return;
+                }
                 if (result)
                 {
+
                     textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
                 }
                 else
@@ -195,6 +242,25 @@ namespace Eolia_IHM.Menu
             {
                 textBoxLogMesure.AppendText("Erreur (regulateur)\r\n");
             }
+        }
+
+        private void checkBoxSaveVitesse_CheckStateChanged(object sender, EventArgs e)
+        {
+            if (checkBoxSaveVitesse.Checked)
+            {
+                if (!checkBoxAutoReload.Checked)
+                {
+                    checkBoxAutoReload.Checked = true;
+                    checkBoxAutoReload.Enabled = false;
+                }
+            }
+            else
+            {
+                if (checkBoxAutoReload.Enabled)
+                    checkBoxAutoReload.Enabled = true;
+
+            }
+
         }
     }
 }

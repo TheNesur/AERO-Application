@@ -36,6 +36,8 @@ namespace Eolia_IHM
 
         private static List<float> ListeMesureTrainee = null;
         private static List<float> ListeMesurePortance = null;
+        private static List<float> ListeVitesse = null;
+
         private static bool EnregistreMesure = false;
         private static Label LabelMesTrainee = null;
         private static Label LabelMesPortance = null;
@@ -45,6 +47,7 @@ namespace Eolia_IHM
         private static Label LabelValMoyennePortance = null;
         private static Label LabelNombreDeMesure = null;
         private static Label LabelNomSessionMesure = null;
+        private static bool SauveVitesse;
         private static string NomSessionMesure = null;
         private static Label LabelEtatSession = null;
         private static bool photo = false;
@@ -192,7 +195,7 @@ namespace Eolia_IHM
         }
 
 
-        public static bool EnregistrementMes(Label labelValMoyenneTrainee, Label labelValMoyennePortance, Label labelNomSessionMesure, Label labelNombreDeMesure, Label labelEtatSession, bool prendrePhoto, bool prendreVideo)
+        public static bool EnregistrementMes(Label labelValMoyenneTrainee, Label labelValMoyennePortance, Label labelNomSessionMesure, Label labelNombreDeMesure, Label labelEtatSession, bool prendrePhoto, bool prendreVideo, bool prendreVitesse)
         {
             if (!EnregistreMesure)
             {
@@ -200,6 +203,8 @@ namespace Eolia_IHM
                 ListeMesurePortance = null;
                 ListeMesurePortance = new List<float>();
                 ListeMesureTrainee = new List<float>();
+                ListeVitesse= new List<float>();
+
                 LabelNomSessionMesure = labelNomSessionMesure;
                 LabelNombreDeMesure = labelNombreDeMesure;
                 LabelValMoyennePortance = labelValMoyennePortance;
@@ -217,6 +222,8 @@ namespace Eolia_IHM
                 else {                 
                     photo = prendrePhoto;
                 }
+
+                SauveVitesse = prendreVitesse;
 
 
 
@@ -343,6 +350,8 @@ namespace Eolia_IHM
 
                     if (photo)
                         EoliaCam.SavePicture(directoryImage + RepEnregistrement, true);
+                    if (SauveVitesse)
+                        ListeVitesse.Add(EoliaReg.obtenirVitesse());
 
 
 

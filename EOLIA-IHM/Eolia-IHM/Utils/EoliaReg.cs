@@ -217,7 +217,15 @@ namespace Eolia_IHM.Utils
         }
         public static bool ParamVitesse(float vitesse)
         {
-            return ModBusEcrireFloat(0x1, 0x3100, vitesse);
+            if(ModBusEcrireFloat(0x1, 0x3100, vitesse))
+            {
+                vitessedesir = vitesse;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
         public static float obtenirVitesse()
@@ -344,25 +352,14 @@ namespace Eolia_IHM.Utils
         }
 
         
-        public static void AutoReloadVitesse(int ms , Label Vitesse)
+
+        public static float readVitesse()
+        { 
+                return vitesse = ObtenirConsigne();
+        }
+        public static async Task<float> readVitesseAsync()
         {
-            updateform = true;
-            Task.Run(() => {
-                while (updateform)
-                {
-                    float vitesse = ObtenirVitesse();
-                    try
-                    {
-                        Vitesse.Invoke(new Action(() => Vitesse.Text = vitesse.ToString()));
-                    }catch(Exception e)
-                    {
-                        if(logtxtbox != null) logtxtbox.Invoke(new Action(() => logtxtbox.AppendText("[Reg]" + e.Message + "`\r\n\r\n")));
-                    }
-                    /* Vitesse.text = vitesse; */
-                    Console.WriteLine(vitesse);
-                    Thread.Sleep(ms);
-                }
-            });
+            return await Task.Run(() => ObtenirConsigne());
         }
 
         public static void AutoReloadAll(int ms, Label Vitesse, Label Consigne)
@@ -390,20 +387,7 @@ namespace Eolia_IHM.Utils
             });
         }
 
-        public static void AutoReloadConsigne(int ms, Label Consigne)
-        {
-            updateform = true;
-            Task.Run(() => {
-                while (updateform)
-                {
-                    float vitesse = obtenirVitesseVoulue();
-                    Consigne.Invoke(new Action(() => Consigne.Text = vitesse.ToString()));
-                    /* Vitesse.text = vitesse; */
-                    Console.WriteLine(vitesse);
-                    Thread.Sleep(ms);
-                }
-            });
-        }
+        
 
 
 
