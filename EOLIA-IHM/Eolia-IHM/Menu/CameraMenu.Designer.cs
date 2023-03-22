@@ -63,10 +63,10 @@ namespace Eolia_IHM.Menu
             // labelAucuneImageTrouvee
             // 
             this.labelAucuneImageTrouvee.AutoSize = true;
-            this.labelAucuneImageTrouvee.Font = new System.Drawing.Font("Montserrat ExtraBold", 19F);
+            this.labelAucuneImageTrouvee.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F);
             this.labelAucuneImageTrouvee.Location = new System.Drawing.Point(60, 180);
             this.labelAucuneImageTrouvee.Name = "labelAucuneImageTrouvee";
-            this.labelAucuneImageTrouvee.Size = new System.Drawing.Size(333, 36);
+            this.labelAucuneImageTrouvee.Size = new System.Drawing.Size(268, 30);
             this.labelAucuneImageTrouvee.TabIndex = 0;
             this.labelAucuneImageTrouvee.Text = "Aucune image trouvée";
             // 
@@ -123,7 +123,7 @@ namespace Eolia_IHM.Menu
             this.buttonLancerEnregistrementVideo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonLancerEnregistrementVideo.BackgroundImage")));
             this.buttonLancerEnregistrementVideo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonLancerEnregistrementVideo.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonLancerEnregistrementVideo.Font = new System.Drawing.Font("Montserrat ExtraBold", 10F);
+            this.buttonLancerEnregistrementVideo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.buttonLancerEnregistrementVideo.Location = new System.Drawing.Point(123, 284);
             this.buttonLancerEnregistrementVideo.Margin = new System.Windows.Forms.Padding(0);
             this.buttonLancerEnregistrementVideo.Name = "buttonLancerEnregistrementVideo";
@@ -138,7 +138,7 @@ namespace Eolia_IHM.Menu
             this.buttonActiverRetourCamera.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonActiverRetourCamera.BackgroundImage")));
             this.buttonActiverRetourCamera.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonActiverRetourCamera.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonActiverRetourCamera.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
+            this.buttonActiverRetourCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.buttonActiverRetourCamera.Location = new System.Drawing.Point(22, 284);
             this.buttonActiverRetourCamera.Margin = new System.Windows.Forms.Padding(0);
             this.buttonActiverRetourCamera.Name = "buttonActiverRetourCamera";
@@ -153,7 +153,7 @@ namespace Eolia_IHM.Menu
             this.buttonRemiseAZeroDuFiltre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonRemiseAZeroDuFiltre.BackgroundImage")));
             this.buttonRemiseAZeroDuFiltre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonRemiseAZeroDuFiltre.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonRemiseAZeroDuFiltre.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
+            this.buttonRemiseAZeroDuFiltre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.buttonRemiseAZeroDuFiltre.Location = new System.Drawing.Point(357, 284);
             this.buttonRemiseAZeroDuFiltre.Margin = new System.Windows.Forms.Padding(0);
             this.buttonRemiseAZeroDuFiltre.Name = "buttonRemiseAZeroDuFiltre";
@@ -168,7 +168,7 @@ namespace Eolia_IHM.Menu
             this.buttonPrendrePhoto.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonPrendrePhoto.BackgroundImage")));
             this.buttonPrendrePhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonPrendrePhoto.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonPrendrePhoto.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
+            this.buttonPrendrePhoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.buttonPrendrePhoto.Location = new System.Drawing.Point(222, 284);
             this.buttonPrendrePhoto.Margin = new System.Windows.Forms.Padding(0);
             this.buttonPrendrePhoto.Name = "buttonPrendrePhoto";
@@ -530,7 +530,7 @@ namespace Eolia_IHM.Menu
             this.buttonActualiserDossier.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonActualiserDossier.BackgroundImage")));
             this.buttonActualiserDossier.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonActualiserDossier.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonActualiserDossier.Font = new System.Drawing.Font("Montserrat ExtraBold", 13F);
+            this.buttonActualiserDossier.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
             this.buttonActualiserDossier.Location = new System.Drawing.Point(452, 284);
             this.buttonActualiserDossier.Margin = new System.Windows.Forms.Padding(0);
             this.buttonActualiserDossier.Name = "buttonActualiserDossier";
@@ -543,6 +543,8 @@ namespace Eolia_IHM.Menu
             // 
             this.checkBoxDisplayMesureInImage.AutoSize = true;
             this.checkBoxDisplayMesureInImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.checkBoxDisplayMesureInImage.Checked = true;
+            this.checkBoxDisplayMesureInImage.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxDisplayMesureInImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxDisplayMesureInImage.Location = new System.Drawing.Point(22, 375);
             this.checkBoxDisplayMesureInImage.Name = "checkBoxDisplayMesureInImage";

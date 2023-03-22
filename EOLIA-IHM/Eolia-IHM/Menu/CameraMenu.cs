@@ -21,7 +21,7 @@ namespace Eolia_IHM.Menu
         //private EoliaCam cameraEolia = new EoliaCam();
         private String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
         private String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
-        private String directoryIcon = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/ICON/";
+        private String directoryIcon = AppDomain.CurrentDomain.BaseDirectory + "/ICON/";
         private bool bigScreenActived = false;
 
         private bool savePictureAvecMesure = true;
@@ -49,7 +49,6 @@ namespace Eolia_IHM.Menu
 
         private void buttonRemiseAZeroDuFiltre_Click(object sender, EventArgs e)
         {
-
             comboBoxFiltreImageJour.ResetText();
             comboBoxFiltreImageMois.ResetText();
             comboBoxFiltreImageAnnee.ResetText();
@@ -58,9 +57,7 @@ namespace Eolia_IHM.Menu
             comboBoxFiltreImageMinute.ResetText();
             comboBoxFiltreImageSeconde.ResetText();
 
-
             reloadDirectoryImage();
-
         }
 
         // Evenement des comboBox si ils changent
@@ -206,7 +203,6 @@ namespace Eolia_IHM.Menu
                     Console.WriteLine(ee.Message);
                     return -1;
                 }
-
                 //});
 
                 //return er;
@@ -230,7 +226,7 @@ namespace Eolia_IHM.Menu
                 //buttonActiverRetourCamera.Text = "Activée la camera";
                 if (iconIsExist("buttonStopBig.png"))
                     buttonActiverRetourCamera.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopBig.png");
-                else EoliaLogs.Write("Bouton start retour cam introuvable !!!", EoliaLogs.Types.CAMERA);
+                else EoliaLogs.Write("Bouton start retour cam introuvable !!! : " + directoryIcon, EoliaLogs.Types.CAMERA);
                 if (File.Exists("ICON/buttonStopBig.png")) EoliaLogs.Write("OUIIIIIIIIIIII", EoliaLogs.Types.CAMERA);
 
 
@@ -277,10 +273,7 @@ namespace Eolia_IHM.Menu
                         buttonPrendrePhoto.Invoke((MethodInvoker)delegate { buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png"); });
                     //buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png");
                 });
-
             }
-
-
         }
 
         private void buttonLancerEnregistrementVideo_Click(object sender, EventArgs e)

@@ -46,12 +46,19 @@ namespace Eolia_IHM.Menu
                 if (EoliaCam.CameraExist())
                 {
                     multimediaParam.Enabled = true;
+                    multimediaParam.BackColor = Color.FromArgb(204,204,204);
+                    buttonSauvegarderSessionEnCours.Enabled = true;
+                    buttonSauvegarderSessionEnCours.BackColor = Color.White;
+
                 }
                 buttonLancerEnregistrementMesure.Text = "Demarrer enregistrement mesure";
             }
             else
             {
-                multimediaParam.Enabled = false; 
+                multimediaParam.Enabled = false;
+                multimediaParam.BackColor = Color.FromArgb(150,150,150);
+                buttonSauvegarderSessionEnCours.Enabled = false;
+                buttonSauvegarderSessionEnCours.BackColor = Color.Gray;
                 buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement mesure";
             }
         }
