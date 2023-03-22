@@ -16,6 +16,7 @@ namespace Eolia_IHM.Menu
         public static TextBox textBox;
 
         public static string PortSerieCapteur;
+        public static string PortSerieRegulateur;
         public static string FrequenceMesure;
         public static string AdresseBDD;
         public static string NomBDD;
@@ -96,6 +97,7 @@ namespace Eolia_IHM.Menu
             PortSerieCapteur = comboBoxPortCapteur.Text;
 
             comboBoxPortRegulateur.Text = EoliaUtils.LireConfiguration("PORTSERIEREGULATEUR");
+            PortSerieRegulateur = comboBoxPortRegulateur.Text;
 
             textBoxNbMesureSec.Text = EoliaUtils.LireConfiguration("FREQUENCEMESURE");
             FREQUENCEMES = textBoxNbMesureSec.Text;
@@ -144,6 +146,7 @@ namespace Eolia_IHM.Menu
 
             EoliaLogs.Write("Nouvelle configuration enregistrée", EoliaLogs.Types.OTHER);
             PortSerieCapteur = comboBoxPortCapteur.Text;
+            PortSerieRegulateur = comboBoxPortRegulateur.Text;
             FREQUENCEMES = textBoxNbMesureSec.Text;
             EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
             EQGVOLTTRAINEE = textBoxGVoltPortance.Text;

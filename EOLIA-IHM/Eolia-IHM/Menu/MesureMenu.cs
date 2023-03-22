@@ -17,8 +17,14 @@ namespace Eolia_IHM.Menu
         public MesureMenu()
         {
             InitializeComponent();
-
-            if (!EoliaCam.CameraExist())
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT)
+            {
+                if (!EoliaCam.CameraExist())
+                {
+                    multimediaParam.Enabled = false;
+                }
+            }
+            else
             {
                 multimediaParam.Enabled = false;
             }
@@ -118,6 +124,76 @@ namespace Eolia_IHM.Menu
             else
             {
                 EoliaUtils.MsgBoxNonBloquante("Vous devez établir une transmission avant de tarer");
+            }
+        }
+
+        private void MesureMenu_MouseEnter(object sender, EventArgs e)
+        {
+            if (EoliaReg.LiaisonSerieReg())
+            {
+                if (groupBoxReg.Enabled == false)
+                {
+                    EoliaReg.SaveLogBox(textBoxLogMesure);
+                    groupBoxReg.Enabled = true;
+                }
+            }
+            else
+            {
+                groupBoxReg.Enabled = false;
+            }
+        }
+
+        private void checkBoxAutoReload_CheckStateChanged(object sender, EventArgs e)
+        {
+            if(checkBoxAutoReload.Checked)
+            {
+                EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
+            }
+        }
+
+        private async void buttonPlus_Click(object sender, EventArgs e)
+        {
+            float actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            bool result = false;
+            if (actuelDesir == float.NaN)
+            {
+                result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() + 5);
+                if (result)
+                {
+                    textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
+                }
+                else
+                {
+                    textBoxLogMesure.AppendText("Requète bien envoyée mais réponse régulateur erreur \r\n");
+                }
+            }
+            else
+            {
+                textBoxLogMesure.AppendText("Erreur (regulateur)\r\n");
+            }
+        }
+
+
+
+        private async void buttonMoins_Click_1(object sender, EventArgs e)
+        {
+            float actuelDesir = EoliaReg.obtenirVitesseVoulue();
+            bool result = false;
+            if (actuelDesir == float.NaN)
+            {
+                result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() - 5);
+                if (result)
+                {
+                    textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
+                }
+                else
+                {
+                    textBoxLogMesure.AppendText("Requète bien envoyée mais réponse régulateur erreur \r\n");
+                }
+            }
+            else
+            {
+                textBoxLogMesure.AppendText("Erreur (regulateur)\r\n");
             }
         }
     }

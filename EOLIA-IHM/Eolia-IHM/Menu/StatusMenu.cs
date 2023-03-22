@@ -1,4 +1,5 @@
 ﻿using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -123,6 +124,19 @@ namespace Eolia_IHM.Menu
 
         private void buttonLiaisonRegulateur_Click(object sender, EventArgs e)
         {
+            if (EoliaReg.LiaisonSerieReg())
+            {
+                EoliaReg.FermerLiaisonSerieCapteur();
+                if (!EoliaReg.LiaisonSerieReg())
+                    buttonLiaisonRegulateur.Text = "Démarrer liaison régulateur";
+
+            }
+            else
+            {
+                EoliaReg.InitialiserLiaisonSerieCapteur(ConfigurationMenu.PortSerieRegulateur, labelStatutRegulateur);
+                if (EoliaReg.LiaisonSerieReg())
+                    buttonLiaisonRegulateur.Text = "Arrêter liaison régulateur";
+            }
 
         }
     }

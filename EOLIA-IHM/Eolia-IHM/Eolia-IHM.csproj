@@ -271,6 +271,7 @@
     <Compile Include="Utils\EoliaCam.cs" />
     <Compile Include="Utils\EoliaLogs.cs" />
     <Compile Include="Utils\EoliaMes.cs" />
+    <Compile Include="Utils\EoliaReg.cs" />
     <Compile Include="Utils\EoliaSQL.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
