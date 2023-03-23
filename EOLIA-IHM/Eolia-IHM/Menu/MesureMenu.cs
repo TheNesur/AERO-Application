@@ -131,7 +131,7 @@ namespace Eolia_IHM.Menu
         {
             if (EoliaReg.LiaisonSerieReg())
             {
-                if (groupBoxReg.Enabled)
+                if (!groupBoxReg.Enabled)
                 {
                     EoliaReg.SaveLogBox(textBoxLogMesure);
                     groupBoxReg.Enabled = true;
@@ -139,7 +139,7 @@ namespace Eolia_IHM.Menu
             }
             else
             {
-                if(!groupBoxReg.Enabled)
+                if(groupBoxReg.Enabled)
                     groupBoxReg.Enabled = false;
             }
         }
@@ -256,7 +256,7 @@ namespace Eolia_IHM.Menu
             }
             else
             {
-                if (checkBoxAutoReload.Enabled)
+                if (!checkBoxAutoReload.Enabled)
                     checkBoxAutoReload.Enabled = true;
 
             }
