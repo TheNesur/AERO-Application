@@ -65,8 +65,10 @@ namespace Eolia_IHM
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
+            string ECHELLEJR = "2235.55";
+            string ECHELLEJP = "2147.75"; 
             ReponseCMDMesure.AppendText( "Envoi de la requete a l'ESP32 sur le port "+ CapteurLiaisonSerie.PortName +"\r\n\r\n");
-            EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE);
+            EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE + " ECHELLEJR " + ECHELLEJR + " ECHELLEJP " + ECHELLEJP);
 
         }
 

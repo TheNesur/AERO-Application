@@ -168,7 +168,7 @@ namespace Eolia_IHM.Menu
                     actuelDesir = await EoliaReg.readVitesseAsync();
                 }catch(Exception ex)
                 {
-                    textBoxLogMesure.AppendText("Erreur : "+ex.Message+" (regulateur) \r\n");
+                    textBoxLogMesure.AppendText("Erreur :  "+ex.Message+" (regulateur) \r\n");
                     return;
                 }
             }
