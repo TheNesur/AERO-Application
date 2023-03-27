@@ -49,20 +49,23 @@ namespace Eolia_IHM.Menu
         {
             if (EoliaMes.EnregistrementMes(labelValeurMoyenneTrainee,labelValeurMoyennePortance,labelNomSession,labelNombreMesure,labelEtatSession, photoParam.Checked,videoParam.Checked, checkBoxAutoReload.Checked))
             {
-                if (EoliaCam.CameraExist())
+                if (Environment.OSVersion.Platform != PlatformID.Win32NT && EoliaCam.CameraExist())
                 {
-                    multimediaParam.Enabled = true;
-                    multimediaParam.BackColor = Color.FromArgb(204,204,204);
-                    buttonSauvegarderSessionEnCours.Enabled = true;
-                    buttonSauvegarderSessionEnCours.BackColor = Color.White;
-
+                        multimediaParam.Enabled = true;
+                        multimediaParam.BackColor = Color.FromArgb(204, 204, 204);
                 }
+
+                buttonSauvegarderSessionEnCours.Enabled = true;
+                buttonSauvegarderSessionEnCours.BackColor = Color.White;
                 buttonLancerEnregistrementMesure.Text = "Demarrer enregistrement mesure";
             }
             else
             {
-                multimediaParam.Enabled = false;
-                multimediaParam.BackColor = Color.FromArgb(150,150,150);
+                if (Environment.OSVersion.Platform != PlatformID.Win32NT && EoliaCam.CameraExist())
+                {
+                    multimediaParam.Enabled = false;
+                    multimediaParam.BackColor = Color.FromArgb(150, 150, 150);
+                }
                 buttonSauvegarderSessionEnCours.Enabled = false;
                 buttonSauvegarderSessionEnCours.BackColor = Color.Gray;
                 buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement mesure";
@@ -158,6 +161,7 @@ namespace Eolia_IHM.Menu
 
         private async void buttonPlus_Click(object sender, EventArgs e)
         {
+            buttonPlus.Enabled = false;
             float actuelDesir;
             if (checkBoxAutoReload.Checked)
             {
@@ -169,6 +173,7 @@ namespace Eolia_IHM.Menu
                 }catch(Exception ex)
                 {
                     textBoxLogMesure.AppendText("Erreur :  "+ex.Message+" (regulateur) \r\n");
+                    buttonPlus.Enabled = true;
                     return;
                 }
             }
@@ -188,6 +193,7 @@ namespace Eolia_IHM.Menu
                 catch (Exception ex)
                 {
                     textBoxLogMesure.AppendText("Erreur envoi vitesse : " + ex.Message + " (regulateur) \r\n");
+                    buttonPlus.Enabled = true;
                     return;
                 }
                 if (result)
@@ -200,16 +206,22 @@ namespace Eolia_IHM.Menu
                     textBoxLogMesure.AppendText("Requète bien envoyée mais réponse régulateur erreur \r\n");
                 }
             }
+
+
             else
             {
                 textBoxLogMesure.AppendText("Erreur lors de la lecture de la vitesse (regulateur)\r\n");
             }
+
+            buttonPlus.Enabled = true;
         }
 
 
 
         private async void buttonMoins_Click_1(object sender, EventArgs e)
         {
+            buttonMoins.Enabled = false;
+
             float actuelDesir;
             if (checkBoxAutoReload.Checked)
             {
@@ -223,6 +235,7 @@ namespace Eolia_IHM.Menu
                 }
                 catch (Exception ex)
                 {
+                    buttonMoins.Enabled = true;
                     textBoxLogMesure.AppendText("Erreur : " + ex.Message + " (regulateur) \r\n");
                     return;
                 }
@@ -243,6 +256,7 @@ namespace Eolia_IHM.Menu
                 }
                 catch (Exception ex)
                 {
+                    buttonMoins.Enabled = true;
                     textBoxLogMesure.AppendText("Erreur : " + ex.Message + " (regulateur) \r\n");
                     return;
                 }
@@ -260,6 +274,7 @@ namespace Eolia_IHM.Menu
             {
                 textBoxLogMesure.AppendText("Erreur (regulateur)\r\n");
             }
+            buttonMoins.Enabled = true;
         }
 
         private void checkBoxSaveVitesse_CheckStateChanged(object sender, EventArgs e)

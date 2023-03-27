@@ -105,7 +105,7 @@ namespace Eolia_IHM
             this.buttonStatus.Name = "buttonStatus";
             this.buttonStatus.Size = new System.Drawing.Size(204, 50);
             this.buttonStatus.TabIndex = 11;
-            this.buttonStatus.Text = "Status";
+            this.buttonStatus.Text = "Statut";
             this.buttonStatus.UseVisualStyleBackColor = false;
             this.buttonStatus.Click += new System.EventHandler(this.buttonStatus_Click);
             // 

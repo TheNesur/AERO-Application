@@ -372,11 +372,12 @@ namespace Eolia_IHM.Utils
                     try
                     {
                         float _vitesse = ObtenirVitesse();
-                        Vitesse.Invoke(new Action(() => Vitesse.Text = (_vitesse * MaxValue / 100).ToString()));
+                        Vitesse.Invoke(new Action(() => Vitesse.Text = (Math.Round(_vitesse * MaxValue / 100,2)).ToString()));
                         vitesse = _vitesse;
                         float _consigne = ObtenirConsigne();
                         vitessedesir = _consigne;
-                        Consigne.Invoke(new Action(() => Consigne.Text = (_consigne).ToString()));
+                        
+                        Consigne.Invoke(new Action(() => Consigne.Text = (Math.Round(_consigne,2)).ToString()));
                     }
                     catch (Exception e)
                     {

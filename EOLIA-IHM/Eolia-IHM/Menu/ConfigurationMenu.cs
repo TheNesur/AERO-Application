@@ -1,4 +1,5 @@
 ﻿using Eolia_IHM.Properties;
+using Eolia_IHM.Utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,6 +26,8 @@ namespace Eolia_IHM.Menu
         public static string FREQUENCEMES;
         public static string EQGVOLTTRAINEE;
         public static string EQGVOLTPORTANCE;
+        public static string ECHELLEJAUGEPORTANCE;
+        public static string ECHELLEJAUGETRAINEE;
         public static string CZ;
         public static string CX;
         public static string rho;
@@ -121,6 +124,10 @@ namespace Eolia_IHM.Menu
             textBoxS.Text = EoliaUtils.LireConfiguration("SURFACEALAIR");
             S = textBoxS.Text;
 
+            ECHELLEJAUGEPORTANCE = EoliaUtils.LireConfiguration("ECHELLEJAUGEPORTANCE");
+
+            ECHELLEJAUGETRAINEE = EoliaUtils.LireConfiguration("ECHELLEJAUGETRAINEE");
+
 
             EoliaLogs.Write("Configuration chargée", EoliaLogs.Types.OTHER);
         }
@@ -141,7 +148,9 @@ namespace Eolia_IHM.Menu
                 { "CX", textBoxCx.Text },
                 { "CZ", textBoxCz.Text },
                 { "RHO", textBoxRho.Text },
-                { "SURFACEALAIR", textBoxS.Text }
+                { "SURFACEALAIR", textBoxS.Text },
+                { "ECHELLEJAUGEPORTANCE", ECHELLEJAUGEPORTANCE },
+                { "ECHELLEJAUGETRAINEE", ECHELLEJAUGETRAINEE }
             };
 
             EoliaLogs.Write("Nouvelle configuration enregistrée", EoliaLogs.Types.OTHER);
@@ -190,6 +199,113 @@ namespace Eolia_IHM.Menu
         private void comboBoxPortRegulateur_Click(object sender, EventArgs e)
         {
             EoliaUtils.AfficherPortSerie((ComboBox)sender);
+        }
+
+        private void ConfigurationMenu_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (EoliaMes.LiaisonSerieCapteur())
+            {
+                groupBoxConfigJauges.Enabled = true;
+            }
+            else
+            {
+                groupBoxConfigJauges.Enabled = false;
+            }
+        }
+
+
+
+        private async void buttoncalibrerportance_Click(object sender, EventArgs e)
+        {
+            EoliaMes.EnvoyerMessageSerieCapteur("RAWPORTANCE");
+
+            int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
+            int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
+
+            while (float.IsNaN(EoliaMes.CalibrationPortance) && delaiEcoule < delaiMaximum)
+            {
+                await Task.Delay(100);
+                delaiEcoule += 100;
+            }
+
+            if (delaiEcoule >= delaiMaximum)
+            {
+                // Si le délai maximum est écoulé et que la valeur de CalibrationPortance n'a pas été définie, affiche un message d'erreur.
+                EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration de portance a échoué.");
+            }
+            else
+            {
+                // Sinon, affiche la valeur de CalibrationPortance dans la zone de texte.
+                textBoxEchellePortance.Text = EoliaMes.CalibrationPortance.ToString().Replace(",", ".");
+            }
+
+            // Réinitialise CalibrationPortance.
+            EoliaMes.CalibrationPortance = float.NaN;
+        }
+
+
+        private async void buttoncalibrertrainee_Click(object sender, EventArgs e)
+        {
+            EoliaMes.EnvoyerMessageSerieCapteur("RAWTRAINEE");
+
+            int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
+            int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
+
+            while (float.IsNaN(EoliaMes.CalibrationTrainee) && delaiEcoule < delaiMaximum)
+            {
+                await Task.Delay(100);
+                delaiEcoule += 100;
+            }
+
+            if (delaiEcoule >= delaiMaximum)
+            {
+                
+                EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration de portance a échoué.");
+            }
+            else
+            {
+          
+                textBoxEchelleTrainee.Text = EoliaMes.CalibrationTrainee.ToString().Replace(",", ".");
+            }
+
+            // Réinitialise CalibrationPortance.
+            EoliaMes.CalibrationTrainee = float.NaN;
+        }
+
+        private async void buttonSTARTGOCALIB_Click(object sender, EventArgs e)
+        {
+            if (!panelGoCalib.Enabled) {
+                buttonSTARTGOCALIB.Text = "Terminer";
+                EoliaMes.EnvoyerMessageSerieCapteur("GOCALIB");
+                int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
+                int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
+
+                while (EoliaMes.GoCalib = true && delaiEcoule < delaiMaximum)
+                {
+                    await Task.Delay(100);
+                    delaiEcoule += 100;
+                }
+                if (delaiEcoule >= delaiMaximum)
+                {
+
+                    EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration a échoué.");
+                }
+                else
+                {
+
+                    panelGoCalib.Enabled = true;
+                    EoliaMes.GoCalib = false;
+                }
+            }
+            else
+            {
+                ConfigurationMenu.ECHELLEJAUGEPORTANCE = textBoxEchellePortance.Text;
+                ConfigurationMenu.ECHELLEJAUGETRAINEE = textBoxEchelleTrainee.Text;
+                Sauvegarder();
+                buttonSTARTGOCALIB.Text = "Demarrer";
+                panelGoCalib.Enabled = false;
+            }
+
         }
     }
 }

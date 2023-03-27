@@ -54,8 +54,12 @@ namespace Eolia_IHM
         private static bool video = false;
         private static string RepEnregistrement = null;
 
+        public static float CalibrationPortance = float.NaN;
+        public static float CalibrationTrainee = float.NaN;
+
         private static String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
         private static String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
+        internal static bool GoCalib = false;
 
         // Fonction relatif a la gestion des mesures
 
@@ -149,7 +153,7 @@ namespace Eolia_IHM
            // {
                 for (int i = 0; i < ListeMesureTrainee.Count(); i++)
                 {
-                    MesureFormate = MesureFormate + "(NULL,'" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','0','" + idSession + "')";
+                    MesureFormate = MesureFormate + "(NULL,'" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','" + ListeVitesse[i].ToString().Replace(",",".") + "','" + idSession + "')";
                     if (ListeMesureTrainee.Count() - 1 != i)
                     {
                         MesureFormate = MesureFormate + ",";
@@ -202,6 +206,7 @@ namespace Eolia_IHM
             if (!EnregistreMesure)
             {
                 ListeMesureTrainee = null;
+                ListeVitesse = null;
                 ListeMesurePortance = null;
                 ListeMesurePortance = new List<float>();
                 ListeMesureTrainee = new List<float>();
@@ -268,8 +273,7 @@ namespace Eolia_IHM
 
         public static void VerifierCommandeMesure(string command)
         {
-             if (!TransmissionMesure)
-                    return;
+            
 
             cmdBuff = cmdBuff + nxtcmdBuff;
             cmdBuff = cmdBuff + command;
@@ -300,9 +304,13 @@ namespace Eolia_IHM
             }
             else if (words[0] == "PORTANCE" && words[2] == "TRAINEE")
             {
+                if (!TransmissionMesure)
+                {
+                    cmdBuff = "";
+                    return;
+                }
                 CommandeAvecMessage = false;
-            }
-            else // si aucune des conditions précédentes commande non existante
+            }else // si aucune des conditions précédentes commande non existante
             {
                 cmdBuff = "";
                 return;
@@ -314,6 +322,44 @@ namespace Eolia_IHM
             {
                 // On fusion tous les mots qui suivent dans une chaîne de caractères
                 string message = "";
+
+                if (words[1] == "PRAW:")
+                {
+                    CultureInfo culture = CultureInfo.InvariantCulture;
+                    if (!float.TryParse(words[2], NumberStyles.Float, culture, out CalibrationPortance))
+                    {
+                        EoliaUtils.MsgBoxNonBloquante("Une erreur est survenue lors de la récupération d'une valeur");
+                    }
+                    CalibrationPortance = CalibrationPortance / 981;
+                    cmdBuff = "";
+                    return;
+                }
+
+                if (words[1] == "TRAW:")
+                {
+                    CultureInfo culture = CultureInfo.InvariantCulture;
+                    if (!float.TryParse(words[2], NumberStyles.Float, culture, out CalibrationTrainee))
+                    {
+                        EoliaUtils.MsgBoxNonBloquante("Une erreur est survenue lors de la récupération d'une valeur");
+                    }
+                    CalibrationTrainee = CalibrationTrainee / 981; 
+                    cmdBuff = "";
+                    return;
+                }
+
+                if (words[1] == "GOCALIB")
+                {
+                    GoCalib = true;
+                    cmdBuff = "";
+                    return;
+                }
+
+                if (!TransmissionMesure)
+                {
+                    cmdBuff = "";
+                    return;
+                }
+
                 for (int i = 1; i < words.Length; i++)
                 {
                     message += words[i] + " ";
@@ -322,6 +368,7 @@ namespace Eolia_IHM
                 // On enleve l'espace en fin de chaîne
                 message = message.TrimEnd();
 
+                
 
 
                 ReponseCMDMesure.Invoke(new Action(() => ReponseCMDMesure.AppendText( message+ "`\r\n\r\n")));
@@ -352,7 +399,7 @@ namespace Eolia_IHM
 
                     if (photo)
                         EoliaCam.SavePicture(directoryImage + RepEnregistrement, true);
-                    if (SauveVitesse)
+                    if (SauveVitesse && EoliaReg.LiaisonSerieReg())
                         ListeVitesse.Add(EoliaReg.obtenirVitesse());
 
 
