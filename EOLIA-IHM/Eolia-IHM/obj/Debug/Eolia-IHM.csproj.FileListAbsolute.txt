@@ -177,7 +177,6 @@ E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Permission
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Security.Principal.Windows.xml
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.Threading.Tasks.Extensions.xml
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\System.ValueTuple.xml
-E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.AssemblyReference.cache
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.AccueilIHM.resources
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia_IHM.Properties.Resources.resources
 E:\GIT\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.GenerateResource.cache

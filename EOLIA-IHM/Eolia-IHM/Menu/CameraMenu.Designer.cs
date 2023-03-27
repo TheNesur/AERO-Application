@@ -191,38 +191,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageJour.FormattingEnabled = true;
             this.comboBoxFiltreImageJour.IntegralHeight = false;
-            this.comboBoxFiltreImageJour.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31"});
             this.comboBoxFiltreImageJour.Location = new System.Drawing.Point(102, 25);
             this.comboBoxFiltreImageJour.MaxDropDownItems = 10;
             this.comboBoxFiltreImageJour.Name = "comboBoxFiltreImageJour";
@@ -234,31 +202,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageHeure.FormattingEnabled = true;
             this.comboBoxFiltreImageHeure.IntegralHeight = false;
-            this.comboBoxFiltreImageHeure.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24"});
             this.comboBoxFiltreImageHeure.Location = new System.Drawing.Point(102, 143);
             this.comboBoxFiltreImageHeure.MaxDropDownItems = 10;
             this.comboBoxFiltreImageHeure.Name = "comboBoxFiltreImageHeure";
@@ -290,19 +233,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageMois.FormattingEnabled = true;
             this.comboBoxFiltreImageMois.IntegralHeight = false;
-            this.comboBoxFiltreImageMois.Items.AddRange(new object[] {
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12"});
             this.comboBoxFiltreImageMois.Location = new System.Drawing.Point(102, 59);
             this.comboBoxFiltreImageMois.MaxDropDownItems = 10;
             this.comboBoxFiltreImageMois.Name = "comboBoxFiltreImageMois";
@@ -314,68 +244,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageMinute.FormattingEnabled = true;
             this.comboBoxFiltreImageMinute.IntegralHeight = false;
-            this.comboBoxFiltreImageMinute.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60\t"});
             this.comboBoxFiltreImageMinute.Location = new System.Drawing.Point(103, 177);
             this.comboBoxFiltreImageMinute.MaxDropDownItems = 10;
             this.comboBoxFiltreImageMinute.Name = "comboBoxFiltreImageMinute";
@@ -407,10 +275,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageAnnee.FormattingEnabled = true;
             this.comboBoxFiltreImageAnnee.IntegralHeight = false;
-            this.comboBoxFiltreImageAnnee.Items.AddRange(new object[] {
-            "2022",
-            "2023",
-            "2024"});
             this.comboBoxFiltreImageAnnee.Location = new System.Drawing.Point(102, 93);
             this.comboBoxFiltreImageAnnee.MaxDropDownItems = 10;
             this.comboBoxFiltreImageAnnee.Name = "comboBoxFiltreImageAnnee";
@@ -422,68 +286,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageSeconde.FormattingEnabled = true;
             this.comboBoxFiltreImageSeconde.IntegralHeight = false;
-            this.comboBoxFiltreImageSeconde.Items.AddRange(new object[] {
-            "00",
-            "01",
-            "02",
-            "03",
-            "04",
-            "05",
-            "06",
-            "07",
-            "08",
-            "09",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60"});
             this.comboBoxFiltreImageSeconde.Location = new System.Drawing.Point(102, 211);
             this.comboBoxFiltreImageSeconde.MaxDropDownItems = 10;
             this.comboBoxFiltreImageSeconde.Name = "comboBoxFiltreImageSeconde";

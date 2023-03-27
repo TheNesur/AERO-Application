@@ -124,6 +124,58 @@ namespace Eolia_IHM.Menu
                             String minute = nameFileEdited[5].ToString();
                             String second = nameFileEdited[6].ToString().Split(']')[0];
 
+
+                            string[] comboBoxFiltreDay = null;
+                            string[] comboBoxFiltreMonth = null;
+                            string[] comboBoxFiltreYears = null;
+                            string[] comboBoxFiltreHour = null;
+                            string[] comboBoxFiltreMinute = null;
+                            string[] comboBoxFiltreSecond = null;
+
+                            bool existedDay = false;
+                            bool existedMonth = false;
+                            bool existedYears = false;
+                            bool existedHour = false;
+                            bool existedMinute = false;
+                            bool existedSecond = false;
+
+                            //String comboBoxFiltreJour = null;
+                            //comboBoxFiltreImageJour.Invoke(new Action(() => Convert.ToString(comboBoxFiltreImageJour.SelectedItem))));
+                            comboBoxFiltreImageJour.Invoke((MethodInvoker)delegate { comboBoxFiltreDay = comboBoxFiltreImageJour.Items.Cast<string>().ToArray(); });
+                            comboBoxFiltreImageMois.Invoke((MethodInvoker)delegate { comboBoxFiltreMonth = comboBoxFiltreImageMois.Items.Cast<string>().ToArray(); });
+                            comboBoxFiltreImageAnnee.Invoke((MethodInvoker)delegate { comboBoxFiltreYears = comboBoxFiltreImageAnnee.Items.Cast<string>().ToArray(); });
+
+                            comboBoxFiltreImageHeure.Invoke((MethodInvoker)delegate { comboBoxFiltreHour = comboBoxFiltreImageHeure.Items.Cast<string>().ToArray(); });
+                            comboBoxFiltreImageMinute.Invoke((MethodInvoker)delegate { comboBoxFiltreMinute = comboBoxFiltreImageMinute.Items.Cast<string>().ToArray(); });
+                            comboBoxFiltreImageSeconde.Invoke((MethodInvoker)delegate { comboBoxFiltreSecond = comboBoxFiltreImageSeconde.Items.Cast<string>().ToArray(); });
+
+                            foreach (string item in comboBoxFiltreDay) { if (item.ToString() == day) { existedDay = true;} }
+                            foreach (string item in comboBoxFiltreMonth) { if (item.ToString() == month) { existedMonth = true; } }
+                            foreach (string item in comboBoxFiltreYears) { if (item.ToString() == years) { existedYears = true; } }
+                            foreach (string item in comboBoxFiltreHour) { if (item.ToString() == hour) { existedHour = true; } }
+                            foreach (string item in comboBoxFiltreMinute) { if (item.ToString() == minute) { existedMinute = true; } }
+                            foreach (string item in comboBoxFiltreSecond) { if (item.ToString() == second) { existedSecond = true; } }
+
+
+
+                            //EoliaLogs.Write(item.Length + "/" + comboBoxFiltreYears.Length + " : " + item, EoliaLogs.Types.DEBUG, "FILTRE");
+
+                            //EoliaLogs.Write(comboBoxFiltreJour.Length + " : " + comboBoxFiltreJour.ToString(), EoliaLogs.Types.DEBUG, "FILTRE");
+
+                            if (!existedDay) comboBoxFiltreImageJour.Invoke(new Action(() => comboBoxFiltreImageJour.Items.Add(day)));
+                            if (!existedMonth) comboBoxFiltreImageMois.Invoke(new Action(() => comboBoxFiltreImageMois.Items.Add(month)));
+                            if (!existedYears) comboBoxFiltreImageAnnee.Invoke(new Action(() => comboBoxFiltreImageAnnee.Items.Add(years)));
+                            if (!existedHour) comboBoxFiltreImageHeure.Invoke(new Action(() => comboBoxFiltreImageHeure.Items.Add(hour)));
+                            if (!existedMinute) comboBoxFiltreImageMinute.Invoke(new Action(() => comboBoxFiltreImageMinute.Items.Add(minute)));
+                            if (!existedSecond) comboBoxFiltreImageSeconde.Invoke(new Action(() => comboBoxFiltreImageSeconde.Items.Add(second)));
+
+                            comboBoxFiltreImageJour.Invoke(new Action(() => comboBoxFiltreImageJour.Sorted = true));
+                            comboBoxFiltreImageMois.Invoke(new Action(() => comboBoxFiltreImageMois.Sorted = true));
+                            comboBoxFiltreImageAnnee.Invoke(new Action(() => comboBoxFiltreImageAnnee.Sorted = true));
+                            comboBoxFiltreImageHeure.Invoke(new Action(() => comboBoxFiltreImageHeure.Sorted = true));
+                            comboBoxFiltreImageMinute.Invoke(new Action(() => comboBoxFiltreImageMinute.Sorted = true));
+                            comboBoxFiltreImageSeconde.Invoke(new Action(() => comboBoxFiltreImageSeconde.Sorted = true));
+
                             er = 3;
 
                             //comboBoxFiltreImageJour.Invoke(new Action(() => BoutonStartSQL.Enabled = true));
