@@ -305,9 +305,9 @@ namespace Eolia_IHM.Menu
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(12, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 20);
+            this.label3.Size = new System.Drawing.Size(130, 20);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Trainée max (g)";
+            this.label3.Text = "Trainée max (g) : ";
             // 
             // label2
             // 
@@ -315,23 +315,23 @@ namespace Eolia_IHM.Menu
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(12, 102);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
+            this.label2.Size = new System.Drawing.Size(141, 20);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Portance max (g)";
+            this.label2.Text = "Portance max (g) : ";
             // 
             // textBoxGVoltTrainee
             // 
-            this.textBoxGVoltTrainee.Location = new System.Drawing.Point(144, 132);
+            this.textBoxGVoltTrainee.Location = new System.Drawing.Point(169, 132);
             this.textBoxGVoltTrainee.Name = "textBoxGVoltTrainee";
-            this.textBoxGVoltTrainee.Size = new System.Drawing.Size(116, 26);
+            this.textBoxGVoltTrainee.Size = new System.Drawing.Size(91, 26);
             this.textBoxGVoltTrainee.TabIndex = 6;
             this.textBoxGVoltTrainee.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
             // textBoxGVoltPortance
             // 
-            this.textBoxGVoltPortance.Location = new System.Drawing.Point(144, 100);
+            this.textBoxGVoltPortance.Location = new System.Drawing.Point(169, 100);
             this.textBoxGVoltPortance.Name = "textBoxGVoltPortance";
-            this.textBoxGVoltPortance.Size = new System.Drawing.Size(116, 26);
+            this.textBoxGVoltPortance.Size = new System.Drawing.Size(91, 26);
             this.textBoxGVoltPortance.TabIndex = 5;
             this.textBoxGVoltPortance.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
@@ -347,18 +347,18 @@ namespace Eolia_IHM.Menu
             // 
             // textBoxNbMesureSec
             // 
-            this.textBoxNbMesureSec.Location = new System.Drawing.Point(144, 61);
+            this.textBoxNbMesureSec.Location = new System.Drawing.Point(169, 61);
             this.textBoxNbMesureSec.Name = "textBoxNbMesureSec";
-            this.textBoxNbMesureSec.Size = new System.Drawing.Size(116, 26);
+            this.textBoxNbMesureSec.Size = new System.Drawing.Size(91, 26);
             this.textBoxNbMesureSec.TabIndex = 3;
             this.textBoxNbMesureSec.Click += new System.EventHandler(this.textBoxPad_Click);
             // 
             // comboBoxPortCapteur
             // 
             this.comboBoxPortCapteur.FormattingEnabled = true;
-            this.comboBoxPortCapteur.Location = new System.Drawing.Point(144, 27);
+            this.comboBoxPortCapteur.Location = new System.Drawing.Point(169, 27);
             this.comboBoxPortCapteur.Name = "comboBoxPortCapteur";
-            this.comboBoxPortCapteur.Size = new System.Drawing.Size(116, 28);
+            this.comboBoxPortCapteur.Size = new System.Drawing.Size(91, 28);
             this.comboBoxPortCapteur.TabIndex = 2;
             this.comboBoxPortCapteur.SelectedIndexChanged += new System.EventHandler(this.comboBoxPortCapteur_SelectedIndexChanged);
             this.comboBoxPortCapteur.Click += new System.EventHandler(this.comboBoxPortCapteur_Click);

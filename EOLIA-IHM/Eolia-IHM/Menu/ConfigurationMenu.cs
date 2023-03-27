@@ -191,5 +191,6 @@ namespace Eolia_IHM.Menu
         {
             EoliaUtils.AfficherPortSerie((ComboBox)sender);
         }
+
     }
 }
