@@ -275,8 +275,6 @@ namespace Eolia_IHM.Menu
             // 
             this.comboBoxFiltreImageAnnee.FormattingEnabled = true;
             this.comboBoxFiltreImageAnnee.IntegralHeight = false;
-            this.comboBoxFiltreImageAnnee.Items.AddRange(new object[] {
-            "2050"});
             this.comboBoxFiltreImageAnnee.Location = new System.Drawing.Point(102, 93);
             this.comboBoxFiltreImageAnnee.MaxDropDownItems = 10;
             this.comboBoxFiltreImageAnnee.Name = "comboBoxFiltreImageAnnee";
