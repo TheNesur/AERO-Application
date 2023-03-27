@@ -231,13 +231,13 @@ namespace Eolia_IHM.Utils
         public static float obtenirVitesse()
         {
             if (vitesse != float.NaN)
-                return vitesse * 100 / MaxValue;
+                return vitesse * MaxValue / 100;
             return 0;
         }
         public static float obtenirVitesseVoulue()
         {
             if (vitessedesir != float.NaN)
-                return vitessedesir * 100 / MaxValue;
+                return vitessedesir;
             return float.NaN;
         }
 
@@ -371,17 +371,19 @@ namespace Eolia_IHM.Utils
                     
                     try
                     {
-                        float vitesse = ObtenirVitesse();
-                        Vitesse.Invoke(new Action(() => Vitesse.Text = vitesse.ToString()));
-                        float consigne = ObtenirConsigne();
-                        Consigne.Invoke(new Action(() => Consigne.Text = consigne.ToString()));
+                        float _vitesse = ObtenirVitesse();
+                        Vitesse.Invoke(new Action(() => Vitesse.Text = (_vitesse * MaxValue / 100).ToString()));
+                        vitesse = _vitesse;
+                        float _consigne = ObtenirConsigne();
+                        vitessedesir = _consigne;
+                        Consigne.Invoke(new Action(() => Consigne.Text = (_consigne).ToString()));
                     }
                     catch (Exception e)
                     {
                         if (logtxtbox != null) logtxtbox.Invoke(new Action(() => logtxtbox.AppendText("[Reg]" + e.Message + "`\r\n\r\n")));
                     }
                     /* Vitesse.text = vitesse; */
-                    Console.WriteLine(vitesse);
+                    //Console.WriteLine(vitesse);
                     Thread.Sleep(ms);
                 }
             });

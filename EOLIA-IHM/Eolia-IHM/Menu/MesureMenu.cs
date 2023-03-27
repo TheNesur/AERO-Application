@@ -150,6 +150,10 @@ namespace Eolia_IHM.Menu
             {
                 EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
             }
+            else
+            {
+                EoliaReg.stopReloadVitese();
+            }
         }
 
         private async void buttonPlus_Click(object sender, EventArgs e)
@@ -164,19 +168,26 @@ namespace Eolia_IHM.Menu
                     actuelDesir = await EoliaReg.readVitesseAsync();
                 }catch(Exception ex)
                 {
-                    textBoxLogMesure.AppendText("Erreur "+ex.Message+" (regulateur) \r\n");
+                    textBoxLogMesure.AppendText("Erreur : "+ex.Message+" (regulateur) \r\n");
                     return;
                 }
             }
             bool result = false;
-            if (actuelDesir == float.NaN)
+            if (actuelDesir != float.NaN)
             {
                 try { 
-                    result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() + 5);
+                    if(actuelDesir+1 > 20)
+                    {
+                        throw new Exception("Vitesse max atteinte");
+                    }
+                    else
+                    { 
+                        result = await EoliaReg.ParamVitesseAsync(actuelDesir + 1);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    textBoxLogMesure.AppendText("Erreur envoi vitesse : " + ex.Message + " (regulateur) \r\n");
                     return;
                 }
                 if (result)
@@ -191,7 +202,7 @@ namespace Eolia_IHM.Menu
             }
             else
             {
-                textBoxLogMesure.AppendText("Erreur (regulateur)\r\n");
+                textBoxLogMesure.AppendText("Erreur lors de la lecture de la vitesse (regulateur)\r\n");
             }
         }
 
@@ -212,20 +223,27 @@ namespace Eolia_IHM.Menu
                 }
                 catch (Exception ex)
                 {
-                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    textBoxLogMesure.AppendText("Erreur : " + ex.Message + " (regulateur) \r\n");
                     return;
                 }
             }
             bool result = false;
-            if (actuelDesir == float.NaN)
+            if (actuelDesir != float.NaN)
             {
                 try
                 {
-                    result = await EoliaReg.ParamVitesseAsync(EoliaReg.obtenirVitesseVoulueRaw() - 5);
+                    if (actuelDesir - 1 < 0)
+                    {
+                        throw new Exception("Vitesse min atteinte");
+                    }
+                    else
+                    {
+                        result = await EoliaReg.ParamVitesseAsync(actuelDesir - 1);
+                    }
                 }
                 catch (Exception ex)
                 {
-                    textBoxLogMesure.AppendText("Erreur " + ex.Message + " (regulateur) \r\n");
+                    textBoxLogMesure.AppendText("Erreur : " + ex.Message + " (regulateur) \r\n");
                     return;
                 }
                 if (result)
