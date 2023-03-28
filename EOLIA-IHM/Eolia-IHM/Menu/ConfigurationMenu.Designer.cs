@@ -466,10 +466,10 @@ namespace Eolia_IHM.Menu
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(1, 3);
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(3, 3);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(443, 18);
+            this.label17.Size = new System.Drawing.Size(374, 15);
             this.label17.TabIndex = 14;
             this.label17.Text = "Veuiiler exercer une masse de 100g sur chaque jauge pour calibrer";
             // 
