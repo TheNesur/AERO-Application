@@ -229,18 +229,19 @@ namespace Eolia_IHM.Menu
             {
                 await Task.Delay(100);
                 delaiEcoule += 100;
+
+                if (delaiEcoule >= delaiMaximum)
+                {
+                    // Si le délai maximum est écoulé et que la valeur de CalibrationPortance n'a pas été définie, affiche un message d'erreur.
+                    EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration de portance a échoué.");
+                    return;
+                }
             }
 
-            if (delaiEcoule >= delaiMaximum)
-            {
-                // Si le délai maximum est écoulé et que la valeur de CalibrationPortance n'a pas été définie, affiche un message d'erreur.
-                EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration de portance a échoué.");
-            }
-            else
-            {
+
                 // Sinon, affiche la valeur de CalibrationPortance dans la zone de texte.
                 textBoxEchellePortance.Text = EoliaMes.CalibrationPortance.ToString().Replace(",", ".");
-            }
+            
 
             // Réinitialise CalibrationPortance.
             EoliaMes.CalibrationPortance = float.NaN;

@@ -281,8 +281,13 @@ namespace Eolia_IHM.Menu
         {
             if (checkBoxSaveVitesse.Checked)
             {
-
+                if (!checkBoxAutoReload.Checked)
+                {
                     checkBoxAutoReload.Checked = true;
+                    EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
+                }
+
+                
                     checkBoxAutoReload.Enabled = false;
                 
             }

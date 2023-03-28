@@ -123,7 +123,7 @@ namespace Eolia_IHM.Menu
             this.labelStatutCamera.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
             this.labelStatutCamera.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Bold);
             this.labelStatutCamera.ForeColor = System.Drawing.Color.Red;
-            this.labelStatutCamera.Location = new System.Drawing.Point(461, 121);
+            this.labelStatutCamera.Location = new System.Drawing.Point(446, 121);
             this.labelStatutCamera.Name = "labelStatutCamera";
             this.labelStatutCamera.Size = new System.Drawing.Size(113, 24);
             this.labelStatutCamera.TabIndex = 6;
