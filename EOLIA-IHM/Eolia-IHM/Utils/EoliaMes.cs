@@ -162,9 +162,9 @@ namespace Eolia_IHM
                 for (int i = 0; i < ListeMesureTrainee.Count(); i++)
                 {
                     if(SauveVitesse)
-                        MesureFormate = MesureFormate + "(NULL,'" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','" + ListeVitesse[i].ToString().Replace(",",".") + "','" + idSession + "')";
+                        MesureFormate = MesureFormate + "(NULL,'" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeVitesse[i].ToString().Replace(",",".") + "','" + idSession + "')";
                     else
-                        MesureFormate = MesureFormate + "(NULL,'" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','0','" + idSession + "')";
+                        MesureFormate = MesureFormate + "(NULL,'" + ListeMesureTrainee[i].ToString().Replace(",", ".") + "','" + ListeMesurePortance[i].ToString().Replace(",", ".") + "','0','" + idSession + "')";
                 if (ListeMesureTrainee.Count() - 1 != i)
                     {
                         MesureFormate = MesureFormate + ",";
