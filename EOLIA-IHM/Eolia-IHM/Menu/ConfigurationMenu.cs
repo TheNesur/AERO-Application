@@ -277,9 +277,9 @@ namespace Eolia_IHM.Menu
 
         private async void buttonSTARTGOCALIB_Click(object sender, EventArgs e)
         {
-            buttonSTARTGOCALIB.Enabled = false;
+            
             if (!panelGoCalib.Enabled) {
-               
+                buttonSTARTGOCALIB.Enabled = false;
                 EoliaMes.EnvoyerMessageSerieCapteur("GOCALIB");
                 int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
                 int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
@@ -288,21 +288,20 @@ namespace Eolia_IHM.Menu
                 {
                     await Task.Delay(100);
                     delaiEcoule += 100;
+                    if (delaiEcoule >= delaiMaximum)
+                    {
+                        buttonSTARTGOCALIB.Text = "Demarrer";
+                        EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration a échoué.");
+                        return;
+                    }
                 }
-                if (delaiEcoule >= delaiMaximum)
-                {
 
-                    buttonSTARTGOCALIB.Enabled = true;
-                    EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration a échoué.");
-                }
-                else
-                {
 
-                    buttonSTARTGOCALIB.Enabled = true;
-                    panelGoCalib.Enabled = true;
-                    EoliaMes.GoCalib = false;
-                    buttonSTARTGOCALIB.Text = "Terminer";
-                }
+
+                panelGoCalib.Enabled = true;
+                EoliaMes.GoCalib = false;
+                buttonSTARTGOCALIB.Text = "Terminer";
+
             }
             else
             {

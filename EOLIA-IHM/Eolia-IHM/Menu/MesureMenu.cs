@@ -281,11 +281,10 @@ namespace Eolia_IHM.Menu
         {
             if (checkBoxSaveVitesse.Checked)
             {
-                if (!checkBoxAutoReload.Checked)
-                {
+
                     checkBoxAutoReload.Checked = true;
                     checkBoxAutoReload.Enabled = false;
-                }
+                
             }
             else
             {
