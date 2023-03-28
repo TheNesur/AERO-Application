@@ -59,7 +59,7 @@ namespace Eolia_IHM
 
         private static String directoryVideo = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/VIDEO/";
         private static String directoryImage = EoliaUtils.LireConfiguration("REPERTOIRESITEWEB") + "/IMG/";
-        internal static bool GoCalib = false;
+        public static bool GoCalib = false;
 
         // Fonction relatif a la gestion des mesures
 
@@ -69,10 +69,18 @@ namespace Eolia_IHM
             LabelMesPortance = LabelMesPort;
             ReponseCMDMesure = RepMsg;
             TransmissionMesure = true;
-            string ECHELLEJR = "2235.55";
-            string ECHELLEJP = "2147.75"; 
+            string ECHELLEJT = "1";//"2235.55";
+            string ECHELLEJP = "1";//"2147.75"; 
+            if(ConfigurationMenu.ECHELLEJAUGEPORTANCE != "")
+            {
+                ECHELLEJP = ConfigurationMenu.ECHELLEJAUGEPORTANCE;
+            }
+            if (ConfigurationMenu.ECHELLEJAUGETRAINEE != "")
+            {
+                ECHELLEJT = ConfigurationMenu.ECHELLEJAUGETRAINEE;
+            }
             ReponseCMDMesure.AppendText( "Envoi de la requete a l'ESP32 sur le port "+ CapteurLiaisonSerie.PortName +"\r\n\r\n");
-            EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE + " ECHELLEJR " + ECHELLEJR + " ECHELLEJP " + ECHELLEJP);
+            EnvoyerMessageSerieCapteur("START " + FMES + " EQGVOLTPORTANCE " + EQGVOLTPORTANCE + " EQGVOLTTRAINEE " + EQGVOLTTRAINEE + " ECHELLEJR " + ECHELLEJT + " ECHELLEJP " + ECHELLEJP);
 
         }
 
@@ -325,6 +333,7 @@ namespace Eolia_IHM
 
                 if (words[1] == "PRAW:")
                 {
+                    words[2] = words[2].Replace("\r\n", String.Empty);
                     CultureInfo culture = CultureInfo.InvariantCulture;
                     if (!float.TryParse(words[2], NumberStyles.Float, culture, out CalibrationPortance))
                     {

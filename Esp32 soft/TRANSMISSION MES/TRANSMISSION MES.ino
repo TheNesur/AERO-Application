@@ -96,8 +96,8 @@ void loop() {
       String EqJT = arg[7];
       String EqJP = arg[9];      
       delaims = DelaiMes.toFloat() *1000;
-      JAUGE1_SCALE = EqJT.toFloat();
-      JAUGE2_SCALE = EqJP.toFloat();
+      JAUGE1_SCALE = EqJP.toFloat();
+      JAUGE2_SCALE = EqJT.toFloat();
       eqgvoltport = EqPort.toFloat();
       eqgvolttrai = EqTra.toFloat();
       jauge1.set_scale(JAUGE1_SCALE);
@@ -137,11 +137,11 @@ void loop() {
       Serial2.println("MSG GOCALIB OK");
       cmdBuff = "";
     }else if(cmdBuff.indexOf("RAWTRAINEE") >= 0){
-      float jttmp = jauge1.get_units(10);
+      float jttmp = jauge2.get_units(10);
       Serial2.println(String("MSG TRAW: ") + jttmp);
       cmdBuff = "";
     }else if(cmdBuff.indexOf("RAWPORTANCE") >= 0){
-      float jptmp = jauge2.get_units(10);
+      float jptmp = jauge1.get_units(10);
       Serial2.println(String("MSG PRAW: ") + jptmp);
       cmdBuff = "";
     }else{

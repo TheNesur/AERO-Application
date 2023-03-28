@@ -125,8 +125,11 @@ namespace Eolia_IHM.Menu
             S = textBoxS.Text;
 
             ECHELLEJAUGEPORTANCE = EoliaUtils.LireConfiguration("ECHELLEJAUGEPORTANCE");
+            textBoxEchellePortance.Text = ECHELLEJAUGEPORTANCE;
+
 
             ECHELLEJAUGETRAINEE = EoliaUtils.LireConfiguration("ECHELLEJAUGETRAINEE");
+            textBoxEchelleTrainee.Text = ECHELLEJAUGETRAINEE;
 
 
             EoliaLogs.Write("Configuration chargée", EoliaLogs.Types.OTHER);
@@ -222,7 +225,7 @@ namespace Eolia_IHM.Menu
             int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
             int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
 
-            while (float.IsNaN(EoliaMes.CalibrationPortance) && delaiEcoule < delaiMaximum)
+            while (float.IsNaN(EoliaMes.CalibrationPortance))
             {
                 await Task.Delay(100);
                 delaiEcoule += 100;
@@ -274,13 +277,14 @@ namespace Eolia_IHM.Menu
 
         private async void buttonSTARTGOCALIB_Click(object sender, EventArgs e)
         {
+            buttonSTARTGOCALIB.Enabled = false;
             if (!panelGoCalib.Enabled) {
-                buttonSTARTGOCALIB.Text = "Terminer";
+               
                 EoliaMes.EnvoyerMessageSerieCapteur("GOCALIB");
                 int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
                 int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
 
-                while (EoliaMes.GoCalib = true && delaiEcoule < delaiMaximum)
+                while (EoliaMes.GoCalib != true)
                 {
                     await Task.Delay(100);
                     delaiEcoule += 100;
@@ -288,13 +292,16 @@ namespace Eolia_IHM.Menu
                 if (delaiEcoule >= delaiMaximum)
                 {
 
+                    buttonSTARTGOCALIB.Enabled = true;
                     EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration a échoué.");
                 }
                 else
                 {
 
+                    buttonSTARTGOCALIB.Enabled = true;
                     panelGoCalib.Enabled = true;
                     EoliaMes.GoCalib = false;
+                    buttonSTARTGOCALIB.Text = "Terminer";
                 }
             }
             else
