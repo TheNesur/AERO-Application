@@ -10,6 +10,7 @@ using System.IO.Ports;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Eolia_IHM.Utils.EoliaCam;
@@ -25,6 +26,7 @@ namespace Eolia_IHM.Menu
         private bool bigScreenActived = false;
 
         private bool savePictureAvecMesure = true;
+
 
         //private static Mutex mtx;
 
@@ -71,6 +73,7 @@ namespace Eolia_IHM.Menu
             if (!bigScreenActived)
             {
                 PictureBox pictureBox = (PictureBox)sender;
+
                 pictureBoxBigScreen.Image = pictureBox.Image;
                 pictureBoxBigScreen.Visible = true;
                 flowLayoutPanelDossierImage.Visible = false;
@@ -96,7 +99,7 @@ namespace Eolia_IHM.Menu
             if (Directory.Exists(directoryImage))
             {
 
-                if (Directory.GetFiles(directoryImage).Length == 0) {labelAucuneImageTrouvee.Invoke(new Action(() => labelAucuneImageTrouvee.Visible = true));; return 0; }
+                if (Directory.GetFiles(directoryImage).Length == 0) {labelAucuneImageTrouvee.Invoke(new Action(() => labelAucuneImageTrouvee.Visible = true)); flowLayoutPanelDossierImage.Controls.Clear(); return 0; }
                 else { labelAucuneImageTrouvee.Invoke(new Action(() => labelAucuneImageTrouvee.Visible = false));  }
 
                 int er = 0;
@@ -239,7 +242,10 @@ namespace Eolia_IHM.Menu
                             //EoliaLogs.Write($"Check 3", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
                             //pictureBox.Invoke(new Action(() => pictureBox.Click += new System.EventHandler(this.activeBigScreen)));
 
-                            pictureBox.Click += new System.EventHandler(this.activeBigScreen);
+                            pictureBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.activeBigScreen);
+                            //pictureBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.MoveMouseInFlowLayout);
+                            //pictureBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DownMouseInFlowLayout);
+                            //pictureBox.MouseUp += new System.Windows.Forms.MouseEventHandler(this.UpMouseInFlowLayout);
                             //EoliaLogs.Write($"Check 4", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
 
                             er = 5;
@@ -355,19 +361,83 @@ namespace Eolia_IHM.Menu
             if (er != 0) EoliaLogs.Write("Erreur lancement de l'enregistrement video : " + er, EoliaLogs.Types.CAMERA);
         }
 
-        private void buttonActualiserDossier_Click(object sender, EventArgs e)
-        {
-            if (iconIsExist("buttonStopReloadFileBig.png"))
-                buttonActualiserDossier.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopReloadFileBig.png");
-            reloadDirectoryImage();
-            if (iconIsExist("buttonStartReloadFileBig.png"))
-                buttonActualiserDossier.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartReloadFileBig.png");
-        }
-
         private void checkBoxDisplayMesureInImage_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBoxDisplayMesureInImage.Checked) savePictureAvecMesure = true;
             else savePictureAvecMesure = false;
+        }
+
+        private int posMouse;
+        private bool mouseDown = false;
+        private void DownMouseInFlowLayout(object sender, MouseEventArgs e)
+        {
+            //Console.WriteLine("Down FlowPanel X : " + flowLayoutPanelDossierImage.Height
+            //    + " | Y : " + flowLayoutPanelDossierImage.AutoScrollPosition.Y + " | pos souris : " + Control.MousePosition.Y);
+            posMouse = Control.MousePosition.Y;
+            mouseDown = true;
+        }
+
+        private void UpMouseInFlowLayout(object sender, MouseEventArgs e)
+        {
+            //Console.WriteLine("Up FlowPanel X : " + flowLayoutPanelDossierImage.AutoScrollPosition.X
+            //    + " | Y : " + flowLayoutPanelDossierImage.AutoScrollPosition.Y + " | pos souris : " + Control.MousePosition.Y + " = " + (Control.MousePosition.Y - posMouse));
+            mouseDown = false;
+
+
+
+        }
+        private  int fuck = 0;
+        private void MoveMouseInFlowLayout(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Console.WriteLine(
+                    "MouseMove : flowY = " + flowLayoutPanelDossierImage.AutoScrollPosition.Y
+                    + " | MouseY = " + Control.MousePosition.Y
+                    + " | posMouse = " + posMouse
+                    + " | NewPosFlowY-5 = " + (flowLayoutPanelDossierImage.AutoScrollPosition.Y - 5)
+                    + " | NewPosFlowY+5 = " + (flowLayoutPanelDossierImage.AutoScrollPosition.Y + 5)
+                    );
+                if (Control.MousePosition.Y < posMouse)
+                {
+                    //fuck += 5;
+                    //flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
+                    //    flowLayoutPanelDossierImage.AutoScrollPosition.X,
+                    //    (fuck)
+
+                    //);
+                    fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) + 20;
+                    flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
+                        flowLayoutPanelDossierImage.AutoScrollPosition.X,
+                        fuck
+                    );
+
+                    Console.WriteLine("PLUS : " + fuck);
+                } else if (Control.MousePosition.Y > posMouse)
+                {
+                    //if (flowLayoutPanelDossierImage.AutoScrollPosition.Y == 0) { posMouse = MousePosition.Y; return; }
+                    //if (fuck - 5 < 0) fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y);
+                    fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) - 20;
+                    flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
+                        flowLayoutPanelDossierImage.AutoScrollPosition.X,
+                        fuck
+                    );
+                    Console.WriteLine("MOINS : " + fuck);
+                }
+
+                posMouse = Control.MousePosition.Y;
+            }
+        }
+
+        private void deleteAllImages(object sender, EventArgs e)
+        {
+            foreach(string fileName in Directory.GetFiles(directoryImage))
+            {
+                File.Delete(fileName);
+                //Console.WriteLine("File is = " + fileName);
+            }
+            EoliaLogs.Write("Toutes les images capturés manuellement ont étaient supprimé.");
+            reloadDirectoryImage();
         }
     }
 }
