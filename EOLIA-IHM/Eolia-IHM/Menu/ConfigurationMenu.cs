@@ -45,6 +45,9 @@ namespace Eolia_IHM.Menu
             if(EoliaUtils.EoliaConfigExiste())
                 Recharger();
             buttonConfiguration.PerformClick();
+            //panelGoCalib.BackColor = Color.FromArgb(150, 150, 150);
+            panelGoCalib.BackColor = Color.Gray;
+            buttoncalibrerportance.BackColor = Color.FromArgb(204, 204, 204);
         }
 
 
@@ -304,6 +307,8 @@ namespace Eolia_IHM.Menu
                 EoliaMes.GoCalib = false;
                 buttonSTARTGOCALIB.Enabled = true;
                 buttonSTARTGOCALIB.Text = "Terminer";
+                panelGoCalib.BackColor = Color.FromArgb(204, 204, 204);
+                buttoncalibrerportance.BackColor = Color.White;
 
             }
             else
@@ -313,6 +318,8 @@ namespace Eolia_IHM.Menu
                 Sauvegarder();
                 buttonSTARTGOCALIB.Text = "Demarrer";
                 panelGoCalib.Enabled = false;
+                panelGoCalib.BackColor = Color.Gray;
+                buttoncalibrerportance.BackColor = Color.FromArgb(204, 204, 204);
             }
 
         }
