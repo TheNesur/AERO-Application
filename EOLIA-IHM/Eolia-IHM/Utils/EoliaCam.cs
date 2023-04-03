@@ -106,6 +106,7 @@ namespace Eolia_IHM.Utils
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                EoliaLogs.Write("Impossible d'initialiser la caméra. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "MEMOIRE");
                 return false;
             }
             return false;
@@ -172,7 +173,7 @@ namespace Eolia_IHM.Utils
         /*-----------------------------------------------*/
         static void NewImageBufferReadyEventHandler(object sender, NewImageBufferReadyEventArgs newImageBufferReadyEventArgs)
         {
-            int er = -1;
+            //int er = -1;
             try
             {
                 if (driveInfo.AvailableFreeSpace <= 1000000000)  // 1Go 
@@ -184,9 +185,9 @@ namespace Eolia_IHM.Utils
                 }
                 if (streamStart && captureIsStart)
                 {
-                    if (pictureBox != null && (typeCapture == CameraTypes.IMAGECAPTURE || typeCapture == CameraTypes.IMAGESAVE)) { er = 1; pictureBox.Image = ByteToImage(newImageBufferReadyEventArgs.ImageBuffer); }
+                    if (pictureBox != null && (typeCapture == CameraTypes.IMAGECAPTURE || typeCapture == CameraTypes.IMAGESAVE)) { pictureBox.Image = ByteToImage(newImageBufferReadyEventArgs.ImageBuffer); }
                     if (typeCapture == CameraTypes.VIDEOSAVE) { 
-                        er = 2; 
+                        //er = 2; 
                         if (countImageVideo == 9)
                         {
                             fileStreamVideo.Close();
@@ -203,7 +204,7 @@ namespace Eolia_IHM.Utils
                             tabVideo.Clear();
                             countImageVideo = 0;
                         }
-                        er = 3;
+                        //er = 3;
                         /*
                         if (saveMesureInImageForVideo)
                         {
@@ -267,7 +268,7 @@ namespace Eolia_IHM.Utils
             catch (Exception ee)
             {
                 Console.WriteLine(ee.Message);
-                EoliaLogs.Write("Impossible de récupérer l'image de la caméra. er:" + er, EoliaLogs.Types.CAMERA);
+                EoliaLogs.Write("Impossible de récupérer l'image de la caméra. ERREUR :" + ee.Message, EoliaLogs.Types.CAMERA);
 
             }
         }
@@ -309,7 +310,7 @@ namespace Eolia_IHM.Utils
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible de lancer l'affichage des images.", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
+                EoliaLogs.Write("Impossible de lancer l'affichage des images. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
                 return -1;
             }
         }
@@ -328,7 +329,7 @@ namespace Eolia_IHM.Utils
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'arrêter l'affichage des images.", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
+                EoliaLogs.Write("Impossible d'arrêter l'affichage des images. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
 
                 return -1;
             }
@@ -340,10 +341,10 @@ namespace Eolia_IHM.Utils
         /*-                   SAVE IMAGE                -*/
         /*-----------------------------------------------*/
 
-        public static int SavePicture(String folder = null, bool saveMesureInImage = false, String portance = null, String trainee = null)
+        public static Image SavePicture(String folder = null, bool saveMesureInImage = false, String portance = null, String trainee = null)
         {
             //if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
-            if (typeCapture == CameraTypes.VIDEOSAVE) return 10;
+            if (typeCapture == CameraTypes.VIDEOSAVE) return null;
             try
             {
                 EoliaLogs.Write("Lancement de l'enregristrement d'une image ", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
@@ -352,7 +353,7 @@ namespace Eolia_IHM.Utils
                 if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
                 //String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + ".jpg";
-                if (initializeCamera(formatImage, false) != true) return 2;
+                if (initializeCamera(formatImage, false) != true) return null;
 
                 if (portance == null && portance == null)
                 {
@@ -363,47 +364,48 @@ namespace Eolia_IHM.Utils
                     else trainee = EoliaMes.ObtenirTrainee();
                 }
                 String nameCapture = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage;
-
-                if (saveMesureInImage == false)
+                Image imageCapture = ByteToImage(device.Capture());
+                if (imageCapture == null) return null;
+                if (saveMesureInImage == true)
                 {
+                    /*imageCapture = ByteToImage(device.Capture());
                     device.Capture(folder + "/" + nameCapture);
                     EoliaLogs.Write("Capture de l'image sans la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
                 }
                 else
-                {
-                    Image imageNPT = ByteToImage(device.Capture());
-                    Bitmap bitmapNPT = new Bitmap(imageNPT.Width, imageNPT.Height);
-                    using (Graphics g = Graphics.FromImage(imageNPT))
+                {*/
+                    Bitmap bitmapNPT = new Bitmap(imageCapture.Width, imageCapture.Height);
+                    using (Graphics g = Graphics.FromImage(imageCapture))
                     {
-                        g.DrawImage(imageNPT, 0, 0, imageNPT.Width, imageNPT.Height);
+                        g.DrawImage(imageCapture, 0, 0, imageCapture.Width, imageCapture.Height);
                         Brush colorBorder = Brushes.Black;
                         Brush colorText = Brushes.White;
                         //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(8, imageNPT.Height - 52));
                         //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 48));
                         //g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), Brushes.Black, new PointF(12, imageNPT.Height - 50));
 
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 48));
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageNPT.Height - 52));
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(12, imageNPT.Height - 50));
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(8, imageNPT.Height - 50));
-                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorText, new PointF(10, imageNPT.Height - 50));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageCapture.Height - 48));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(10, imageCapture.Height - 52));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(12, imageCapture.Height - 50));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorBorder, new PointF(8, imageCapture.Height - 50));
+                        g.DrawString($"PORTANCE : {portance} | TRAINEE : {trainee}", new Font("Arial", 20, FontStyle.Bold), colorText, new PointF(10, imageCapture.Height - 50));
 
                     }
-                    imageNPT.Save($"{folder}/{nameCapture}");
                     EoliaLogs.Write("Capture de l'image avec la mesure", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
                 }
                 //destructCamera();
                 EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
+                imageCapture.Save($"{folder}/{nameCapture}");
 
-                return 0;
+                return imageCapture;
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer l'image.", EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
-                return -1;
+                EoliaLogs.Write("Impossible d'enregistrer l'image. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
+                return null;
             }
         }
 
@@ -458,54 +460,45 @@ namespace Eolia_IHM.Utils
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo.", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Impossible d'enregistrer la vidéo. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return -1;
             }
         }
 
         public static int StopSaveVideo()
         {
-            var er = -1;
+            //var er = -1;
             if (typeCapture != CameraTypes.VIDEOSAVE) return 10;
             try
             {
                 EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
-                //if (!Directory.Exists(FolderVideo)) Directory.CreateDirectory(FolderVideo);
 
-                er = 1;
+                //er = 1;
                 destructCamera();
-                er = 2;
+                //er = 2;
 
-                // Vérifier si le nom FileStartVideo fini par .H264
-
-                //Task.Run(() =>
-                //{
 
                 EoliaLogs.Write("Enregistrement des bits en cours...", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 fileStreamVideo = File.Open(nameFileVideo, FileMode.Append);
-                er = 3;
+                //er = 3;
                 for (int i = 0; i < tabVideo.Count; i++)
                 {
-                    er = 4;
+                    //er = 4;
                     fileStreamVideo.Write(tabVideo[i], 0, tabVideo[i].Length);
-                    er = 5;
+                    //er = 5;
                     EoliaLogs.Write($"{i} : " + tabVideo[i].Length, EoliaLogs.Types.CAMERA, "VIDEO");
                 }
                 fileStreamVideo.Close();
                 fileStreamVideo.Dispose();
-                er = 6;
+                //er = 6;
                 tabVideo.Clear();
-                er = 7;
+                //er = 7;
                 EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count);
-                //});
-
-                //checkInitializeCamera();
 
                 streamStart = false;
                 captureIsStart = false;
-                //saveMesureInImageForVideo = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
-                er = 0;
+                //er = 0;
 
                 EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFileVideo, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return 0;
@@ -513,7 +506,7 @@ namespace Eolia_IHM.Utils
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
-                EoliaLogs.Write("Impossible d'enregistrer la vidéo." + " |  erreur : " + er, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Impossible d'enregistrer la vidéo. ERREUR : " + e.Message, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return -1;
             }
         }

@@ -996,3 +996,7 @@ C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.csproj.CopyComplete
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.exe
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\obj\Debug\Eolia-IHM.pdb
+C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\microprocessor.png
+C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-erreur.png
+C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-off.png
+C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-on.png
