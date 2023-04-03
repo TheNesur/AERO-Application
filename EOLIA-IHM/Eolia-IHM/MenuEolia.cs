@@ -174,51 +174,43 @@ namespace Eolia_IHM
 
         private void buttonCamera_Click(object sender, EventArgs e)
         {
-            //foreach (string port in SerialPort.GetPortNames())
-            //{
-            //    if (port == "/dev/video0")
-            //    {
-            //        chooseMenu(MenuTypes.CAMERA);
-            //        return;
-            //    }
-            //}
-
-            /*try
+            if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {
-                var process = new Process
+                try
                 {
-                    StartInfo = new ProcessStartInfo
+                    var process = new Process
                     {
-                        FileName = "vcgencmd",
-                        Arguments = "get_camera",
-                        RedirectStandardOutput = true,
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
+                        StartInfo = new ProcessStartInfo
+                        {
+                            FileName = "vcgencmd",
+                            Arguments = "get_camera",
+                            RedirectStandardOutput = true,
+                            UseShellExecute = false,
+                            CreateNoWindow = true,
+                        }
+                    };
+                    process.Start();
+                    string output = process.StandardOutput.ReadToEnd();
+                    process.WaitForExit();
+
+                    if (output.Contains("detected=0"))
+                    {
+                        EoliaUtils.MsgBoxNonBloquante("Aucune caméra trouvé.", "Impossible d'accèder au menu de la caméra");
                     }
-                };
-                process.Start();
-                string output = process.StandardOutput.ReadToEnd();
-                process.WaitForExit();
-
-                if (output.Contains("detected=0"))
-                {
-                    EoliaUtils.MsgBoxNonBloquante("Impossible d'accèder a la gestion de la caméra, aucune caméra n'est détecter.", "ERREUR CAMERA");
+                    else
+                    {
+                        chooseMenu(MenuTypes.CAMERA);
+                    }
                 }
-                else
+                catch (Exception ee)
                 {
-                    chooseMenu(MenuTypes.CAMERA);
+                    Console.WriteLine(ee.Message);
                 }
-            } catch (Exception ee)
+            }
+            else
             {
-                EoliaUtils.MsgBoxNonBloquante("Impossible de vérifier si la caméra existe, vous n'utilisez pas la bonne version/sysème d'exploitation.", "ERREUR CAMERA");
-                Console.WriteLine(ee.Message);
-            }*/
-            chooseMenu(MenuTypes.CAMERA);
-
-
-
-
-
+                EoliaUtils.MsgBoxNonBloquante("H.S sur Windows.", "Impossible d'accéder au menu de la caméra");
+            }
         }
 
         private void buttonConfiguration_Click(object sender, EventArgs e)

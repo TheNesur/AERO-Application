@@ -310,10 +310,23 @@ namespace Eolia_IHM.Menu
                 Task.Run(() =>
                 {
                     
-                    var task = Task.Run(() => { EoliaCam.SavePicture(directoryImage, true); });
+                    var task = Task.Run(() => {
+
+                        Image imageCapture = EoliaCam.SavePicture(directoryImage, true);
+                        if (imageCapture == null) return;
+                        PictureBox pictureBox = new PictureBox();
+                        //EoliaLogs.Write($"Check 1", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
+
+                        pictureBox.Size = new Size(130, 130);
+                        pictureBox.Image = EoliaCam.SavePicture(directoryImage, true);
+                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+                        //EoliaLogs.Write($"Check 2", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
+                        flowLayoutPanelDossierImage.Invoke(new Action(() => pictureBox.Parent = flowLayoutPanelDossierImage));
+                        labelAucuneImageTrouvee.Invoke(new Action(() => labelAucuneImageTrouvee.Visible = false));
+                    });
                     task.Wait();
 
-                    reloadDirectoryImage();
+                    //reloadDirectoryImage();
                     if (iconIsExist("buttonStartScreenshotBig.png"))
                         buttonPrendrePhoto.Invoke((MethodInvoker)delegate { buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png"); });
                     //buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png");
@@ -386,7 +399,6 @@ namespace Eolia_IHM.Menu
 
 
         }
-        private  int fuck = 0;
         private void MoveMouseInFlowLayout(object sender, MouseEventArgs e)
         {
             if (mouseDown)
@@ -398,31 +410,26 @@ namespace Eolia_IHM.Menu
                     + " | NewPosFlowY-5 = " + (flowLayoutPanelDossierImage.AutoScrollPosition.Y - 5)
                     + " | NewPosFlowY+5 = " + (flowLayoutPanelDossierImage.AutoScrollPosition.Y + 5)
                     );
+
+                int newPosition = 0;
+
                 if (Control.MousePosition.Y < posMouse)
                 {
-                    //fuck += 5;
-                    //flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
-                    //    flowLayoutPanelDossierImage.AutoScrollPosition.X,
-                    //    (fuck)
-
-                    //);
-                    fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) + 20;
+                    newPosition = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) + 20;
                     flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
                         flowLayoutPanelDossierImage.AutoScrollPosition.X,
-                        fuck
+                        newPosition
                     );
 
-                    Console.WriteLine("PLUS : " + fuck);
+                    //Console.WriteLine("PLUS : " + nouvellePosisition);
                 } else if (Control.MousePosition.Y > posMouse)
                 {
-                    //if (flowLayoutPanelDossierImage.AutoScrollPosition.Y == 0) { posMouse = MousePosition.Y; return; }
-                    //if (fuck - 5 < 0) fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y);
-                    fuck = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) - 20;
+                    newPosition = Math.Abs(flowLayoutPanelDossierImage.AutoScrollPosition.Y) - 20;
                     flowLayoutPanelDossierImage.AutoScrollPosition = new Point(
                         flowLayoutPanelDossierImage.AutoScrollPosition.X,
-                        fuck
+                        newPosition
                     );
-                    Console.WriteLine("MOINS : " + fuck);
+                    //Console.WriteLine("MOINS : " + nouvellePosisition);
                 }
 
                 posMouse = Control.MousePosition.Y;

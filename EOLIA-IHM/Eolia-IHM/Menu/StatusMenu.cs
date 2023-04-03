@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,16 @@ namespace Eolia_IHM.Menu
         private bool bddDemarrer = false;
         private bool esp32Demarrer = false;
         private bool liaisonRegulateurDemarrer = false;
+        private String directoryIcon = AppDomain.CurrentDomain.BaseDirectory + "/ICON/";
+
         //private bool cameraConnected = false;
+
+
+        private bool iconIsExist(String nameIcon)
+        {
+            if (File.Exists($"{directoryIcon}/{nameIcon}")) return true;
+            else return false;
+        }
 
         private void StatusMenu_Load(object sender, EventArgs e)
         {
@@ -48,26 +58,32 @@ namespace Eolia_IHM.Menu
 
                     if (output.Contains("detected=0"))
                     {
-                        labelStatutCamera.Text = "Introuvable";
-                        labelStatutCamera.ForeColor = System.Drawing.Color.Red;
+
+                        if (iconIsExist("camera-erreur.png"))
+                            pictureBoxCameraCapture.Image = Image.FromFile(directoryIcon + "/camera-erreur.png");
+
                     }
                     else
                     {
-                        labelStatutCamera.Text = "Connectée";
-                        labelStatutCamera.ForeColor = System.Drawing.Color.Green;
+
+                        if (iconIsExist("camera-on.png"))
+                            pictureBoxCameraCapture.Image = Image.FromFile(directoryIcon + "/camera-on.png");
 
                     }
                 }
                 catch (Exception ee)
                 {
-                    labelStatutCamera.Text = "Introuvable";
-                    labelStatutCamera.ForeColor = System.Drawing.Color.Green;
+
+                    if (iconIsExist("camera-off.png"))
+                        pictureBoxCameraCapture.Image = Image.FromFile(directoryIcon + "/camera-off.png");
+
                     Console.WriteLine(ee.Message);
                 }
             }
             else
             {
-                labelStatutCamera.Text = "H.S. sur Windows";
+                if (iconIsExist("camera-off.png"))
+                    pictureBoxCameraCapture.Image = Image.FromFile(directoryIcon + "/camera-off.png");
             }
         }
 
