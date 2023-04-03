@@ -50,6 +50,8 @@ namespace Eolia_IHM.Menu
             this.labelqzdqz = new System.Windows.Forms.Label();
             this.labelsegf = new System.Windows.Forms.Label();
             this.groupBoxReg = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.checkBoxAutoReload = new System.Windows.Forms.CheckBox();
             this.buttonMoins = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
@@ -61,8 +63,8 @@ namespace Eolia_IHM.Menu
             this.multimediaParam = new System.Windows.Forms.GroupBox();
             this.videoParam = new System.Windows.Forms.CheckBox();
             this.photoParam = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxReg.SuspendLayout();
@@ -139,6 +141,8 @@ namespace Eolia_IHM.Menu
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(204)))), ((int)(((byte)(204)))));
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.labelMesureTrainee);
             this.groupBox1.Controls.Add(this.labelMesurePortance);
             this.groupBox1.Controls.Add(this.labelter);
@@ -323,6 +327,26 @@ namespace Eolia_IHM.Menu
             this.groupBoxReg.TabStop = false;
             this.groupBoxReg.Text = "Données du régulateur";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(243, 46);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(44, 25);
+            this.label2.TabIndex = 25;
+            this.label2.Text = "m/s";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(243, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 25);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "m/s";
+            // 
             // checkBoxAutoReload
             // 
             this.checkBoxAutoReload.AutoSize = true;
@@ -449,25 +473,25 @@ namespace Eolia_IHM.Menu
             this.photoParam.Text = "Enregistrer photo avec mesure";
             this.photoParam.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // label4
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(243, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 25);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "m/s";
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(278, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 25);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "mN";
             // 
-            // label2
+            // label6
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(243, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 25);
-            this.label2.TabIndex = 25;
-            this.label2.Text = "m/s";
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(277, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 25);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "mN";
             // 
             // MesureMenu
             // 
@@ -533,5 +557,7 @@ namespace Eolia_IHM.Menu
         private System.Windows.Forms.CheckBox checkBoxSaveVitesse;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
     }
 }

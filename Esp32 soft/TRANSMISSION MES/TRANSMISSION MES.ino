@@ -6,16 +6,22 @@ const int LEDVERTE_PIN = 22;
 // init du capteur 1 (portance)
 
 HX711 jauge1;
-const int JAUGE1_DOUT_PIN = 27;
-const int JAUGE1_SCK_PIN = 14;
+// const int JAUGE1_DOUT_PIN = 27;
+// const int JAUGE1_SCK_PIN = 14;
+
+const int JAUGE1_DOUT_PIN = 33;
+const int JAUGE1_SCK_PIN = 32;
 float JAUGE1_SCALE;
 
 
 // init du capteur 2 (trainée)
 
 HX711 jauge2;
-const int JAUGE2_DOUT_PIN = 33;
-const int JAUGE2_SCK_PIN = 32;
+// const int JAUGE2_DOUT_PIN = 33;
+// const int JAUGE2_SCK_PIN = 32;
+
+const int JAUGE2_DOUT_PIN = 27;
+const int JAUGE2_SCK_PIN = 14;
 float JAUGE2_SCALE;
 
 String cmdBuff = "";
@@ -104,9 +110,10 @@ void loop() {
       jauge2.set_scale(JAUGE2_SCALE);
       jauge1.tare();
       jauge2.tare();
-      gestiondelai = millis();
+
       digitalWrite(LEDVERTE_PIN, HIGH);
-      Serial2.println("MSG DEMARRAGE TRANSMISSION MESURE AVEC " + DelaiMes + " SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en N : " + EqPort + "; Trainee maximum en N : " + EqTra + "; echelle jauge trainee : "+ EqJT +"; echelle jauge portance : "+ EqJP +")");
+      Serial2.println("MSG DEMARRAGE TRANSMISSION MESURE AVEC " + DelaiMes + " SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : " + EqPort + "; Trainee maximum en mN : " + EqTra + "; echelle jauge trainee : "+ EqJT +"; echelle jauge portance : "+ EqJP +")");
+      gestiondelai = millis();
       cmdBuff = "";
     }else if(cmdBuff.indexOf("STOP") >= 0){
       start = false;
@@ -121,12 +128,12 @@ void loop() {
       if(simu){
         simu=false;
         digitalWrite(LEDROUGE_PIN, LOW);
-        Serial2.println("MSG Mode simulation désactivé");
+        Serial2.println("MSG Mode simulation désactivée");
         
       }else{
         simu=true;
         digitalWrite(LEDROUGE_PIN, HIGH);
-        Serial2.println("MSG Mode simulation activé"); 
+        Serial2.println("MSG Mode simulation activée"); 
       }
       cmdBuff = "";
     }else if(cmdBuff.indexOf("GOCALIB") >= 0){
@@ -154,18 +161,19 @@ void loop() {
   if(start){
     if(simu){
       if (millis() - gestiondelai >= delaims) {
-        String mesure = String("PORTANCE " ) + fakemes + String(" TRAINEE ") + fakemes + String(" ");
-        Serial2.println(mesure);
+        // String mesure = String("PORTANCE " ) + fakemes + String(" TRAINEE ") + fakemes + String(" ");
+        // Serial2.println(mesure);
 
-        int traineeAnalog = fakemes * 251 / eqgvolttrai;
-        int portanceAnalog = fakemes * 251 / eqgvoltport;
-        dacWrite(TRAINEE_PWM_PIN, traineeAnalog);
-        dacWrite(PORTANCE_PWM_PIN, portanceAnalog);
-        String debugmsg = String("MSG SORTIEPORTANCE " ) + traineeAnalog + String(" SORTIE TRAINEE ") + portanceAnalog;
-        Serial2.println(debugmsg);
-        fakemes=fakemes+1;
-        if(fakemes > 33) fakemes=0;
-        gestiondelai = millis();
+        // int traineeAnalog = fakemes * 251 / eqgvolttrai;
+        // int portanceAnalog = fakemes * 251 / eqgvoltport;
+        // dacWrite(TRAINEE_PWM_PIN, traineeAnalog);
+        // dacWrite(PORTANCE_PWM_PIN, portanceAnalog);
+        // String debugmsg = String("MSG SORTIEPORTANCE " ) + traineeAnalog + String(" SORTIE TRAINEE ") + portanceAnalog;
+        // Serial2.println(debugmsg);
+        // fakemes=fakemes+1;
+        // if(fakemes > 33) fakemes=0;
+        // gestiondelai = millis();
+        Serial2.println((jauge2.get_units(10) * 10.0) / 10.0);
       }
     }else{
       if (millis() - gestiondelai >= delaims) {
@@ -175,8 +183,8 @@ void loop() {
           float result2=round(jauge2.get_units(10) * 10.0) / 10.0;
           String mesure = String("PORTANCE " ) + abs(result1) + String(" TRAINEE ") + abs(result2);
           Serial2.println(mesure);
-          int traineeAnalog = result1 * 251 / eqgvolttrai;
-          int portanceAnalog = result2  * 251 / eqgvoltport;
+          int traineeAnalog = abs(result1) * 251 / eqgvolttrai;
+          int portanceAnalog = abs(result2)  * 251 / eqgvoltport;
           analogWrite(TRAINEE_PWM_PIN, traineeAnalog);
           analogWrite(PORTANCE_PWM_PIN, portanceAnalog);
           gestiondelai = millis();

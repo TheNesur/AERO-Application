@@ -109,7 +109,7 @@ namespace Eolia_IHM.Menu
             EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
 
             textBoxGVoltTrainee.Text = EoliaUtils.LireConfiguration("VALEURMAXTRAINEE");
-            EQGVOLTTRAINEE = textBoxGVoltPortance.Text;
+            EQGVOLTTRAINEE = textBoxGVoltTrainee.Text;
 
             textBoxCx.Text = EoliaUtils.LireConfiguration("CX");
             CX = textBoxCx.Text;
@@ -161,7 +161,7 @@ namespace Eolia_IHM.Menu
             PortSerieRegulateur = comboBoxPortRegulateur.Text;
             FREQUENCEMES = textBoxNbMesureSec.Text;
             EQGVOLTPORTANCE = textBoxGVoltPortance.Text;
-            EQGVOLTTRAINEE = textBoxGVoltPortance.Text;
+            EQGVOLTTRAINEE = textBoxGVoltTrainee.Text;
             CX = textBoxCx.Text;
             CZ = textBoxCz.Text;
             rho = textBoxRho.Text;
@@ -291,6 +291,7 @@ namespace Eolia_IHM.Menu
                     delaiEcoule += 100;
                     if (delaiEcoule >= delaiMaximum)
                     {
+                        buttonSTARTGOCALIB.Enabled = true;
                         buttonSTARTGOCALIB.Text = "Demarrer";
                         EoliaUtils.MsgBoxNonBloquante("Délai maximum d'attente dépassé. La calibration a échoué.");
                         return;
@@ -301,6 +302,7 @@ namespace Eolia_IHM.Menu
 
                 panelGoCalib.Enabled = true;
                 EoliaMes.GoCalib = false;
+                buttonSTARTGOCALIB.Enabled = true;
                 buttonSTARTGOCALIB.Text = "Terminer";
 
             }
