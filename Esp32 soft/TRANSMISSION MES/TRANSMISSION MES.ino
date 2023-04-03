@@ -1,14 +1,11 @@
 #include "HX711.h"
 
 const int LEDROUGE_PIN = 21;
-const int LEDVERTE_PIN = 22;
+const int LEDVERTE_PIN = 22; 
 
 // init du capteur 1 (portance)
 
 HX711 jauge1;
-// const int JAUGE1_DOUT_PIN = 27;
-// const int JAUGE1_SCK_PIN = 14;
-
 const int JAUGE1_DOUT_PIN = 33;
 const int JAUGE1_SCK_PIN = 32;
 float JAUGE1_SCALE;
@@ -17,15 +14,10 @@ float JAUGE1_SCALE;
 // init du capteur 2 (trainée)
 
 HX711 jauge2;
-// const int JAUGE2_DOUT_PIN = 33;
-// const int JAUGE2_SCK_PIN = 32;
-
 const int JAUGE2_DOUT_PIN = 27;
 const int JAUGE2_SCK_PIN = 14;
-float JAUGE2_SCALE;
+float JAUGE2_SCALE; // Echelle définie par la suite
 
-String cmdBuff = "";
-String nxtcmdBuff = "";
 
 // init des pin pwm pour la liaison séries normalisés
 const int PORTANCE_PWM_PIN = 26;
@@ -33,8 +25,12 @@ const int TRAINEE_PWM_PIN = 25;
 const float rapportAOP = 3.25;
 float eqgvoltport;
 float eqgvolttrai;
-// init des variables 
 
+
+// init des variables annexes
+
+String cmdBuff = "";
+String nxtcmdBuff = "";
 bool start = false;
 bool simu = false;
 float delaims; // correspond au délai entre chaque transmission de mesure 
@@ -42,16 +38,13 @@ unsigned long gestiondelai;
 float fakemes = 0;
 
 void setup() {
-  // démarrer la liaison série à 9600 baud
-  Serial.begin(9600);
-  Serial.setTimeout(2000);
-
+  // démarrer la liaison série 2 à 9600 baud
   Serial2.begin(9600, SERIAL_8N1, 16, 17);  
   Serial2.setTimeout(2000);
     
+
+  // Démarre la liaison avec les jauges en se basant sur la syntaxe de la librairie HX711
   jauge1.begin(JAUGE1_DOUT_PIN, JAUGE1_SCK_PIN, 128);
-
-
   jauge2.begin(JAUGE2_DOUT_PIN, JAUGE2_SCK_PIN, 128);
 
 
@@ -141,11 +134,11 @@ void loop() {
       jauge1.tare();
       jauge2.set_scale();
       jauge2.tare();
-      Serial2.println("MSG GOCALIB OK");
+      Serial2.println("MSG GOCALIB OK"); // Démarrage du mode calibration, j'enlève toute les config précédente afin de procéder au calibrage (config précédente = offset.. tarage ..)
       cmdBuff = "";
-    }else if(cmdBuff.indexOf("RAWTRAINEE") >= 0){
-      float jttmp = jauge2.get_units(10);
-      Serial2.println(String("MSG TRAW: ") + jttmp);
+    }else if(cmdBuff.indexOf("RAWTRAINEE") >= 0){ // Les valeurs "RAW" sont les valeurs brutes qui sont donc des valeurs qui ne sont pas lisible par l'homme mais qui permette a l'IHM
+      float jttmp = jauge2.get_units(10);         // de défnir l'échelle
+      Serial2.println(String("MSG TRAW: ") + jttmp);  // car ECHELLE = VALEURRAW / POIDSDEREFECENCE 
       cmdBuff = "";
     }else if(cmdBuff.indexOf("RAWPORTANCE") >= 0){
       float jptmp = jauge1.get_units(10);
@@ -179,13 +172,13 @@ void loop() {
       if (millis() - gestiondelai >= delaims) {
         if (jauge1.wait_ready_timeout(1000) && jauge2.wait_ready_timeout(1000)) {
           digitalWrite(LEDROUGE_PIN, HIGH);
-          float result1=round(jauge1.get_units(10) * 10.0) / 10.0;
-          float result2=round(jauge2.get_units(10) * 10.0) / 10.0;
-          String mesure = String("PORTANCE " ) + abs(result1) + String(" TRAINEE ") + abs(result2);
+          float result1=round(jauge1.get_units(10) * 10.0) / 10.0;   // result1 = jauge trainée , result2 = jauge portance
+          float result2=round(jauge2.get_units(10) * 10.0) / 10.0;  // Arrondi les valeurs des jauges de portance et de trainée 
+          String mesure = String("PORTANCE " ) + abs(result1) + String(" TRAINEE ") + abs(result2); // string final a envoyer a l'utilisateur
           Serial2.println(mesure);
-          int traineeAnalog = abs(result1) * 251 / eqgvolttrai;
-          int portanceAnalog = abs(result2)  * 251 / eqgvoltport;
-          analogWrite(TRAINEE_PWM_PIN, traineeAnalog);
+          int traineeAnalog = abs(result1) * 251 / eqgvolttrai; // 251 correspondant a 10V dans le système avec notre ampli OP afin d'obtenir Vmax = 10 V
+          int portanceAnalog = abs(result2)  * 251 / eqgvoltport; // car si l'on prenait 255 vu que AmpliOP imparfait Vmax = 10.65V...
+          analogWrite(TRAINEE_PWM_PIN, traineeAnalog); 
           analogWrite(PORTANCE_PWM_PIN, portanceAnalog);
           gestiondelai = millis();
           digitalWrite(LEDROUGE_PIN, LOW);
