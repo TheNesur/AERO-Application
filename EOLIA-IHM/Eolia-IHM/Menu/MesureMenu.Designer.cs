@@ -35,6 +35,8 @@ namespace Eolia_IHM.Menu
             this.buttonTarerCapteurs = new System.Windows.Forms.Button();
             this.textBoxLogMesure = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.labelMesureTrainee = new System.Windows.Forms.Label();
             this.labelMesurePortance = new System.Windows.Forms.Label();
             this.labelter = new System.Windows.Forms.Label();
@@ -63,8 +65,6 @@ namespace Eolia_IHM.Menu
             this.multimediaParam = new System.Windows.Forms.GroupBox();
             this.videoParam = new System.Windows.Forms.CheckBox();
             this.photoParam = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBoxReg.SuspendLayout();
@@ -81,7 +81,7 @@ namespace Eolia_IHM.Menu
             this.buttonLancerTransmissionMesure.Name = "buttonLancerTransmissionMesure";
             this.buttonLancerTransmissionMesure.Size = new System.Drawing.Size(312, 50);
             this.buttonLancerTransmissionMesure.TabIndex = 12;
-            this.buttonLancerTransmissionMesure.Text = "Lancer la transmission de mesure";
+            this.buttonLancerTransmissionMesure.Text = "Lancer la transmission des mesures";
             this.buttonLancerTransmissionMesure.UseVisualStyleBackColor = false;
             this.buttonLancerTransmissionMesure.Click += new System.EventHandler(this.buttonLancerTransmissionMesure_Click);
             // 
@@ -95,7 +95,7 @@ namespace Eolia_IHM.Menu
             this.buttonLancerEnregistrementMesure.Name = "buttonLancerEnregistrementMesure";
             this.buttonLancerEnregistrementMesure.Size = new System.Drawing.Size(312, 50);
             this.buttonLancerEnregistrementMesure.TabIndex = 13;
-            this.buttonLancerEnregistrementMesure.Text = "Lancer l\'enregistrement de mesure";
+            this.buttonLancerEnregistrementMesure.Text = "Lancer l\'enregistrement des mesures";
             this.buttonLancerEnregistrementMesure.UseVisualStyleBackColor = false;
             this.buttonLancerEnregistrementMesure.Click += new System.EventHandler(this.buttonLancerEnregistrementMesure_Click);
             // 
@@ -154,6 +154,26 @@ namespace Eolia_IHM.Menu
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dernière mesure reçue";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(277, 53);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(42, 25);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "mN";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(278, 30);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 25);
+            this.label4.TabIndex = 26;
+            this.label4.Text = "mN";
             // 
             // labelMesureTrainee
             // 
@@ -219,7 +239,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelValeurMoyenneTrainee.AutoSize = true;
             this.labelValeurMoyenneTrainee.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValeurMoyenneTrainee.Location = new System.Drawing.Point(270, 98);
+            this.labelValeurMoyenneTrainee.Location = new System.Drawing.Point(263, 99);
             this.labelValeurMoyenneTrainee.Name = "labelValeurMoyenneTrainee";
             this.labelValeurMoyenneTrainee.Size = new System.Drawing.Size(40, 25);
             this.labelValeurMoyenneTrainee.TabIndex = 8;
@@ -229,7 +249,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelValeurMoyennePortance.AutoSize = true;
             this.labelValeurMoyennePortance.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelValeurMoyennePortance.Location = new System.Drawing.Point(278, 74);
+            this.labelValeurMoyennePortance.Location = new System.Drawing.Point(273, 74);
             this.labelValeurMoyennePortance.Name = "labelValeurMoyennePortance";
             this.labelValeurMoyennePortance.Size = new System.Drawing.Size(40, 25);
             this.labelValeurMoyennePortance.TabIndex = 7;
@@ -472,26 +492,6 @@ namespace Eolia_IHM.Menu
             this.photoParam.TabIndex = 0;
             this.photoParam.Text = "Enregistrer photo avec mesure";
             this.photoParam.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(278, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(42, 25);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "mN";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(277, 53);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(42, 25);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "mN";
             // 
             // MesureMenu
             // 

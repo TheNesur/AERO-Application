@@ -35,12 +35,12 @@ namespace Eolia_IHM.Menu
         {
             if (EoliaMes.EtatTransMes())
             {
-                buttonLancerTransmissionMesure.Text = "Demarrer transmission mesure";
+                buttonLancerTransmissionMesure.Text = "Lancer la transmission des mesures";
                 EoliaMes.ArreterTransMes();
             }
             else
             {
-                buttonLancerTransmissionMesure.Text = "Arrêter transmission mesure";
+                buttonLancerTransmissionMesure.Text = "Arrêter transmission des mesures  ";
                 EoliaMes.InitialiserTransMes(textBoxLogMesure, labelMesurePortance, labelMesureTrainee, ConfigurationMenu.FREQUENCEMES, ConfigurationMenu.EQGVOLTPORTANCE, ConfigurationMenu.EQGVOLTTRAINEE);
             }
         }
@@ -57,7 +57,7 @@ namespace Eolia_IHM.Menu
 
                 buttonSauvegarderSessionEnCours.Enabled = true;
                 buttonSauvegarderSessionEnCours.BackColor = Color.White;
-                buttonLancerEnregistrementMesure.Text = "Demarrer enregistrement mesure";
+                buttonLancerEnregistrementMesure.Text = "Lancer l'enregistrement des mesures";
             }
             else
             {
@@ -68,7 +68,7 @@ namespace Eolia_IHM.Menu
                 }
                 buttonSauvegarderSessionEnCours.Enabled = false;
                 buttonSauvegarderSessionEnCours.BackColor = Color.Gray;
-                buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement mesure";
+                buttonLancerEnregistrementMesure.Text = "Arrêter enregistrement des mesures";
             }
         }
 

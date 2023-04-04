@@ -90,7 +90,7 @@ namespace Eolia_IHM
             this.buttonMesure.Name = "buttonMesure";
             this.buttonMesure.Size = new System.Drawing.Size(204, 50);
             this.buttonMesure.TabIndex = 12;
-            this.buttonMesure.Text = "Mesure";
+            this.buttonMesure.Text = "Mesures";
             this.buttonMesure.UseVisualStyleBackColor = false;
             this.buttonMesure.Click += new System.EventHandler(this.buttonMesure_Click);
             // 
