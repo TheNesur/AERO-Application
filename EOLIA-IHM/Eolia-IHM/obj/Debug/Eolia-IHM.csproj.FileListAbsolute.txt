@@ -1000,3 +1000,7 @@ C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-erreur.png
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-off.png
 C:\Users\Elève\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-on.png
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-erreur.png
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-off.png
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\camera-on.png
+C:\Users\Rémi\Documents\GitHub\AERO-Application\EOLIA-IHM\Eolia-IHM\bin\Debug\ICON\microprocessor.png

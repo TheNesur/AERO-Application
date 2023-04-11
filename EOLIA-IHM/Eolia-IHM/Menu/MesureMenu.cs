@@ -339,5 +339,17 @@ namespace Eolia_IHM.Menu
                 trackBarRegulateur.Value = (int)(EoliaReg.obtenirVitesseVoulue()*10);
             }
         }
+
+        private void photoParam_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox ch = (CheckBox)sender;
+
+            if(videoParam == ch && videoParam.Checked)
+            {
+                photoParam.Checked = false;
+            }
+            if(photoParam == ch && photoParam.Checked)
+                videoParam.Checked = false;
+        }
     }
 }
