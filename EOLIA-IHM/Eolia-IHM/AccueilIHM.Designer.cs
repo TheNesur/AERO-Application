@@ -38,7 +38,7 @@
             // BoutonLancer
             // 
             this.BoutonLancer.BackColor = System.Drawing.Color.White;
-            this.BoutonLancer.Font = new System.Drawing.Font("Montserrat ExtraBold", 35F);
+            this.BoutonLancer.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F);
             this.BoutonLancer.Location = new System.Drawing.Point(200, 230);
             this.BoutonLancer.Name = "BoutonLancer";
             this.BoutonLancer.Size = new System.Drawing.Size(600, 150);
@@ -50,7 +50,7 @@
             // buttonFermerProgramme
             // 
             this.buttonFermerProgramme.BackColor = System.Drawing.Color.White;
-            this.buttonFermerProgramme.Font = new System.Drawing.Font("Montserrat ExtraBold", 17F);
+            this.buttonFermerProgramme.Font = new System.Drawing.Font("Microsoft Sans Serif", 17F);
             this.buttonFermerProgramme.Location = new System.Drawing.Point(364, 397);
             this.buttonFermerProgramme.Name = "buttonFermerProgramme";
             this.buttonFermerProgramme.Size = new System.Drawing.Size(300, 100);
@@ -71,7 +71,7 @@
             // 
             // AccueilIHM
             // 
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None; // bloque mono
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(1024, 600);
             this.Controls.Add(this.pictureBox1);

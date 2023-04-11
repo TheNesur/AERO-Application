@@ -531,7 +531,7 @@ namespace Eolia_IHM.Menu
             // labelRepetoire
             // 
             this.labelRepetoire.AutoSize = true;
-            this.labelRepetoire.Location = new System.Drawing.Point(110, 130);
+            this.labelRepetoire.Location = new System.Drawing.Point(112, 130);
             this.labelRepetoire.Name = "labelRepetoire";
             this.labelRepetoire.Size = new System.Drawing.Size(112, 20);
             this.labelRepetoire.TabIndex = 9;
@@ -549,7 +549,7 @@ namespace Eolia_IHM.Menu
             // labelMDPMYSQL
             // 
             this.labelMDPMYSQL.AutoSize = true;
-            this.labelMDPMYSQL.Location = new System.Drawing.Point(207, 80);
+            this.labelMDPMYSQL.Location = new System.Drawing.Point(208, 80);
             this.labelMDPMYSQL.Name = "labelMDPMYSQL";
             this.labelMDPMYSQL.Size = new System.Drawing.Size(78, 20);
             this.labelMDPMYSQL.TabIndex = 7;
@@ -558,7 +558,7 @@ namespace Eolia_IHM.Menu
             // labelUsernameMYSQL
             // 
             this.labelUsernameMYSQL.AutoSize = true;
-            this.labelUsernameMYSQL.Location = new System.Drawing.Point(153, 53);
+            this.labelUsernameMYSQL.Location = new System.Drawing.Point(157, 53);
             this.labelUsernameMYSQL.Name = "labelUsernameMYSQL";
             this.labelUsernameMYSQL.Size = new System.Drawing.Size(78, 20);
             this.labelUsernameMYSQL.TabIndex = 6;
@@ -567,7 +567,7 @@ namespace Eolia_IHM.Menu
             // labelAdresseMYSQL
             // 
             this.labelAdresseMYSQL.AutoSize = true;
-            this.labelAdresseMYSQL.Location = new System.Drawing.Point(153, 31);
+            this.labelAdresseMYSQL.Location = new System.Drawing.Point(156, 31);
             this.labelAdresseMYSQL.Name = "labelAdresseMYSQL";
             this.labelAdresseMYSQL.Size = new System.Drawing.Size(78, 20);
             this.labelAdresseMYSQL.TabIndex = 5;

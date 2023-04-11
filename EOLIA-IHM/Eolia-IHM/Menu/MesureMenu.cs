@@ -188,6 +188,7 @@ namespace Eolia_IHM.Menu
                     else
                     { 
                         result = await EoliaReg.ParamVitesseAsync(actuelDesir + 1);
+                        trackBarRegulateur.Value = (int)((actuelDesir + 1) * 10);
                     }
                 }
                 catch (Exception ex)
@@ -252,6 +253,9 @@ namespace Eolia_IHM.Menu
                     else
                     {
                         result = await EoliaReg.ParamVitesseAsync(actuelDesir - 1);
+
+                        trackBarRegulateur.Value = (int)((actuelDesir - 1) * 10);
+
                     }
                 }
                 catch (Exception ex)
@@ -298,6 +302,42 @@ namespace Eolia_IHM.Menu
 
             }
 
+        }
+
+        private async void trackBarRegulateur_MouseUp(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                await EoliaReg.ParamVitesseAsync((float)trackBarRegulateur.Value / 10);
+                //labelVitesseSouhaitée.Text = ((float)trackBarRegulateur.Value / 10).ToString();
+            }
+            catch (Exception ee)
+            {
+                Console.WriteLine(ee.Message);
+            }
+        }
+
+        private async void trackBarRegulateur_Scroll(object sender, EventArgs e)
+        {
+            if (MouseButtons != MouseButtons.None)
+            {
+                labelVitesseSouhaiteeScroll.Visible = true;
+                labelVitesseSouhaiteeScroll.Text = ((float)trackBarRegulateur.Value / 10).ToString();
+                await Task.Delay(100);
+
+            }
+            else
+                labelVitesseSouhaiteeScroll.Visible = false;
+
+        }
+
+        private void checkBoxAutoReload_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxAutoReload.Checked)
+            {
+                EoliaLogs.Write("TEst regu : " + ((int)(EoliaReg.obtenirVitesseVoulue() * 10)).ToString());
+                trackBarRegulateur.Value = (int)(EoliaReg.obtenirVitesseVoulue()*10);
+            }
         }
     }
 }

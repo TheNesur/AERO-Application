@@ -46,8 +46,12 @@ namespace Eolia_IHM.Menu
                 Recharger();
             buttonConfiguration.PerformClick();
             //panelGoCalib.BackColor = Color.FromArgb(150, 150, 150);
-            panelGoCalib.BackColor = Color.Gray;
-            buttoncalibrerportance.BackColor = Color.FromArgb(204, 204, 204);
+            //panelGoCalib.BackColor = Color.Gray;
+            //buttoncalibrerportance.BackColor = Color.FromArgb(204, 204, 204);
+            if(EoliaMes.EtatTransMes())
+            {
+                groupBoxConfigJauges.Enabled = false;
+            }
         }
 
 

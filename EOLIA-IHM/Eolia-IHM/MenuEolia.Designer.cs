@@ -77,7 +77,7 @@ namespace Eolia_IHM
             this.buttonCamera.Name = "buttonCamera";
             this.buttonCamera.Size = new System.Drawing.Size(204, 50);
             this.buttonCamera.TabIndex = 13;
-            this.buttonCamera.Text = "Camera";
+            this.buttonCamera.Text = "Caméra";
             this.buttonCamera.UseVisualStyleBackColor = false;
             this.buttonCamera.Click += new System.EventHandler(this.buttonCamera_Click);
             // 
