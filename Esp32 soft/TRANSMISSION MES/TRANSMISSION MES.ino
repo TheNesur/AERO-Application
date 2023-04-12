@@ -172,12 +172,12 @@ void loop() {
       if (millis() - gestiondelai >= delaims) {
         if (jauge1.wait_ready_timeout(1000) && jauge2.wait_ready_timeout(1000)) {
           digitalWrite(LEDROUGE_PIN, HIGH);
-          float result1=round(jauge1.get_units(10) * 10.0) / 10.0;   // result1 = jauge trainée , result2 = jauge portance
-          float result2=round(jauge2.get_units(10) * 10.0) / 10.0;  // Arrondi les valeurs des jauges de portance et de trainée 
-          String mesure = String("PORTANCE " ) + abs(result1) + String(" TRAINEE ") + abs(result2); // string final a envoyer a l'utilisateur
+          float JTrainee=round(jauge1.get_units(10) * 10.0) / 10.0;   // JTrainee = jauge trainée , JPortance = jauge portance
+          float JPortance=round(jauge2.get_units(10) * 10.0) / 10.0;  // Arrondi les valeurs des jauges de portance et de trainée 
+          String mesure = String("PORTANCE " ) + abs(JTrainee) + String(" TRAINEE ") + abs(JPortance); // string final a envoyer a l'utilisateur
           Serial2.println(mesure);
-          int traineeAnalog = abs(result2) * 251 / eqgvolttrai; // 251 correspondant a 10V dans le système avec notre ampli OP afin d'obtenir Vmax = 10 V
-          int portanceAnalog = abs(result1)  * 251 / eqgvoltport; // car si l'on prenait 255 vu que AmpliOP imparfait Vmax = 10.65V...
+          int traineeAnalog = abs(JPortance) * 251 / eqgvolttrai; // 251 correspondant a 10V dans le système avec notre ampli OP afin d'obtenir Vmax = 10 V
+          int portanceAnalog = abs(JTrainee)  * 251 / eqgvoltport; // car si l'on prenait 255 vu que AmpliOP imparfait Vmax = 10.65V...
           analogWrite(TRAINEE_PWM_PIN, traineeAnalog); 
           analogWrite(PORTANCE_PWM_PIN, portanceAnalog);
           gestiondelai = millis();

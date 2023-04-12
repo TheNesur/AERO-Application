@@ -405,8 +405,8 @@ namespace Eolia_IHM
                     ListeMesureTrainee.Add(trainee);
                     ListeMesurePortance.Add(portance);
 
-                    LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = ListeMesureTrainee.Average().ToString()));
-                    LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = ListeMesurePortance.Average().ToString()));
+                    LabelValMoyenneTrainee.Invoke(new Action(() => LabelValMoyenneTrainee.Text = Math.Round(ListeMesureTrainee.Average(),2).ToString()));
+                    LabelValMoyennePortance.Invoke(new Action(() => LabelValMoyennePortance.Text = Math.Round(ListeMesurePortance.Average(), 2).ToString()));
                     LabelNombreDeMesure.Invoke(new Action(() => LabelNombreDeMesure.Text = ListeMesurePortance.Count().ToString()));
 
                     if (photo)

@@ -28,7 +28,7 @@ namespace Eolia_IHM.Menu
             {
                 multimediaParam.Enabled = false;
             }
-
+            
         }
 
         private void buttonLancerTransmissionMesure_Click(object sender, EventArgs e)
