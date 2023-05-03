@@ -381,9 +381,9 @@ namespace Eolia_IHM.Menu
             this.labelVitesseSouhaiteeScroll.AutoSize = true;
             this.labelVitesseSouhaiteeScroll.Location = new System.Drawing.Point(423, 14);
             this.labelVitesseSouhaiteeScroll.Name = "labelVitesseSouhaiteeScroll";
-            this.labelVitesseSouhaiteeScroll.Size = new System.Drawing.Size(51, 20);
+            this.labelVitesseSouhaiteeScroll.Size = new System.Drawing.Size(29, 20);
             this.labelVitesseSouhaiteeScroll.TabIndex = 27;
-            this.labelVitesseSouhaiteeScroll.Text = "label7";
+            this.labelVitesseSouhaiteeScroll.Text = "Ok";
             this.labelVitesseSouhaiteeScroll.Visible = false;
             // 
             // trackBarRegulateur
