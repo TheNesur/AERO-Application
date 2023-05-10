@@ -1,0 +1,11 @@
+[16:21:20] [LOGS] Initialisation des logs...[16:21:20] [OTHER] Nombre d'image : 2
+[16:21:21] [OTHER] Configuration chargée
+[16:21:21] [OTHER] Configuration chargée
+[16:21:31] [SERIAL] Liaison série ESP32 démarrée
+[16:21:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 779.00 TRAINEE 1632.00
+
+[16:21:32] [MYSQL] Connecté a la BDD MYSQL
+[16:21:37] [SERIAL] Commande liaison série capteur reçue MSG GOCALIB OK
+
+[16:21:41] [OTHER] Nouvelle configuration enregistrée
+[16:21:43] [SERIAL] Liaison série ESP32 arrêtée
