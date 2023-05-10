@@ -1,13 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Eolia_IHM.Utils.EoliaReg">
-    <Position X="0.5" Y="0.5" Width="2" />
+  <Class Name="Eolia_IHM.EoliaLogs">
+    <Position X="4.5" Y="0.75" Width="1.5" />
     <Compartments>
       <Compartment Name="Fields" Collapsed="true" />
     </Compartments>
+    <NestedTypes>
+      <Enum Name="Eolia_IHM.EoliaLogs.Types" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Utils\EoliaLogs.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>BEYACEQAAAABCKAMAAAzAAAAAkIACARGAoggYAAAAAA=</HashCode>
-      <FileName>Utils\EoliaReg.cs</FileName>
+      <HashCode>AQBAAAAAAAQAAAAAAAACAAAgAAAAIAAAIAAAAAEAAAA=</HashCode>
+      <FileName>Utils\EoliaLogs.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
