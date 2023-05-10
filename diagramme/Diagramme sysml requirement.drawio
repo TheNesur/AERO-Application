@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-05-10T09:41:46.486Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.35" etag="iI98EGtdKPdLw8gyUrzJ" version="21.2.9" type="github">
+<mxfile host="app.diagrams.net" modified="2023-05-10T09:47:26.084Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36 Edg/113.0.1774.35" etag="Vt9G6ZyyeUusWWjMmlln" version="21.2.9" type="github">
   <diagram name="Page-1" id="929967ad-93f9-6ef4-fab6-5d389245f69c">
-    <mxGraphModel dx="1121" dy="476" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
+    <mxGraphModel dx="645" dy="274" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1.5" pageWidth="1169" pageHeight="826" background="none" math="0" shadow="0">
       <root>
         <mxCell id="0" style=";html=1;" />
         <mxCell id="1" style=";html=1;" parent="0" />
@@ -26,8 +26,8 @@
         <mxCell id="1672d66443f91eb5-23" value="Cahier des charges" style="text;strokeColor=none;fillColor=none;html=1;fontSize=24;fontStyle=1;verticalAlign=middle;align=center;" parent="1" vertex="1">
           <mxGeometry x="122" y="180" width="1510" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="skP8LqyMPYf7C6mUsK04-3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Interface utilisateur&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;1&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text = &quot;L&#39;interface doit être tactile&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="530" y="345" width="204" height="85" as="geometry" />
+        <mxCell id="skP8LqyMPYf7C6mUsK04-3" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Interface utilisateur&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;1&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text = &quot;L&#39;interface doit être un écran tactile&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="530" y="345" width="204" height="95" as="geometry" />
         </mxCell>
         <mxCell id="skP8LqyMPYf7C6mUsK04-6" value="" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="skP8LqyMPYf7C6mUsK04-3" target="skP8LqyMPYf7C6mUsK04-7">
           <mxGeometry width="160" relative="1" as="geometry">
@@ -35,19 +35,37 @@
             <mxPoint x="681" y="500" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="skP8LqyMPYf7C6mUsK04-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;IHM&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;R1.2&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Doit être développé en C#&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="535" y="500" width="192" height="80" as="geometry" />
+        <mxCell id="skP8LqyMPYf7C6mUsK04-7" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;IHM&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;1.2&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;L&#39;IHM doit être développé en C#&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="535" y="500" width="192" height="100" as="geometry" />
         </mxCell>
         <mxCell id="skP8LqyMPYf7C6mUsK04-9" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Site internet&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;2&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text = &quot;Le site doit pouvoir communiquer avce le programme installer sur la Raspberry PI&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
           <mxGeometry x="1522" y="345" width="204" height="115" as="geometry" />
         </mxCell>
         <mxCell id="skP8LqyMPYf7C6mUsK04-10" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;RaspBerry&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;1.1&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text = &quot;La version doit être une RaspBerry PI 3 au minimum&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
-          <mxGeometry x="784" y="340" width="204" height="95" as="geometry" />
+          <mxGeometry x="784" y="345" width="204" height="95" as="geometry" />
         </mxCell>
         <mxCell id="skP8LqyMPYf7C6mUsK04-11" value="" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="skP8LqyMPYf7C6mUsK04-3" target="skP8LqyMPYf7C6mUsK04-10">
           <mxGeometry width="160" relative="1" as="geometry">
             <mxPoint x="642" y="440" as="sourcePoint" />
             <mxPoint x="636" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="skP8LqyMPYf7C6mUsK04-14" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;requirement&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;Gérer les mesures&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;Id = &quot;1.2&quot;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;text=&quot;Capturer et enregistrer les mesures reçu&quot;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="535" y="670" width="192" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="skP8LqyMPYf7C6mUsK04-15" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&amp;lt;&amp;lt;block&amp;gt;&amp;gt;&lt;br&gt;&lt;b&gt;ESP32&lt;/b&gt;&lt;/p&gt;&lt;hr&gt;&lt;p style=&quot;margin: 0px ; margin-left: 8px ; text-align: left&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="shape=rect;html=1;overflow=fill;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="254" y="685" width="192" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="skP8LqyMPYf7C6mUsK04-16" value="" style="edgeStyle=none;html=1;startArrow=sysMLPackCont;startSize=12;endArrow=none;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="skP8LqyMPYf7C6mUsK04-7" target="skP8LqyMPYf7C6mUsK04-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="642" y="450" as="sourcePoint" />
+            <mxPoint x="641" y="510" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="skP8LqyMPYf7C6mUsK04-17" value="&amp;lt;&amp;lt;satisfy&amp;gt;&amp;gt;" style="edgeStyle=none;html=1;endArrow=open;endSize=12;dashed=1;verticalAlign=bottom;rounded=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="skP8LqyMPYf7C6mUsK04-15" target="skP8LqyMPYf7C6mUsK04-14">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="390" y="630" as="sourcePoint" />
+            <mxPoint x="550" y="630" as="targetPoint" />
           </mxGeometry>
         </mxCell>
       </root>
