@@ -147,10 +147,11 @@ namespace Eolia_IHM.Menu
             }
         }
 
-        private void checkBoxAutoReload_CheckStateChanged(object sender, EventArgs e)
+        private async void checkBoxAutoReload_CheckStateChanged(object sender, EventArgs e)
         {
             if(checkBoxAutoReload.Checked)
             {
+                trackBarRegulateur.Value = (int)(await EoliaReg.readVitesseAsync() * 10);
                 EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
             }
             else
@@ -331,14 +332,6 @@ namespace Eolia_IHM.Menu
 
         }
 
-        private void checkBoxAutoReload_CheckedChanged(object sender, EventArgs e)
-        {
-            if (checkBoxAutoReload.Checked)
-            {
-                EoliaLogs.Write("TEst regu : " + ((int)(EoliaReg.obtenirVitesseVoulue() * 10)).ToString());
-                trackBarRegulateur.Value = (int)(EoliaReg.obtenirVitesseVoulue()*10);
-            }
-        }
 
         private void photoParam_CheckedChanged(object sender, EventArgs e)
         {
@@ -350,6 +343,11 @@ namespace Eolia_IHM.Menu
             }
             if(photoParam == ch && photoParam.Checked)
                 videoParam.Checked = false;
+        }
+
+        private void trackBarRegulateur_MouseLeave(object sender, EventArgs e)
+        {
+            labelVitesseSouhaiteeScroll.Visible = false;
         }
     }
 }
