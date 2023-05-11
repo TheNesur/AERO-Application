@@ -1,0 +1,21 @@
+[13:05:13] [LOGS] Initialisation des logs...[13:05:13] [OTHER] Nombre d'image : 2
+[13:05:13] [OTHER] Configuration chargée
+[13:05:14] [OTHER] Configuration chargée
+[13:05:17] [DEBUG] Message affiché : Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle 
+[13:05:19] [MYSQL] Connecté a la BDD MYSQL
+[13:05:19] [DEBUG] Message affiché : Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle 
+[13:05:31] [SERIAL] Liaison série ESP32 démarrée
+[13:05:36] [SERIAL] Enregistrement mesure démarée
+[13:05:40] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.1 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[13:05:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:05:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.20
+
+[13:05:44] [SERIAL] Enregistrement mesure arrêtée
+[13:05:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:05:45] [SERIAL] Transmission mesure arrêtée
+[13:05:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.40
+
+[13:06:10] [SERIAL] Liaison série ESP32 arrêtée

@@ -1,0 +1,7 @@
+[14:16:48] [LOGS] Initialisation des logs...[14:16:48] [OTHER] Nombre d'image : 1
+[14:16:48] [OTHER] Configuration chargée
+[14:16:49] [OTHER] Configuration chargée
+[14:16:52] [DEBUG] Message affiché : Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle 
+[14:16:57] [SERIAL] Liaison série ESP32 démarrée
+[14:16:57] [SERIAL] Liaison série Régulateur démarrée régulateur
+[14:16:58] [MYSQL] Connecté a la BDD MYSQL

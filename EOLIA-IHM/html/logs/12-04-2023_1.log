@@ -1,0 +1,5 @@
+[11:35:56] [LOGS] Initialisation des logs...[11:35:57] [OTHER] Nombre d'image : 2
+[11:35:57] [OTHER] Configuration chargée
+[11:35:57] [OTHER] Configuration chargée
+[11:35:57] [DEBUG] Message affiché : Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle 
+[11:36:00] [MYSQL] Connecté a la BDD MYSQL

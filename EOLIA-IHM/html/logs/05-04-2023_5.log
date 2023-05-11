@@ -1,0 +1,8 @@
+[08:49:28] [LOGS] Initialisation des logs...[08:49:28] [OTHER] Nombre d'image : 1
+[08:49:29] [OTHER] Configuration chargée
+[08:49:29] [OTHER] Configuration chargée
+[08:49:32] [SERIAL] Liaison série ESP32 démarrée
+[08:49:32] [SERIAL] Liaison série Régulateur démarrée régulateur
+[08:49:32] [MYSQL] Connecté a la BDD MYSQL
+[08:53:50] [SERIAL] Liaison série ESP32 arrêtée
+[08:53:50] [SERIAL] Liaison série Régulateur arrêtée

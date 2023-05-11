@@ -1,0 +1,18 @@
+[14:11:20] [LOGS] Initialisation des logs...[14:11:20] [OTHER] Nombre d'image : 1
+[14:11:20] [OTHER] Configuration chargée
+[14:11:20] [OTHER] Configuration chargée
+[14:11:22] [SERIAL] Liaison série ESP32 démarrée
+[14:11:28] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.1 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[14:11:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[14:11:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.10
+
+[14:11:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[14:11:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[14:11:36] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[14:11:38] [SERIAL] Transmission mesure arrêtée
+[14:11:38] [SERIAL] Liaison série ESP32 arrêtée

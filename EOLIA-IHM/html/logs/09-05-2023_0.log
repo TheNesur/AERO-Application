@@ -1,0 +1,134 @@
+[13:06:23] [LOGS] Initialisation des logs...[13:06:23] [OTHER] Nombre d'image : 6
+[13:06:23] [OTHER] Configuration chargée
+[13:06:24] [OTHER] Configuration chargée
+[13:06:26] [SERIAL] Liaison série ESP32 démarrée
+[13:06:27] [MYSQL] Connecté a la BDD MYSQL
+[13:06:43] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.1 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[13:06:43] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[13:06:43] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:06:43] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:06:43] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[13:06:43] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[13:06:44] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.20
+
+[13:06:46] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[13:06:46] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[13:06:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:06:47] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:06:47] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:06:47] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:06:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:06:48] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:06:48] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-06-48] PORTANCE 0,1 TRAINEE 0,1.jpg
+[13:06:48] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:06:48] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:06:48] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:06:49] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:06:49] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-06-49] PORTANCE 0 TRAINEE 0,1.jpg
+[13:06:49] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[13:06:51] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:06:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[13:06:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[13:06:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[13:06:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:06:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:07:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[13:07:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:07:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:07:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[13:07:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.10
+
+[13:07:08] [OTHER] Nombre d'image : 8
+[13:07:09] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:07:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.20
+
+[13:07:12] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:07:14] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:07:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.10
+
+[13:07:17] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:07:19] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:07:19] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:07:19] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:07:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[13:07:19] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:07:19] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-07-19] PORTANCE 0 TRAINEE 0,1.jpg
+[13:07:19] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:07:19] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:07:19] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:07:20] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:07:20] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-07-20] PORTANCE 0,1 TRAINEE 0.jpg
+[13:07:20] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:07:22] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:07:24] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[13:07:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.60
+
+[13:07:27] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.40
+
+[13:07:29] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.40
+
+[13:07:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.70
+
+[13:07:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.30
+
+[13:07:32] [OTHER] Nombre d'image : 10
+[13:07:34] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:07:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:07:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[13:07:38] [OTHER] Toutes les images capturés manuellement ont étaient supprimé.
+[13:07:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:07:40] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:07:40] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:07:40] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:07:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:07:40] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:07:40] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-07-40] PORTANCE 0,1 TRAINEE 0,3.jpg
+[13:07:40] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:07:40] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:07:40] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:07:41] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:07:41] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[09-05-2023--13-07-41] PORTANCE 0,1 TRAINEE 0,2.jpg
+[13:07:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.20
+
+[13:07:42] [OTHER] Nombre d'image : 2
+[13:07:43] [OTHER] Nombre d'image : 2
+[13:07:43] [OTHER] Nombre d'image : 2
+[13:07:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.30
+
+[13:07:44] [OTHER] Nombre d'image : 2
+[13:07:44] [OTHER] Nombre d'image : 2
+[13:07:45] [OTHER] Nombre d'image : 2
+[13:07:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:07:45] [OTHER] Nombre d'image : 2
+[13:07:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:07:47] [SERIAL] Transmission mesure arrêtée
+[13:07:47] [SERIAL] Liaison série ESP32 arrêtée

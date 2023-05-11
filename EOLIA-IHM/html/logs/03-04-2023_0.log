@@ -1,0 +1,47 @@
+[13:48:06] [LOGS] Initialisation des logs...[13:48:06] [OTHER] Nombre d'image : 1
+[13:48:06] [OTHER] Configuration chargée
+[13:48:07] [OTHER] Configuration chargée
+[13:48:11] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:11] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:11] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:11] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:11] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:11] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:11] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:12] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:48:12] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-04-2023--13-48-12] PORTANCE NULL TRAINEE NULL.jpg
+[13:48:12] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:12] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:12] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:12] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:48:12] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-04-2023--13-48-12] PORTANCE NULL TRAINEE NULL.jpg
+[13:48:12] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:12] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:12] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:13] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:48:13] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-04-2023--13-48-13] PORTANCE NULL TRAINEE NULL.jpg
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[13:48:13] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:13] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:14] [CAMERA] [SAVE-IMAGE]Impossible d'enregistrer l'image. ERREUR : A null reference or invalid value was found [GDI+ status: InvalidParameter]
+[13:48:14] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[13:48:14] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-04-2023--13-48-14] PORTANCE NULL TRAINEE NULL.jpg

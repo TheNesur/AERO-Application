@@ -1,0 +1,10 @@
+[13:20:25] [LOGS] Initialisation des logs...[13:20:26] [OTHER] Nombre d'image : 2
+[13:20:26] [OTHER] Configuration chargée
+[13:20:26] [OTHER] Configuration chargée
+[13:20:28] [SERIAL] Liaison série ESP32 démarrée
+[13:20:28] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 2.30
+
+[13:20:28] [MYSQL] Connecté a la BDD MYSQL
+[13:20:51] [SERIAL] Transmission mesure arrêtée
+[13:21:27] [SERIAL] Transmission mesure arrêtée
+[13:21:27] [SERIAL] Liaison série ESP32 arrêtée

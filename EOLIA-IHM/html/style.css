@@ -1,0 +1,418 @@
+body {
+  background-image: url("bg.jpg");
+  background-size: cover;
+  font-family: Arial, sans-serif;
+}
+
+#title1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #333;
+  margin-top: 3rem;
+}
+
+.title2 {
+  font-size: 3rem;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.redir {
+  display: flex;
+  justify-content: center;
+}
+
+#global {
+  width: 100%;
+  overflow: auto;
+}
+
+#picture {
+  width: 25%;
+}
+#change {
+  width: 25%;
+}
+
+
+#result {
+  width: 50%;
+  text-align: center;
+  margin-top: 1em;
+  border: solid 3px #334;
+  background-color: #333;
+}
+
+#container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.button {
+  padding: 1.2rem 2.5rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+  width: 260.22px;
+}
+
+.whitetext {
+  color : #fff;
+}
+
+.accueil {
+  padding: 1.2rem 2.5rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+.accueil2 {
+  width: 142px;
+  padding: 1.2rem 2.5rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+.accueil:hover {
+  background-color: #555;
+}
+
+#souff {
+  display: block;
+  margin: 2rem auto;
+  margin-top: 5%;
+  width: 40%;
+  height: auto;
+  border: inset 7px darkgrey;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+#choix {
+  width: 240px;
+  height: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  cursor: pointer;
+}
+
+input.logsstyle {
+  color: #fff;
+  background-color: #333;
+  height: 50px;
+  width: 120px;
+  border: none;
+}
+
+.input.logsstyle:hover {
+  background-color: #555;
+}
+
+select.logsstyle {
+  height: 50px;
+  width: 120px;
+}
+
+textarea{
+  position: absolute;
+  resize : none;
+  width : 80%;
+  height : 67%;
+  left: 10%;
+}
+
+.bouton .button{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25%;
+}
+
+input.accueil{
+  display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+form #formconfig{
+  position: relative;
+}
+/*/ PAGE PHOTO /*/
+div.scroll {
+  background-color: #333;
+  width: 70%;
+  height: 615px;
+  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  text-align:justify;
+  display: grid; 
+  grid-template-columns: repeat(2, 1fr [col-start]); 
+}
+
+#configcontent{
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #333;
+  width: 80%;
+  height: 550px;
+  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr [col-start]); 
+}
+div#configcontent div {
+  margin-bottom: 15px;
+}
+
+
+ #formconfig .accueil{
+  background-color: #666;
+}
+
+
+
+#connexion{
+  background-color: #333;
+  padding: 2%;
+  text-align: center;
+  color : #fff;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.resultimg2 img{
+  width: 60%; 
+  height: 100%;
+}
+
+div.resultimg2{
+text-align: center;
+color: white;
+margin-bottom: 7%;
+}
+
+.modal{
+  z-index:3;
+  display:none;
+  padding-top:100px;
+  position:fixed;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  overflow:auto;
+  background-color:rgb(0,0,0);
+  background-color:rgba(0,0,0,0.4)
+}
+
+.contenu{
+  margin: auto;
+  width: 50%;
+  height: 50%;
+}
+
+#textarea2{
+    top: 40%;
+    position: absolute;
+    resize: none;
+    width: 80%;
+    height: 255px;
+    overflow-y: hidden; 
+    overflow-x: hidden; 
+    left: 10%;
+}
+input#nouveaunom{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 53.5%;
+  height: 30px;
+  margin-top: 15px;
+}
+#ident{
+  font-size: 20px;
+}
+#ident2{
+  font-size: 20px;
+}
+input#username,input#password{
+  width: 200px;
+}
+
+#inputco{
+  padding: 1rem 2rem;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.error-message{
+    color: red;
+    font-size:  20px;
+}
+@media only screen and (max-width: 767px) {
+  .contenu{
+    margin: auto;
+    width: 95%;
+    height: 95%;
+  }
+  img#img01{
+    width: 100%;
+    margin-top: 200px;
+    display: flex;
+  }
+  #space{
+    padding-bottom: 10%;
+  }
+  body{
+    background-size: inherit;
+  }
+#container {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+#picture, #change, #result {
+    width: 100%;
+    margin-bottom: 1em;
+  }
+.bouton .button{
+    margin-top: 10%;
+  }
+div.resultimg2 {
+    text-align: center;
+    color: white;
+    padding-bottom: 15%;
+  }
+.resultimg2 img {
+    width: 90%;
+    height: 100%;
+}
+div.scroll {
+    width: 90%;
+    height: 350px;
+  }
+ #souff{
+  width: 75%;
+ }
+ html{
+  height: 667px;
+ }
+ nav.redir{
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+ }
+ a{
+  margin-bottom: 3%;
+ }
+ textarea{
+  height: 37%;
+ }
+ footer {
+  width: 94%;
+ }
+ #textarea2{
+  top: 55%;
+}
+.redir button {
+  margin-right: 10px; 
+  }
+#formconfig input{
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+    }
+
+#formconfig{
+  display: grid;
+    }
+
+form button.accueil{
+  position: fixed;
+    top: 90%;
+    width: 70%;
+    left: 11%;
+    
+    }
+    #configcontent{
+      width: 80%;
+      height: 350px;
+  
+    }
+    div#connexion{
+      width: 70%;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+  .redir button {
+  margin-right: 10px; 
+  }
+  #ident2{
+    padding-left: 28px;
+  }
+  #formconfig input{
+    width: 40%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    float: right
+    }
+
+    #formconfig{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr [col-start]);
+
+    }
+
+    form button.accueil{
+      position: fixed;
+        top: 76%;
+        width: 50%;
+        left: 24%;
+    }
+    form#formconfig{
+      font-size: 25px;
+    }
+}
