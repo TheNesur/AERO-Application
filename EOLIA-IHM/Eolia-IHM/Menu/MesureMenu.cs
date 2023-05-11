@@ -152,7 +152,7 @@ namespace Eolia_IHM.Menu
             if(checkBoxAutoReload.Checked)
             {
                 trackBarRegulateur.Value = (int)(await EoliaReg.readVitesseAsync() * 10);
-                EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
+                EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée, labelSortieReg);
             }
             else
             {
@@ -289,7 +289,7 @@ namespace Eolia_IHM.Menu
                 if (!checkBoxAutoReload.Checked)
                 {
                     checkBoxAutoReload.Checked = true;
-                    EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée);
+                    EoliaReg.AutoReloadAll(100, labelVitesseIntantanee, labelVitesseSouhaitée, labelSortieReg);
                 }
 
                 

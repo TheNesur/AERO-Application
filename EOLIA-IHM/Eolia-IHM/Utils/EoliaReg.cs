@@ -188,7 +188,8 @@ namespace Eolia_IHM.Utils
             float vitesse = 0;
             try
             {
-                byte[] reponse = ModBusLireRegistre(1, 0x28, 0x2);
+                // byte[] reponse = ModBusLireRegistre(1, 0x0028, 0x2);
+                byte[] reponse = ModBusLireRegistre(1, 0x0035, 0x2);
                 vitesse = ConvertByteArrayToFloat(reponse, reponse.Length - 6);
                 majUI(float.NaN, vitesse);
             }
@@ -214,6 +215,23 @@ namespace Eolia_IHM.Utils
             }
 
             return consigne;
+        }
+
+        static float ObtenirSortie(ushort adresse)
+        {
+            float sortie = 0;
+            try
+            {
+                byte[] reponse = ModBusLireRegistre(1, adresse, 0x2);
+                sortie = ConvertByteArrayToFloat(reponse, reponse.Length - 6);
+           
+            }
+            catch
+            {
+                sortie = 0;
+            }
+
+            return sortie;
         }
         public static bool ParamVitesse(float vitesse)
         {
@@ -362,7 +380,7 @@ namespace Eolia_IHM.Utils
             return await Task.Run(() => ObtenirConsigne());
         }
 
-        public static void AutoReloadAll(int ms, Label Vitesse, Label Consigne)
+        public static void AutoReloadAll(int ms, Label Vitesse, Label Consigne, Label SortieReg)
         {
             updateform = true;
             Task.Run(() => {
@@ -372,12 +390,14 @@ namespace Eolia_IHM.Utils
                     try
                     {
                         float _vitesse = ObtenirVitesse();
-                        Vitesse.Invoke(new Action(() => Vitesse.Text = (Math.Round(_vitesse * MaxValue / 100,2)-3.99).ToString()));
+                        Vitesse.Invoke(new Action(() => Vitesse.Text = (Math.Round(_vitesse, 2)).ToString())) ;
                         vitesse = _vitesse;
                         float _consigne = ObtenirConsigne();
                         vitessedesir = _consigne;
-                        
                         Consigne.Invoke(new Action(() => Consigne.Text = (Math.Round(_consigne,2)).ToString()));
+
+                        float _sortie = ObtenirSortie(0x0049);
+                        SortieReg.Invoke(new Action(() => SortieReg.Text = (Math.Round(_sortie, 2)).ToString()));
                     }
                     catch (Exception e)
                     {
