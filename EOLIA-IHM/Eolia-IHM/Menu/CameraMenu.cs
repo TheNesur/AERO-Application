@@ -318,7 +318,7 @@ namespace Eolia_IHM.Menu
                         //EoliaLogs.Write($"Check 1", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
 
                         pictureBox.Size = new Size(130, 130);
-                        pictureBox.Image = EoliaCam.SavePicture(directoryImage, true);
+                        pictureBox.Image = imageCapture;
                         pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
                         //EoliaLogs.Write($"Check 2", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
                         flowLayoutPanelDossierImage.Invoke(new Action(() => pictureBox.Parent = flowLayoutPanelDossierImage));
