@@ -311,22 +311,11 @@ namespace Eolia_IHM.Menu
                 {
                     
                     var task = Task.Run(() => {
-
-                        Image imageCapture = EoliaCam.SavePicture(directoryImage, true);
-                        if (imageCapture == null) return;
-                        PictureBox pictureBox = new PictureBox();
-                        //EoliaLogs.Write($"Check 1", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
-
-                        pictureBox.Size = new Size(130, 130);
-                        pictureBox.Image = imageCapture;
-                        pictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-                        //EoliaLogs.Write($"Check 2", EoliaLogs.Types.CAMERA, "FOLDER-IMAGE");
-                        flowLayoutPanelDossierImage.Invoke(new Action(() => pictureBox.Parent = flowLayoutPanelDossierImage));
-                        labelAucuneImageTrouvee.Invoke(new Action(() => labelAucuneImageTrouvee.Visible = false));
+                        pictureBoxRetourCamera.Invoke(new Action(() => pictureBoxRetourCamera.Image = EoliaCam.SavePicture(directoryImage, savePictureAvecMesure)));
                     });
                     task.Wait();
 
-                    //reloadDirectoryImage();
+                    reloadDirectoryImage();
                     if (iconIsExist("buttonStartScreenshotBig.png"))
                         buttonPrendrePhoto.Invoke((MethodInvoker)delegate { buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png"); });
                     //buttonPrendrePhoto.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartScreenshotBig.png");
@@ -336,7 +325,7 @@ namespace Eolia_IHM.Menu
             {
                 Task.Run(() =>
                 {
-                    var task = Task.Run(() => { EoliaCam.SavePicture(directoryImage, false); });
+                    var task = Task.Run(() => { EoliaCam.SavePicture(directoryImage, savePictureAvecMesure); });
                     task.Wait();
 
                     reloadDirectoryImage();
@@ -355,8 +344,8 @@ namespace Eolia_IHM.Menu
                 if (EoliaCam.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
                 er = EoliaCam.StartSaveVideo(directoryVideo);
                 //buttonLancerEnregistrementVideo.Text = "Arrêter l'enregistrement vidéo";
-                buttonPrendrePhoto.Enabled = false;
-                buttonPrendrePhoto.BackColor = Color.Gray;
+                buttonActiverRetourCamera.Enabled = false;
+                buttonActiverRetourCamera.BackColor = Color.Gray;
                 if (iconIsExist("buttonStopRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopRecBig.png");
             }

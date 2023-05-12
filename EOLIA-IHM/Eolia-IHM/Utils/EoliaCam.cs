@@ -49,7 +49,7 @@ namespace Eolia_IHM.Utils
         private static CancellationTokenSource tokenSource = null;
 
 
-        //private static Mutex mutex;
+        private static Mutex mutex = new Mutex();
 
         public enum CameraTypes
         {
@@ -292,8 +292,7 @@ namespace Eolia_IHM.Utils
                 EoliaLogs.Write("Lancement de la capture d'image " , EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
                 if (picture == null) return 1;
                 pictureBox = picture;
-
-
+                if(!mutex.WaitOne(TimeSpan.Zero)) { return 0; }
                 if (initializeCamera(formatImage) != true) return 2;
 
                 streamStart = true;
@@ -301,11 +300,9 @@ namespace Eolia_IHM.Utils
                 typeCapture = CameraTypes.IMAGECAPTURE;
                 EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
 
-                //checkInitializeCamera();
                 EoliaLogs.Write("Capture en cours...", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
 
                 new Thread(() => { device.CaptureContinuous(tokenSource.Token); }).Start();
-
                 return 0;
             } catch (Exception e)
             {
@@ -322,6 +319,7 @@ namespace Eolia_IHM.Utils
             try
             {
                 destructCamera();
+                mutex.ReleaseMutex();
                 captureIsStart = false;
                 streamStart = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
@@ -399,8 +397,7 @@ namespace Eolia_IHM.Utils
                 EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
                 imageCapture.Save($"{folder}/{nameCapture}");
-
-                return imageCapture;
+                return ByteToImage(File.ReadAllBytes($"{folder}/{nameCapture}"));
             } catch (Exception e)
             {
                 Console.WriteLine(e.Message);
@@ -420,12 +417,12 @@ namespace Eolia_IHM.Utils
             if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             try
             {
+                if (!mutex.WaitOne(TimeSpan.Zero)) { Console.WriteLine("Mutex vidéo bloqué------------------"); return 0; }
                 EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 //if (folder == null) folder = folderVIDEO;
                 //if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
 
                 if (initializeCamera(formatVideo) != true) return 2;
-
                 streamStart = true;
                 captureIsStart = true;
                 //saveMesureInImageForVideo = saveMesureInImage;
@@ -494,7 +491,7 @@ namespace Eolia_IHM.Utils
                 tabVideo.Clear();
                 //er = 7;
                 EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count);
-
+                mutex.ReleaseMutex();
                 streamStart = false;
                 captureIsStart = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
