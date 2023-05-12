@@ -292,6 +292,7 @@ namespace Eolia_IHM.Menu
                 int delaiMaximum = 5000; // Temps d'attente maximum en millisecondes
                 int delaiEcoule = 0; // Temps écoulé depuis le début de l'attente en millisecondes
 
+                buttonSTARTGOCALIB.Text = "En cours...";
                 while (EoliaMes.GoCalib != true)
                 {
                     await Task.Delay(100);
@@ -312,7 +313,6 @@ namespace Eolia_IHM.Menu
                 buttonSTARTGOCALIB.Enabled = true;
                 buttonSTARTGOCALIB.Text = "Terminer";
                 panelGoCalib.BackColor = Color.FromArgb(204, 204, 204);
-                buttoncalibrerportance.BackColor = Color.White;
 
             }
             else
@@ -322,8 +322,7 @@ namespace Eolia_IHM.Menu
                 Sauvegarder();
                 buttonSTARTGOCALIB.Text = "Demarrer";
                 panelGoCalib.Enabled = false;
-                panelGoCalib.BackColor = Color.Gray;
-                buttoncalibrerportance.BackColor = Color.FromArgb(204, 204, 204);
+                panelGoCalib.BackColor = Color.FromArgb(150, 150, 150);
             }
 
         }

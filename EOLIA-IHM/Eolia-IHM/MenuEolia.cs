@@ -158,9 +158,10 @@ namespace Eolia_IHM
 
         private void buttonMesure_Click(object sender, EventArgs e)
         {
-            
 
-            
+
+            chooseMenu(MenuTypes.MESURE);
+
             if (EoliaMes.LiaisonSerieCapteur())
             {
                 chooseMenu(MenuTypes.MESURE);

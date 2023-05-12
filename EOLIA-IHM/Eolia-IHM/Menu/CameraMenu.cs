@@ -281,7 +281,10 @@ namespace Eolia_IHM.Menu
             {
                 if (EoliaCam.IsStream()) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
                 er = EoliaCam.StartDisplayImage(pictureBoxRetourCamera);
-                //buttonActiverRetourCamera.Text = "Activée la camera";
+
+                buttonLancerEnregistrementVideo.Enabled = false;
+                buttonLancerEnregistrementVideo.BackColor = Color.Gray;
+
                 if (iconIsExist("buttonStopBig.png"))
                     buttonActiverRetourCamera.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStopBig.png");
                 else EoliaLogs.Write("Bouton start retour cam introuvable !!! : " + directoryIcon, EoliaLogs.Types.CAMERA);
@@ -293,7 +296,10 @@ namespace Eolia_IHM.Menu
             {
                 if (EoliaCam.GetTypesCapture() != CameraTypes.IMAGECAPTURE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer  une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
                 er = EoliaCam.StopDisplayImage();
-                //buttonActiverRetourCamera.Text = "Désactiver la camera";
+
+                buttonLancerEnregistrementVideo.Enabled = true;
+                buttonLancerEnregistrementVideo.BackColor = Color.White;
+
                 if (iconIsExist("buttonStartBig.png"))
                     buttonActiverRetourCamera.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartBig.png");
 
@@ -354,8 +360,8 @@ namespace Eolia_IHM.Menu
                 if (EoliaCam.GetTypesCapture() != CameraTypes.VIDEOSAVE) { EoliaUtils.MsgBoxNonBloquante("Impossible de lancer l'enregistrement de video, une capture est déjà en cours, veuiller l'arrêter en premier.", "Erreur : Impossible d'accèder au flux"); return; }
                 er = EoliaCam.StopSaveVideo();
                 //buttonLancerEnregistrementVideo.Text = "Lancer l'enregistrement vidéo";
-                buttonPrendrePhoto.Enabled = true;
-                buttonPrendrePhoto.BackColor = Color.White;
+                buttonActiverRetourCamera.Enabled = true;
+                buttonActiverRetourCamera.BackColor = Color.White;
                 if (iconIsExist("buttonStartRecBig.png"))
                     buttonLancerEnregistrementVideo.BackgroundImage = Image.FromFile(directoryIcon + "/buttonStartRecBig.png");
 

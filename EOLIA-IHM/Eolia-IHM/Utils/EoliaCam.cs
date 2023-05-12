@@ -185,7 +185,9 @@ namespace Eolia_IHM.Utils
                 }
                 if (streamStart && captureIsStart)
                 {
-                    if (pictureBox != null && (typeCapture == CameraTypes.IMAGECAPTURE || typeCapture == CameraTypes.IMAGESAVE)) { pictureBox.Image = ByteToImage(newImageBufferReadyEventArgs.ImageBuffer); }
+                    if (pictureBox != null && (typeCapture == CameraTypes.IMAGECAPTURE || typeCapture == CameraTypes.IMAGESAVE)) { 
+                        pictureBox.Image = ByteToImage(newImageBufferReadyEventArgs.ImageBuffer); 
+                    }
                     if (typeCapture == CameraTypes.VIDEOSAVE) { 
                         //er = 2; 
                         if (countImageVideo == 9)
