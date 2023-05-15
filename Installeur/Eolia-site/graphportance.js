@@ -1,12 +1,13 @@
 
 
-function afficherGraphique(trainee, portance,frequencemesure) {
+function afficherGraphique(portance, trainee, vitesse, frequencemesure) {
     var ctx = document.getElementById('graph').getContext('2d');
     trainee=moyenneGlissante(txtVersFloat(trainee),5);
     portance=moyenneGlissante(txtVersFloat(portance),5);
+	vitesse=txtVersFloat(vitesse);
     var labels =[];
     for (var i = 0; i < trainee.length; i++) {
-        labels.push(i*frequencemesure);
+        labels.push((i*frequencemesure).toFixed(2));
     }
 
     var myChart = new Chart(ctx, {
@@ -24,7 +25,14 @@ function afficherGraphique(trainee, portance,frequencemesure) {
                 data: portance,
                 borderColor: 'rgba(252, 142, 255, 1)',
                 borderWidth: 1
-            }]
+            },
+			{
+                label: 'Données vitesse',
+                data: vitesse,
+                borderColor: 'rgba(25, 160, 255, 0.8)',
+                borderWidth: 1
+            }
+			]
         },
         options: {
             scales: {
@@ -49,13 +57,15 @@ function moyenneGlissante(arr, windowSize) {
   }
   
   function txtVersFloat(arr) {
-    let floatArr = arr.map(function(str) {
-      let floatVal = parseFloat(str);
+    let floatArr = [];
+    for (let i = 0; i < arr.length; i++) {
+      let floatVal = parseFloat(arr[i]);
       if (isNaN(floatVal)) {
-          return 0;
+        floatArr.push(0);
+      } else {
+        floatArr.push(floatVal);
       }
-      return floatVal;
-    });
+    }
     return floatArr;
   }
   

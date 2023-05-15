@@ -1,0 +1,314 @@
+[13:14:02] [LOGS] Initialisation des logs...[13:14:02] [OTHER] Nombre d'image : 1
+[13:14:02] [OTHER] Configuration chargée
+[13:14:02] [OTHER] Configuration chargée
+[13:14:03] [SERIAL] Liaison série ESP32 démarrée
+[13:14:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 84.60 TRAINEE 1063.40
+
+[13:14:03] [SERIAL] Liaison série Régulateur démarrée régulateur
+[13:14:04] [MYSQL] Connecté a la BDD MYSQL
+[13:14:10] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.25 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[13:14:12] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:14:14] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.40
+
+[13:14:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.10
+
+[13:14:17] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:14:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.40
+
+[13:14:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:14:23] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.00
+
+[13:14:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.40
+
+[13:14:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:14:28] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.50
+
+[13:14:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:14:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.20
+
+[13:14:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[13:14:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:14:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:14:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.30
+
+[13:14:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:14:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.20
+
+[13:14:44] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.20
+
+[13:14:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:14:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:14:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.20
+
+[13:14:51] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.40
+
+[13:14:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[13:14:55] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[13:14:57] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.10
+
+[13:14:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.60
+
+[13:15:00] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.20
+
+[13:15:02] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.40
+
+[13:15:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 1.70
+
+[13:15:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.20
+
+[13:15:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.50
+
+[13:15:09] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.50
+
+[13:15:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.40
+
+[13:15:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 1.80
+
+[13:15:15] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.60
+
+[13:15:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.70
+
+[13:15:18] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.80
+
+[13:15:20] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.60
+
+[13:15:22] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.70
+
+[13:15:24] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.50
+
+[13:15:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.70
+
+[13:15:27] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.70
+
+[13:15:29] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.90
+
+[13:15:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.80
+
+[13:15:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.90
+
+[13:15:34] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 2.10
+
+[13:15:36] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 2.30
+
+[13:15:38] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 2.40
+
+[13:15:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.90
+
+[13:15:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.90
+
+[13:15:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 2.00
+
+[13:15:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.90
+
+[13:15:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 2.20
+
+[13:15:49] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.90
+
+[13:15:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.80
+
+[13:15:52] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 2.10
+
+[13:15:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.80
+
+[13:15:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 2.40
+
+[13:15:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.80
+
+[13:15:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 1.70
+
+[13:16:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 2.10
+
+[13:16:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.80
+
+[13:16:05] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.90
+
+[13:16:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.70
+
+[13:16:08] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 2.00
+
+[13:16:10] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 1.80
+
+[13:16:12] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.70
+
+[13:16:14] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.80
+
+[13:16:15] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.60
+
+[13:16:17] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.80
+
+[13:16:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.70
+
+[13:16:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.50
+
+[13:16:23] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.20
+
+[13:16:24] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.10
+
+[13:16:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.20
+
+[13:16:28] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.30
+
+[13:16:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.00
+
+[13:16:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.00
+
+[13:16:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.40
+
+[13:16:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.50
+
+[13:16:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.40
+
+[13:16:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.40
+
+[13:16:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.30
+
+[13:16:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.20
+
+[13:16:44] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.40
+
+[13:16:46] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.50
+
+[13:16:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.30
+
+[13:16:49] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.40
+
+[13:16:51] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.30
+
+[13:16:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.30
+
+[13:16:55] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.20
+
+[13:16:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.20
+
+[13:16:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 1.30
+
+[13:17:00] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.30
+
+[13:17:02] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.10
+
+[13:17:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.10
+
+[13:17:05] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 1.00
+
+[13:17:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.10
+
+[13:17:09] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 1.20
+
+[13:17:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.00
+
+[13:17:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.20
+
+[13:17:14] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.90
+
+[13:17:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 0.90
+
+[13:17:18] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.10
+
+[13:17:20] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 1.00
+
+[13:17:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.00
+
+[13:17:23] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.00
+
+[13:17:25] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 1.00
+
+[13:17:27] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.10
+
+[13:17:29] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.50
+
+[13:17:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.50
+
+[13:17:32] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.90
+
+[13:17:34] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.00
+
+[13:17:36] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.20
+
+[13:17:38] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.00
+
+[13:17:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.90
+
+[13:17:41] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.90
+
+[13:17:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.10
+
+[13:17:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 0.80
+
+[13:17:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.90
+
+[13:17:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:17:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.80
+
+[13:17:52] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.90
+
+[13:17:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.90
+
+[13:17:55] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.70
+
+[13:17:57] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.70
+
+[13:17:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.80
+
+[13:18:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.90
+
+[13:18:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.90
+
+[13:18:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:18:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.80
+
+[13:18:08] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:18:10] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.70
+
+[13:18:12] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:18:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.80
+
+[13:18:15] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.80
+
+[13:18:17] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.80
+
+[13:18:19] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 1.40
+
+[13:18:21] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.80
+
+[13:18:22] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.80 TRAINEE 0.80
+
+[13:18:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 0.80
+
+[13:18:26] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 0.90
+
+[13:18:28] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.70 TRAINEE 0.80
+
+[13:18:30] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:18:31] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.80
+
+[13:18:33] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 0.80
+
+[13:18:35] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.70
+
+[13:18:37] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.60 TRAINEE 0.90
+
+[13:18:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.50 TRAINEE 1.00
+
+[13:18:40] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.80
+
+[13:18:42] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.80
+

@@ -1,0 +1,13 @@
+[08:13:58] [LOGS] Initialisation des logs...[08:13:58] [OTHER] Nombre d'image : 1
+[08:13:58] [OTHER] Configuration chargée
+[08:13:59] [OTHER] Configuration chargée
+[08:14:01] [SERIAL] Liaison série ESP32 démarrée
+[08:14:01] [MYSQL] Connecté a la BDD MYSQL
+[08:14:13] [SERIAL] Transmission mesure arrêtée
+[08:14:14] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.25 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.90112)
+
+[08:15:19] [SERIAL] Liaison série Régulateur démarrée régulateur
+[08:32:03] [DEBUG] Message affiché : Vous devez établir une transmission avant de tarer
+[08:32:06] [DEBUG] Message affiché : Vous devez établir une transmission avant de tarer
+[08:33:21] [SERIAL] Liaison série ESP32 arrêtée
+[08:33:21] [SERIAL] Liaison série Régulateur arrêtée

@@ -37,7 +37,7 @@
 			echo "<textarea>$content</textarea>";
 		}
 	}else{
-		echo "<textarea>Selectionner un fichier a visualiser</textarea>";
+		echo "<textarea>Sélectionner un fichier à visualiser</textarea>";
 	}
 ?>
 </body>

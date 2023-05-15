@@ -28,8 +28,6 @@ body {
   overflow: auto;
 }
 
-
-
 #picture {
   width: 25%;
 }
@@ -41,10 +39,8 @@ body {
 #result {
   width: 50%;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 1em;
   border: solid 3px #334;
-  padding-top: 10px;
-  padding-bottom: 10px;
   background-color: #333;
 }
 
@@ -53,9 +49,6 @@ body {
   justify-content: space-between;
   width: 100%;
 }
-
-
-
 
 .button {
   padding: 1.2rem 2.5rem;
@@ -72,8 +65,19 @@ body {
   color : #fff;
 }
 
-
 .accueil {
+  padding: 1.2rem 2.5rem;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  margin: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+}
+.accueil2 {
+  width: 142px;
   padding: 1.2rem 2.5rem;
   background-color: #333;
   color: #fff;
@@ -127,6 +131,7 @@ input.logsstyle {
   background-color: #333;
   height: 50px;
   width: 120px;
+  border: none;
 }
 
 .input.logsstyle:hover {
@@ -137,7 +142,6 @@ select.logsstyle {
   height: 50px;
   width: 120px;
 }
-
 
 textarea{
   position: absolute;
@@ -151,12 +155,7 @@ textarea{
   display: flex;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 30%;
-}
-
-
-.redir button {
-  margin-right: 10px; 
+  margin-bottom: 25%;
 }
 
 input.accueil{
@@ -165,6 +164,10 @@ input.accueil{
     margin-right: auto;
 }
 
+
+form #formconfig{
+  position: relative;
+}
 /*/ PAGE PHOTO /*/
 div.scroll {
   background-color: #333;
@@ -178,17 +181,50 @@ div.scroll {
   text-align:justify;
   display: grid; 
   grid-template-columns: repeat(2, 1fr [col-start]); 
-  
 }
 
-.resultimg2 img{
-  width: 50%; 
-  height: 80%;
+#configcontent{
+  overflow-x: hidden;
+  overflow-y: auto;
+  background-color: #333;
+  width: 80%;
+  height: 550px;
+  padding: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  text-align: center;
+  grid-template-columns: repeat(2, 1fr [col-start]); 
 }
+div#configcontent div {
+  margin-bottom: 15px;
+}
+
+
+ #formconfig .accueil{
+  background-color: #666;
+}
+
+
+
+#connexion{
+  background-color: #333;
+  padding: 2%;
+  text-align: center;
+  color : #fff;
+  width: 30%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.resultimg2 img{
+  width: 60%; 
+  height: 100%;
+}
+
 div.resultimg2{
 text-align: center;
 color: white;
-margin-top: 7%;
+margin-bottom: 7%;
 }
 
 .modal{
@@ -204,24 +240,73 @@ margin-top: 7%;
   background-color:rgb(0,0,0);
   background-color:rgba(0,0,0,0.4)
 }
+
 .contenu{
   margin: auto;
   width: 50%;
   height: 50%;
 }
+
 #textarea2{
     top: 40%;
     position: absolute;
     resize: none;
     width: 80%;
     height: 255px;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow-y: hidden; 
+    overflow-x: hidden; 
     left: 10%;
 }
+input#nouveaunom{
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  width: 53.5%;
+  height: 30px;
+  margin-top: 15px;
+}
+#ident{
+  font-size: 20px;
+}
+#ident2{
+  font-size: 20px;
+}
+input#username,input#password{
+  width: 200px;
+}
 
+#inputco{
+  padding: 1rem 2rem;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+.error-message{
+    color: red;
+    font-size:  20px;
+}
 @media only screen and (max-width: 767px) {
-
+  .contenu{
+    margin: auto;
+    width: 95%;
+    height: 95%;
+  }
+  img#img01{
+    width: 100%;
+    margin-top: 200px;
+    display: flex;
+  }
+  #space{
+    padding-bottom: 10%;
+  }
+  body{
+    background-size: inherit;
+  }
 #container {
     flex-wrap: wrap;
     flex-direction: column;
@@ -237,11 +322,11 @@ margin-top: 7%;
 div.resultimg2 {
     text-align: center;
     color: white;
-    padding-bottom: 25%;
+    padding-bottom: 15%;
   }
 .resultimg2 img {
-    width: 70%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
 }
 div.scroll {
     width: 90%;
@@ -267,4 +352,67 @@ div.scroll {
  footer {
   width: 94%;
  }
+ #textarea2{
+  top: 55%;
+}
+.redir button {
+  margin-right: 10px; 
+  }
+#formconfig input{
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+    }
+
+#formconfig{
+  display: grid;
+    }
+
+form button.accueil{
+  position: fixed;
+    top: 90%;
+    width: 70%;
+    left: 11%;
+    
+    }
+    #configcontent{
+      width: 80%;
+      height: 350px;
+  
+    }
+    div#connexion{
+      width: 70%;
+    }
+}
+
+@media only screen and (min-width: 767px) {
+  .redir button {
+  margin-right: 10px; 
+  }
+  #ident2{
+    padding-left: 28px;
+  }
+  #formconfig input{
+    width: 40%;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    float: right
+    }
+
+    #formconfig{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr [col-start]);
+
+    }
+
+    form button.accueil{
+      position: fixed;
+        top: 76%;
+        width: 50%;
+        left: 24%;
+    }
+    form#formconfig{
+      font-size: 25px;
+    }
 }

@@ -18,18 +18,18 @@
     <br><br>
 <?php
     
-    require 'connexion.php';
+    require 'connexionbdd.php';
 
 if (isset($_POST['id_mesure'])) 
 {
-    $id_mesure = $_POST['id_mesure']; // r�cup�rer ce qu'on a choisi
+    $id_mesure = $_POST['id_mesure']; // récupérer ce qu'on a choisi
     $query = "SELECT nomMesure, dateMesure,czMesure, cxMesure, rhoMesure, sMesure, fMesure, photoMesure, videoMesure FROM sessionmesure WHERE idsession = $id_mesure";
     $stmt = $db->prepare($query);
     $stmt->execute();
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
-    // r�cup�rer les valeurs de ce qu'on a choisi dans la combobox
+    // récupérer les valeurs de ce qu'on a choisi dans la combobox
     
-    // r�cup�rer les valeurs de ce qu'on a choisi dans la combobox
+    // récupérer les valeurs de ce qu'on a choisi dans la combobox
     
     
 echo '<br>';

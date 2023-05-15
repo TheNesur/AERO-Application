@@ -19,7 +19,7 @@
         <button class='accueil' onclick="returnback()">Retour</button>
     </nav>
 <?php
-require 'connexion.php';
+require 'connexionbdd.php';
 
 
 if (isset($_POST['mesureamodifier'])) 
@@ -33,8 +33,6 @@ if (isset($_POST['mesureamodifier']))
     
 if (isset($_POST['supprimer'])) {
    
-   
-   
     $idmesure = $_POST['mesureasupprimer'];
     $repphoto = $_POST['photoasupprimer'];
     $repvideo = $_POST['videoasupprimer'];
@@ -42,9 +40,8 @@ if (isset($_POST['supprimer'])) {
 	$vidDir = "./VIDEO/" . $repvideo;
 		
 	
-	if (is_dir($imgDir)) {
+	if (is_dir($imgDir)) { // si image existe alors on supprime les images du dossier
 
-		
         // Supprimer tous les fichiers dans le répertoire "photo"
         $files = scandir($imgDir);
         foreach ($files as $file) {
@@ -61,15 +58,9 @@ if (isset($_POST['supprimer'])) {
 				}
 			}
         }
-        // Supprimer le répertoire "photo"
-        if (!rmdir(realpath($imgDir))) {
-			echo "Erreur lors de la supression du dossier image car le repertoire est pas vide ou du a un problème de permission";
-			exit();
-			
-        }
     }
 	
-	if (is_dir($vidDir)) {
+	if (is_dir($vidDir)) { // idem que image
 
 
         // Supprimer tous les fichiers dans le répertoire "video"
@@ -89,12 +80,6 @@ if (isset($_POST['supprimer'])) {
 				}
 			}
         }
-        // Supprimer le répertoire "photo"
-        if (!rmdir(realpath($vidDir))) {
-			echo "Erreur lors de la supression du repertoire video";
-			exit();
-			
-        }
     }
 
 	
@@ -113,7 +98,7 @@ if (isset($_POST['supprimer'])) {
         <?php
   
 
-    $query = 'SELECT idSession,nomMesure FROM sessionmesure';
+    $query = 'SELECT idSession,nomMesure FROM sessionmesure ORDER BY dateMesure DESC';
 
     // récuperer les resultat 
     $stmt = $db->query($query);
@@ -146,51 +131,72 @@ if (isset($_POST['supprimer'])) {
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        $query = "SELECT portanceMesure, traineeMesure, idmesure FROM mesure WHERE idSession = $id_mesure ORDER BY idMesure";
+
+        $query = "SELECT portanceMesure, traineeMesure, idmesure, vitesseMesure FROM mesure WHERE idSession = $id_mesure ORDER BY idMesure";
         $stmt = $db->prepare($query);
         $stmt->execute();
         $result1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    }else{
+
+        // récupérer la derniere session faite
+        $query = "SELECT nomMesure, dateMesure, czMesure, cxMesure, rhoMesure, sMesure, fMesure, photoMesure, videoMesure, idsession FROM sessionmesure ORDER BY dateMesure DESC LIMIT 1";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $id_mesure = $result['idsession'];
+    
+        $query = "SELECT portanceMesure, traineeMesure, vitesseMesure, idmesure FROM mesure WHERE idSession = {$result['idsession']} ORDER BY idMesure";
+        $stmt = $db->prepare($query);
+        $stmt->execute();
+        $result1 = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
         foreach ($result1 as $row) {
             $portanceValeurs[] = $row['portanceMesure'];
             $traineeValeurs[] = $row['traineeMesure'];
+            $vitesseValeurs[] = $row['vitesseMesure'];
         }
+        $frequencemesure = $result['fMesure'];
 
 
         ?>
-        <div id="container">
-        <div id="picture" class="bouton">
-        
-        </div>
-        <?php
 
-     echo "<div id='result' class='whitetext'>";
-            echo 'Nombre de valeurs portance : '.count($portanceValeurs) . '<br>';
-            echo  'Nombre de valeurs trainee : '.count($traineeValeurs) . '<br>';
-            ?>
-            <canvas id="graph"></canvas>
-        <script>
-        
-                afficherGraphique(<?php echo json_encode($portanceValeurs); ?>, <?php echo json_encode($traineeValeurs); ?>,<?php echo $result['fMesure']; ?>);
-        </script>
-        <div class='whitetext'>
-            <?php
-                echo 'Date : ' . $result['dateMesure'] . '<br>';
-                echo'Frequence mesure : ' . $result['fMesure'] .'<br>';
-                echo 'Cz : ' . $result['czMesure'] . '<br>';
-                echo 'Cx : ' . $result['cxMesure'] . '<br>';
-                echo 'S : ' . $result['sMesure'] . '<br>';
-                echo 'Rho : ' . $result['rhoMesure'] . '<br>';
-            ?>
+<div id="container">
+        <div id="picture" class="bouton">
         </div>
+    <?php
+        echo "<div id='result' class='whitetext'>";
+            echo 'Nombre de valeurs portance : '.count($portanceValeurs) . '<br>';
+            echo  'Nombre de valeurs trainée : '.count($traineeValeurs) . '<br>';
+            echo  'Nombre de valeurs vitesse : '.count($vitesseValeurs) . '<br>';
+    ?>
+
+            <canvas id="graph"></canvas>
+<script>
+     afficherGraphique(<?php echo json_encode($portanceValeurs); ?>, <?php echo json_encode($traineeValeurs); ?>, <?php echo json_encode($vitesseValeurs); ?>,<?php echo $frequencemesure; ?>);
+</script>
+        
+    <div class='whitetext'>
+        <?php
+            echo 'Date : ' . $result['dateMesure'] . '<br>';
+            echo'Frequence mesure : ' . $result['fMesure'] .'<br>';
+            echo 'Cz : ' . $result['czMesure'] . '<br>';
+            echo 'Cx : ' . $result['cxMesure'] . '<br>';
+            echo 'S : ' . $result['sMesure'] . '<br>';
+            echo 'Rho : ' . $result['rhoMesure'] . '<br>';
+        ?>
     </div>
+</div>
 
 <div id="change" class="bouton">
     <form class= "buttonfoot" method="post" action="">
-                <button class='button' onclick="renameSession('<?php echo $_POST['id_mesure']; ?>')">Renommer la session</button>
+        <input type="text" id="nouveaunom">
+        <button class='button' onclick="renameSession('<?php echo $id_mesure; ?>')">Renommer la session</button>
     </form>
 
     <form class="buttonfoot" method="post" action="">
-                <input type="hidden" name="mesureasupprimer" value="<?php echo $_POST['id_mesure']; ?>">
+                <input type="hidden" name="mesureasupprimer" value="<?php echo $id_mesure; ?>">
                 <input type="hidden" name="photoasupprimer" value="<?php echo $result['photoMesure']; ?>">
                 <input type="hidden" name="videoasupprimer" value="<?php echo $result['videoMesure']; ?>">
                 <input class ="button" type="submit" name="supprimer" value=" Supprimer la session" onclick="Delete()">
@@ -202,8 +208,8 @@ if (isset($_POST['supprimer'])) {
                 if($result['photoMesure'] != "NULL"){
 
         ?>
-        <form class= "buttonfoot" method="post" action="photo.php">
-            <input type="hidden" name="id_mesure" value="<?php echo $_POST['id_mesure']; ?>">
+        <form class= "buttonfoot" method="post" action="photos.php">
+            <input type="hidden" name="id_mesure" value="<?php echo $id_mesure; ?>">
             <input class="button" type="submit" value="Photos de la session">
         </form>
         <?php
@@ -237,12 +243,9 @@ if (isset($_POST['supprimer'])) {
 
     function Delete()
         {
-        alert("Supresion de la session .... !");
+        alert("La mesure vient d'être supprimé !");
         }
         </script>
-        <?php
-        }
-    ?> 
 </div>
 </body> 
 </html> 

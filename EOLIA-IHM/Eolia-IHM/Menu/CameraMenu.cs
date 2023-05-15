@@ -142,8 +142,16 @@ namespace Eolia_IHM.Menu
                             bool existedMinute = false;
                             bool existedSecond = false;
 
-                            //String comboBoxFiltreJour = null;
-                            //comboBoxFiltreImageJour.Invoke(new Action(() => Convert.ToString(comboBoxFiltreImageJour.SelectedItem))));
+
+                            //comboBoxFiltreImageJour.ResetText();
+                            //comboBoxFiltreImageMois.ResetText();
+                            //comboBoxFiltreImageAnnee.ResetText();
+
+                            //comboBoxFiltreImageHeure.ResetText();
+                            //comboBoxFiltreImageMinute.ResetText();
+                            //comboBoxFiltreImageSeconde.ResetText();
+
+                            /*
                             comboBoxFiltreImageJour.Invoke((MethodInvoker)delegate { comboBoxFiltreDay = comboBoxFiltreImageJour.Items.Cast<string>().ToArray(); });
                             comboBoxFiltreImageMois.Invoke((MethodInvoker)delegate { comboBoxFiltreMonth = comboBoxFiltreImageMois.Items.Cast<string>().ToArray(); });
                             comboBoxFiltreImageAnnee.Invoke((MethodInvoker)delegate { comboBoxFiltreYears = comboBoxFiltreImageAnnee.Items.Cast<string>().ToArray(); });
@@ -151,6 +159,16 @@ namespace Eolia_IHM.Menu
                             comboBoxFiltreImageHeure.Invoke((MethodInvoker)delegate { comboBoxFiltreHour = comboBoxFiltreImageHeure.Items.Cast<string>().ToArray(); });
                             comboBoxFiltreImageMinute.Invoke((MethodInvoker)delegate { comboBoxFiltreMinute = comboBoxFiltreImageMinute.Items.Cast<string>().ToArray(); });
                             comboBoxFiltreImageSeconde.Invoke((MethodInvoker)delegate { comboBoxFiltreSecond = comboBoxFiltreImageSeconde.Items.Cast<string>().ToArray(); });
+                            */
+
+                            comboBoxFiltreImageJour.Invoke((MethodInvoker)delegate { comboBoxFiltreImageJour.ResetText(); });
+                            comboBoxFiltreImageMois.Invoke((MethodInvoker)delegate { comboBoxFiltreImageMois.ResetText(); });
+                            comboBoxFiltreImageAnnee.Invoke((MethodInvoker)delegate { comboBoxFiltreImageAnnee.ResetText(); });
+
+                            comboBoxFiltreImageHeure.Invoke((MethodInvoker)delegate { comboBoxFiltreImageHeure.ResetText(); });
+                            comboBoxFiltreImageMinute.Invoke((MethodInvoker)delegate { comboBoxFiltreImageMinute.ResetText(); });
+                            comboBoxFiltreImageSeconde.Invoke((MethodInvoker)delegate { comboBoxFiltreImageSeconde.ResetText(); });
+
 
                             foreach (string item in comboBoxFiltreDay) { if (item.ToString() == day) { existedDay = true;} }
                             foreach (string item in comboBoxFiltreMonth) { if (item.ToString() == month) { existedMonth = true; } }
@@ -317,7 +335,10 @@ namespace Eolia_IHM.Menu
                 {
                     
                     var task = Task.Run(() => {
-                        pictureBoxRetourCamera.Invoke(new Action(() => pictureBoxRetourCamera.Image = EoliaCam.SavePicture(directoryImage, savePictureAvecMesure)));
+                        if (!EoliaCam.CaptureIsStart())
+                            pictureBoxRetourCamera.Invoke(new Action(() => pictureBoxRetourCamera.Image = EoliaCam.SavePicture(directoryImage, savePictureAvecMesure)));
+                        else 
+                            EoliaCam.SavePicture(directoryImage, savePictureAvecMesure);
                     });
                     task.Wait();
 
@@ -439,7 +460,17 @@ namespace Eolia_IHM.Menu
                 //Console.WriteLine("File is = " + fileName);
             }
             EoliaLogs.Write("Toutes les images capturés manuellement ont étaient supprimé.");
+
+            comboBoxFiltreImageJour.ResetText();
+            comboBoxFiltreImageMois.ResetText();
+            comboBoxFiltreImageAnnee.ResetText();
+
+            comboBoxFiltreImageHeure.ResetText();
+            comboBoxFiltreImageMinute.ResetText();
+            comboBoxFiltreImageSeconde.ResetText();
+
             reloadDirectoryImage();
+
         }
     }
 }

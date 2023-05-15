@@ -100,7 +100,7 @@ namespace Eolia_IHM.Utils
 
                 if (device != null && tokenSource != null) { 
                     Initialized = true; 
-                    EoliaLogs.Write("Initialisation de la caméra sans erreur.", EoliaLogs.Types.CAMERA, "MEMOIRE");
+                    EoliaLogs.Write("Initialisation de la caméra sans erreurs.", EoliaLogs.Types.CAMERA, "MEMOIRE");
                     return true; 
                 }
             } catch (Exception e)
@@ -128,7 +128,7 @@ namespace Eolia_IHM.Utils
             if (device.IsCapturing) device.StopCaptureContinuous();
             if (tokenSource != null) tokenSource.Dispose();
             if (device != null) device.Dispose();
-            EoliaLogs.Write("Restitution de la mémoire effectuée sans erreur.", EoliaLogs.Types.CAMERA, "MEMOIRE");
+            EoliaLogs.Write("Restitution de la mémoire effectuée sans erreurs.", EoliaLogs.Types.CAMERA, "MEMOIRE");
         }
 
         public static bool CameraExist()
@@ -291,7 +291,7 @@ namespace Eolia_IHM.Utils
             if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             try
             {
-                EoliaLogs.Write("Lancement de la capture d'image " , EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
+                EoliaLogs.Write("Lancement de la capture d'images " , EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
                 if (picture == null) return 1;
                 pictureBox = picture;
                 if(!mutex.WaitOne(TimeSpan.Zero)) { return 0; }
@@ -300,7 +300,7 @@ namespace Eolia_IHM.Utils
                 streamStart = true;
                 captureIsStart = true;
                 typeCapture = CameraTypes.IMAGECAPTURE;
-                EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
+                EoliaLogs.Write("Initialisation terminée", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
 
                 EoliaLogs.Write("Capture en cours...", EoliaLogs.Types.CAMERA, "DISPLAY-IMAGE");
 
@@ -396,7 +396,7 @@ namespace Eolia_IHM.Utils
 
                 }
                 //destructCamera();
-                EoliaLogs.Write("Capture enregistrer de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
+                EoliaLogs.Write("Capture enregistrée de l'image dans " + folder + "/" + DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss] ") + "PORTANCE " + portance + " TRAINEE " + trainee + "." + extensionImage, EoliaLogs.Types.CAMERA, "SAVE-IMAGE");
 
                 imageCapture.Save($"{folder}/{nameCapture}");
                 return ByteToImage(File.ReadAllBytes($"{folder}/{nameCapture}"));
@@ -419,7 +419,7 @@ namespace Eolia_IHM.Utils
             if (typeCapture != CameraTypes.NOTCAPTURE) return 10;
             try
             {
-                if (!mutex.WaitOne(TimeSpan.Zero)) { Console.WriteLine("Mutex vidéo bloqué------------------"); return 0; }
+                if (!mutex.WaitOne(TimeSpan.Zero)) { return 0; }
                 EoliaLogs.Write("Lancement de l'enregristrement de la vidéo ", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 //if (folder == null) folder = folderVIDEO;
                 //if (!Directory.Exists(folder)) Directory.CreateDirectory(folder);
@@ -431,7 +431,7 @@ namespace Eolia_IHM.Utils
                 typeCapture = CameraTypes.VIDEOSAVE;
                 //saveMesureInImageForVideo = saveMesureInVideo;
 
-                EoliaLogs.Write("Initialisation terminer", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Initialisation terminée", EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 //checkInitializeCamera();
 
                 nameFileVideo = DateTime.Now.ToString("[dd-MM-yyyy--HH-mm-ss]") + "." + extensionVideo;
@@ -492,14 +492,13 @@ namespace Eolia_IHM.Utils
                 //er = 6;
                 tabVideo.Clear();
                 //er = 7;
-                EoliaLogs.Write("Mémoire actuelle : " + GC.GetTotalMemory(false) + " / " + GC.MaxGeneration + " || TabVideo : " + tabVideo.Count);
                 mutex.ReleaseMutex();
                 streamStart = false;
                 captureIsStart = false;
                 typeCapture = CameraTypes.NOTCAPTURE;
                 //er = 0;
 
-                EoliaLogs.Write("Capture enregistrer de la vidéo dans " + nameFileVideo, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
+                EoliaLogs.Write("Capture enregistrée de la vidéo dans " + nameFileVideo, EoliaLogs.Types.CAMERA, "SAVE-VIDEO");
                 return 0;
             }
             catch (Exception e)

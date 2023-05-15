@@ -1,0 +1,55 @@
+[16:46:37] [LOGS] Initialisation des logs...[16:46:37] [OTHER] Nombre d'image : 1
+[16:46:37] [OTHER] Configuration chargée
+[16:46:38] [OTHER] Configuration chargée
+[16:46:39] [SERIAL] Liaison série ESP32 démarrée
+[16:46:39] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.50
+
+[16:46:39] [MYSQL] Connecté a la BDD MYSQL
+[16:46:49] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.1 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[16:46:51] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[16:46:52] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[16:46:52] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[16:46:52] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[16:46:52] [CAMERA] [SAVE-VIDEO]Initialisation terminer
+[16:46:52] [CAMERA] [SAVE-VIDEO]Capture en cours...
+[16:46:52] [SERIAL] Enregistrement mesure démarée
+[16:46:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[16:46:54] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.00
+
+[16:46:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.20
+
+[16:46:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.30
+
+[16:46:59] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.10
+
+[16:47:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.00
+
+[16:47:02] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[16:47:02] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[16:47:02] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[16:47:02] [CAMERA] [SAVE-VIDEO]Enregistrement des bits en cours...
+[16:47:02] [CAMERA] [VIDEO]0 : 307200
+[16:47:03] [CAMERA] [VIDEO]1 : 307200
+[16:47:03] [CAMERA] [VIDEO]2 : 307200
+[16:47:03] [CAMERA] [VIDEO]3 : 307200
+[16:47:03] [CAMERA] [VIDEO]4 : 307200
+[16:47:03] [CAMERA] [VIDEO]5 : 307200
+[16:47:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.10
+
+[16:47:03] [CAMERA] [VIDEO]6 : 307200
+[16:47:03] [CAMERA] [VIDEO]7 : 307200
+[16:47:03] [OTHER] Mémoire actuelle : 24578312 / 1 || TabVideo : 0
+[16:47:03] [CAMERA] [SAVE-VIDEO]Capture enregistrer de la vidéo dans /var/www/html//VIDEO/05042023_164652/[05-04-2023--16-46-52].h264
+[16:47:03] [SERIAL] Enregistrement mesure arrêtée
+[16:47:04] [DEBUG] Message affiché : Transmission de la session numéro 31 bien effectuée.
+[16:47:04] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.20
+
+[16:47:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.10
+
+[16:47:07] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.30 TRAINEE 0.20
+
+[16:47:08] [SERIAL] Transmission mesure arrêtée
+[16:47:08] [SERIAL] Liaison série ESP32 arrêtée

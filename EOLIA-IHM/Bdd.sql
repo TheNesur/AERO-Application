@@ -7,6 +7,10 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+DROP DATABASE IF EXISTS `EoliaBDD`;
+CREATE DATABASE `EoliaBDD` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
+USE `EoliaBDD`;
+
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -107,4 +111,4 @@ INSERT INTO `sessionmesure` (`idSession`, `nomMesure`, `dateMesure`, `czMesure`,
 (38,	'13/04/2023_14:24:57',	'2023-04-13 12:25:08',	1,	1,	1,	1,	'13042023_142457',	'NULL',	0.1),
 (39,	'13/04/2023_14:33:50',	'2023-04-13 12:34:36',	1,	1,	1,	1,	'13042023_143332',	'NULL',	0.1);
 
--- 2023-05-10 12:48:58
+-- 2023-05-11 20:44:43

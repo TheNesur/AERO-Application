@@ -4,7 +4,7 @@ function returnback() {
 
 
  function renameSession(id) {
-    var newSessionName = prompt("Entrez un nouveau nom de session : ");
+  var newSessionName = document.getElementById("nouveaunom").value;
     if (newSessionName != null) {
       var xhttp = new XMLHttpRequest();
       xhttp.onreadystatechange = function() {
@@ -15,7 +15,6 @@ function returnback() {
       xhttp.open("POST", "Mesure.php", true);
       xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhttp.send("nouveau_nom=" + newSessionName + "&mesureamodifier=" + id);
-      alert("La mesure " + id + " a été renommé par " + newSessionName);
       location.reload()
     }
   }

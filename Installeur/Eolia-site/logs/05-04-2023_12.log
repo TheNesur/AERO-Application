@@ -1,0 +1,8 @@
+[13:54:30] [LOGS] Initialisation des logs...[13:54:30] [OTHER] Nombre d'image : 1
+[13:54:30] [OTHER] Configuration chargée
+[13:54:30] [OTHER] Configuration chargée
+[13:54:31] [DEBUG] Message affiché : Vous ne pouvez pas acceder a la gestion des mesures si la liaison série du capteur n'est pas fonctionnelle 
+[13:54:34] [SERIAL] Liaison série ESP32 démarrée
+[13:54:39] [SERIAL] Liaison série Régulateur démarrée régulateur
+[13:58:25] [SERIAL] Liaison série ESP32 arrêtée
+[13:58:25] [SERIAL] Liaison série Régulateur arrêtée

@@ -22,7 +22,7 @@
     <br><br>
 <?php
     
-    require 'connexion.php';
+    require 'connexionbdd.php';
 
 if (isset($_POST['id_mesure'])) 
 {
@@ -55,8 +55,7 @@ echo '<br>';
                     if(strpos($fichier, "PORTANCE") !== false) 
                     {
                         $valeur = preg_split('/ /', $fichier);
-                                echo "Valeur de Portance: " . $valeur[2] . "<br>";
-                                echo "Valeur de Trainee: " . $valeur[4] . "<br>";
+                                
                     }
                     echo "</div>";
                     

@@ -1,0 +1,51 @@
+[07:59:31] [LOGS] Initialisation des logs...[07:59:31] [OTHER] Nombre d'image : 3
+[07:59:31] [OTHER] Configuration chargée
+[07:59:31] [OTHER] Configuration chargée
+[07:59:33] [SERIAL] Liaison série ESP32 démarrée
+[07:59:34] [MYSQL] Connecté a la BDD MYSQL
+[07:59:42] [SERIAL] Commande liaison série capteur reçue MSG DEMARRAGE TRANSMISSION MESURE AVEC 0.1 SECONDE(S) ENTRE CHAQUE MESURE (Portance maximum en mN : 1800; Trainee maximum en mN : 981; echelle jauge trainee : 183.399623; echelle jauge portance : 183.9949)
+
+[07:59:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[07:59:45] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 0.00
+
+[07:59:47] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 0.10
+
+[07:59:48] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 0.90
+
+[07:59:50] [SERIAL] Commande liaison série capteur reçue PORTANCE 291.40 TRAINEE 6.80
+
+[07:59:52] [SERIAL] Commande liaison série capteur reçue PORTANCE 829.60 TRAINEE 64.40
+
+[07:59:53] [SERIAL] Commande liaison série capteur reçue PORTANCE 286.80 TRAINEE 0.60
+
+[07:59:55] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.40 TRAINEE 0.70
+
+[07:59:56] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 200.70
+
+[07:59:58] [SERIAL] Commande liaison série capteur reçue PORTANCE 82.60 TRAINEE 699.30
+
+[08:00:00] [SERIAL] Commande liaison série capteur reçue PORTANCE 37.30 TRAINEE 392.20
+
+[08:00:01] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.60
+
+[08:00:03] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.60
+
+[08:00:05] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.50
+
+[08:00:06] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.00 TRAINEE 1.40
+
+[08:00:08] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.30
+
+[08:00:10] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.30
+
+[08:00:11] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.50
+
+[08:00:13] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.50
+
+[08:00:15] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.40
+
+[08:00:16] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.10 TRAINEE 1.30
+
+[08:00:17] [SERIAL] Transmission mesure arrêtée
+[08:00:17] [SERIAL] Liaison série ESP32 arrêtée

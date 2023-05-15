@@ -1,0 +1,67 @@
+[08:09:34] [LOGS] Initialisation des logs...[08:09:34] [OTHER] Nombre d'image : 3
+[08:09:35] [OTHER] Configuration chargée
+[08:09:35] [OTHER] Configuration chargée
+[08:09:43] [SERIAL] Liaison série ESP32 démarrée
+[08:09:43] [SERIAL] Commande liaison série capteur reçue PORTANCE 0.20 TRAINEE 1.30
+
+[08:09:43] [MYSQL] Connecté a la BDD MYSQL
+[08:09:51] [SERIAL] Commande liaison série capteur reçue MSG GOCALIB OK
+
+[08:09:59] [OTHER] Nouvelle configuration enregistrée
+[11:08:58] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[11:08:58] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:08:58] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:08:59] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[11:08:59] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-05-2023--11-08-59] PORTANCE NULL TRAINEE NULL.jpg
+[11:08:59] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[11:08:59] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:08:59] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:00] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[11:09:00] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-05-2023--11-09-00] PORTANCE NULL TRAINEE NULL.jpg
+[11:09:06] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[11:09:06] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:09:06] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:06] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[11:09:06] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-05-2023--11-09-06] PORTANCE NULL TRAINEE NULL.jpg
+[11:09:06] [CAMERA] [SAVE-IMAGE]Lancement de l'enregristrement d'une image 
+[11:09:06] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:09:06] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:07] [CAMERA] [SAVE-IMAGE]Capture de l'image avec la mesure
+[11:09:07] [CAMERA] [SAVE-IMAGE]Capture enregistrer de l'image dans /var/www/html//IMG//[03-05-2023--11-09-07] PORTANCE NULL TRAINEE NULL.jpg
+[11:09:19] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[11:09:19] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:09:19] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:19] [CAMERA] [SAVE-VIDEO]Initialisation terminer
+[11:09:19] [CAMERA] [SAVE-VIDEO]Capture en cours...
+[11:09:23] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[11:09:23] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[11:09:23] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[11:09:23] [CAMERA] [SAVE-VIDEO]Enregistrement des bits en cours...
+[11:09:23] [CAMERA] [VIDEO]0 : 307200
+[11:09:23] [CAMERA] [VIDEO]1 : 307200
+[11:09:23] [CAMERA] [VIDEO]2 : 307200
+[11:09:23] [OTHER] Mémoire actuelle : 20586520 / 1 || TabVideo : 0
+[11:09:23] [CAMERA] [SAVE-VIDEO]Capture enregistrer de la vidéo dans /var/www/html//VIDEO//[03-05-2023--11-09-19].h264
+[11:09:42] [CAMERA] [DISPLAY-IMAGE]Lancement de la capture d'image 
+[11:09:42] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:09:42] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:42] [CAMERA] [DISPLAY-IMAGE]Initialisation terminer
+[11:09:42] [CAMERA] [DISPLAY-IMAGE]Capture en cours...
+[11:09:45] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[11:09:45] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[11:09:52] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[11:09:52] [CAMERA] [MEMOIRE]Initialisation de la caméra...
+[11:09:52] [CAMERA] [MEMOIRE]Initialisation de la caméra sans erreur.
+[11:09:52] [CAMERA] [SAVE-VIDEO]Initialisation terminer
+[11:09:52] [CAMERA] [SAVE-VIDEO]Capture en cours...
+[11:09:54] [DEBUG] Message affiché : Impossible de lancer  une capture d'image, une capture est déjà en cours, veuiller l'arrêter en premier.
+[11:09:56] [CAMERA] [SAVE-VIDEO]Lancement de l'enregristrement de la vidéo 
+[11:09:56] [CAMERA] [MEMOIRE]Restitution de la mémoire louée par la caméra en cours...
+[11:09:56] [CAMERA] [MEMOIRE]Restitution de la mémoire effectuée sans erreur.
+[11:09:56] [CAMERA] [SAVE-VIDEO]Enregistrement des bits en cours...
+[11:09:56] [CAMERA] [VIDEO]0 : 307200
+[11:09:56] [CAMERA] [VIDEO]1 : 307200
+[11:09:56] [CAMERA] [VIDEO]2 : 307200
+[11:09:56] [OTHER] Mémoire actuelle : 17540000 / 1 || TabVideo : 0
+[11:09:56] [CAMERA] [SAVE-VIDEO]Capture enregistrer de la vidéo dans /var/www/html//VIDEO//[03-05-2023--11-09-52].h264
+[15:30:57] [SERIAL] Liaison série ESP32 arrêtée
