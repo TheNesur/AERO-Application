@@ -491,6 +491,7 @@ namespace Eolia_IHM
                 {
                     CapteurlLogBox.Text = "Arret " ;
                     EoliaLogs.Write("Liaison série echec " + ex, EoliaLogs.Types.SERIAL);
+                    EoliaUtils.MsgBoxNonBloquante("Erreur: " + ex.Message);
                     CapteurLiaisonSerie = null;
                 }
                 catch (UnauthorizedAccessException ex)

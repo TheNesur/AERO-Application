@@ -184,20 +184,12 @@ namespace Eolia_IHM.Menu
 
         private void comboBoxPortRegulateur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxPortRegulateur.SelectedIndex != -1)
-            {
-                comboBoxPortCapteur.Items.Remove(comboBoxPortRegulateur.SelectedItem);
-
-            }
+//
         }
 
         private void comboBoxPortCapteur_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxPortCapteur.SelectedIndex != -1)
-            {
-                comboBoxPortRegulateur.Items.Remove(comboBoxPortCapteur.SelectedItem);
-
-            }
+//
         }
 
 
