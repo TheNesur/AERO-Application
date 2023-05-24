@@ -299,11 +299,7 @@ namespace Eolia_IHM.Menu
             // 
             this.labelNomSession.AutoSize = true;
             this.labelNomSession.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-<<<<<<< Updated upstream
-            this.labelNomSession.Location = new System.Drawing.Point(118, 25);
-=======
-            this.labelNomSession.Location = new System.Drawing.Point(190, 25);
->>>>>>> Stashed changes
+            this.labelNomSession.Location = new System.Drawing.Point(168, 25);
             this.labelNomSession.Name = "labelNomSession";
             this.labelNomSession.Size = new System.Drawing.Size(40, 25);
             this.labelNomSession.TabIndex = 5;
@@ -356,11 +352,7 @@ namespace Eolia_IHM.Menu
             this.labelsegf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelsegf.Location = new System.Drawing.Point(5, 25);
             this.labelsegf.Name = "labelsegf";
-<<<<<<< Updated upstream
-            this.labelsegf.Size = new System.Drawing.Size(108, 20);
-=======
-            this.labelsegf.Size = new System.Drawing.Size(183, 25);
->>>>>>> Stashed changes
+            this.labelsegf.Size = new System.Drawing.Size(136, 25);
             this.labelsegf.TabIndex = 0;
             this.labelsegf.Text = "Nom session :";
             // 
