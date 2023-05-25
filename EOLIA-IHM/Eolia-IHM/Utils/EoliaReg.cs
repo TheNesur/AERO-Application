@@ -19,6 +19,7 @@ namespace Eolia_IHM.Utils
         private static volatile float vitesse = float.NaN;
         private static volatile float vitessedesir = float.NaN;
         private static volatile float vitesseaenvoyer = float.NaN;
+        private static Label LabelVitesse = null;
         private static volatile bool updateform = false;
 
         static object serialPortLock = new object();
@@ -199,6 +200,18 @@ namespace Eolia_IHM.Utils
             }
 
             return vitesse;
+        }
+
+        public static float LireVitesse()
+        {
+            if(LabelVitesse != null)
+            {
+                return float.Parse(LabelVitesse.Text);
+            }
+            else
+            {
+                return 0;
+            }
         }
         static float ObtenirConsigne()
         {
@@ -382,6 +395,7 @@ namespace Eolia_IHM.Utils
 
         public static void AutoReloadAll(int ms, Label Vitesse, Label Consigne, Label SortieReg)
         {
+            LabelVitesse = Vitesse;
             updateform = true;
             Task.Run(() => {
                 while (updateform)

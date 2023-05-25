@@ -201,7 +201,7 @@ namespace Eolia_IHM.Menu
                 if (result)
                 {
 
-                    textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
+                    //textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
                 }
                 else
                 {
@@ -268,7 +268,7 @@ namespace Eolia_IHM.Menu
                 if (result)
                 {
 
-                    textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
+                    //textBoxLogMesure.AppendText("Requète bien envoyée \r\n");
                 }
                 else
                 {

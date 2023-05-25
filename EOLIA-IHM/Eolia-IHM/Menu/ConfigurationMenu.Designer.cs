@@ -324,11 +324,11 @@ namespace Eolia_IHM.Menu
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 63);
+            this.label4.Location = new System.Drawing.Point(4, 63);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(150, 25);
+            this.label4.Size = new System.Drawing.Size(145, 25);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Port régulateur :";
+            this.label4.Text = "Port régulateur:";
             // 
             // label3
             // 
@@ -336,9 +336,9 @@ namespace Eolia_IHM.Menu
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(3, 156);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(186, 25);
+            this.label3.Size = new System.Drawing.Size(181, 25);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Trainée max (mN) : ";
+            this.label3.Text = "Trainée max (mN): ";
             // 
             // label2
             // 
@@ -346,9 +346,9 @@ namespace Eolia_IHM.Menu
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(5, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(197, 25);
+            this.label2.Size = new System.Drawing.Size(192, 25);
             this.label2.TabIndex = 7;
-            this.label2.Text = "Portance max (mN) : ";
+            this.label2.Text = "Portance max (mN): ";
             // 
             // textBoxGVoltTrainee
             // 
@@ -370,11 +370,11 @@ namespace Eolia_IHM.Menu
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(6, 97);
+            this.label1.Location = new System.Drawing.Point(4, 97);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(144, 25);
+            this.label1.Size = new System.Drawing.Size(193, 25);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Periodicité mes";
+            this.label1.Text = "Periodicité mesures: ";
             // 
             // textBoxNbMesureSec
             // 
@@ -398,11 +398,11 @@ namespace Eolia_IHM.Menu
             // 
             this.labelPortCapteur.AutoSize = true;
             this.labelPortCapteur.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPortCapteur.Location = new System.Drawing.Point(7, 31);
+            this.labelPortCapteur.Location = new System.Drawing.Point(5, 31);
             this.labelPortCapteur.Name = "labelPortCapteur";
-            this.labelPortCapteur.Size = new System.Drawing.Size(133, 25);
+            this.labelPortCapteur.Size = new System.Drawing.Size(120, 25);
             this.labelPortCapteur.TabIndex = 0;
-            this.labelPortCapteur.Text = "Port capteur  :";
+            this.labelPortCapteur.Text = "Port ESP32:";
             // 
             // groupBoxConfigJauges
             // 
@@ -438,7 +438,7 @@ namespace Eolia_IHM.Menu
             this.panelGoCalib.Controls.Add(this.label6);
             this.panelGoCalib.Controls.Add(this.label16);
             this.panelGoCalib.Enabled = false;
-            this.panelGoCalib.Location = new System.Drawing.Point(0, 50);
+            this.panelGoCalib.Location = new System.Drawing.Point(3, 50);
             this.panelGoCalib.Name = "panelGoCalib";
             this.panelGoCalib.Size = new System.Drawing.Size(399, 72);
             this.panelGoCalib.TabIndex = 11;
@@ -540,7 +540,7 @@ namespace Eolia_IHM.Menu
             // labelNomBDDMYSQL
             // 
             this.labelNomBDDMYSQL.AutoSize = true;
-            this.labelNomBDDMYSQL.Location = new System.Drawing.Point(212, 105);
+            this.labelNomBDDMYSQL.Location = new System.Drawing.Point(213, 105);
             this.labelNomBDDMYSQL.Name = "labelNomBDDMYSQL";
             this.labelNomBDDMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelNomBDDMYSQL.TabIndex = 8;
@@ -549,7 +549,7 @@ namespace Eolia_IHM.Menu
             // labelMDPMYSQL
             // 
             this.labelMDPMYSQL.AutoSize = true;
-            this.labelMDPMYSQL.Location = new System.Drawing.Point(211, 80);
+            this.labelMDPMYSQL.Location = new System.Drawing.Point(214, 80);
             this.labelMDPMYSQL.Name = "labelMDPMYSQL";
             this.labelMDPMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelMDPMYSQL.TabIndex = 7;
@@ -558,7 +558,7 @@ namespace Eolia_IHM.Menu
             // labelUsernameMYSQL
             // 
             this.labelUsernameMYSQL.AutoSize = true;
-            this.labelUsernameMYSQL.Location = new System.Drawing.Point(159, 53);
+            this.labelUsernameMYSQL.Location = new System.Drawing.Point(160, 53);
             this.labelUsernameMYSQL.Name = "labelUsernameMYSQL";
             this.labelUsernameMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelUsernameMYSQL.TabIndex = 6;
@@ -640,7 +640,7 @@ namespace Eolia_IHM.Menu
             this.groupBox5.Size = new System.Drawing.Size(298, 122);
             this.groupBox5.TabIndex = 20;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Configuration des mesures théoriques";
+            this.groupBox5.Text = "Valeurs théoriques :";
             // 
             // textBoxS
             // 
