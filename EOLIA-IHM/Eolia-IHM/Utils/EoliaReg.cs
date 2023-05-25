@@ -29,6 +29,7 @@ namespace Eolia_IHM.Utils
         private static Label loglabel;
         private static TextBox logtxtbox;
         private static SerialPort serialPort = null;
+        private static float SortieRegReel = float.NaN;
 
         static float ConvertByteArrayToFloat(byte[] bytes, int startIndex)
         {
@@ -107,7 +108,8 @@ namespace Eolia_IHM.Utils
                 while (serialPort.BytesToRead <= requestWithCRC.Length)
                 {
                     Task.Delay(10);
-                    if (stopWatch.ElapsedMilliseconds > 1000) throw new Exception("La trame n'as pas été reçue dans les délais");
+                    if (stopWatch.ElapsedMilliseconds > 1000) 
+                        throw new Exception("La trame n'as pas été reçue dans les délais");
                 }
 
                 serialPort.Read(response, 0, response.Length);
@@ -186,20 +188,26 @@ namespace Eolia_IHM.Utils
         }
         static float ObtenirVitesse()
         {
-            float vitesse = 0;
+            float vitesserecup;
+            if (vitesse != float.NaN)
+                 vitesserecup = vitesse;
+            else
+                 vitesserecup = 0;
+
             try
             {
                 // byte[] reponse = ModBusLireRegistre(1, 0x0028, 0x2);
                 byte[] reponse = ModBusLireRegistre(1, 0x0035, 0x2);
-                vitesse = ConvertByteArrayToFloat(reponse, reponse.Length - 6);
-                majUI(float.NaN, vitesse);
+                vitesserecup = ConvertByteArrayToFloat(reponse, reponse.Length - 6);
+                majUI(float.NaN, vitesserecup);
             }
             catch
             {
-                vitesse = 0;
+                if (vitesse != float.NaN)
+                    vitesserecup = vitesse;
             }
 
-            return vitesse;
+            return vitesserecup;
         }
 
         public static float LireVitesse()
@@ -216,6 +224,8 @@ namespace Eolia_IHM.Utils
         static float ObtenirConsigne()
         {
             float consigne = 0;
+            if(vitessedesir != float.NaN)
+                consigne = vitessedesir;
             try
             {
                 byte[] reponse = ModBusLireRegistre(1, 0x3100, 0x2);
@@ -224,7 +234,8 @@ namespace Eolia_IHM.Utils
             }
             catch
             {
-                consigne = 0;
+                if (vitessedesir != float.NaN)
+                    consigne = vitessedesir;
             }
 
             return consigne;
@@ -233,15 +244,22 @@ namespace Eolia_IHM.Utils
         static float ObtenirSortie(ushort adresse)
         {
             float sortie = 0;
+            if(SortieRegReel != float.NaN)
+            {
+                sortie = SortieRegReel;
+            }
             try
             {
                 byte[] reponse = ModBusLireRegistre(1, adresse, 0x2);
                 sortie = ConvertByteArrayToFloat(reponse, reponse.Length - 6);
            
             }
-            catch
+            catch(Exception ex)
             {
-                sortie = 0;
+                if (SortieRegReel != float.NaN)
+                {
+                    sortie = SortieRegReel;
+                }
             }
 
             return sortie;
@@ -406,12 +424,15 @@ namespace Eolia_IHM.Utils
                         float _vitesse = ObtenirVitesse();
                         Vitesse.Invoke(new Action(() => Vitesse.Text = (Math.Round(_vitesse, 2)).ToString())) ;
                         vitesse = _vitesse;
+                        Thread.Sleep(50);
                         float _consigne = ObtenirConsigne();
                         vitessedesir = _consigne;
                         Consigne.Invoke(new Action(() => Consigne.Text = (Math.Round(_consigne,2)).ToString()));
-
+                        Thread.Sleep(50);
                         float _sortie = ObtenirSortie(0x0049);
+                        SortieRegReel = _sortie; 
                         SortieReg.Invoke(new Action(() => SortieReg.Text = (Math.Round(_sortie, 2)).ToString()));
+                        Thread.Sleep(50);
                     }
                     catch (Exception e)
                     {
