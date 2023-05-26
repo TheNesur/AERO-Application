@@ -540,7 +540,7 @@ namespace Eolia_IHM.Menu
             // labelNomBDDMYSQL
             // 
             this.labelNomBDDMYSQL.AutoSize = true;
-            this.labelNomBDDMYSQL.Location = new System.Drawing.Point(213, 105);
+            this.labelNomBDDMYSQL.Location = new System.Drawing.Point(229, 105);
             this.labelNomBDDMYSQL.Name = "labelNomBDDMYSQL";
             this.labelNomBDDMYSQL.Size = new System.Drawing.Size(96, 25);
             this.labelNomBDDMYSQL.TabIndex = 8;
@@ -589,9 +589,9 @@ namespace Eolia_IHM.Menu
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.label9.Location = new System.Drawing.Point(12, 105);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(231, 25);
+            this.label9.Size = new System.Drawing.Size(241, 25);
             this.label9.TabIndex = 3;
-            this.label9.Text = "Nom de Base de Donée :";
+            this.label9.Text = "Nom de Base de Donées :";
             // 
             // label8
             // 

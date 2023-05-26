@@ -188,12 +188,7 @@ namespace Eolia_IHM.Utils
         }
         static float ObtenirVitesse()
         {
-            float vitesserecup;
-            if (vitesse != float.NaN)
-                 vitesserecup = vitesse;
-            else
-                 vitesserecup = 0;
-
+            float vitesserecup = 0;
             try
             {
                 // byte[] reponse = ModBusLireRegistre(1, 0x0028, 0x2);
@@ -205,6 +200,8 @@ namespace Eolia_IHM.Utils
             {
                 if (vitesse != float.NaN)
                     vitesserecup = vitesse;
+                else
+                    vitesserecup = 0;
             }
 
             return vitesserecup;
@@ -236,6 +233,8 @@ namespace Eolia_IHM.Utils
             {
                 if (vitessedesir != float.NaN)
                     consigne = vitessedesir;
+                else
+                    consigne = 0;
             }
 
             return consigne;
@@ -244,10 +243,6 @@ namespace Eolia_IHM.Utils
         static float ObtenirSortie(ushort adresse)
         {
             float sortie = 0;
-            if(SortieRegReel != float.NaN)
-            {
-                sortie = SortieRegReel;
-            }
             try
             {
                 byte[] reponse = ModBusLireRegistre(1, adresse, 0x2);
@@ -259,6 +254,10 @@ namespace Eolia_IHM.Utils
                 if (SortieRegReel != float.NaN)
                 {
                     sortie = SortieRegReel;
+                }
+                else
+                {
+                    sortie = 0;
                 }
             }
 
