@@ -22,7 +22,7 @@
 <p>L'interface utilisateur peut fonctionner sous Windows nécessitant quelques adaptations du fichier de configuration, le script d'installation ne fonctionnant pas sur ce dernier.</p>
 <p>Le diagramme ci-dessous permet de se rendre compte de comment fonctionne le système :</p>
 
-![snoufl](https://user-images.githubusercontent.com/64744563/229600677-10613498-8f32-4ff8-ab7c-7f5c0e5bae6d.png)
+![snoufl](https://zupimages.net/up/23/23/pk7r.png)
 
 <p>Nous vous invitons à consulter le dossier technique se trouvant dans le dossier DOC pour plus d'informations.</p>
 <h2>Notice utilisateur - Logiciel de contrôle de soufflerie Eolia</h2>
