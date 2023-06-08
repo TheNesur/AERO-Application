@@ -26,6 +26,27 @@ namespace Eolia_IHM.Menu
         private bool liaisonRegulateurDemarrer = false;
         private String directoryIcon = AppDomain.CurrentDomain.BaseDirectory + "/ICON/";
 
+
+        private void CheckIsActived()
+        {
+            if (bddDemarrer && esp32Demarrer && liaisonRegulateurDemarrer)
+            {
+                buttonDemarrerToutLesServices.Enabled = false;
+                buttonDemarrerToutLesServices.BackColor = Color.FromArgb(204, 204, 204);
+
+                buttonArreterToutLesServices.Enabled = true;
+                buttonArreterToutLesServices.BackColor = Color.White;
+            }
+            else
+            {
+                buttonDemarrerToutLesServices.Enabled = true;
+                buttonDemarrerToutLesServices.BackColor = Color.White;
+
+                buttonArreterToutLesServices.Enabled = false;
+                buttonArreterToutLesServices.BackColor = Color.FromArgb(204, 204, 204);
+            }
+        }
+
         //private bool cameraConnected = false;
 
 
@@ -37,6 +58,10 @@ namespace Eolia_IHM.Menu
 
         private void StatusMenu_Load(object sender, EventArgs e)
         {
+
+            buttonArreterToutLesServices.Enabled = false;
+            buttonArreterToutLesServices.BackColor = Color.FromArgb(204, 204, 204);
+
             if (Environment.OSVersion.Platform != PlatformID.Win32NT)
             {
                 try
@@ -97,6 +122,7 @@ namespace Eolia_IHM.Menu
                 {
                     buttonDemarrerESP32.Text = "Démarrée liaison série";
                     esp32Demarrer = false;
+                    CheckIsActived();
                 }
             }
             else
@@ -106,6 +132,7 @@ namespace Eolia_IHM.Menu
                 {
                     buttonDemarrerESP32.Text = "Arrêtée liaison série";
                     esp32Demarrer = true;
+                    CheckIsActived();
                 }
             }
         }
@@ -120,12 +147,14 @@ namespace Eolia_IHM.Menu
                 ConfigurationMenu.AdresseBDD,
                 labelStatutBDD, buttonDemarrerBDD);
                 bddDemarrer = true;
+                CheckIsActived();
 
             }
             else
             {
                 EoliaSQL.FermerConnexionSQL();
                 bddDemarrer = false;
+                CheckIsActived();
             }
         }
 
@@ -134,6 +163,7 @@ namespace Eolia_IHM.Menu
             if (!bddDemarrer) buttonDemarrerBDD.PerformClick();
             if (!esp32Demarrer) buttonDemarrerESP32.PerformClick();
             if (!liaisonRegulateurDemarrer) buttonLiaisonRegulateur.PerformClick();
+            CheckIsActived();
         }
 
         private void buttonArreterToutLesServices_Click(object sender, EventArgs e)
@@ -141,6 +171,7 @@ namespace Eolia_IHM.Menu
             if (bddDemarrer) buttonDemarrerBDD.PerformClick();
             if (esp32Demarrer) buttonDemarrerESP32.PerformClick();
             if (liaisonRegulateurDemarrer) buttonLiaisonRegulateur.PerformClick();
+            CheckIsActived();
 
         }
 
@@ -152,6 +183,7 @@ namespace Eolia_IHM.Menu
                 if (!EoliaReg.LiaisonSerieReg()) { 
                     buttonLiaisonRegulateur.Text = "Démarrer liaison régulateur";
                     liaisonRegulateurDemarrer = false;
+                    CheckIsActived();
                 }
             }
             else
@@ -161,6 +193,7 @@ namespace Eolia_IHM.Menu
                 {
                     buttonLiaisonRegulateur.Text = "Arrêter liaison régulateur";
                     liaisonRegulateurDemarrer = true;
+                    CheckIsActived();
                 }
             }
 
