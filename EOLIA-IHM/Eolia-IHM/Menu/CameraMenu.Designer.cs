@@ -302,7 +302,7 @@ namespace Eolia_IHM.Menu
             this.groupBox1.Size = new System.Drawing.Size(257, 256);
             this.groupBox1.TabIndex = 20;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Paramètre du Filtre d\'images";
+            this.groupBox1.Text = "Paramètres du Filtre d\'images";
             // 
             // label5
             // 
